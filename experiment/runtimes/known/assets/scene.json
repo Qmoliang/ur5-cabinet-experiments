@@ -1,0 +1,190 @@
+{
+  "name": "formal_drawer_camera_quarter",
+  "description": "Physical grounded cabinet: original 8 task panels plus 4 sensed/collidable supports; original robot/cameras/task.",
+  "boxes": [
+    {
+      "name": "drawer_bottom",
+      "center": [
+        0.575,
+        0.40633091,
+        0.495
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.21500000000000002,
+        0.015
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "drawer_left",
+      "center": [
+        0.575,
+        0.22133091,
+        0.58
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.015,
+        0.07
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "drawer_right",
+      "center": [
+        0.575,
+        0.59133091,
+        0.58
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.015,
+        0.07
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "drawer_ceiling",
+      "center": [
+        0.575,
+        0.40633091,
+        0.6649999999999999
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.32,
+        0.015
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "drawer_back",
+      "center": [
+        0.8150000000000001,
+        0.40633091,
+        0.58
+      ],
+      "half_size": [
+        0.015,
+        0.21500000000000002,
+        0.085
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_left",
+      "center": [
+        0.575,
+        0.04633091,
+        0.67
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.025,
+        0.34
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_right",
+      "center": [
+        0.575,
+        0.76633091,
+        0.67
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.025,
+        0.34
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_top",
+      "center": [
+        0.575,
+        0.40633091,
+        1.01
+      ],
+      "half_size": [
+        0.22500000000000003,
+        0.385,
+        0.025
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_ground_cabinet_left_-1",
+      "center": [
+        0.37499999999999994,
+        0.04633091,
+        0.165
+      ],
+      "half_size": [
+        0.025,
+        0.025,
+        0.165
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_ground_cabinet_left_1",
+      "center": [
+        0.7749999999999999,
+        0.04633091,
+        0.165
+      ],
+      "half_size": [
+        0.025,
+        0.025,
+        0.165
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_ground_cabinet_right_-1",
+      "center": [
+        0.37499999999999994,
+        0.76633091,
+        0.165
+      ],
+      "half_size": [
+        0.025,
+        0.025,
+        0.165
+      ],
+      "material": "shelf"
+    },
+    {
+      "name": "cabinet_ground_cabinet_right_1",
+      "center": [
+        0.7749999999999999,
+        0.76633091,
+        0.165
+      ],
+      "half_size": [
+        0.025,
+        0.025,
+        0.165
+      ],
+      "material": "shelf"
+    }
+  ],
+  "q0": [
+    -4.702522636775524,
+    -1.4120550523623534,
+    -1.8463744276536815,
+    -2.056637227290278,
+    0.004778088364271554,
+    -0.4364774265209154
+  ],
+  "waypoints": [
+    [
+      0.63,
+      0.40633091,
+      0.58
+    ]
+  ],
+  "duration": 45.0
+}

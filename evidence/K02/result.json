@@ -1,0 +1,12 @@
+{
+  "id": "K02",
+  "group": "01_known_LiuQP",
+  "method": "LiuQP",
+  "representation": "ellipsoid",
+  "complete": true,
+  "final_error_mm": 0.0006201578173347753,
+  "confirmed_time_s": 16.72,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "static"
+}

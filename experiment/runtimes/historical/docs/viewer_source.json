@@ -1,0 +1,10 @@
+{
+  "original_file": "formal_protocol_v3_viewer.py",
+  "original_sha256": "4228998e30dc6aa8d17145cfd99af0d9592a6447a7bf6d8d4fcff26bf2d0509b",
+  "changes": [
+    "remove legacy defaults and CLI",
+    "local imports and local baseline paths",
+    "formatting/comments only"
+  ],
+  "online_controller_dependency": false
+}

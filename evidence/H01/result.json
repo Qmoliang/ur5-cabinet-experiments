@@ -1,0 +1,12 @@
+{
+  "id": "H01",
+  "group": "02_historical_v43_v44",
+  "method": "LiuQP",
+  "representation": "ellipsoid",
+  "complete": true,
+  "final_error_mm": 0.09515580833008311,
+  "confirmed_time_s": 25.02,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "causal"
+}

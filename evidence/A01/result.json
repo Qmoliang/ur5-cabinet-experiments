@@ -1,0 +1,12 @@
+{
+  "id": "A01",
+  "group": "05_no_manip_ablation",
+  "method": "NEO ablation",
+  "representation": "sphere",
+  "complete": false,
+  "final_error_mm": 260.65981689241363,
+  "confirmed_time_s": null,
+  "duration_s": 3.18,
+  "states": 160,
+  "proxy_mode": "unavailable"
+}

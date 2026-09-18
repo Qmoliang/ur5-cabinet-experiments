@@ -1,0 +1,155 @@
+<mujoco model="ur5e_grounded_cabinet_physical_20260917">
+  <compiler angle="radian" autolimits="true" meshdir="D:\MuJoCo\Cabinet_Experiments\rerun_grounded_20260917\assets\ur5e\assets" />
+  <option integrator="implicitfast" timestep="0.02" gravity="0 0 0" />
+  <default>
+    <default class="ur5e">
+      <material specular="0.5" shininess="0.25" />
+      <joint axis="0 1 0" range="-6.28319 6.28319" armature="0.1" />
+      <general gaintype="fixed" biastype="affine" ctrlrange="-6.2831 6.2831" gainprm="2000" biasprm="0 -2000 -400" forcerange="-150 150" />
+      <default class="size3">
+        <default class="size3_limited">
+          <joint range="-3.1415 3.1415" />
+          <general ctrlrange="-3.1415 3.1415" />
+        </default>
+      </default>
+      <default class="size1">
+        <general gainprm="500" biasprm="0 -500 -100" forcerange="-28 28" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom type="capsule" group="3" />
+        <default class="eef_collision">
+          <geom type="cylinder" />
+        </default>
+      </default>
+      <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4" />
+    </default>
+  </default>
+  <asset>
+    <material class="ur5e" name="black" rgba="0.033 0.033 0.033 1" />
+    <material class="ur5e" name="jointgray" rgba="0.278 0.278 0.278 1" />
+    <material class="ur5e" name="linkgray" rgba="0.82 0.82 0.82 1" />
+    <material class="ur5e" name="urblue" rgba="0.49 0.678 0.8 1" />
+    <material name="floor" rgba=".86 .88 .90 1" />
+    <material name="shelf" rgba="0.7 0.7 0.7 1.0" specular=".12" shininess=".12" />
+    <material name="cage" rgba="0.20 0.24 0.28 0.55" />
+    <material name="obstacle" rgba="0.55 0.22 0.18 1" />
+    <mesh file="base_0.obj" />
+    <mesh file="base_1.obj" />
+    <mesh file="shoulder_0.obj" />
+    <mesh file="shoulder_1.obj" />
+    <mesh file="shoulder_2.obj" />
+    <mesh file="upperarm_0.obj" />
+    <mesh file="upperarm_1.obj" />
+    <mesh file="upperarm_2.obj" />
+    <mesh file="upperarm_3.obj" />
+    <mesh file="forearm_0.obj" />
+    <mesh file="forearm_1.obj" />
+    <mesh file="forearm_2.obj" />
+    <mesh file="forearm_3.obj" />
+    <mesh file="wrist1_0.obj" />
+    <mesh file="wrist1_1.obj" />
+    <mesh file="wrist1_2.obj" />
+    <mesh file="wrist2_0.obj" />
+    <mesh file="wrist2_1.obj" />
+    <mesh file="wrist2_2.obj" />
+    <mesh file="wrist3.obj" />
+    <texture name="display_sky" type="skybox" builtin="gradient" rgb1=".84 .89 .95" rgb2=".96 .97 .98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="base" quat="0 0 0 -1" childclass="ur5e">
+      <inertial mass="4.0" pos="0 0 0" diaginertia="0.00443333156 0.00443333156 0.0072" />
+      <body name="shoulder_link" pos="0 0 0.163">
+        <inertial mass="3.7" pos="0 0 0" diaginertia="0.0102675 0.0102675 0.00666" />
+        <joint name="shoulder_pan_joint" class="size3" axis="0 0 1" />
+        <geom class="collision" size="0.06 0.06" pos="0 0 -0.04" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+        <body name="upper_arm_link" pos="0 0.138 0" quat="1 0 1 0">
+          <inertial mass="8.393" pos="0 0 0.2125" diaginertia="0.133886 0.133886 0.0151074" />
+          <joint name="shoulder_lift_joint" class="size3" />
+          <geom class="collision" pos="0 -0.04 0" quat="1 1 0 0" size="0.06 0.06" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+          <geom class="collision" size="0.05 0.2" pos="0 0 0.2" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+          <body name="forearm_link" pos="0 -0.131 0.425">
+            <inertial mass="2.275" pos="0 0 0.196" diaginertia="0.0311796 0.0311796 0.004095" />
+            <joint name="elbow_joint" class="size3_limited" />
+            <geom class="collision" pos="0 0.08 0" quat="1 1 0 0" size="0.055 0.06" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+            <geom class="collision" size="0.038 0.19" pos="0 0 0.2" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+            <body name="wrist_1_link" pos="0 0 0.392" quat="1 0 1 0">
+              <inertial mass="1.219" pos="0 0.127 0" diaginertia="0.0025599 0.0025599 0.0021942" />
+              <joint name="wrist_1_joint" class="size1" />
+              <geom class="collision" pos="0 0.05 0" quat="1 1 0 0" size="0.04 0.07" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+              <body name="wrist_2_link" pos="0 0.127 0">
+                <inertial mass="1.219" pos="0 0 0.1" diaginertia="0.0025599 0.0025599 0.0021942" />
+                <joint name="wrist_2_joint" axis="0 0 1" class="size1" />
+                <geom class="collision" size="0.04 0.06" pos="0 0 0.04" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+                <geom class="collision" pos="0 0.02 0.1" quat="1 1 0 0" size="0.04 0.04" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+                <body name="wrist_3_link" pos="0 0 0.1">
+                  <inertial mass="0.1889" pos="0 0.0771683 0" quat="1 0 0 1" diaginertia="0.000132134 9.90863e-05 9.90863e-05" />
+                  <joint name="wrist_3_joint" class="size1" />
+                  <geom class="eef_collision" pos="0 0.08 0" quat="1 1 0 0" size="0.04 0.02" rgba="0.49 0.678 0.8 1" group="1" friction="0.8 0.1 0.1" />
+                  <site name="attachment_site" pos="0 0.070 0" quat="-1 1 0 0" />
+                  <camera name="ur5_depth_wrist" pos="0 0.082575 -0.065" fovy="58" quat="0.599512975022579 0.7813005203969409 -0.13776436178754506 -0.10571031278128071" />
+                  <geom name="formal_d405_wrist_housing" type="box" pos="-0.0041543535760831035 0.0711610073572811 -0.0682546494921642" quat="0.599512975022579 0.7813005203969409 -0.13776436178754506 -0.10571031278128071" size="0.021075 0.021075 0.011575" rgba="0.10 0.12 0.15 1" group="1" friction="0.8 0.1 0.1" />
+                  <geom material="linkgray" mesh="wrist3" class="visual" group="5" contype="0" conaffinity="0" />
+                </body>
+                <geom mesh="wrist2_0" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+                <geom mesh="wrist2_1" material="urblue" class="visual" group="5" contype="0" conaffinity="0" />
+                <geom mesh="wrist2_2" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+              </body>
+              <geom mesh="wrist1_0" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+              <geom mesh="wrist1_1" material="urblue" class="visual" group="5" contype="0" conaffinity="0" />
+              <geom mesh="wrist1_2" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+            </body>
+            <camera name="ur5_depth_forearm" pos="0 0.075 0.31" quat="0.5059250092158937 0.4319329943648225 0.514929627115348 -0.5406674139873654" fovy="58" />
+            <geom name="formal_d405_forearm_housing" type="box" pos="0.0006782482145986236 0.06253402911766576 0.3112126041781856" quat="0.5059250092158937 0.4319329943648225 0.514929627115348 -0.5406674139873654" size="0.021075 0.021075 0.011575" rgba="0.10 0.12 0.15 1" group="1" friction="0.8 0.1 0.1" />
+            <geom mesh="forearm_0" material="urblue" class="visual" group="5" contype="0" conaffinity="0" />
+            <geom mesh="forearm_1" material="linkgray" class="visual" group="5" contype="0" conaffinity="0" />
+            <geom mesh="forearm_2" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+            <geom mesh="forearm_3" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+          </body>
+          <geom mesh="upperarm_0" material="linkgray" class="visual" group="5" contype="0" conaffinity="0" />
+          <geom mesh="upperarm_1" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+          <geom mesh="upperarm_2" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+          <geom mesh="upperarm_3" material="urblue" class="visual" group="5" contype="0" conaffinity="0" />
+        </body>
+        <geom mesh="shoulder_0" material="urblue" class="visual" group="5" contype="0" conaffinity="0" />
+        <geom mesh="shoulder_1" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+        <geom mesh="shoulder_2" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+      </body>
+      <geom mesh="base_0" material="black" class="visual" group="5" contype="0" conaffinity="0" />
+      <geom mesh="base_1" material="jointgray" class="visual" group="5" contype="0" conaffinity="0" />
+    </body>
+    <geom name="floor" type="plane" pos="0 0 0" size="2 2 0.04" material="floor" contype="1" conaffinity="1" />
+    <geom name="drawer_bottom" type="box" pos="0.575 0.40633091 0.495" size="0.225 0.215 0.015" material="shelf" contype="1" conaffinity="1" />
+    <geom name="drawer_left" type="box" pos="0.575 0.22133091 0.58" size="0.225 0.015 0.07" material="shelf" contype="1" conaffinity="1" />
+    <geom name="drawer_right" type="box" pos="0.575 0.59133091 0.58" size="0.225 0.015 0.07" material="shelf" contype="1" conaffinity="1" />
+    <geom name="drawer_ceiling" type="box" pos="0.575 0.40633091 0.665" size="0.225 0.32 0.015" material="shelf" contype="1" conaffinity="1" />
+    <geom name="drawer_back" type="box" pos="0.815 0.40633091 0.58" size="0.015 0.215 0.085" material="shelf" contype="1" conaffinity="1" />
+    <geom name="cabinet_left" type="box" pos="0.575 0.04633091 0.67" size="0.225 0.025 0.34" material="shelf" contype="1" conaffinity="1" />
+    <geom name="cabinet_right" type="box" pos="0.575 0.76633091 0.67" size="0.225 0.025 0.34" material="shelf" contype="1" conaffinity="1" />
+    <geom name="cabinet_top" type="box" pos="0.575 0.40633091 1.01" size="0.225 0.385 0.025" material="shelf" contype="1" conaffinity="1" />
+    <site name="liuqp_target" type="sphere" pos="0.63 0.40633091 0.58" size=".007" rgba=".95 .22 .08 .9" group="0" />
+    <geom name="cabinet_ground_cabinet_left_-1" type="box" pos="0.37499999999999994 0.04633091 0.165" size=".025 0.025 0.165" material="shelf" group="0" contype="1" conaffinity="1" />
+    <geom name="cabinet_ground_cabinet_left_1" type="box" pos="0.7749999999999999 0.04633091 0.165" size=".025 0.025 0.165" material="shelf" group="0" contype="1" conaffinity="1" />
+    <geom name="cabinet_ground_cabinet_right_-1" type="box" pos="0.37499999999999994 0.76633091 0.165" size=".025 0.025 0.165" material="shelf" group="0" contype="1" conaffinity="1" />
+    <geom name="cabinet_ground_cabinet_right_1" type="box" pos="0.7749999999999999 0.76633091 0.165" size=".025 0.025 0.165" material="shelf" group="0" contype="1" conaffinity="1" />
+    <light name="display_key" pos="-2 -2 4" dir=".3 .3 -1" diffuse=".65 .65 .65" ambient=".20 .20 .20" castshadow="true" />
+    <light name="display_fill" pos="1 2 3" dir="-.3 -.3 -1" diffuse=".35 .35 .35" castshadow="false" />
+  </worldbody>
+  <actuator>
+    <general class="size3" name="shoulder_pan" joint="shoulder_pan_joint" />
+    <general class="size3" name="shoulder_lift" joint="shoulder_lift_joint" />
+    <general class="size3_limited" name="elbow" joint="elbow_joint" />
+    <general class="size1" name="wrist_1" joint="wrist_1_joint" />
+    <general class="size1" name="wrist_2" joint="wrist_2_joint" />
+    <general class="size1" name="wrist_3" joint="wrist_3_joint" />
+  </actuator>
+  <keyframe>
+    <key name="home" qpos="-1.5708 -1.5708 1.5708 -1.5708 -1.5708 0" ctrl="-1.5708 -1.5708 1.5708 -1.5708 -1.5708 0" />
+  </keyframe>
+  <visual>
+    <global azimuth="145" elevation="-23" offwidth="1440" offheight="1000" />
+    <headlight ambient=".35 .35 .35" diffuse=".45 .45 .45" specular=".1 .1 .1" />
+  </visual>
+</mujoco>

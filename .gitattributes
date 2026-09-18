@@ -1,0 +1,2 @@
+# Preserve byte-exact frozen runtime hashes across Windows and Linux checkouts.
+* -text

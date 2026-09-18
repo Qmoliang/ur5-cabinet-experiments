@@ -1,0 +1,564 @@
+{
+  "policy": "two independently extracted original variants; no replacement algorithm",
+  "modules": {
+    "src/common/robot.py": {
+      "original_version": "ellipsoid",
+      "original_file": "model.py",
+      "original_sha256": "01a61f69f2dbdc88d4f7be885523cca44c7ebe7d6f5850c5d464c2b6ca8485b9",
+      "delivered_sha256": "00d85afded0834e8b83f715feca20c9bc59fdf9b0f60f36b95a5290c9ad33538",
+      "retained_definitions": [
+        "BoxObstacle",
+        "SceneDefinition",
+        "CertificateSphere",
+        "build_model",
+        "set_configuration",
+        "attachment_position",
+        "_quat_matrix",
+        "build_robot_certificate",
+        "certificate_world_state",
+        "certificate_world_positions",
+        "build_xml"
+      ],
+      "packaging_replacements": [
+        "ROOT",
+        "build_xml"
+      ],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "BoxObstacle",
+        "SceneDefinition",
+        "CertificateSphere",
+        "build_model",
+        "set_configuration",
+        "attachment_position",
+        "_quat_matrix",
+        "build_robot_certificate",
+        "certificate_world_state",
+        "certificate_world_positions"
+      ],
+      "original_export_constants_restored": [
+        "DT"
+      ]
+    },
+    "src/common/camera.py": {
+      "original_version": "ellipsoid",
+      "original_file": "depth_camera_perception.py",
+      "original_sha256": "588ad5d43f30eb04682f9ba760ae1693a1ffea385a687873262465d6561b80c6",
+      "delivered_sha256": "aafec9c24bc3b3dabfe8ff8092502fe04ee4364ee2b401c32cb585b5a469cec9",
+      "retained_definitions": [
+        "DepthObservation",
+        "environment_endpoint_mask",
+        "UR5MountedDepthCamera"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "DepthObservation",
+        "environment_endpoint_mask",
+        "UR5MountedDepthCamera"
+      ]
+    },
+    "src/common/geometry.py": {
+      "original_version": "ellipsoid",
+      "original_file": "ellipsoid_model.py",
+      "original_sha256": "0d1b93ad680f998b9e8ba01a4f7bc8b97db61567eb39d2c37334334201062042",
+      "delivered_sha256": "84c816ab7d9cafcf83a4a32c5ed6e5229669fb6a6a5c22cd65eae5e2593d5ff4",
+      "retained_definitions": [
+        "EllipsoidClosestPointResult",
+        "SupportNormalResult",
+        "support_radius",
+        "support_angular_gradient",
+        "closest_point_on_ellipsoid",
+        "closest_point_normal_on_ellipsoid",
+        "optimal_support_normal_with_uncertainty",
+        "optimal_support_separating_normal",
+        "optimal_support_sum_separating_normal"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "EllipsoidClosestPointResult",
+        "SupportNormalResult",
+        "support_radius",
+        "support_angular_gradient",
+        "closest_point_on_ellipsoid",
+        "closest_point_normal_on_ellipsoid",
+        "optimal_support_normal_with_uncertainty",
+        "optimal_support_separating_normal",
+        "optimal_support_sum_separating_normal"
+      ]
+    },
+    "src/common/controller.py": {
+      "original_version": "ellipsoid",
+      "original_file": "protocol_liuqp_controller.py",
+      "original_sha256": "32e21ee4053aeebfc19a99e9c22c3ab75605859742eb5cdf0dbb1393ae6be984",
+      "delivered_sha256": "8bbc9d45f0d09e3b2e85d7527dc898b16264620d60eb335e5d043c6ce7f5e3a3",
+      "retained_definitions": [
+        "CandidateIndex",
+        "ObstacleState",
+        "classify_clearance",
+        "ProtocolSeparatingPlane",
+        "PairRecord",
+        "ProtocolStepMetrics",
+        "ProtocolLiuQPController"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "CandidateIndex",
+        "ObstacleState",
+        "classify_clearance",
+        "ProtocolSeparatingPlane",
+        "PairRecord",
+        "ProtocolStepMetrics",
+        "ProtocolLiuQPController"
+      ]
+    },
+    "src/common/voxel_index.py": {
+      "original_version": "ellipsoid",
+      "original_file": "native_mvt.py",
+      "original_sha256": "4ed3e24d0f059c56be6b79be02a223975019c2712aa307cc22507456101384ef",
+      "delivered_sha256": "4c72a968293172c968e108dee82cf49a19c8452e46d3eff92e72adc202e8ef86",
+      "retained_definitions": [
+        "NativeMultilevelMVTStats",
+        "NativeMultilevelMVT"
+      ],
+      "packaging_replacements": [
+        "ROOT",
+        "DLL"
+      ],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "NativeMultilevelMVTStats",
+        "NativeMultilevelMVT"
+      ]
+    },
+    "src/common/native_support.py": {
+      "original_version": "ellipsoid",
+      "original_file": "native_ellipsoid_support.py",
+      "original_sha256": "b1e59d474525ff288b514f6682674a1ecff1678954d2e0eca6887455f5eae210",
+      "delivered_sha256": "74a2343a46b64b87eddcb1833b555a8c2a5c5d0b1b5a4ba203ed6b3de55edca9",
+      "retained_definitions": [
+        "NativeEllipsoidSupport"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "NativeEllipsoidSupport"
+      ]
+    },
+    "src/common/occupancy.py": {
+      "original_version": "ellipsoid",
+      "original_file": "native_occupancy.py",
+      "original_sha256": "3b06d909b5a934094a2f621f378f0709936e35fbde8c78f6753d9c4a10b336a1",
+      "delivered_sha256": "33e1d30e9c350eff9dea3b9ee07f5c61ee7748bf52b738ffbcb51720440e7aaa",
+      "retained_definitions": [
+        "NativeIncrementalOccupancyMap",
+        "NativeOccupancySnapshot"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "NativeIncrementalOccupancyMap",
+        "NativeOccupancySnapshot"
+      ]
+    },
+    "src/common/observability.py": {
+      "original_version": "ellipsoid",
+      "original_file": "observability_evaluator.py",
+      "original_sha256": "30c367bb7e02573a6f8ed4fe6df6f10c671f1f31d618d90c9af88ab9bab2e053",
+      "delivered_sha256": "902014074989a066f1a870c27e4c99818a0cbf9dada030c27a5ca3d690348831",
+      "retained_definitions": [
+        "ObservedPointSnapshot",
+        "ObservabilityReport",
+        "BoxSurfaceRange",
+        "snapshot_from_proxies",
+        "load_observability_snapshots",
+        "_first_seen_cycles",
+        "_sample_truth_surfaces",
+        "_nearest_surface_distance",
+        "_nearest_surface_patch_indices",
+        "_filter_risk_patch_indices",
+        "_first_risk_cycles",
+        "evaluate_observed_before_risk"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "ObservedPointSnapshot",
+        "ObservabilityReport",
+        "BoxSurfaceRange",
+        "snapshot_from_proxies",
+        "load_observability_snapshots",
+        "_first_seen_cycles",
+        "_sample_truth_surfaces",
+        "_nearest_surface_distance",
+        "_nearest_surface_patch_indices",
+        "_filter_risk_patch_indices",
+        "_first_risk_cycles",
+        "evaluate_observed_before_risk"
+      ]
+    },
+    "src/common/online_helpers.py": {
+      "original_version": "ellipsoid",
+      "original_file": "run_protocol_v3_online_ablation.py",
+      "original_sha256": "2c1ad0fe9834bdc149d9ec2e44eb1de39cae3ae9dcd50615b5e7d559d9d26deb",
+      "delivered_sha256": "c1d0a590ed70a5374d5b53d0425725babdba4ffa6e3be9b3ebd9fdd6a1fc75b5",
+      "retained_definitions": [
+        "_crop_proxy_observation",
+        "_environment_half_extents",
+        "_build_mvt_only",
+        "_build_mvt_and_audit",
+        "_controller_uncertainty_shapes",
+        "_new_controller"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "_crop_proxy_observation",
+        "_environment_half_extents",
+        "_build_mvt_only",
+        "_build_mvt_and_audit",
+        "_controller_uncertainty_shapes",
+        "_new_controller"
+      ],
+      "original_export_constants_restored": [
+        "MAP_VOXEL_SIZE",
+        "MAXIMUM_AABB_OVERSHOOT",
+        "PROXY_CLUSTER_SIZE"
+      ]
+    },
+    "src/v43_ellipsoid/proxy_geometry.py": {
+      "original_version": "ellipsoid",
+      "original_file": "pointcloud_proxy.py",
+      "original_sha256": "0ebfeab27fbc22023f5ebfb86c5cc29973717e1894e04af6686bc31e52d16705",
+      "delivered_sha256": "f730e73195fcb57f8b24583e4026e67f93f8c54345e05a6e3e2be888f3947651",
+      "retained_definitions": [
+        "PointCloudProxySet",
+        "minkowski_outer_shape",
+        "minkowski_outer_shapes",
+        "loewner_union_outer_shape",
+        "loewner_union_outer_shapes_grouped",
+        "loewner_union_outer_shapes_grouped_common_frame",
+        "_axis_samples",
+        "sample_box_surface_point_cloud",
+        "center_voxel_filter",
+        "_principal_frame",
+        "estimate_point_normals",
+        "_split_by_normal_similarity",
+        "fit_matched_voxel_proxies",
+        "assert_proxy_coverage"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": true,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "PointCloudProxySet",
+        "minkowski_outer_shape",
+        "minkowski_outer_shapes",
+        "loewner_union_outer_shape",
+        "loewner_union_outer_shapes_grouped",
+        "loewner_union_outer_shapes_grouped_common_frame",
+        "_axis_samples",
+        "sample_box_surface_point_cloud",
+        "center_voxel_filter",
+        "_principal_frame",
+        "estimate_point_normals",
+        "_split_by_normal_similarity",
+        "fit_matched_voxel_proxies",
+        "assert_proxy_coverage"
+      ]
+    },
+    "src/v43_ellipsoid/proxy_manager.py": {
+      "original_version": "ellipsoid",
+      "original_file": "incremental_proxy_manager.py",
+      "original_sha256": "e4a8377a834090d8d5b69ffef8a9160b7782d7cb6a64dd4b408565caaf22cc6e",
+      "delivered_sha256": "0f6ba27acb4913782f563d564d5bf5d03598026281ee90f86ad029d1f5753eeb",
+      "retained_definitions": [
+        "ProxyUpdateStats",
+        "ProxyCoverageAudit",
+        "_CenterSample",
+        "_CenterVoxel",
+        "_BucketFit",
+        "IncrementalMatchedProxyManager"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": true,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "ProxyUpdateStats",
+        "ProxyCoverageAudit",
+        "_CenterSample",
+        "_CenterVoxel",
+        "_BucketFit",
+        "IncrementalMatchedProxyManager"
+      ]
+    },
+    "src/v43_ellipsoid/pipeline.py": {
+      "original_version": "ellipsoid",
+      "original_file": "run_protocol_v3_async_online.py",
+      "original_sha256": "7f6cae004c7ee6eeaa49671688ee9c9cc21d7865f235dcbfbf6765b268e28800",
+      "delivered_sha256": "1e072fd46627952a8db77f3d7ef0996df10fb36aaccc00966999757d44483e51",
+      "retained_definitions": [
+        "_write_csv",
+        "_sha256",
+        "_set_current_thread_affinity",
+        "_restore_current_thread_affinity",
+        "_initialize_thread_affinity",
+        "_save_observability_snapshots",
+        "_save_proxy_snapshots",
+        "_save_occupancy_snapshots",
+        "_save_source_configurations",
+        "PerceptionPacket",
+        "SerializedPerceptionPacket",
+        "PerceptionWorker",
+        "_initialize_process_worker",
+        "_process_perception_request",
+        "_materialize_packet",
+        "_update_controller",
+        "ProxySweepCertificate",
+        "ContinuousProxyGuard",
+        "_prepare_publication",
+        "run_one",
+        "_protocol_scene",
+        "_source_hashes"
+      ],
+      "packaging_replacements": [
+        "ROOT",
+        "DEFAULT_OUTPUT",
+        "_protocol_scene",
+        "_source_hashes"
+      ],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "_write_csv",
+        "_sha256",
+        "_set_current_thread_affinity",
+        "_restore_current_thread_affinity",
+        "_initialize_thread_affinity",
+        "_save_observability_snapshots",
+        "_save_proxy_snapshots",
+        "_save_occupancy_snapshots",
+        "_save_source_configurations",
+        "PerceptionPacket",
+        "SerializedPerceptionPacket",
+        "PerceptionWorker",
+        "_initialize_process_worker",
+        "_process_perception_request",
+        "_materialize_packet",
+        "_update_controller",
+        "ProxySweepCertificate",
+        "ContinuousProxyGuard",
+        "_prepare_publication",
+        "run_one"
+      ]
+    },
+    "src/v44_sphere/proxy_geometry.py": {
+      "original_version": "sphere",
+      "original_file": "pointcloud_proxy.py",
+      "original_sha256": "91a4faec69e87e19042cae4df4f8b0fa16fdcc7a4e1dc85b9dffda9ab4731ab4",
+      "delivered_sha256": "783a8079f359c0ec0b736ad6c626081f0232e0e669d9d8afed253d70ed0f377f",
+      "retained_definitions": [
+        "PointCloudProxySet",
+        "minkowski_outer_shape",
+        "minkowski_outer_shapes",
+        "loewner_union_outer_shape",
+        "loewner_union_outer_shapes_grouped",
+        "loewner_union_outer_shapes_grouped_common_frame",
+        "_axis_samples",
+        "sample_box_surface_point_cloud",
+        "center_voxel_filter",
+        "_principal_frame",
+        "estimate_point_normals",
+        "_split_by_normal_similarity",
+        "fit_matched_voxel_proxies",
+        "assert_proxy_coverage"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": true,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "PointCloudProxySet",
+        "minkowski_outer_shape",
+        "minkowski_outer_shapes",
+        "loewner_union_outer_shape",
+        "loewner_union_outer_shapes_grouped",
+        "loewner_union_outer_shapes_grouped_common_frame",
+        "_axis_samples",
+        "sample_box_surface_point_cloud",
+        "center_voxel_filter",
+        "_principal_frame",
+        "estimate_point_normals",
+        "_split_by_normal_similarity",
+        "fit_matched_voxel_proxies",
+        "assert_proxy_coverage"
+      ]
+    },
+    "src/v44_sphere/proxy_manager.py": {
+      "original_version": "sphere",
+      "original_file": "incremental_proxy_manager.py",
+      "original_sha256": "dd8b09032e474a5e3dfb46a5d10ebb59bf542069f22cfc55bc568f2cf40f4aff",
+      "delivered_sha256": "5eec0f0bf321a84fb9d3ac5386392c23beb96a86fbb87fd350b09ab5b23c5ad7",
+      "retained_definitions": [
+        "ProxyUpdateStats",
+        "ProxyCoverageAudit",
+        "_CenterSample",
+        "_CenterVoxel",
+        "_BucketFit",
+        "IncrementalMatchedProxyManager"
+      ],
+      "packaging_replacements": [],
+      "fixed_separate_uncertainty_branch": true,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "ProxyUpdateStats",
+        "ProxyCoverageAudit",
+        "_CenterSample",
+        "_CenterVoxel",
+        "_BucketFit",
+        "IncrementalMatchedProxyManager"
+      ]
+    },
+    "src/v44_sphere/pipeline.py": {
+      "original_version": "sphere",
+      "original_file": "run_protocol_v3_async_online.py",
+      "original_sha256": "bac468c88b60b881800f5dec190bcf5b32c49908a98921a878f1f2fce752438c",
+      "delivered_sha256": "2fc1b7a440e4326cb8123c220cb2b4ddf52d45bbfa823863c93e11950aeb9122",
+      "retained_definitions": [
+        "_write_csv",
+        "_sha256",
+        "_set_current_thread_affinity",
+        "_restore_current_thread_affinity",
+        "_initialize_thread_affinity",
+        "_save_observability_snapshots",
+        "_save_proxy_snapshots",
+        "_save_occupancy_snapshots",
+        "_save_source_configurations",
+        "PerceptionPacket",
+        "SerializedPerceptionPacket",
+        "PerceptionWorker",
+        "_initialize_process_worker",
+        "_process_perception_request",
+        "_materialize_packet",
+        "_update_controller",
+        "ProxySweepCertificate",
+        "ContinuousProxyGuard",
+        "_prepare_publication",
+        "run_one",
+        "_protocol_scene",
+        "_source_hashes"
+      ],
+      "packaging_replacements": [
+        "ROOT",
+        "DEFAULT_OUTPUT",
+        "_protocol_scene",
+        "_source_hashes"
+      ],
+      "fixed_separate_uncertainty_branch": false,
+      "notes": "imports renamed; comments/docstrings removed; inactive global definitions removed; active math kept as AST",
+      "verified_original_ast_definitions": [
+        "_write_csv",
+        "_sha256",
+        "_set_current_thread_affinity",
+        "_restore_current_thread_affinity",
+        "_initialize_thread_affinity",
+        "_save_observability_snapshots",
+        "_save_proxy_snapshots",
+        "_save_occupancy_snapshots",
+        "_save_source_configurations",
+        "PerceptionPacket",
+        "SerializedPerceptionPacket",
+        "PerceptionWorker",
+        "_initialize_process_worker",
+        "_process_perception_request",
+        "_materialize_packet",
+        "_update_controller",
+        "ProxySweepCertificate",
+        "ContinuousProxyGuard",
+        "_prepare_publication",
+        "run_one"
+      ]
+    }
+  },
+  "removed_definitions": {
+    "src/common/robot.py": [
+      "_cage_boxes",
+      "_remove_mesh_visuals",
+      "_shelf_boxes",
+      "_vec",
+      "sample_box_sphere_tree"
+    ],
+    "src/common/camera.py": [
+      "ActiveWristScan",
+      "FusedDepthCloud",
+      "acquire_active_wrist_scan",
+      "center_voxel_filter_with_residual",
+      "center_voxel_filter_with_uncertainty",
+      "fuse_depth_observations",
+      "wrist_scan_configurations"
+    ],
+    "src/common/geometry.py": [
+      "RobotEllipsoid",
+      "_quat_matrix",
+      "build_robot_ellipsoid_certificate",
+      "ellipsoid_world_state",
+      "sample_box_ellipsoid_tree",
+      "spheres_as_isotropic_ellipsoids"
+    ],
+    "src/common/controller.py": [],
+    "src/common/voxel_index.py": [
+      "BruteForceAABBIndex",
+      "BruteForceAABBStats",
+      "NativeMVT",
+      "NativeMVTStats"
+    ],
+    "src/common/native_support.py": [],
+    "src/common/occupancy.py": [],
+    "src/common/observability.py": [],
+    "src/common/online_helpers.py": [
+      "_first_nonfree_swept_voxel",
+      "_sha256",
+      "_source_hashes",
+      "_write_csv",
+      "main",
+      "run_one"
+    ],
+    "src/v43_ellipsoid/proxy_geometry.py": [
+      "build_box_scene_proxy_set",
+      "build_shelf_drawer_proxy_set",
+      "certified_translated_ellipsoid_outer"
+    ],
+    "src/v43_ellipsoid/proxy_manager.py": [],
+    "src/v43_ellipsoid/pipeline.py": [
+      "main"
+    ],
+    "src/v44_sphere/proxy_geometry.py": [
+      "build_box_scene_proxy_set",
+      "build_shelf_drawer_proxy_set",
+      "certified_translated_ellipsoid_outer"
+    ],
+    "src/v44_sphere/proxy_manager.py": [],
+    "src/v44_sphere/pipeline.py": [
+      "main"
+    ]
+  },
+  "native": {
+    "source": "native/collision.cpp",
+    "source_sha256": "90e679e1af052381ed5aaa388101cd69ff4f7d17dcba3bc0b97e64c32013f92a",
+    "binary": "native/collision.dll",
+    "binary_sha256": "3ce04896b4e2e704eb6ad4a083c0eadf84ab66279cd2da620baceb83c70b4696",
+    "original_binary_recovered": false,
+    "binary_origin": "recompiled original C++ with original compiler flags"
+  },
+  "scope": "Only original v4.3 ellipsoid and v4.4 sphere; source recovery workbench is external"
+}

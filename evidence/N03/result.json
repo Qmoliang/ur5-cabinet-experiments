@@ -1,0 +1,12 @@
+{
+  "id": "N03",
+  "group": "03_known_NEO",
+  "method": "NEO core",
+  "representation": "ellipsoid",
+  "complete": true,
+  "final_error_mm": 0.00018278753006651028,
+  "confirmed_time_s": 6.26,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "static"
+}

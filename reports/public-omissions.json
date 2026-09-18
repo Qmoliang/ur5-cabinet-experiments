@@ -1,0 +1,11 @@
+{
+  "formal_runtime_exclusions": [
+    "runtimes/known/external_neo/vendor/quadprog.cp311-win_amd64.pyd"
+  ],
+  "reason": "Install third-party platform dependency separately; original license metadata retained.",
+  "full_archive_omissions": [
+    "pair-state tables",
+    "full causal proxy histories",
+    "local logs and GUI launchers"
+  ]
+}

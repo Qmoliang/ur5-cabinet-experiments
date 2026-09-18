@@ -1,0 +1,409 @@
+{
+  "scope": "only accepted v4.3 ellipsoid and v4.4 sphere",
+  "files": {
+    "assets/drawer.xml": {
+      "bytes": 7684,
+      "sha256": "d0918f3492e2f502221cf25c9d94606f1d4e5f30d535ce97654c58136e71ac24"
+    },
+    "assets/LICENSE": {
+      "bytes": 411366,
+      "sha256": "83979b776b07ce04012310af1308f5643a19a4e71b89239ca5e55c15a6dbd373"
+    },
+    "assets/scene.json": {
+      "bytes": 2646,
+      "sha256": "41b474e6f59bb7cf4dcf66f0565c7679f70fe139550e87ff1755844a4eca417f"
+    },
+    "baselines/v43_ellipsoid/causal_observability_snapshots.npz": {
+      "bytes": 14571528,
+      "sha256": "bc259eb26bbec43315e54744cebc0545de29439c025c6ce351d8c016abeaa600"
+    },
+    "baselines/v43_ellipsoid/causal_occupancy_snapshots.npz": {
+      "bytes": 5811725,
+      "sha256": "d66ad3693bc1eb4a49431f671ad5288312415bd7c3ad8efabb906290ec9699c8"
+    },
+    "baselines/v43_ellipsoid/causal_proxy_snapshots.npz": {
+      "bytes": 13965970,
+      "sha256": "b18e9ad9899b551bf32e5e0ace6b01b6360a02d097ea3d4f37cafe1cce0c1264"
+    },
+    "baselines/v43_ellipsoid/causal_source_configurations.npz": {
+      "bytes": 2821,
+      "sha256": "34041739ee43984940fad9c37cce07907c9e032717dc486edf2b2f55d8094f0e"
+    },
+    "baselines/v43_ellipsoid/cycles.csv": {
+      "bytes": 2226045,
+      "sha256": "7d7b1af97a167d41555e473aabc49340ab622cd534c67ccb23056a9107fd41a0"
+    },
+    "baselines/v43_ellipsoid/ee_history.npy": {
+      "bytes": 72128,
+      "sha256": "8c5bfe4c91aa4bed9400753224e91240b1909aa3317eefb5c80deefa658d8c59"
+    },
+    "baselines/v43_ellipsoid/final_causal_proxies.npz": {
+      "bytes": 1371093,
+      "sha256": "f24f95f3f5f71d466533236ae5ae2ca15a7134c59f5ebe9dd7850f56190cfc4f"
+    },
+    "baselines/v43_ellipsoid/observability_report.json": {
+      "bytes": 2727,
+      "sha256": "45a41a3e7dc0a5f2bd15d392de75ad8a94eb37841462b31af2d269a3b0d2d926"
+    },
+    "baselines/v43_ellipsoid/pair_states.csv": {
+      "bytes": 98710428,
+      "sha256": "6ad1183431aaa9a7ee00c1bdb724f2bd0bab8006786004084775f2a8dc18a32c"
+    },
+    "baselines/v43_ellipsoid/perception_frames.csv": {
+      "bytes": 33411,
+      "sha256": "6878bf69c15df6bbabe2bb70797fe5a056540f5db545910caff19fd1752a908a"
+    },
+    "baselines/v43_ellipsoid/q_history.npy": {
+      "bytes": 144128,
+      "sha256": "dae35f77e6b3dbc45c580fa29a3fda48b05c2528fb6fa9815cf8d0f3ccfbbdcd"
+    },
+    "baselines/v43_ellipsoid/scene.xml": {
+      "bytes": 7684,
+      "sha256": "d0918f3492e2f502221cf25c9d94606f1d4e5f30d535ce97654c58136e71ac24"
+    },
+    "baselines/v43_ellipsoid/summary.json": {
+      "bytes": 10070,
+      "sha256": "fe20ddee72a2eaf3728a6e1d189063987071b129b9bf691e05dd6d06bc30bb47"
+    },
+    "baselines/v44_sphere/causal_observability_snapshots.npz": {
+      "bytes": 5545914,
+      "sha256": "0174f799f0fe132d4e097ece0aff8c88033b5d4acee9fcaa6b9ed0b5209ba9fc"
+    },
+    "baselines/v44_sphere/causal_occupancy_snapshots.npz": {
+      "bytes": 5312657,
+      "sha256": "c37ea46f5a8e9b51dd3141227690878cefff0fcd43bb685e7917fec9128d6ca8"
+    },
+    "baselines/v44_sphere/causal_proxy_snapshots.npz": {
+      "bytes": 2867265,
+      "sha256": "9acce1d0e176efadba58ce6e5a30c5de88abac119b91b016fbc8aafe694ec9a6"
+    },
+    "baselines/v44_sphere/causal_source_configurations.npz": {
+      "bytes": 917,
+      "sha256": "87d981ec3eda9dd56b679b6e5e2b1493f6d70b9b77508f4837078ad586ef6eab"
+    },
+    "baselines/v44_sphere/cycles.csv": {
+      "bytes": 2011010,
+      "sha256": "268abc21b4a5b9b41a370849459372b393e5b2f8db70c736b38ce108a1302c66"
+    },
+    "baselines/v44_sphere/ee_history.npy": {
+      "bytes": 72128,
+      "sha256": "667738efa3ab846cdd1c589f056c1d974d2177b623deb0c6fad74b74afc8ff65"
+    },
+    "baselines/v44_sphere/final_causal_proxies.npz": {
+      "bytes": 1189821,
+      "sha256": "c6b801d808494a9e49004faaa34a10fb7de50c8911d8196e49d6e0df4526faee"
+    },
+    "baselines/v44_sphere/observability_report.json": {
+      "bytes": 2532,
+      "sha256": "feac84aa4e378b1264b82b6fe2205985fca130f899535f86d47eb6ab7d4e1fd5"
+    },
+    "baselines/v44_sphere/pair_states.csv": {
+      "bytes": 22010983,
+      "sha256": "badeb90d2c70825779848dc9b36b5125760b2410b5ac5572079673619eafad92"
+    },
+    "baselines/v44_sphere/perception_frames.csv": {
+      "bytes": 14625,
+      "sha256": "333f85845de44e761fbc1cd5376037562621bcf431485a046b4c25a9d9c11272"
+    },
+    "baselines/v44_sphere/q_history.npy": {
+      "bytes": 144128,
+      "sha256": "41c1f475a0062a6e5ffa920a5e67afb485a72874feda234a5bd0e7b79a340258"
+    },
+    "baselines/v44_sphere/scene.xml": {
+      "bytes": 7684,
+      "sha256": "d0918f3492e2f502221cf25c9d94606f1d4e5f30d535ce97654c58136e71ac24"
+    },
+    "baselines/v44_sphere/summary.json": {
+      "bytes": 10308,
+      "sha256": "1d0d5b75f4bccf58d62100d593d626d6c3a013f9943ae292b0c2dda6c2eda839"
+    },
+    "build_native.cmd": {
+      "bytes": 333,
+      "sha256": "822d72ec07b4393951a8edce06028eeefcb03c9b5a0a198a83b636231b1a7e8f"
+    },
+    "configs/original.json": {
+      "bytes": 1214,
+      "sha256": "6333823b73dcdaae6d870051a2ae196a1c4ea4d624a2dff132f6d4abfef1add3"
+    },
+    "docs/source_manifest.json": {
+      "bytes": 21685,
+      "sha256": "c4735df01e11b8a8d283d2139406fe1f15d1162b73e3ea8df5de140c3c5d45d2"
+    },
+    "docs/viewer_source.json": {
+      "bytes": 327,
+      "sha256": "0a6126b5707d6c81ec5547c1d233e080f424a8a40dc360c6602ed9d6b0a7064a"
+    },
+    "docs/代码导读.md": {
+      "bytes": 4666,
+      "sha256": "26862427938f621d8b5251fa6d84c571b5fc5a3b7919de82b1ddc7a82c59db24"
+    },
+    "docs/实验协议.md": {
+      "bytes": 4645,
+      "sha256": "08a60de746adc4f473d14713f2354ec84b287d26e323e47e7765703758b86a0a"
+    },
+    "docs/核验记录.md": {
+      "bytes": 3446,
+      "sha256": "b986848f33bc756102eee0e8bb57829ad67344253902a8e10fd269ada52a7513"
+    },
+    "native/collision.cpp": {
+      "bytes": 122069,
+      "sha256": "90e679e1af052381ed5aaa388101cd69ff4f7d17dcba3bc0b97e64c32013f92a"
+    },
+    "native/collision.dll": {
+      "bytes": 245760,
+      "sha256": "3ce04896b4e2e704eb6ad4a083c0eadf84ab66279cd2da620baceb83c70b4696"
+    },
+    "README.md": {
+      "bytes": 4757,
+      "sha256": "bc0edc38ca80b8a9d77cb73bed1d93ce631b82c514f83f5cd279ef19d97bf1b3"
+    },
+    "requirements.txt": {
+      "bytes": 69,
+      "sha256": "64b5c2c797b4f45444544d2f9c5cceaa122852f8ef1fdf1278c3b995bc05de75"
+    },
+    "run.py": {
+      "bytes": 3466,
+      "sha256": "f1671e7ed4d21fee47865075c59a2026387d81c8c59b90df2eabddc06de33e31"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_observability_snapshots.npz": {
+      "bytes": 13783046,
+      "sha256": "ce919a2e5542e332384670b8041bf97ff5dc202b2ebbc1d9b08365178c3c40d5"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_occupancy_snapshots.npz": {
+      "bytes": 5727927,
+      "sha256": "ef910f61a6ca3b03faeb02702e3053ac783d5118209cff186d28526a8c6a7e44"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_proxy_snapshots.npz": {
+      "bytes": 13082542,
+      "sha256": "67bf8b97cacd0a01f84a501e50c58f2d98320d3f61d759e9611281ab2da6e67d"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_source_configurations.npz": {
+      "bytes": 2712,
+      "sha256": "41f47c81c002248ff6755229c7ccb95244d8fcf5242508b96962efc0a321beb1"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/cycles.csv": {
+      "bytes": 2237685,
+      "sha256": "2c8b199097b662cb0aa8347c6a4caa44421e5e1b8f13db2a52885f0b61896eee"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/ee_history.npy": {
+      "bytes": 72128,
+      "sha256": "2c605bddce07a0450d428d3b3f6bbf5f75df332c26e894915bf797cfed459455"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/final_causal_proxies.npz": {
+      "bytes": 1356250,
+      "sha256": "d9b4bf5e61bb886d1ef98bcdd6d152904b61226220f727411a19885389320997"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/observability_report.json": {
+      "bytes": 2727,
+      "sha256": "0793b965ec03773d4a1d110f54642681c3ded48d2ffcff599faca3fc5ad4c8b3"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/pair_states.csv": {
+      "bytes": 99475671,
+      "sha256": "91e75d2c5f1957cc30aab569ddaa9ca96455ee335b62e8e82deca4b8fcd0d2d3"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/perception_frames.csv": {
+      "bytes": 31928,
+      "sha256": "2e2fe4a8a47c4ad6cd1ef36eb845751343ca42a097e5efe61fe0851f868fece1"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/q_history.npy": {
+      "bytes": 144128,
+      "sha256": "51df774525dc58df5c2f40dd22dc9fecd7bc4de8d923fab01a7869a6159bee79"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/scene.xml": {
+      "bytes": 7684,
+      "sha256": "d0918f3492e2f502221cf25c9d94606f1d4e5f30d535ce97654c58136e71ac24"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/A-CV-camera_quarter-mvt_simd-ellipsoid-cv7.5mm-ui1.05-cr70mm-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/summary.json": {
+      "bytes": 10995,
+      "sha256": "555729b4a606e810d2474e35b6bdadb82fb11fd0169521a855f9fd9e7dfc2abd"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/arguments.json": {
+      "bytes": 1462,
+      "sha256": "0169b50fafcb97583975bed4e7900586cb59ea798cb5b7431133062729a8f78c"
+    },
+    "runs/v43_ellipsoid/20260905T100313190337Z/source_hashes.json": {
+      "bytes": 2482,
+      "sha256": "d50c5dd05b67cc048d0632d0ea767cbe88a1ad8a5f59e3e3ee853b43d3d57169"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_observability_snapshots.npz": {
+      "bytes": 6192956,
+      "sha256": "34602ede094cf5e69dd3925502583061650939935a00857d7372db650bebed04"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_occupancy_snapshots.npz": {
+      "bytes": 5313380,
+      "sha256": "3cad46037094b11d7b032d9d3db44bcd411139c82a67abe512b887876bf65548"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_proxy_snapshots.npz": {
+      "bytes": 3176224,
+      "sha256": "93048dc7daa9e6db6b3e45651cf32201d925a761ba3f1e31f97a178741460729"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/causal_source_configurations.npz": {
+      "bytes": 927,
+      "sha256": "2f1fbc350313ba9b29f865f20c506e39563fdf488acc886a3ae7c839c500069b"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/cycles.csv": {
+      "bytes": 2014346,
+      "sha256": "5ce71771ce339628562202e76ce3206a899e049e19ca209885b1bc565cc3cf26"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/ee_history.npy": {
+      "bytes": 72128,
+      "sha256": "aeea4adeebbe088d939f2fcb843a11d798a503263e0b92551a7d4d68f7156102"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/final_causal_proxies.npz": {
+      "bytes": 1185544,
+      "sha256": "7e9c546617a38a93259c64d7085d55de28839e5f0a844a21bd1f1d140c769dcb"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/observability_report.json": {
+      "bytes": 2532,
+      "sha256": "6b93391273f5fb5ff19f89f6e73c111596ec80610301bdd63d3da8f31886f82f"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/pair_states.csv": {
+      "bytes": 22827388,
+      "sha256": "ec5186286e91acda61e105c8e54f8c91df6a4687aae58fb2de375d6fcdb636ce"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/perception_frames.csv": {
+      "bytes": 16289,
+      "sha256": "ad7915ef1b29b4bdd0858a0e6f5a586155b97ad1de12ec9f992f5fc8d2e27ffd"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/q_history.npy": {
+      "bytes": 144128,
+      "sha256": "d26e6ca8ba9700d472cdced33e0a5077bc83e83f69f6c3ffb3aaf81885aa9dad"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/scene.xml": {
+      "bytes": 7684,
+      "sha256": "d0918f3492e2f502221cf25c9d94606f1d4e5f30d535ce97654c58136e71ac24"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/A-CV-camera_quarter-mvt_simd-sphere-cv7.5mm-ui1.05-cr70mm-sphereAdaptiveIrredundant-cam320x180s1-r70mm-wrist_forearm-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-fixed-omp8-prionormal-posqp/summary.json": {
+      "bytes": 11228,
+      "sha256": "45aa94bc57aec1c7942a8fa81ee870ba0e6780ede8eff4e613da67460d58f2fd"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/arguments.json": {
+      "bytes": 1510,
+      "sha256": "218ef878a8a98d6003cf324841d766e7489dae45394cf3e4af11282e4d5c23eb"
+    },
+    "runs/v44_sphere/20260905T100544680151Z/source_hashes.json": {
+      "bytes": 2482,
+      "sha256": "d50c5dd05b67cc048d0632d0ea767cbe88a1ad8a5f59e3e3ee853b43d3d57169"
+    },
+    "src/common/camera.py": {
+      "bytes": 8871,
+      "sha256": "aafec9c24bc3b3dabfe8ff8092502fe04ee4364ee2b401c32cb585b5a469cec9"
+    },
+    "src/common/controller.py": {
+      "bytes": 63868,
+      "sha256": "8bbc9d45f0d09e3b2e85d7527dc898b16264620d60eb335e5d043c6ce7f5e3a3"
+    },
+    "src/common/geometry.py": {
+      "bytes": 11124,
+      "sha256": "84c816ab7d9cafcf83a4a32c5ed6e5229669fb6a6a5c22cd65eae5e2593d5ff4"
+    },
+    "src/common/map_types.py": {
+      "bytes": 479,
+      "sha256": "25490f2b05218fa945329f6f160503257ecf1e60454093695c93a2de63305fb6"
+    },
+    "src/common/native_support.py": {
+      "bytes": 36812,
+      "sha256": "74a2343a46b64b87eddcb1833b555a8c2a5c5d0b1b5a4ba203ed6b3de55edca9"
+    },
+    "src/common/observability.py": {
+      "bytes": 14607,
+      "sha256": "902014074989a066f1a870c27e4c99818a0cbf9dada030c27a5ca3d690348831"
+    },
+    "src/common/occupancy.py": {
+      "bytes": 15585,
+      "sha256": "33e1d30e9c350eff9dea3b9ee07f5c61ee7748bf52b738ffbcb51720440e7aaa"
+    },
+    "src/common/online_helpers.py": {
+      "bytes": 4510,
+      "sha256": "c1d0a590ed70a5374d5b53d0425725babdba4ffa6e3be9b3ebd9fdd6a1fc75b5"
+    },
+    "src/common/package_integrity.py": {
+      "bytes": 1139,
+      "sha256": "75deffb939b2c83a6766a529387470081623dcac0884f8e8a89e7248f6365844"
+    },
+    "src/common/replay_viewer.py": {
+      "bytes": 36101,
+      "sha256": "b823e8ed1ba0c26578054640f5509edd622574d38927619bd57c51bdf9339d26"
+    },
+    "src/common/robot.py": {
+      "bytes": 5018,
+      "sha256": "00d85afded0834e8b83f715feca20c9bc59fdf9b0f60f36b95a5290c9ad33538"
+    },
+    "src/common/scene.py": {
+      "bytes": 1191,
+      "sha256": "40d80384b0b93f49a2849e9d6e487613af54827540f3d391d4dd1239bc8684e9"
+    },
+    "src/common/voxel_index.py": {
+      "bytes": 11141,
+      "sha256": "4c72a968293172c968e108dee82cf49a19c8452e46d3eff92e72adc202e8ef86"
+    },
+    "src/v43_ellipsoid/pipeline.py": {
+      "bytes": 83798,
+      "sha256": "1e072fd46627952a8db77f3d7ef0996df10fb36aaccc00966999757d44483e51"
+    },
+    "src/v43_ellipsoid/proxy_geometry.py": {
+      "bytes": 27274,
+      "sha256": "f730e73195fcb57f8b24583e4026e67f93f8c54345e05a6e3e2be888f3947651"
+    },
+    "src/v43_ellipsoid/proxy_manager.py": {
+      "bytes": 34616,
+      "sha256": "0f6ba27acb4913782f563d564d5bf5d03598026281ee90f86ad029d1f5753eeb"
+    },
+    "src/v44_sphere/pipeline.py": {
+      "bytes": 85833,
+      "sha256": "2fc1b7a440e4326cb8123c220cb2b4ddf52d45bbfa823863c93e11950aeb9122"
+    },
+    "src/v44_sphere/proxy_geometry.py": {
+      "bytes": 27435,
+      "sha256": "783a8079f359c0ec0b736ad6c626081f0232e0e669d9d8afed253d70ed0f377f"
+    },
+    "src/v44_sphere/proxy_manager.py": {
+      "bytes": 48205,
+      "sha256": "5eec0f0bf321a84fb9d3ac5386392c23beb96a86fbb87fd350b09ab5b23c5ad7"
+    },
+    "tests/check_original.py": {
+      "bytes": 4078,
+      "sha256": "33f4bbdb19975d4b30a37cf5e830ac303e6f3c28acdc4b55dc10f1b73ca33667"
+    },
+    "tests/results/package_audit.json": {
+      "bytes": 3986,
+      "sha256": "18f18a2490d0b6d05c73584e0eca8fb8a9ff494cd4422c0ce87c476ffaa52204"
+    },
+    "tests/results/v43_ellipsoid.json": {
+      "bytes": 903,
+      "sha256": "5abe6b45575185ba01f8a4f72d1af0f20da26d9f24c605f72017819d490999e2"
+    },
+    "tests/results/v44_sphere.json": {
+      "bytes": 900,
+      "sha256": "5834936407f07df2a314e2259c19feb9b9d1ea0a11c223e704020ad7be024c24"
+    },
+    "tests/results/viewer_render.json": {
+      "bytes": 4837,
+      "sha256": "e55f69c173f21a4059ab7ad65dfeae36f2a6bf6a0465116b734d89b517242fe4"
+    },
+    "tests/verify_package.py": {
+      "bytes": 933,
+      "sha256": "05567c235c0f24b65a7198c99381dcc68c63cce18750a9cd1a2f60229d52df4c"
+    },
+    "view.py": {
+      "bytes": 1035,
+      "sha256": "f90338bb7ce7fa2492a36d5b6a2477787d4936c8eb85acf9d23f3960f751862c"
+    },
+    "查看原椭球版.cmd": {
+      "bytes": 108,
+      "sha256": "80b1a329e7c9e7a53bdfad88e556188205c7ce4aa42ced6ddb96a7080f8c9792"
+    },
+    "查看原球版.cmd": {
+      "bytes": 105,
+      "sha256": "ef56588853521c12bd198d5a1ee61e79db2bba058ccff27557f8225de8a1d806"
+    },
+    "运行椭球版.cmd": {
+      "bytes": 84,
+      "sha256": "92f8473414c2ae72c41c97394f113c3ab9cb5425dab00b8ffd7fec2a5d944146"
+    },
+    "运行球版.cmd": {
+      "bytes": 81,
+      "sha256": "b558e41582ea84841e7c7804bdc52046396832d1f46135d592107e40abf11700"
+    }
+  }
+}

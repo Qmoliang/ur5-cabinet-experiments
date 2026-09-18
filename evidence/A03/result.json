@@ -1,0 +1,12 @@
+{
+  "id": "A03",
+  "group": "05_no_manip_ablation",
+  "method": "NEO ablation",
+  "representation": "ellipsoid",
+  "complete": true,
+  "final_error_mm": 0.502952570045564,
+  "confirmed_time_s": 6.42,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "causal"
+}

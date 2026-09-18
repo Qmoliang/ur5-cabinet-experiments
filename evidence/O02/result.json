@@ -1,0 +1,12 @@
+{
+  "id": "O02",
+  "group": "04_online_comparison",
+  "method": "LiuQP",
+  "representation": "ellipsoid",
+  "complete": true,
+  "final_error_mm": 0.005166623005999117,
+  "confirmed_time_s": 21.34,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "causal"
+}

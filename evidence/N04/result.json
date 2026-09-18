@@ -1,0 +1,12 @@
+{
+  "id": "N04",
+  "group": "03_known_NEO",
+  "method": "NEO core",
+  "representation": "sphere",
+  "complete": true,
+  "final_error_mm": 312.71655290527076,
+  "confirmed_time_s": null,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "static"
+}

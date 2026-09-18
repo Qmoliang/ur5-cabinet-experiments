@@ -1,0 +1,12 @@
+{
+  "id": "O03",
+  "group": "04_online_comparison",
+  "method": "NEO core",
+  "representation": "sphere",
+  "complete": true,
+  "final_error_mm": 369.1479350073217,
+  "confirmed_time_s": null,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "causal"
+}

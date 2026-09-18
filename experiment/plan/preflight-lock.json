@@ -1,0 +1,11 @@
+{
+  "short_runs": {
+    "H01": 20,
+    "H02": 20,
+    "O02": 20,
+    "O03": 20
+  },
+  "all_passed": true,
+  "logging_only_change_after_smoke": "Save failed NEO QP matrices; frozen ablation source copies synchronized with actually imported parent modules.",
+  "formal_parameters_changed": false
+}

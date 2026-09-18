@@ -1,0 +1,12 @@
+{
+  "id": "K01",
+  "group": "01_known_LiuQP",
+  "method": "LiuQP",
+  "representation": "sphere",
+  "complete": true,
+  "final_error_mm": 314.16457257124233,
+  "confirmed_time_s": null,
+  "duration_s": 60.0,
+  "states": 3001,
+  "proxy_mode": "static"
+}

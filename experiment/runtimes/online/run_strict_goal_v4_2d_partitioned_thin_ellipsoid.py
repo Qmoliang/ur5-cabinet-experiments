@@ -1,0 +1,169 @@
+"""Run strict-goal v4.2d with a partitioned thin CenterVox certificate."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+from pathlib import Path
+
+import psutil
+
+from run_protocol_v3_async_online import run_one
+
+
+ROOT = Path(__file__).resolve().parent
+THIN_AXIS_INFLATION = 1.10
+TANGENT_SUBDIVISIONS = 2
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--smoke-cycles", type=int, default=None)
+    parser.add_argument("--smoke-label", default="")
+    parser.add_argument("--formal-label", default="")
+    parser.add_argument(
+        "--diagnostic-subdivisions",
+        type=int,
+        choices=(1, 2),
+        default=TANGENT_SUBDIVISIONS,
+        help="smoke-only diagnostic; formal v4.2d is frozen at 2",
+    )
+    parser.add_argument(
+        "--diagnostic-partition-mode",
+        choices=("grid", "longest_tangent_binary"),
+        default="grid",
+        help="smoke-only diagnostic; formal v4.2d is frozen to grid",
+    )
+    parser.add_argument(
+        "--scene-version",
+        choices=(
+            "formal",
+            "uniform_v3_1",
+            "camera_mid",
+            "camera_quarter",
+            "camera_three_sixteenths",
+        ),
+        default="camera_quarter",
+        help="same task geometry; camera_quarter is the frozen observable mount",
+    )
+    args = parser.parse_args()
+    if args.smoke_cycles is None and (
+        args.diagnostic_subdivisions != TANGENT_SUBDIVISIONS
+        or args.diagnostic_partition_mode != "grid"
+    ):
+        raise ValueError("formal v4.2d is frozen at 2x2 grid subdivision")
+    partition_mode = args.diagnostic_partition_mode
+    subdivisions = (
+        1
+        if partition_mode == "longest_tangent_binary"
+        else int(args.diagnostic_subdivisions)
+    )
+
+    logical_cpus = os.cpu_count() or 1
+    if logical_cpus >= 16:
+        split = max(8, 3 * logical_cpus // 8)
+        control_affinity = tuple(range(0, split))
+        perception_affinity = tuple(range(split, logical_cpus))
+    elif logical_cpus >= 8:
+        split = logical_cpus // 2
+        control_affinity = tuple(range(0, split))
+        perception_affinity = tuple(range(split, logical_cpus))
+    else:
+        control_affinity = None
+        perception_affinity = None
+
+    scene_suffix = f"_{args.scene_version}"
+    leaf = (
+        (
+            "formal_strict_goal_v4_2d_partitioned_thin_certificate"
+            + scene_suffix
+            + (f"_{args.formal_label}" if args.formal_label else "")
+        )
+        if args.smoke_cycles is None
+        else (
+            "smoke_strict_goal_v4_2d_partitioned_thin_certificate"
+            + scene_suffix
+            + (
+                ""
+                if (
+                    subdivisions == TANGENT_SUBDIVISIONS
+                    and partition_mode == "grid"
+                )
+                else (
+                    "_diagnostic_binary"
+                    if partition_mode == "longest_tangent_binary"
+                    else f"_diagnostic_sub{subdivisions}"
+                )
+            )
+            + (f"_{args.smoke_label}" if args.smoke_label else "")
+        )
+    )
+    output = ROOT / "formal_results" / "final_two_camera" / leaf
+    if output.exists() and any(output.iterdir()):
+        raise FileExistsError(f"refusing to overwrite preserved evidence: {output}")
+    output.mkdir(parents=True, exist_ok=True)
+
+    process = psutil.Process()
+    original_affinity = process.cpu_affinity()
+    if control_affinity is not None:
+        process.cpu_affinity(list(control_affinity))
+    try:
+        summary = run_one(
+            "ellipsoid",
+            "mvt_simd",
+            output,
+            maximum_cycles=args.smoke_cycles,
+            unknown_policy="observed_only",
+            realtime_pacing=True,
+            perception_executor="process",
+            centervox_size=0.0075,
+            maximum_uncertainty_union_inflation=None,
+            certificate_radius_limit=None,
+            uncertainty_fusion_mode="fused_certified_centervox",
+            direct_thin_axis_inflation=THIN_AXIS_INFLATION,
+            direct_tangent_subdivisions=subdivisions,
+            direct_partition_mode=partition_mode,
+            camera_width=320,
+            camera_height=180,
+            camera_pixel_stride=1,
+            camera_names=("ur5_depth_wrist", "ur5_depth_forearm"),
+            scene_version=args.scene_version,
+            record_dense_map_snapshots=True,
+            sweep_guard_mode="audit_only",
+            success_tolerance=0.001,
+            success_hold_cycles=50,
+            stop_on_success=False,
+            perception_cpu_affinity=perception_affinity,
+            control_cpu_affinity=control_affinity,
+        )
+    finally:
+        process.cpu_affinity(original_affinity)
+
+    (output / "v4_2d_run_complete.json").write_text(
+        json.dumps(
+            {
+                "protocol": "strict_goal_v4_2d_partitioned_thin_certificate",
+                "formal": args.smoke_cycles is None,
+                "mock_data": False,
+                "run_name": summary["run_name"],
+                "success": summary["success"],
+                "ever_sustained_success": summary["ever_sustained_success"],
+                "minimum_error_m": summary["minimum_error_m"],
+                "final_error_m": summary["final_error_m"],
+                "thin_axis_inflation": THIN_AXIS_INFLATION,
+                "tangent_subdivisions": subdivisions,
+                "partition_mode": partition_mode,
+                "all_centervox_coverage_checks_passed": summary[
+                    "all_centervox_coverage_checks_passed"
+                ],
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+
+if __name__ == "__main__":
+    main()
