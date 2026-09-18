@@ -24,3 +24,7 @@ No new blanket license is assigned to the original project code in this snapshot
 
 
 For this website, the full UR5 asset license is also distributed as [UR5-LICENSE.txt](UR5-LICENSE.txt).
+
+## Research document rendering
+
+The library uses Marked 17.0.5 (MIT), MathJax 3.2.2 (Apache 2.0), and Mermaid 12.0.0 (MIT). Full original licenses and bundled dependency notices are retained. See [document rendering notices](../library/licenses.html). Original document contents retain their existing rights.

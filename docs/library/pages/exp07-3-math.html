@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>实验 7.3 · 数学与代码 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">07.3：这轮实验怎样接上第二章</a><a class="depth-2" href="#section-2">先抓住整条线</a><a class="depth-2" href="#section-3">文件与调用关系</a><a class="depth-2" href="#section-4">为什么 U 大了会挡住末端？</a><a class="depth-2" href="#section-5">两个新候选的数学区别</a><a class="depth-2" href="#section-6">读结果时需要区分</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">实验 7 与后续诊断 / MD</div><h1>实验 7.3 · 数学与代码</h1><p>该阶段公式与实现的对照。</p><div class="actions"><a class="primary" download href="../files/exp07-3-math/MATH_AND_CODE.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/exp07-3-math/MATH_AND_CODE.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">07.3：这轮实验怎样接上第二章</h1>
+<p>本文件解释本轮代码，结果请阅读同目录实验报告。第二章原文件不改写。</p>
+<h2 id="section-2">先抓住整条线</h2>
+<p>当前关节角 q → 两台相机测量 → 每个点及其误差椭球 → CenterVox 汇总 → 几何核心 Q 与不确定性 U → MVT 候选 → 最近支撑法向和安全间隙 → 一行速度约束 → QP 求 qdot → 下一时刻 q。</p>
+<p>本轮修改的是“每个点及其误差椭球 → 单元不确定性 U”。最近距离、平面和 QP 的定义不变。真实盒子实验另开诊断分支，用已知盒子直接生成平面，绝不把真值送进相机组。</p>
+<h2 id="section-3">文件与调用关系</h2>
+<table>
+<thead>
+<tr>
+<th>入口/模块</th>
+<th>调用与输出</th>
+<th>第二章对应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>run_experiment_07_3.py</td>
+<td>固定组别/起点；调用 run_protocol_v3_async_online.run_one</td>
+<td>2.11 周期算法</td>
+</tr>
+<tr>
+<td>official_drawer_07_3.py → model.build_xml</td>
+<td>固定柜内尺寸、四条腿、素材与 UR5；相机读同一模型</td>
+<td>2.1 问题边界、2.2 运动学</td>
+</tr>
+<tr>
+<td>run_protocol_v3_async_online.PerceptionWorker</td>
+<td>相机 → 占据图与代理管理器 → 不可变快照</td>
+<td>2.11 输入与输出</td>
+</tr>
+<tr>
+<td>depth_camera_perception.py</td>
+<td>当前姿态的可见点 p 与 U_raw</td>
+<td>2.7 不确定性输入来源</td>
+</tr>
+<tr>
+<td>incremental_proxy_manager.py → raw_support_intervals.py</td>
+<td>稳定代表点 c；原始误差集合合并成单元 U</td>
+<td>2.7 的 U 怎样从数据构造</td>
+</tr>
+<tr>
+<td>pointcloud_proxy.py</td>
+<td>拟合几何核心 Q，合并单元 U；覆盖检查</td>
+<td>2.4 连续椭球证书、2.7 支持和</td>
+</tr>
+<tr>
+<td>native_mvt.py</td>
+<td>保守 AABB 候选筛选</td>
+<td>2.11 宽阶段；本轮算法不变</td>
+</tr>
+<tr>
+<td>protocol_liuqp_controller.py</td>
+<td>候选、支撑法向、切平面、删冗余、NEAR/CONTACT、QP</td>
+<td>2.6、2.7、2.9、2.10</td>
+</tr>
+<tr>
+<td>experiment_07_3_geometry.py</td>
+<td>真实盒子诊断，继承同一个 QP 控制器</td>
+<td>2.6 的平面输入换成真实盒子</td>
+</tr>
+<tr>
+<td>experiment_07_3_same_input.py</td>
+<td>同源帧融合对照；不产生控制命令</td>
+<td>隔离 U 构造，不以轨迹差异冒充同输入</td>
+</tr>
+<tr>
+<td>audit_experiment_07_3_continuous.py</td>
+<td>关节段的解析位移上界与盒距离下界</td>
+<td>2.13 实现审计边界</td>
+</tr>
+</tbody></table>
+<h2 id="section-4">为什么 U 大了会挡住末端？</h2>
+<p>第二章 2.7 中，沿单位方向 n 的椭球支撑是 sqrt(n^T U n)。几何核心和误差相加时，支撑为 sqrt(n^T Q n)+sqrt(n^T U n)。U 是位置误差集合的形状矩阵，不是直接按样本数量缩小的统计协方差。</p>
+<p>在同一个方向上，U 的支撑多出 2 mm，就可能使安全间隙少 2 mm。控制器随后把间隙除以 dt，限制球心朝障碍的速度；球心速度等于该球自己的 J_i qdot。前臂受限也会影响末端前进，因为二者共享关节速度。</p>
+<h2 id="section-5">两个新候选的数学区别</h2>
+<p>I30：固定坐标系 R，逐轴记录 h_k=max(|r_k^T(p-c)|+sqrt(r_k^T U_raw r_k))。盒子被 U=R diag(3h_k^2) R^T 包含。覆盖正确，但 sqrt(3) 外扩可能比旧方法更大。本轮负结果保留，不推荐仅凭“只外包一次”就使用它。</p>
+<p>J30：先令 d=p-c。用原有 Young 不等式 B=(1+beta)U_raw+(1+1/beta)dd^T 包住平移后的测量椭球。第一帧选定 R，以后固定；对每个原始 B 计算 R^T B R，每行对角加非对角绝对值和，逐轴累计最大值 D。由于 D-R^T B R 对称对角占优且对角非负，它是半正定矩阵，故 R D R^T 包含 B。不会再把帧外包当作新测量重新合并。</p>
+<p>J30 避免一部分重复外扩，但固定 R 未必适合后来另一相机的观测方向。因此可能下沿变薄、顶板反而变厚，必须用全方向包含检查和实际闭环来判断。</p>
+<h2 id="section-6">读结果时需要区分</h2>
+<ol>
+<li>真实盒子控制能到达：说明这个任务存在由该诊断控制器找到的运动轨迹；不证明相机算法成功。</li>
+<li>覆盖检查通过：说明观测误差集合被代理覆盖；不等于所有真实障碍都被相机提前看见。</li>
+<li>MVT oracle 通过：说明索引没有漏掉应有候选；不等于多级比单级快。</li>
+<li>终点小于 1 mm：还需要保持 50 周期及其余安全/时限审计。</li>
+<li>本轮连续盒审计证明机器人证书与柜体的整段分离；不涵盖机器人自碰撞或未知空间。</li>
+</ol>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/formal_results/experiment_07/development_07_3/MATH_AND_CODE.md</code><br>SHA-256：<code>7608ef049b4ca56e269f0da039de4f120c4e89c57187f56074087737957245ea</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

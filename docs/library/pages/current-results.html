@@ -1,0 +1,411 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>当前实验 · 19 组结果总表 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">真实落地柜子：19 组重跑总表</a><a class="depth-2" href="#section-2">已知环境 · LiuQP</a><a class="depth-2" href="#section-3">历史原版 · 4.3 / 4.4</a><a class="depth-2" href="#section-4">已知环境 · NEO 对照</a><a class="depth-2" href="#section-5">在线感知 · 同版本 LiuQP / NEO</a><a class="depth-2" href="#section-6">原因诊断 · NEO 去可操作度</a><a class="depth-2" href="#section-7">安全与感知检查</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">当前落地柜子实验 / MD</div><h1>当前实验 · 19 组结果总表</h1><p>与当前网页演示同一轮实验。</p><div class="actions"><a class="primary" download href="../files/current-results/%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E6%80%BB%E8%A1%A8.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/current-results/%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E6%80%BB%E8%A1%A8.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">真实落地柜子：19 组重跑总表</h1>
+<p>四个柜脚已加入碰撞和深度观测；已知环境重构为 388 个完整体积代理。原起点、目标和相机安装参数保留。中止组的误差是中止时末姿态，不能当成 60 秒终值。</p>
+<h2 id="section-2">已知环境 · LiuQP</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>实验</th>
+<th align="right">旧误差 / mm</th>
+<th align="right">新误差 / mm</th>
+<th>新结果</th>
+<th align="right">实际时长 / s</th>
+<th align="right">首次保持确认 / s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K01</td>
+<td>LiuQP · 已知球</td>
+<td align="right">314.165</td>
+<td align="right">314.165</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>K02</td>
+<td>LiuQP · 已知椭球</td>
+<td align="right">0.001</td>
+<td align="right">0.001</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">16.720</td>
+</tr>
+<tr>
+<td>K03</td>
+<td>LiuQP · 已知球 · 同 QP 求解验证</td>
+<td align="right">314.165</td>
+<td align="right">314.165</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+</tbody></table>
+<h2 id="section-3">历史原版 · 4.3 / 4.4</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>实验</th>
+<th align="right">旧误差 / mm</th>
+<th align="right">新误差 / mm</th>
+<th>新结果</th>
+<th align="right">实际时长 / s</th>
+<th align="right">首次保持确认 / s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H01</td>
+<td>LiuQP · 历史 4.3 椭球</td>
+<td align="right">0.177</td>
+<td align="right">0.095</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">25.020</td>
+</tr>
+<tr>
+<td>H02</td>
+<td>LiuQP · 历史 4.4 球</td>
+<td align="right">263.724</td>
+<td align="right">257.650</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+</tbody></table>
+<h2 id="section-4">已知环境 · NEO 对照</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>实验</th>
+<th align="right">旧误差 / mm</th>
+<th align="right">新误差 / mm</th>
+<th>新结果</th>
+<th align="right">实际时长 / s</th>
+<th align="right">首次保持确认 / s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N01</td>
+<td>LiuQP · 已知椭球重跑</td>
+<td align="right">0.001</td>
+<td align="right">0.001</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">16.720</td>
+</tr>
+<tr>
+<td>N02</td>
+<td>NEO · 已知椭球 · 46 mm</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">6.040</td>
+</tr>
+<tr>
+<td>N03</td>
+<td>NEO · 已知椭球 · 300 mm</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">6.260</td>
+</tr>
+<tr>
+<td>N04</td>
+<td>NEO · 已知球 · 46 mm</td>
+<td align="right">312.717</td>
+<td align="right">312.717</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>N05</td>
+<td>NEO · 已知球 · 300 mm</td>
+<td align="right">312.717</td>
+<td align="right">312.717</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+</tbody></table>
+<h2 id="section-5">在线感知 · 同版本 LiuQP / NEO</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>实验</th>
+<th align="right">旧误差 / mm</th>
+<th align="right">新误差 / mm</th>
+<th>新结果</th>
+<th align="right">实际时长 / s</th>
+<th align="right">首次保持确认 / s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O01</td>
+<td>LiuQP · 当前 4.4c 球</td>
+<td align="right">256.611</td>
+<td align="right">273.042</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O02</td>
+<td>LiuQP · 当前 4.3 椭球</td>
+<td align="right">0.021</td>
+<td align="right">0.005</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">21.340</td>
+</tr>
+<tr>
+<td>O03</td>
+<td>NEO · 在线球 · 300 mm</td>
+<td align="right">369.148</td>
+<td align="right">369.148</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O04</td>
+<td>NEO · 在线椭球 · 300 mm</td>
+<td align="right">374.577</td>
+<td align="right">374.577</td>
+<td>中止</td>
+<td align="right">14.040</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O05</td>
+<td>NEO · 在线球 · 46 mm</td>
+<td align="right">232.225</td>
+<td align="right">232.074</td>
+<td>中止</td>
+<td align="right">3.300</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O06</td>
+<td>NEO · 在线椭球 · 46 mm</td>
+<td align="right">353.648</td>
+<td align="right">370.202</td>
+<td>未到达</td>
+<td align="right">60.000</td>
+<td align="right">—</td>
+</tr>
+</tbody></table>
+<h2 id="section-6">原因诊断 · NEO 去可操作度</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>实验</th>
+<th align="right">旧误差 / mm</th>
+<th align="right">新误差 / mm</th>
+<th>新结果</th>
+<th align="right">实际时长 / s</th>
+<th align="right">首次保持确认 / s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A01</td>
+<td>NEO 去可操作度 · 球 · 300 mm</td>
+<td align="right">269.902</td>
+<td align="right">260.660</td>
+<td>中止</td>
+<td align="right">3.180</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>NEO 去可操作度 · 椭球 · 300 mm</td>
+<td align="right">340.513</td>
+<td align="right">343.031</td>
+<td>中止</td>
+<td align="right">5.900</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>NEO 去可操作度 · 椭球 · 46 mm</td>
+<td align="right">1.525</td>
+<td align="right">0.503</td>
+<td>到达并保持</td>
+<td align="right">60.000</td>
+<td align="right">6.420</td>
+</tr>
+</tbody></table>
+<h2 id="section-7">安全与感知检查</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th align="right">实体穿透周期</th>
+<th>连续 12 盒 6 mm 检查</th>
+<th align="right">抽检最小代理间隙 / mm</th>
+<th>late / never</th>
+<th align="right">sweep 失败</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K01</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>K02</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>K03</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>H01</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">2.881</td>
+<td>55 / 7</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>H02</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">2.247</td>
+<td>8 / 0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>N01</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>N02</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>N03</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>N04</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">5.990</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>N05</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">6.000</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O01</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">4.087</td>
+<td>6 / 0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>O02</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">5.999</td>
+<td>7 / 7</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>O03</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">3.014</td>
+<td>0 / 0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>O04</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">—</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O05</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">—</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>O06</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">4.144</td>
+<td>0 / 0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>A01</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">—</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>A02</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">—</td>
+<td>— / —</td>
+<td align="right">—</td>
+</tr>
+<tr>
+<td>A03</td>
+<td align="right">0</td>
+<td>通过</td>
+<td align="right">5.419</td>
+<td>71 / 8</td>
+<td align="right">0</td>
+</tr>
+</tbody></table>
+<p>连续柜体检查针对保存姿态之间的关节线性插值，不包含连续自碰撞、地面碰撞或动力学保证。代理间隙仅按每 25 周期、地图发布和末态抽检，不是全程连续代理安全证明。到达、最终保持、感知完整性和全协议资格分开报告。</p>
+<p>具体逐周期数据、独立审计、失败矩阵和运行身份见 <code>results/&lt;编号&gt;/</code>；原始控制台输出见 <code>logs/</code>。</p>
+</article><p class="source-note">原始来源：<code>Cabinet_Experiments/rerun_grounded_20260917/实验结果总表.md</code><br>SHA-256：<code>30b8ea7056188a45af74d8b6e04e46eba888a33729f25039f4ac5340f2a832e4</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

@@ -1,0 +1,174 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>NEO · 去可操作度目标项消融 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">去掉 NEO 可操作度目标之后，为什么还会停？</a><a class="depth-2" href="#section-2">结论</a><a class="depth-2" href="#section-3">实验控制和复现范围</a><a class="depth-2" href="#section-4">三组实际结果</a><a class="depth-2" href="#section-5">椭球 46 mm 组：到达之后发生了什么</a><a class="depth-3" href="#section-6">固定同一姿态，只替换地图的诊断</a><a class="depth-3" href="#section-7">最后卡在哪里</a><a class="depth-2" href="#section-8">两组 300 mm：不是普通的“有解但不动”</a><a class="depth-2" href="#section-9">达到过目标，不等于整套协议通过</a><a class="depth-2" href="#section-10">怎么看回放</a><a class="depth-2" href="#section-11">对后续实验的含义</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">NEO 对照与消融 / MD</div><h1>NEO · 去可操作度目标项消融</h1><p>停滞原因诊断及完整运行结果。</p><div class="actions"><a class="primary" download href="../files/neo-ablation/REPORT.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/neo-ablation/REPORT.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">去掉 NEO 可操作度目标之后，为什么还会停？</h1>
+<h2 id="section-2">结论</h2>
+<p>此前的 4.9–6.9 mm/s 是在旧实验的三个停滞末姿态上重新解一次 QP 得到的速度，未执行成轨迹。它证明当时存在满足约束的前进速度，不能保证后续闭环到达。</p>
+<p>本次补做三组完整在线消融。46 mm 影响距离的椭球组确实到达过：6.36 s 完成误差严格小于 1 mm、连续保持 50 步。但后续地图更新引发退让，60 s 结束时误差为 1.525 mm。两组 300 mm 影响距离实验则在途中因避障约束不可行而中止。</p>
+<p>所以要分清两种停滞：旧实验远处停滞包含可操作度目标与到达目标之间的竞争；本次椭球组最后约 1.5 mm 的残差，主要关联更新后上下板附近的包络约束。不能把它们归为同一原因。</p>
+<h2 id="section-3">实验控制和复现范围</h2>
+<ul>
+<li>从各组原始起点重新运行；不是从旧停滞末姿态接着运行。</li>
+<li>唯一有意修改是将 NEO 目标函数中的可操作度梯度项置零。任务代价、正则化、硬约束规则、6 mm 安全距离、相机和地图更新设置保持原配置。</li>
+<li>在线地图随各自轨迹独立生成，因此保持的是约束构造规则，不能说整段实验每一时刻的约束矩阵相同。</li>
+<li><code>preflight.json</code> 验证旧末姿态上的单步结果分别为 4.867、4.881、6.938 mm/s。</li>
+<li>这是本地 NEO 核心实现的消融版本，不是原版 NEO 的性能结果；也不是论文全部实验的复现。</li>
+<li>原实验源文件和结果保留。各运行的冻结源文件、<code>ablation_identity.json</code> 与原始日志位于各自结果目录。</li>
+</ul>
+<h2 id="section-4">三组实际结果</h2>
+<p>这里的 46/300 mm 是避障影响距离，不是代理半径或安全间隙。</p>
+<table>
+<thead>
+<tr>
+<th>环境代理 / 影响距离</th>
+<th>闭环结果</th>
+<th align="right">最后误差</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自适应球 / 300 mm</td>
+<td>2.98 s 中止</td>
+<td align="right">269.902 mm</td>
+<td>下一次 QP 的避障约束不可行</td>
+</tr>
+<tr>
+<td>自适应椭球 / 300 mm</td>
+<td>5.64 s 中止</td>
+<td align="right">340.513 mm</td>
+<td>下一次 QP 的避障约束不可行</td>
+</tr>
+<tr>
+<td>自适应椭球 / 46 mm</td>
+<td>完成 60 s</td>
+<td align="right">1.525 mm</td>
+<td>曾达到保持条件，最后未保持</td>
+</tr>
+</tbody></table>
+<p>椭球 46 mm 组最小误差 0.508 mm，最长连续达标 934 步（18.68 s），3000 次 QP 正常求解，无求解器回退。控制器计算时间 p99 为 7.351 ms；含其他控制侧计算的指标为 12.928 ms。</p>
+<h2 id="section-5">椭球 46 mm 组：到达之后发生了什么</h2>
+<table>
+<thead>
+<tr>
+<th>仿真时间</th>
+<th>发生的事</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5.38 s</td>
+<td>首次进入随后能连续保持的 1 mm 误差范围</td>
+</tr>
+<tr>
+<td>6.36 s</td>
+<td>连续保持 50 步，确认曾经到达</td>
+</tr>
+<tr>
+<td>41.96 s</td>
+<td>最后一个仍满足 1 mm 容差的保存姿态；新地图发布</td>
+</tr>
+<tr>
+<td>41.98 s</td>
+<td>新地图下执行一步后，进入最后这段超出容差的时期</td>
+</tr>
+<tr>
+<td>60 s</td>
+<td>最终稳定在 1.52456 mm 附近</td>
+</tr>
+</tbody></table>
+<p>上述时间以执行后的姿态时刻计算。原 runner 的成功摘要使用循环开始时间，显示 5.36/6.34 s，差一个控制步长 0.02 s；独立重建结果使用 5.38/6.36 s。</p>
+<h3 id="section-6">固定同一姿态，只替换地图的诊断</h3>
+<p>在 41.96 s 地图切换前的同一个关节姿态，分别用旧、新快照重建 QP：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th align="right">旧地图</th>
+<th align="right">新地图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最小包络表面间隙</td>
+<td align="right">6.000 mm</td>
+<td align="right">4.855 mm</td>
+</tr>
+<tr>
+<td>关节速度向量范数</td>
+<td align="right">0.00000211 rad/s</td>
+<td align="right">0.46813 rad/s</td>
+</tr>
+<tr>
+<td>末端 x 方向速度</td>
+<td align="right">约 0 mm/s</td>
+<td align="right">−24.455 mm/s</td>
+</tr>
+</tbody></table>
+<p>机械臂和真实柜子在这次比较中都不动；变化来自感知包络。新地图把同一姿态判为未满足 6 mm 余量，于是避障约束要求恢复间隙，末端出现后退运动。扫描审计未修改执行命令。</p>
+<h3 id="section-7">最后卡在哪里</h3>
+<p>末姿态两个最紧的接触对，包络间隙均约 6.000 mm：</p>
+<table>
+<thead>
+<tr>
+<th>机械臂部位</th>
+<th>代理中心最近的真实柜板</th>
+<th align="right">几何核沿约束法向的支撑量</th>
+<th align="right">不确定性 U 沿该方向的支撑量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forearm_link</td>
+<td>drawer_bottom（底板）</td>
+<td align="right">11.199 mm</td>
+<td align="right">12.391 mm</td>
+</tr>
+<tr>
+<td>wrist_1_link</td>
+<td>drawer_ceiling（顶板）</td>
+<td align="right">0.188 mm</td>
+<td align="right">9.505 mm</td>
+</tr>
+</tbody></table>
+<p>这些是沿接触法向的支撑量，不是椭球完整轴长或整个板厚。代理与柜板的对应是按代理中心最近柜板识别。数据说明不确定性包络在局部间隙中占有显著份额，尤其顶板附近；本次没有证据把最后残差仅归因于后壁。</p>
+<p>最终 QP 的朝目标速度约为 0.00000143 mm/s，近乎停止。关节速度范数仍约 0.000474 rad/s，因此不能描述成每个关节严格为零。</p>
+<p>进一步在相同硬约束下用线性规划最大化朝目标速度，上限约为 <strong>0.00571 mm/s</strong>。可行的直接前进能力已经非常小，但仍为正。这个检查只描述当前姿态的局部速度空间，不能证明换姿态、绕行或其他全局路径都不可达。</p>
+<h2 id="section-8">两组 300 mm：不是普通的“有解但不动”</h2>
+<p>对捕获的失败 QP，独立 HiGHS 线性规划给出：</p>
+<table>
+<thead>
+<tr>
+<th>检查</th>
+<th>球 300 mm</th>
+<th>椭球 300 mm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全部硬约束</td>
+<td>不可行</td>
+<td>不可行</td>
+</tr>
+<tr>
+<td>去掉避障行</td>
+<td>可行</td>
+<td>可行</td>
+</tr>
+<tr>
+<td>仅保留避障行、取消其他边界</td>
+<td>不可行</td>
+<td>不可行</td>
+</tr>
+</tbody></table>
+<p>所以这两组失败可定位到避障/恢复速度约束冲突，不能仅归为 QP 求解器慢或可操作度目标问题。椭球组异常文本 <code>infeasible fixed workspace row</code> 是原适配器的通用报错；该检查也包含避障零行，不能据此说一定是工作空间边界导致。</p>
+<p>失败时的矩阵和代理几何保存在各组 <code>failed_qp.npz</code>。两组部分轨迹分别有 150 和 283 个姿态，保存姿态未检测到真实穿透；由于中止，不能据此宣称完整运行和完整连续安全审计通过。</p>
+<h2 id="section-9">达到过目标，不等于整套协议通过</h2>
+<p>完成的椭球 46 mm 组独立重建通过轨迹完整性检查。保存姿态没有真实穿透；按记录姿态之间的关节插值，真实柜板的连续间隙下界为 6.034 mm，通过对应的 6 mm 柜板检查。这不是连续自碰撞、地面碰撞或真实动力学的完整证明。</p>
+<p>在线包络抽检最小间隙为 5.416 mm，说明不能把真实柜板安全审计当成所有在线包络始终满足 6 mm 的证明。另有 71 个观测迟到样本、3 个始终未观测样本，且最终未保持 1 mm 到达条件，故完整实验协议仍未通过。</p>
+<h2 id="section-10">怎么看回放</h2>
+<p>双击场景目录下 <code>查看NEO去可操作度对照.cmd</code>。默认播放椭球 46 mm 组。</p>
+<ul>
+<li><code>S</code>：跳到 6.36 s，查看首次保持达标。</li>
+<li><code>B</code>：跳到 41.96 s，查看地图更新前姿态。</li>
+<li><code>A</code>：跳到 42.50 s，查看地图更新后的运动。</li>
+<li><code>F</code>：最终姿态；空格：继续/暂停；<code>0</code>：重播。</li>
+<li><code>1/2/3</code>：球 300 / 椭球 300 / 椭球 46。</li>
+<li><code>V</code>：在线代理；<code>R</code>：机械臂证书球。椭球叠加仅画几何核，控制约束还包含 U 和残余项，不能凭叠加图判断完整间隙。</li>
+</ul>
+<p>证据文件：<code>results/terminal_diagnosis.json</code>、<code>results/failure_diagnosis.json</code>、<code>results/independent_audits.json</code>，以及各组原始运行目录。</p>
+<h2 id="section-11">对后续实验的含义</h2>
+<p>这次已证实取消可操作度项能在该椭球配置下恢复到达，但未解决在线地图更新后的稳定保持。下一步应优先查包络更新为何改变已到达姿态的证书间隙，以及 U 的估计和融合是否合理；需要保持点云覆盖与不确定性假设的有效性，不能仅为了到达而任意缩小 U。每个配置目前只有一次在线运行，不能把结果写成普遍成功率或原版 NEO 对 LiuQP 的性能排序。</p>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/external_neo_adaptive/ablation_no_manip/REPORT.md</code><br>SHA-256：<code>83ea0337365adf0a70881e86552c7a9093b62205fa8462c3e5ab688fb266c5c7</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

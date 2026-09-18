@@ -1,0 +1,269 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>实验 7.3 · 结果报告 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">实验 07.3 结果：柜子可到达，但本轮融合修改仍未完成感知任务</a><a class="depth-2" href="#section-2">1. 场景与不变条件</a><a class="depth-2" href="#section-3">2. 真实几何诊断</a><a class="depth-2" href="#section-4">3. 双相机完整闭环</a><a class="depth-2" href="#section-5">4. 审计与限制</a><a class="depth-2" href="#section-6">5. 同输入融合为什么没有一举解决</a><a class="depth-2" href="#section-7">6. 终点约束核对</a><a class="depth-2" href="#section-8">7. 结论与下一步</a><a class="depth-2" href="#section-9">8. 怎么看与复现</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">实验 7 与后续诊断 / MD</div><h1>实验 7.3 · 结果报告</h1><p>该阶段保存的运行结果。</p><div class="actions"><a class="primary" download href="../files/exp07-3-report/REPORT.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/exp07-3-report/REPORT.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">实验 07.3 结果：柜子可到达，但本轮融合修改仍未完成感知任务</h1>
+<p>本轮已执行真实几何诊断 5 次、双相机闭环 10 次、同源观测融合对照 5 组。数据均为实际运行；不覆盖 07.2。柜子阶段仍未验收。</p>
+<h2 id="section-2">1. 场景与不变条件</h2>
+<p>保留柜内尺寸、起点、目标及 65 个机器人证书球；四腿落地、亮地面，恢复官方 UR5e 视觉网格。柜体采用作者 shelves1.sdf 板件模板按既有抽屉尺寸适配，并改为不透明显示；不是原版 4Shelves，也不是原版 2IIWAs 桌架。新增两条前支撑，所有障碍表面参与相机射线与物理碰撞。视觉网格仅显示，不改变相机自遮挡使用的碰撞几何。</p>
+<p>50 Hz、45 s、1 mm/50 周期、安全距离 6 mm、光轴误差 3 mm、CenterVox 7.5 mm、几何核心半轴种子下限 3 mm 全部固定。ET30=原融合，J30=直接累计原始平移误差矩阵。两个组真实闭环轨迹不同；同输入因素由单独相机帧回放隔离。</p>
+<h2 id="section-3">2. 真实几何诊断</h2>
+<p>五个起点全部达到并保持任务目标，第一次保持完成时间为 9.04–9.08 s。复用原 QP，只替换障碍几何和平面输入；近场项按真实盒数量计数且不做代理剪枝，所以它是任务可行性诊断，不是纯粹的 U 消融。</p>
+<p>五条轨迹离散物理穿透均为 0；解析关节位移界证明所有关节插值段的机器人证书与柜体盒子保持分离。该连续证书不涵盖自碰撞和地面，且不证明整段严格维持 6 mm。离散最小证书间隙约 5.998 mm，存在微米量级求解容差。</p>
+<h2 id="section-4">3. 双相机完整闭环</h2>
+<table>
+<thead>
+<tr>
+<th>起点</th>
+<th align="right">ET30 终点误差/mm</th>
+<th align="right">J30 终点误差/mm</th>
+<th>ET30 达标</th>
+<th>J30 达标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td align="right">12.951</td>
+<td align="right">5.521</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="right">9.673</td>
+<td align="right">5.464</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="right">5.974</td>
+<td align="right">16.287</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="right">5.342</td>
+<td align="right">2.928</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="right">2.893</td>
+<td align="right">6.235</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>组别</th>
+<th align="right">达标次数</th>
+<th align="right">误差中位数/mm</th>
+<th align="right">误差最大值/mm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ET30</td>
+<td align="right">0/5</td>
+<td align="right">5.974</td>
+<td align="right">12.951</td>
+</tr>
+<tr>
+<td>J30</td>
+<td align="right">0/5</td>
+<td align="right">5.521</td>
+<td align="right">16.287</td>
+</tr>
+</tbody></table>
+<p>两组均未完成任务。J30 有些起点更近，有些更差，不能作为已经解决问题的新版本推广。当前结果也不能与 07.2 的旧场景直接作同场景性能排名。</p>
+<h2 id="section-5">4. 审计与限制</h2>
+<table>
+<thead>
+<tr>
+<th>组/起点</th>
+<th>覆盖</th>
+<th>MVT</th>
+<th align="right">离散穿透周期</th>
+<th align="right">代理扫掠失败</th>
+<th>观测及时</th>
+<th>柜体连续分离</th>
+<th align="right">超时周期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ET30/0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>ET30/1</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>ET30/2</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>ET30/3</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>False</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>ET30/4</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>J30/0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>J30/1</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>J30/2</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>False</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>J30/3</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>False</td>
+<td>True</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>J30/4</td>
+<td>True</td>
+<td>True</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>True</td>
+<td>True</td>
+<td align="right">1</td>
+</tr>
+</tbody></table>
+<p>本轮时序数据属于开发机器上的描述性记录，运行期间有轻量分析工作，未做隔离调度性能复核。不能据此声称实时性改进。不存在达到正式 evidence_eligible 门槛的运行。</p>
+<h2 id="section-6">5. 同输入融合为什么没有一举解决</h2>
+<p>重放 215 个源帧，匹配 5,255,268 个环境样本。原相机逐帧深度数量全部匹配；J30 对每个原始平移误差矩阵检查完整半正定包含关系，最小差矩阵特征值为正。</p>
+<p>第一次尝试 I30（原始支撑盒单次外包）覆盖正确，但单元体积比的逐种子中位数约为 2.96–3.00 倍，因 sqrt(3) 外扩而更保守；保留负结果，不进入主闭环对照。</p>
+<p>J30 固定首帧坐标系直接累计原始误差矩阵的对角占优上界，减少部分下沿方向的膨胀；但另一台相机的观测方向变化会使固定坐标系的顶板方向上界增大。仅减少外包层数并不保证最终形状更紧。</p>
+<table>
+<thead>
+<tr>
+<th>历史起点/部位/机器人球</th>
+<th align="right">旧单元最大支撑/mm</th>
+<th align="right">J30 最大支撑/mm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0/drawer_bottom/35</td>
+<td align="right">10.924</td>
+<td align="right">10.720</td>
+</tr>
+<tr>
+<td>1/drawer_bottom/35</td>
+<td align="right">8.934</td>
+<td align="right">7.925</td>
+</tr>
+<tr>
+<td>1/drawer_ceiling/44</td>
+<td align="right">11.341</td>
+<td align="right">12.297</td>
+</tr>
+<tr>
+<td>2/drawer_bottom/35</td>
+<td align="right">9.609</td>
+<td align="right">9.001</td>
+</tr>
+<tr>
+<td>2/drawer_ceiling/46</td>
+<td align="right">9.796</td>
+<td align="right">10.329</td>
+</tr>
+<tr>
+<td>2/drawer_ceiling/49</td>
+<td align="right">9.310</td>
+<td align="right">11.554</td>
+</tr>
+<tr>
+<td>3/drawer_bottom/35</td>
+<td align="right">10.704</td>
+<td align="right">10.381</td>
+</tr>
+<tr>
+<td>4/drawer_bottom/35</td>
+<td align="right">8.485</td>
+<td align="right">8.069</td>
+</tr>
+<tr>
+<td>4/drawer_ceiling/49</td>
+<td align="right">10.738</td>
+<td align="right">12.676</td>
+</tr>
+</tbody></table>
+<p>上表使用同一批已分配单元与同一方向，仅说明这些方向的变化；全方向安全来自矩阵包含检查。它不是两组闭环终点形状一一对应表。</p>
+<h2 id="section-7">6. 终点约束核对</h2>
+<p>十次末周期几何重建与原 pair_states 日志的最大间隙差为 4.86e-17 m。近零安全余量集中在柜口下沿与前臂、顶板与腕部，个别行涉及相机外壳证书。后壁最小证书间隙 109.0–122.2 mm，全部末周期均无后壁碰撞行。</p>
+<p>高精度独立反事实 QP 有未收敛情况；本轮不报告删除约束后的速度，也不把近零几何间隙称为对偶变量证明的唯一因果。terminal_constraints.json 保留无对偶的几何重建。</p>
+<h2 id="section-8">7. 结论与下一步</h2>
+<p>本轮完成了可行性分离诊断、两个融合候选的检验与固定场景双组对照，但没有完成柜子任务。保留原方法为默认，不把 J30 自动替换为推荐版本。下一步需要处理双相机方向不兼容时的包络构造，并把误差集合的覆盖和通道保守性同时验证；不通过缩小传感器误差、安全距离或放宽成功门槛得到成功。MVT 与球型主对照仍待柜子方案稳定后进行。</p>
+<h2 id="section-9">8. 怎么看与复现</h2>
+<ul>
+<li>项目根目录 view_experiment_07_3_compare.cmd：种子 0 双组 MuJoCo 回放。1/2 切换组，空格暂停，0 重来，F 最后一帧。切换组会重新打开对应模型窗口。</li>
+<li>view_experiment_07_3_exact.cmd：真实盒子诊断轨迹。</li>
+<li>view_experiment_07_3.py --seed 2：可查看其他种子，全部失败样本保留。</li>
+<li>MATH_AND_CODE.md：从相机到 QP 的数据流，以及第二章公式对应。</li>
+<li>run_experiment_07_3.py：新建独立批次并运行双组五起点；原始时序快照保留，异步闭环不保证逐位重复。</li>
+<li>experiment_07_3_same_input.py join：重放历史观测，复核同输入几何变化。</li>
+<li>results.json：逐运行原始路径及审计字段；online_ 下每批 source/ 保留运行源码与哈希。</li>
+</ul>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/formal_results/experiment_07/development_07_3/REPORT.md</code><br>SHA-256：<code>8501f7d678ac5c25b2e3f8623af6dd7b0882933a150c9f36e9b4a64fc1fc7105</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

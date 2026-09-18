@@ -1,0 +1,72 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>第四、第五章 · 实验版本证据审计 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">第四、第五章实验版本证据审计</a><a class="depth-2" href="#section-2">1. 结论先行</a><a class="depth-2" href="#section-3">2. 第四章 4.3：v4.3 不增厚核心椭球</a><a class="depth-2" href="#section-4">3. 第四章 4.4：v4.4 自适应不可约球基线</a><a class="depth-2" href="#section-5">4. v5.0：为何还要进入第五章</a><a class="depth-2" href="#section-6">5. 第五章 5.1：v5.1 实际实验矩阵</a><a class="depth-2" href="#section-7">6. v5.2 与 v5.3：为何不能把 v5.1直接叫最终版</a><a class="depth-2" href="#section-8">7. 建议的章节命名</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">历史 4.x / 5.x 实验 / MD</div><h1>第四、第五章 · 实验版本证据审计</h1><p>区分早期 v5.1 重复对照、v5.2 与 v5.3；这份是审计记录，不冒充未找到的第四、五章成稿。</p><div class="actions"><a class="primary" download href="../files/v4-v5-audit/chapter-04-05-version-evidence-audit.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/v4-v5-audit/chapter-04-05-version-evidence-audit.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">第四、第五章实验版本证据审计</h1>
+<h2 id="section-2">1. 结论先行</h2>
+<p>第五章 5.1 不能写成只有椭球的实验。v5.1 协议预注册并实际保存了十次正式运行：球型 <code>v51_r01</code>—<code>v51_r05</code> 五次，椭球型 <code>v51_r01</code>—<code>v51_r05</code> 五次。它是一组以环境代理表示为实验变量的在线闭环成对对照。</p>
+<p>v5.1 也不是磁盘中时间顺序上的最后一个协议。它之后还有 v5.2 和 v5.3。v5.2 完成了球/椭球各五次重跑，但没有通过全部任务与实时门；v5.3 只运行到椭球三次、球四次便按协议停止。因此第五章若以 v5.1 为核心，应称为“v5.1 冻结重复对照”，并在后续小节交代 v5.2/v5.3 的负结果，不能笼统称为“最终最新版本”。</p>
+<h2 id="section-3">2. 第四章 4.3：v4.3 不增厚核心椭球</h2>
+<p>v4.3 修正的是椭球代理的几何语义。核心椭球 <code>Q_core</code> 只拟合 CenterVox 表面代表点；相机方向不确定性 <code>U</code>、CenterVox 标量残差 <code>r_cv</code> 与安全裕量继续作为 Minkowski 支持和中的独立项，不再塞回核心短轴。70 mm 是最终支持尺度上限，不是要求短轴达到 70 mm。</p>
+<p>冻结有限证据显示：椭球到达严格目标，最终误差 0.177 mm，最终代理 2,187 个，控制器 p99 为 18.992 ms。该运行没有通过完整在线可观测性门。因此可写“几何和控制任务成功”，不能写“完整因果协议通过”。</p>
+<h2 id="section-4">3. 第四章 4.4：v4.4 自适应不可约球基线</h2>
+<p>v4.4 不改 v4.3 椭球控制器，只重做球型环境代理，使球对照不再是任意统一大球。候选球覆盖 CenterVox 后执行确定性近似集合覆盖、反向删除和按负责单元收缩；最终只声称相对固定候选族 inclusion-minimal，不声称全局最少。</p>
+<p>球型经历三次必须保留的修正：v4.4a 追求少量大球并产生大量 sweep 失败；v4.4b 仍允许少数过大球；v4.4c 用一个 CenterVox 对角线约束额外几何外包。v4.4c 最终发布 3,697 个球，半径 5.265—28.440 mm，最终误差 263.724 mm，控制器 p99 为 14.030 ms，零 MuJoCo 穿透且覆盖不可约，但任务失败，可观测性仍有 <code>late=8, never=0</code>。</p>
+<p>v4.3 和 v4.4 使用相同感知/地图配置，但闭环轨迹不同，最终 CenterVox 哈希不同，因此不是同点云表示消融。球运行在第 168 周期后长期进入 <code>qdot=0</code>；局部限制线闭合得到证据，但整个必经物理截面闭合没有得到证据。第四章必须保留这个归因边界。</p>
+<h2 id="section-5">4. v5.0：为何还要进入第五章</h2>
+<p>v5.0 不是简单再跑一次 v4.3/v4.4，而是重新定义公平性和正式证据：两种表示共享相机、地图、CenterVox 规则、尺度上限、覆盖门、机器人 65 个证书球、LiuQP 三状态、目标与求解器；球和椭球可有不同中心、数量和形状。因为在线轨迹不同导致点云不同，另用双向 crossed snapshot 在同一 CenterVox 上重建两种表示，隔离表示能力。</p>
+<p>根目录的 <code>tables/formal_v5/table1_main_online.*</code> 记录的是较早一批 2250/623 周期在线演示，不能作为 v5.1 的正式五次重复表。v5.1 的每次运行固定 3000 周期，成功后不提前停止。</p>
+<h2 id="section-6">5. 第五章 5.1：v5.1 实际实验矩阵</h2>
+<p>共同条件包括：<code>camera_v5_balanced</code> 两台移动深度相机、160×90、stride 1、CenterVox 7.5 mm、70 mm 尺度上限、6 mm 安全裕量、50 Hz、3000 周期、唯一 Cartesian 目标、seed 0、65 个机器人证书球、MVT+AABB+AVX2、无规划器、无扰动、无真值回退、无 sweep 命令修改。</p>
+<p>唯一主要实验变量是环境代理证书：球组使用 <code>sphereCapIrredundant/radiusForSphere</code>，椭球组使用 <code>ellipsoidAdaptiveIrredundant/radiusForEllipsoid</code> 与精确支持和最近点。两组运行顺序按 sphere r01、ellipsoid r01 交替，以减小系统负载漂移偏置。</p>
+<table>
+<thead>
+<tr>
+<th>表示</th>
+<th align="right">次数</th>
+<th align="right">任务成功</th>
+<th align="right">最终误差范围</th>
+<th align="right">平均最终误差</th>
+<th align="right">最终代理范围</th>
+<th align="right">最大单次控制 p99</th>
+<th align="right">deadline miss 总数</th>
+<th align="right">late / never</th>
+<th align="right">完整证据合格运行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sphere</td>
+<td align="right">5</td>
+<td align="right">0/5</td>
+<td align="right">342.021—345.079 mm</td>
+<td align="right">344.351 mm</td>
+<td align="right">311—323</td>
+<td align="right">9.903 ms</td>
+<td align="right">1</td>
+<td align="right">0 / 0</td>
+<td align="right">4/5</td>
+</tr>
+<tr>
+<td>ellipsoid</td>
+<td align="right">5</td>
+<td align="right">5/5</td>
+<td align="right">0.735—0.831 mm</td>
+<td align="right">0.780 mm</td>
+<td align="right">2,273—2,308</td>
+<td align="right">9.036 ms</td>
+<td align="right">2</td>
+<td align="right">4 / 0</td>
+<td align="right">1/5</td>
+</tr>
+</tbody></table>
+<p>五次椭球首次稳定成功时间平均 51.864 s；五次都满足 <code>&lt;1 mm × 50 cycles</code>，且十次运行 MuJoCo 精确穿透周期和 sweep failure 都为 0。球 r02 有一次 deadline miss；椭球 r01/r03/r04/r05 各有一个迟到表面样本，椭球 r05 另有两次 deadline miss。</p>
+<p>因此 v5.1 支持“该冻结场景中椭球任务结果 5/5、球任务结果 0/5”，但不支持“椭球 5/5 通过完整正式协议”。它的关键负结果是代理发布延迟约 2 s 导致 observed-before-risk 失败，而不是永久盲区，因为 <code>never=0</code>。</p>
+<p>v5.1 中球代理约 315 个而椭球约 2,293 个并不矛盾。球候选接近 70 mm 上限，少量大球覆盖很多 CenterVox，却因各向同性外扩压缩通道；椭球保留更多较薄的局部代理。该实验比较的是相同输入规则和覆盖门下的几何可行空间，不是强制代理数量相等，也不能从数量单独推出速度或表示优劣。</p>
+<h2 id="section-7">6. v5.2 与 v5.3：为何不能把 v5.1直接叫最终版</h2>
+<p>v5.2 只复用同一次递归节点内重复计算的 Loewner join，逐数组验证代理结果不变后，从头重跑球/椭球各五次。球仍为 0/5；椭球变为 3/5。五次椭球可观测性都通过，但两次没有在固定 3000 周期内通过任务门，球和椭球仍存在 deadline miss。因此 v5.2 解决了 v5.1 的发布迟到，却没有完成全部协议。</p>
+<p>v5.3 尝试把一个空间 CenterVox 的历史观测保留为方向子证书并集，避免用单个 Loewner 椭球过早凸化。正式结果保存了椭球 r01—r03 和球 r01—r04；椭球仅 r02 任务成功且该次有一次 deadline miss，球均失败。椭球代理增长到约 3,300，出现固定时长边界和实时尖峰，协议明确停止，不再补齐 5+5。因此它是诊断性负结果，不是完成版。</p>
+<h2 id="section-8">7. 建议的章节命名</h2>
+<ul>
+<li>4.3：不增厚核心椭球：从表面片到精确支持和约束。</li>
+<li>4.4：自适应不可约球基线：为什么可信球对照仍会受阻。</li>
+<li>5.1：v5.1 冻结在线因果重复对照：椭球 5/5 到达与球 0/5 受阻。</li>
+<li>5.2：完整协议为何仍未通过：v5.1 发布迟到与 v5.2 等价延迟修复。</li>
+<li>5.3：方向子证书实验及停止判据：一次应保留的负结果。</li>
+</ul>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/plan/review/chapter-04-05-version-evidence-audit.md</code><br>SHA-256：<code>911ce241c0681bf5b8b7ca04ee48d675d02f1ee857c4773eb81cd51e1ce5ea8f</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

@@ -1,0 +1,269 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>实验 7 · 进展记录 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">实验 07.2 执行进度（2026-09-16）</a><a class="depth-2" href="#section-2">当前状态</a><a class="depth-2" href="#section-3">冻结主组</a><a class="depth-2" href="#section-4">07.2 初始快照</a><a class="depth-2" href="#section-5">300 周期开发结果</a><a class="depth-2" href="#section-6">7A 正式结果（50 Hz，5 seeds/group）</a><a class="depth-2" href="#section-7">已保存的失败证据</a><a class="depth-2" href="#section-8">核心证据</a><a class="depth-2" href="#section-9">下一步</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">实验 7 与后续诊断 / MD</div><h1>实验 7 · 进展记录</h1><p>保留原始阶段状态与结论限制。</p><div class="actions"><a class="primary" download href="../files/exp07-progress/experiment-07-progress.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/exp07-progress/experiment-07-progress.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">实验 07.2 执行进度（2026-09-16）</h1>
+<h2 id="section-2">当前状态</h2>
+<ul>
+<li>E7-D0：passed。协议、追踪矩阵和表图契约已经建立。</li>
+<li>E7-D1：passed after correction。抽屉的 8 个历史 box、<code>q0</code> 和目标与 4.3
+数值相同，只增加两只后侧落地腿。鸟笼前平面已修正到 <code>x=0.350 m</code>；两场景
+五个冻结初态均零接触，目标分别有 1 和 3 组无接触 IK。</li>
+<li>E7-D2：passed smoke。厚度下限只作用于核心 <code>Q_i</code>，<code>U_i</code> 和
+<code>delta_i</code> 保持分离；相关 3 个单测通过。</li>
+<li>E7-D3a：passed。S/SA/E0/ET30 在每个场景的 generation-0 CenterVox 数组
+逐字节相等、SHA-256 相同，全部直接核心覆盖通过。完整轨迹交叉回放待正式前导。</li>
+<li>E7-D4：passed for local continuous cross-section。抽屉中心截面上 SA 有 4.244 mm 开口见证，ET30 有
+10.518 mm 严格开球，最近点最大 KKT 残差 <code>8.34e-9</code>；该证据不等于完整
+关节空间路径证书，也不支持“球一定封死”的旧叙事；闭环成功仍由 D6 判定。</li>
+<li>E7-D5：候选 recall 和抽屉轨迹逻辑控制输入等价通过；但 ET30 在五次正式末态的 120 mm 层占比都低于 5%，地图增长后层级结构门失败。</li>
+<li>E7-D6：20 次正式运行已完成并聚合；任务成功 2/20，完整证据资格 0/20，柜子尚未做完。</li>
+<li>E7-D7：按协议顺序暂不开始，先处理 7A 的收敛、sweep 和可观测性失败。</li>
+<li>E7-D8：未开始；只有鸟笼 B1 通过后才加入夹爪和物体。</li>
+</ul>
+<h2 id="section-3">冻结主组</h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>含义</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S</td>
+<td>cap-irredundant sphere</td>
+<td>少量大球的负载基线</td>
+</tr>
+<tr>
+<td>SA</td>
+<td>adaptive-irredundant sphere</td>
+<td>球表示与 MVT 层级主对照</td>
+</tr>
+<tr>
+<td>E0</td>
+<td>原始 PCA 表面椭球</td>
+<td>零厚度基线</td>
+</tr>
+<tr>
+<td>ET30</td>
+<td><code>a_min &gt;= 3.00 mm</code> 椭球</td>
+<td>非极薄主椭球组</td>
+</tr>
+</tbody></table>
+<p>3.75 mm 与 7.50 mm 作为上界消融保留。3.00 mm 的选择只用了覆盖、核心轴比、
+连续截面净空和 MVT 层级结构，没有使用正式任务成功率。</p>
+<h2 id="section-4">07.2 初始快照</h2>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th align="right">Group</th>
+<th align="right">proxies</th>
+<th align="right">axis ratio p95</th>
+<th>MVT 120/240 mm</th>
+<th>oracle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drawer</td>
+<td align="right">S</td>
+<td align="right">208</td>
+<td align="right">n/a</td>
+<td>5 / 203</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">SA</td>
+<td align="right">2937</td>
+<td align="right">1.00</td>
+<td>768 / 2169</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">E0</td>
+<td align="right">1550</td>
+<td align="right">411.19</td>
+<td>550 / 1000</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">ET30</td>
+<td align="right">1530</td>
+<td align="right">13.81</td>
+<td>393 / 1137</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>birdcage</td>
+<td align="right">S</td>
+<td align="right">216</td>
+<td align="right">n/a</td>
+<td>1 / 215</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>birdcage</td>
+<td align="right">SA</td>
+<td align="right">3283</td>
+<td align="right">1.00</td>
+<td>339 / 2944</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>birdcage</td>
+<td align="right">E0</td>
+<td align="right">1963</td>
+<td align="right">384.21</td>
+<td>389 / 1574</td>
+<td>pass</td>
+</tr>
+<tr>
+<td>birdcage</td>
+<td align="right">ET30</td>
+<td align="right">1921</td>
+<td align="right">13.41</td>
+<td>203 / 1718</td>
+<td>pass</td>
+</tr>
+</tbody></table>
+<p>前三个 15/30/60 mm 层仍为空，这是当前全局最大机器人半径加
+<code>NEAR+safety</code> 的层选择结果。初始快照只主张 120/240 mm 两层被有效使用，不声称
+五层都被用满。</p>
+<h2 id="section-5">300 周期开发结果</h2>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th align="right">Group</th>
+<th align="right">final error</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drawer</td>
+<td align="right">S</td>
+<td align="right">350.9 mm</td>
+<td>推进很弱</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">SA</td>
+<td align="right">179.0 mm</td>
+<td>球多尺度对照</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">E0</td>
+<td align="right">109.2 mm</td>
+<td>原始薄椭球</td>
+</tr>
+<tr>
+<td>drawer</td>
+<td align="right">ET30</td>
+<td align="right">96.3 mm</td>
+<td>当前抽屉最好</td>
+</tr>
+<tr>
+<td>birdcage 07.2</td>
+<td align="right">ET30</td>
+<td align="right">393.3 mm</td>
+<td>仅小幅推进，B1 尚未完成</td>
+</tr>
+</tbody></table>
+<p>这些运行不使用正式 50 Hz wall-clock pacing，也没有达到 <code>&lt;1 mm × 50 cycles</code>，
+所以不能计入成功率。</p>
+<h2 id="section-6">7A 正式结果（50 Hz，5 seeds/group）</h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th align="right">task success</th>
+<th align="right">evidence eligible</th>
+<th align="right">final error median</th>
+<th align="right">proxy median</th>
+<th align="right">deadline misses</th>
+<th align="right">penetration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S</td>
+<td align="right">0/5</td>
+<td align="right">0/5</td>
+<td align="right">342.75 mm</td>
+<td align="right">325</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>SA</td>
+<td align="right">0/5</td>
+<td align="right">0/5</td>
+<td align="right">283.43 mm</td>
+<td align="right">4157</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>E0</td>
+<td align="right">2/5</td>
+<td align="right">0/5</td>
+<td align="right">1.93 mm</td>
+<td align="right">2538</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>ET30</td>
+<td align="right">0/5</td>
+<td align="right">0/5</td>
+<td align="right">4.20 mm</td>
+<td align="right">2490</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody></table>
+<p>E0 的任务成功率为 40%，Wilson 95% CI 为 11.8%--76.9%；样本仅 5 次。其
+seed 0 虽达到目标，但有 1 次 continuous sweep audit failure；seed 3 达到目标，
+但有 21 个 late-observability 样本。因此两次均不满足完整 evidence gate。四组
+共 20 次源码哈希完全一致，覆盖和 MVT oracle 全通过，MuJoCo 穿透周期均为 0。</p>
+<p>ET30 把轴比 p95 从约 410 降到约 14，但严格成功从 E0 的 2/5 降为 0/5，显示
+3 mm 厚度消耗了深抽屉最后几毫米余量。它的五次正式末态又有约 94.6%--95.4%
+代理落入 240 mm 层，未保持预注册的层级结构门。SA 说明多小球可以形成尺度层级，
+但约 4,000 个代理仍未换来深插入成功，并出现两次 deadline miss。</p>
+<p>结果文件：</p>
+<ul>
+<li><code>tables/experiment_07/T27_drawer_formal_runs_07_2.csv</code></li>
+<li><code>formal_results/experiment_07/drawer_formal_summary_07_2.json</code></li>
+<li><code>formal_results/experiment_07/drawer_failure_diagnosis_07_2.json</code></li>
+<li><code>figures/experiment_07/F14_drawer_formal_outcome_07_2.png</code></li>
+</ul>
+<h2 id="section-7">已保存的失败证据</h2>
+<ol>
+<li>抽屉整面落地支撑使窄通道 IK 搜索失败：
+<code>scene_gate_attempt_00_full_side_supports_failed.json</code>。</li>
+<li>随机 IK 未命中历史窄通道分支：
+<code>scene_gate_attempt_01_random_ik_branch_missed.json</code>。</li>
+<li>07.0 鸟笼 <code>Q0_V3</code> 与前栏杆穿透：
+<code>initial_seed_gate_attempt_00_front_plane_collision.json</code>。该场景的旧鸟笼
+烟雾/300 周期目录不进入统计。</li>
+<li>原始 ET7.5 几乎全部落在 240 mm 层；按半径复制三份索引的原型虽改善层级
+分布，但查询慢约 1.9–2.4 倍、内存引用为 3 倍，因此不接入控制器。</li>
+<li>旧 paired-certificate 要求“球闭、椭球开”，而实验 07 的 SA 已有开口见证；
+其 <code>paired_certificate_passed=false</code> 是叙事不适用，不是最近点核失败。</li>
+</ol>
+<h2 id="section-8">核心证据</h2>
+<ul>
+<li><code>formal_results/experiment_07/static_scene_gate/scene_gate.json</code></li>
+<li><code>formal_results/experiment_07/initial_seed_gate.json</code></li>
+<li><code>formal_results/experiment_07/same_cloud_initial_snapshot_audit.json</code></li>
+<li><code>formal_results/experiment_07/mvt_selected_group_audit_07_2.json</code></li>
+<li><code>formal_results/experiment_07/drawer/paired_cross_section_sa_et30_initial_smoke/certificate.json</code></li>
+<li><code>tables/experiment_07/T25_same_cloud_initial_smoke.csv</code></li>
+<li><code>tables/experiment_07/T26_mvt_level_smoke_07_2.csv</code></li>
+<li><code>tables/experiment_07/T27_drawer_formal_runs_07_2.csv</code></li>
+<li><code>formal_results/experiment_07/drawer_formal_summary_07_2.json</code></li>
+<li><code>formal_results/experiment_07/drawer_failure_diagnosis_07_2.json</code></li>
+</ul>
+<h2 id="section-9">下一步</h2>
+<p>07.3 只针对三项已定位问题设计：入口唇边采用有物理依据的局部厚度策略；让左壁风险区在 cycle 102 前发布；将连续 sweep guard 从 audit 证据转为可验证的执行约束。先写 07.3 修订协议并重过静态/同点云门；7A 未达到稳健证据门前不进入 7B B1/B2。</p>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/plan/experiment-07-progress.md</code><br>SHA-256：<code>8e4e82bf3f4460dcc1a786c31b956792bf1006a4caad6c0fc752863c2c5e2ca9</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

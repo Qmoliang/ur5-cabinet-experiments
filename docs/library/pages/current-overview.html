@@ -1,0 +1,941 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>当前实验 · 英文总览 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script><script src="../vendor/mermaid-12.0.0.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">UR5 Cabinet Experiments: Known Geometry and Online Perception</a><a class="depth-2" href="#section-2">Contents</a><a class="depth-2" href="#section-3">1. How to present the experiment</a><a class="depth-2" href="#section-4">2. Scene and experimental scope</a><a class="depth-3" href="#section-5">Keep three types of geometry separate</a><a class="depth-2" href="#section-6">3. Directory organization</a><a class="depth-3" href="#section-7">Where to find evidence</a><a class="depth-2" href="#section-8">4. Who calls whom and who controls motion</a><a class="depth-3" href="#section-9">4.1 Experiment orchestration</a><a class="depth-3" href="#section-10">4.2 Online feedback and authority</a><a class="depth-3" href="#section-11">4.3 Core module responsibilities</a><a class="depth-2" href="#section-12">5. Experiment groups and results</a><a class="depth-3" href="#section-13">Relationship to earlier results</a><a class="depth-2" href="#section-14">6. Open issue: map publication latency</a><a class="depth-3" href="#section-15">Control frequency and map frequency are different</a><a class="depth-3" href="#section-16">Where the time goes</a><a class="depth-2" href="#section-17">7. Open issue: MVT layer concentration</a><a class="depth-3" href="#section-18">Layer number, proxy size, and sensing resolution differ</a><a class="depth-3" href="#section-19">Actual assignment rule</a><a class="depth-3" href="#section-20">Recorded distribution</a><a class="depth-3" href="#section-21">Interpretation and next evaluation</a><a class="depth-2" href="#section-22">8. Failures and evidence boundaries</a><a class="depth-3" href="#section-23">Four aborted attempts</a><a class="depth-3" href="#section-24">Physical checks and remaining protocol failures</a><a class="depth-3" href="#section-25">Supported conclusions</a><a class="depth-2" href="#section-26">9. Replay and visualization</a><a class="depth-2" href="#section-27">10. Verification and reading order</a><a class="depth-3" href="#section-28">Verify this delivery</a><a class="depth-3" href="#section-29">New experiments and regeneration</a><a class="depth-3" href="#section-30">Top-down reading order</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">当前落地柜子实验 / MD</div><h1>当前实验 · 英文总览</h1><p>2026-09-17 落地柜子重跑：网页 19 组结果对应的完整本地目录说明。</p><div class="actions"><a class="primary" download href="../files/current-overview/README.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/current-overview/README.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">UR5 Cabinet Experiments: Known Geometry and Online Perception</h1>
+<p><strong>Status: 19 fresh attempts, including 15 complete 60-second runs and four aborted runs.</strong> This directory contains the rerun with four physical cabinet supports included in collision geometry, camera observations, and environment modeling.</p>
+<p>The research question is: <strong>How do environment representation, map freshness, and collision-query efficiency affect a robot reaching into a narrow cabinet?</strong> We compare sphere and ellipsoid representations with LiuQP and a local adaptation of the NEO position-task controller.</p>
+<p>Several ellipsoid configurations reach and hold the target. <strong>The complete online sensing and certificate protocol has not yet passed.</strong> Task completion, solver reliability, physical clearance, proxy clearance, and timely observation are separate results.</p>
+<h2 id="section-2">Contents</h2>
+<ol>
+<li><a href="#1-how-to-present-the-experiment">How to present the experiment</a></li>
+<li><a href="#2-scene-and-experimental-scope">Scene and experimental scope</a></li>
+<li><a href="#3-directory-organization">Directory organization</a></li>
+<li><a href="#4-who-calls-whom-and-who-controls-motion">Who calls whom and who controls motion</a></li>
+<li><a href="#5-experiment-groups-and-results">Experiment groups and results</a></li>
+<li><a href="#6-open-issue-map-publication-latency">Open issue: map publication latency</a></li>
+<li><a href="#7-open-issue-mvt-layer-concentration">Open issue: MVT layer concentration</a></li>
+<li><a href="#8-failures-and-evidence-boundaries">Failures and evidence boundaries</a></li>
+<li><a href="#9-replay-and-visualization">Replay and visualization</a></li>
+<li><a href="#10-verification-and-reading-order">Verification and reading order</a></li>
+</ol>
+<h2 id="section-3">1. How to present the experiment</h2>
+<blockquote>
+<p>We study a UR5 reaching a target inside a narrow cabinet. Conservative obstacle representations can reduce the available clearance and block a passage that exists in the physical scene. We represent the robot with certificate spheres and compare sphere and ellipsoid environment proxies. At each control step, a multilevel voxel table selects nearby candidates, a distance kernel evaluates relevant robot-obstacle pairs, and a quadratic program computes joint velocities. We first evaluate known geometry, then use two robot-mounted depth cameras to build the environment online. Current ellipsoid configurations demonstrate successful reaching, while online map freshness and the benefits of multilevel indexing remain unresolved research issues.</p>
+</blockquote>
+<p>The feedback loop is:</p>
+<p><strong>Robot configuration -&gt; depth observations -&gt; map and proxy updates -&gt; published snapshot -&gt; MVT candidate search -&gt; distances and collision constraints -&gt; QP joint velocity -&gt; next configuration.</strong></p>
+<p>Known-environment experiments replace observation and mapping with a precomputed volume cover of the physical cabinet. MVT is a spatial index: the proxy builder determines sphere radii and ellipsoid shapes before the index assigns layers. MVT neither fits the shapes nor generates robot motion.</p>
+<h2 id="section-4">2. Scene and experimental scope</h2>
+<ul>
+<li>Eight original cabinet boxes plus four physical supports: <strong>12 obstacle boxes</strong>.</li>
+<li>Original cabinet dimensions, initial joint configuration, target, UR5 kinematics, and <strong>65 robot certificate spheres</strong> are retained.</li>
+<li>Camera mounts, orientations, fields of view, 320 x 180 resolution, and pixel stride of 1 are retained. Each online run captures fresh observations along its own executed trajectory.</li>
+<li>Official UR5 meshes provide the appearance. The original robot collision geometry still defines collision and camera self-occlusion; visual meshes are not a new certified robot model.</li>
+<li>Known-environment covers are rebuilt as <strong>388 proxies</strong>, with complete solid sub-box coverage verified through corner-containment checks.</li>
+<li>This is a custom cabinet task; its visual style does not make it the original IRIS 4Shelves benchmark.</li>
+</ul>
+<p>The preflight found 1,824 support-related depth returns at the initial pose. Saved camera-source poses give 3,493 / 3,389 / 3,840 / 3,812 support returns for H01 / H02 / O02 / A03. These observations cover visible surfaces of two supports; physical presence of all four does not imply complete observation of all four.</p>
+<h3 id="section-5">Keep three types of geometry separate</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Role</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Physical geometry</td>
+<td>Scene, depth generation, and independent physical checks</td>
+<td><code>assets/scene.xml</code>, <code>assets/scene.json</code>, runtime scene builders</td>
+</tr>
+<tr>
+<td>Geometric certificates</td>
+<td>Robot spheres and environment proxies used for collision constraints</td>
+<td>Robot certificate builder and known-volume/online proxy builder</td>
+</tr>
+<tr>
+<td>Display geometry</td>
+<td>Bodies, proxies, and uncertainty components shown on screen</td>
+<td><code>replay.py</code>, <code>replay_window.py</code></td>
+</tr>
+</tbody></table>
+<p>Online control receives observed proxies rather than all ground-truth cabinet boxes. Ground-truth geometry generates simulated measurements and supports independent audits. The online runs use <code>unknown_policy=&#39;observed_only&#39;</code>: unobserved space is not universally a hard obstacle.</p>
+<p>These are <strong>kinematic joint-velocity experiments</strong>. The runner advances <code>q_next = q + qdot * 0.02</code> and evaluates the resulting MuJoCo state. The experiments do not establish torque-control performance or hardware tracking guarantees.</p>
+<p><span class="archive-link" title="原始归档路径：../README.md">The parent archive</span> preserves older experiments with a unified appearance and decorative supports. This directory contains fresh runs with physical supports. Use this directory&#39;s results for the new scene; older records remain preserved.</p>
+<h2 id="section-6">3. Directory organization</h2>
+<p>Paths below are relative to this README. The three runtime directories are isolated implementations for different experiment families, not three successive processing stages.</p>
+<pre><code>rerun_grounded_20260917/
+  README.md                    Explanation and navigation
+  plan/                        Protocol, review records, preflight lock
+  assets/                      Canonical XML/JSON scene and UR5 visual meshes
+  prepare.py                   Builds isolated runtimes and scene inputs
+  preflight.py                 Checks one runtime&#39;s geometry and observations
+  preflight/                   Saved known/historical/online checks
+  batch.py                     Sequential schedule of 19 fixed cases
+  run_case.py                  Dispatches one case to the correct runtime
+  runtimes/
+    known/                     Known-volume LiuQP and NEO
+    historical/                Frozen 4.3 ellipsoid / 4.4 sphere pipelines
+    online/                    Current online pipeline and NEO adapters
+  results/&lt;ID&gt;/                Consolidated evidence for each new attempt
+  smoke/                       Short preflight/debug runs, outside formal results
+  logs/                        Experimental console logs
+  audit_results.py             Independent trajectory/failure reconstruction
+  audits/                      Aggregated audits and source-integrity evidence
+  assemble_delivery.py         Original catalog/report/viewer generation script
+  catalog.json                 Case groups, paths, and replay metadata
+  comparison.json              Old/new values, solver statuses, audit details
+  browse.py                    Chinese launcher: selects and starts replay
+  replay.py                    Loads recorded states and causal proxy snapshots
+  replay_window.py             MuJoCo rendering, mouse controls, keyboard input
+  01_*.cmd ... 05_*.cmd         Replay launchers for the five groups
+  previews/                    Presentation and display-check images
+  figures/                     Plotting script and result figures
+  tables/                      Tabulated outputs
+  verify_delivery.py           Checks frozen sources, results, and scene identity
+  verification/                Result hash seal and verification reports
+  *_manifest.json              Preparation and formal source manifests
+  source_changes.json          Recorded preparation changes
+  batch_progress.json          Dispatch progress and attempt records
+  current_case.json            Dispatcher status, not a scientific result</code></pre>
+<p>Existing supporting filenames are retained: <a href="current-results.html">full result table</a> and <a href="current-viewer.html">viewer instructions</a>.</p>
+<h3 id="section-7">Where to find evidence</h3>
+<table>
+<thead>
+<tr>
+<th>File or location</th>
+<th>Meaning and producer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>results/&lt;ID&gt;/run_identity.json</code></td>
+<td>Dispatcher identity, runtime, scene hash, completion/error information</td>
+</tr>
+<tr>
+<td><code>results/&lt;ID&gt;/summary.json</code></td>
+<td>Runner summary when available; independent audit determines the normalized result</td>
+</tr>
+<tr>
+<td><code>results/&lt;ID&gt;/A-CV-*/</code></td>
+<td>Online/historical recording directory when present</td>
+</tr>
+<tr>
+<td><code>cycles.csv</code>, <code>q_history.npy</code>, <code>ee_history.npy</code></td>
+<td>Original control diagnostics and state records</td>
+</tr>
+<tr>
+<td><code>perception_frames.csv</code></td>
+<td>Timings, source/publish timestamps, proxy counts, and available MVT statistics</td>
+</tr>
+<tr>
+<td><code>causal_proxy_snapshots.npz</code></td>
+<td>Proxy generations with their source and publication cycles</td>
+</tr>
+<tr>
+<td><code>causal_source_configurations.npz</code></td>
+<td>States from which camera observations were generated</td>
+</tr>
+<tr>
+<td>Other <code>causal_*_snapshots.npz</code></td>
+<td>Occupancy, CenterVox, and observability evidence where saved</td>
+</tr>
+<tr>
+<td><code>proxies.npz</code></td>
+<td>Static known-environment proxy set where available</td>
+</tr>
+<tr>
+<td><code>failure.json</code>, <code>failed_qp.npz</code>, <code>neo_pre_step_q.npy</code></td>
+<td>Applicable failure diagnostics and pre-step states</td>
+</tr>
+<tr>
+<td><code>independent_new_scene_audit.json</code>, <code>audited_q.npy</code>, <code>audited_error_mm.npy</code></td>
+<td>Independent audit and normalized trajectory</td>
+</tr>
+<tr>
+<td><code>replay_q.npy</code>, <code>replay_error_mm.npy</code>, <code>presentation.xml</code>, <code>case.json</code></td>
+<td>Delivery files derived from audited records and the new scene</td>
+</tr>
+</tbody></table>
+<p>Not every attempt has every file. Aborted cases without proxy history explicitly show that it is unavailable; replay never substitutes another run&#39;s map.</p>
+<p>Runtime trees contain inherited scripts and internal output folders. A filename mentioning another experiment version is not another formal attempt in this batch. The authoritative case list is <code>catalog.json</code>, and consolidated evidence is under <code>results/&lt;ID&gt;/</code>.</p>
+<h2 id="section-8">4. Who calls whom and who controls motion</h2>
+<h3 id="section-9">4.1 Experiment orchestration</h3>
+<pre class="mermaid">flowchart TD
+    P[prepare.py: runtime copies and scene] --&gt; V[preflight.py: verify inputs]
+    V --&gt; B[batch.py: case schedule]
+    B --&gt; R[run_case.py: select runtime]
+    R --&gt; K[known: K and N cases]
+    R --&gt; H[historical: H cases]
+    R --&gt; O[online: O and A cases]
+    K --&gt; D[results/ID and logs]
+    H --&gt; D
+    O --&gt; D
+    D --&gt; A[audit_results.py: reconstruct and check]
+    A --&gt; C[assemble_delivery.py: catalog and delivery]
+    C --&gt; W[browse.py then replay.py and replay_window.py]</pre>
+<p>This diagram shows artifact-production order. Preparation, preflight, audits, and delivery are separate stages, not one recursive invocation. <code>batch.py</code> directly starts <code>run_case.py</code> in a separate Python process for each case.</p>
+<table>
+<thead>
+<tr>
+<th>Cases</th>
+<th>Actual dispatch route</th>
+<th>Selected controller</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K01/K02</td>
+<td><code>run_case.py</code> -&gt; <code>runtimes/known/run.py::run</code></td>
+<td>Known-volume LiuQP sphere/ellipsoid</td>
+</tr>
+<tr>
+<td>K03</td>
+<td>Dispatcher -&gt; <code>known/tests/run_sphere_same_qp_slsqp.py</code></td>
+<td>Same-QP sphere solver validation</td>
+</tr>
+<tr>
+<td>N01-N03</td>
+<td>Dispatcher -&gt; <code>known/external_neo/run_comparison.py::run_case</code></td>
+<td>LiuQP reference, NEO ellipsoid 46/300 mm</td>
+</tr>
+<tr>
+<td>N04/N05</td>
+<td>Dispatcher -&gt; <code>known/external_neo/sphere_study/experiment.py::run_case</code></td>
+<td>NEO sphere 46/300 mm</td>
+</tr>
+<tr>
+<td>H01/H02</td>
+<td>Dispatcher -&gt; <code>historical/run.py::load_case</code> and <code>arguments</code> -&gt; <code>pipeline.run_one</code></td>
+<td><code>src/v43_ellipsoid/pipeline.py</code> or <code>src/v44_sphere/pipeline.py</code></td>
+</tr>
+<tr>
+<td>O01-O06</td>
+<td>Dispatcher -&gt; <code>online/external_neo_adaptive/run_study.py</code> -&gt; <code>run_protocol_v3_async_online.py::run_one</code></td>
+<td>LiuQP for O01/O02; replacement <code>OnlineNEO</code> factory for O03-O06</td>
+</tr>
+<tr>
+<td>A01-A03</td>
+<td>Dispatcher -&gt; <code>online/external_neo_adaptive/ablation_no_manip/run_ablation.py</code> -&gt; shared study runner</td>
+<td><code>NoManipNEO</code> removes the manipulability term; Hessian and hard constraints retained</td>
+</tr>
+</tbody></table>
+<p>Grounded H cases call the loader and <code>run_one</code> directly. They do not use historical <code>run.py::main</code>, which still checks the earlier scene hash. Process isolation prevents identically named modules from different runtimes being mixed.</p>
+<h3 id="section-10">4.2 Online feedback and authority</h3>
+<pre class="mermaid">flowchart LR
+    R[Runner: current q and observation requests] --&gt; P[PerceptionWorker: cameras and mapping]
+    P --&gt; S[Immutable map and proxy packet]
+    S --&gt; U[Publication: install available generation]
+    U --&gt; C[Controller.solve target]
+    C --&gt; V[Joint velocity qdot]
+    V --&gt; R
+    R --&gt; L[Cycle records]
+    S --&gt; M[Perception and snapshot records]</pre>
+<ol>
+<li><strong>Runner owns execution.</strong> <code>run_protocol_v3_async_online.py::run_one</code> initializes the task, maintains the joint state, requests observations, publishes packets, calls the controller, integrates velocity, and records outcomes.</li>
+<li><strong>Perception owns map construction.</strong> <code>PerceptionWorker</code> uses a separate model/state at the requested observation pose. It captures depth, updates occupancy and CenterVox data, constructs proxies, verifies coverage, and returns an immutable serialized packet. It cannot command the robot.</li>
+<li><strong>Publication controls information availability.</strong> Source time identifies the observation pose; publication time identifies when information becomes available to control. <code>_materialize_packet</code>, <code>_prepare_publication</code>, and <code>_update_controller</code> install the available generation. MVT is audited in perception and rebuilt/materialized from the transferred snapshot in the receiving process.</li>
+<li><strong>Controller owns the velocity decision.</strong> It computes robot sphere positions/Jacobians, queries candidates, evaluates distances, assembles the QP, and returns <code>qdot</code> and metrics.</li>
+<li><strong>Runner applies the velocity.</strong> Formal online cases use <code>sweep_guard_mode=&#39;audit_only&#39;</code>: sweep checks can flag evidence failures but cannot scale or replace the command. Execution is <code>q_next = q + qdot * DT</code>, with <code>DT=0.02 s</code>.</li>
+<li><strong>Motion changes future observations.</strong> Different controllers generate different camera trajectories, map content, and publication schedules. These are independent closed loops, not identical-point-cloud controller ablations.</li>
+</ol>
+<h3 id="section-11">4.3 Core module responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Module, relative to <code>runtimes/</code></th>
+<th>Responsibility</th>
+<th>Consumer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>known/src/known_volume.py</code></td>
+<td>Solid subdivision, volume covers, coverage checks</td>
+<td>Known runners</td>
+</tr>
+<tr>
+<td><code>known/src/core/robot.py</code></td>
+<td>Robot model, state, kinematics, 65-sphere certificate</td>
+<td>Known runners; replay certificate helpers</td>
+</tr>
+<tr>
+<td><code>known/src/core/controller.py</code></td>
+<td>LiuQP collision processing and QP</td>
+<td>Known LiuQP runner</td>
+</tr>
+<tr>
+<td><code>known/src/core/voxel_index.py</code></td>
+<td>Native MVT wrapper</td>
+<td>Known runner/controller</td>
+</tr>
+<tr>
+<td><code>known/src/core/geometry.py</code>, <code>known/src/core/native_support.py</code>, <code>known/native/collision.cpp</code></td>
+<td>Geometry and native distance kernels</td>
+<td>Controller and wrappers</td>
+</tr>
+<tr>
+<td><code>online/model.py</code>, <code>online/protocol_drawer_scene.py</code></td>
+<td>State/model helpers and task parameters</td>
+<td>Runner, worker, controller</td>
+</tr>
+<tr>
+<td><code>online/depth_camera_perception.py</code></td>
+<td>Simulated depth capture and filtering</td>
+<td>Perception worker</td>
+</tr>
+<tr>
+<td><code>online/native_occupancy.py</code></td>
+<td>Incremental occupancy and map interfaces</td>
+<td>Perception and certificate checks</td>
+</tr>
+<tr>
+<td><code>online/incremental_proxy_manager.py</code></td>
+<td>Persistent CenterVox data and adaptive proxy updates</td>
+<td>Perception worker</td>
+</tr>
+<tr>
+<td><code>online/pointcloud_proxy.py</code>, <code>online/ellipsoid_model.py</code>, <code>online/irredundant_proxy_cover.py</code></td>
+<td>Fitting, shape support, coverage selection</td>
+<td>Proxy manager and geometry pipeline</td>
+</tr>
+<tr>
+<td><code>online/run_protocol_v3_online_ablation.py</code></td>
+<td>Shared AABB and MVT construction helpers</td>
+<td>Asynchronous runner</td>
+</tr>
+<tr>
+<td><code>online/native_mvt.py</code>, <code>online/native_mvt/native_mvt.cpp</code></td>
+<td>Multilevel tables and native candidate filtering</td>
+<td>Perception/publication and geometry processing</td>
+</tr>
+<tr>
+<td><code>online/protocol_liuqp_controller.py</code></td>
+<td>LiuQP objective, constraints, QP solve, pair records</td>
+<td>Controller factory and control loop</td>
+</tr>
+<tr>
+<td><code>online/native_ellipsoid_support.py</code></td>
+<td>Native geometry interface</td>
+<td>Distance and collision processing</td>
+</tr>
+<tr>
+<td><code>online/external_neo_adaptive/neo_online.py</code></td>
+<td>Local NEO QP, index updates, diagnostics</td>
+<td>Replacement factory in <code>run_study.py</code></td>
+</tr>
+<tr>
+<td><code>online/external_neo_adaptive/ablation_no_manip/run_ablation.py</code></td>
+<td>Objective-term ablation in <code>NoManipNEO.assemble</code></td>
+<td>A cases</td>
+</tr>
+</tbody></table>
+<p><code>OnlineNEO</code> reuses infrastructure through inheritance from <code>ProtocolLiuQPController</code>, but implements its own NEO formulation. Inheritance does not mean that LiuQP&#39;s objective remains active. NEO-specific index updates occur on the control thread and are recorded separately. Its 46/300 mm influence range differs from LiuQP&#39;s 40 mm near distance.</p>
+<p><strong>Auditing and replay do not control the formal trajectory.</strong> <code>audit_results.py</code> evaluates saved states. <code>browse.py</code> chooses recordings. <code>replay.py</code> loads states and time-matched proxies; <code>replay_window.py</code> renders them and handles input. Selecting sphere/ellipsoid loads a different recorded case rather than recomputing the current trajectory.</p>
+<h2 id="section-12">5. Experiment groups and results</h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Cases</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Known LiuQP</td>
+<td>K01-K03</td>
+<td>How does representation affect reaching with full obstacle knowledge? Does the same-QP solver check change the sphere result?</td>
+</tr>
+<tr>
+<td>Historical pipelines, rerun</td>
+<td>H01-H02</td>
+<td>How do frozen 4.3/4.4 pipelines behave with physical supports and fresh observations?</td>
+</tr>
+<tr>
+<td>Known NEO</td>
+<td>N01-N05</td>
+<td>Does the representation effect persist with the local NEO adaptation?</td>
+</tr>
+<tr>
+<td>Current online comparison</td>
+<td>O01-O06</td>
+<td>What happens when each controller builds its own map causally?</td>
+</tr>
+<tr>
+<td>Manipulability ablation</td>
+<td>A01-A03</td>
+<td>How does removing the NEO manipulability term affect reaching and feasibility?</td>
+</tr>
+</tbody></table>
+<p><strong>4.3 is ellipsoid; 4.4 is sphere.</strong> H01/H02 are fresh runs of historical pipelines. O01/O02 use the current shared pipeline. <strong>NEO&#39;s 46/300 mm values are obstacle influence distances, not proxy radii.</strong></p>
+<p>A reach is confirmed when post-execution position error is strictly below 1 mm for 50 consecutive steps. Confirmation time is simulated trajectory time, not solver runtime. Complete trials continue to 60 s. &quot;Held&quot; below means final task success, not full sensing/certificate protocol success.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Configuration</th>
+<th align="right">Final error (mm)</th>
+<th>Outcome</th>
+<th align="right">Reach confirmation (s)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>K01</td>
+<td>Known LiuQP sphere</td>
+<td align="right">314.164573</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>K02</td>
+<td>Known LiuQP ellipsoid</td>
+<td align="right">0.000620</td>
+<td>Reached and held</td>
+<td align="right">16.72</td>
+</tr>
+<tr>
+<td>K03</td>
+<td>Known sphere, same-QP solver validation</td>
+<td align="right">314.164571</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>H01</td>
+<td>Historical 4.3 ellipsoid, new scene</td>
+<td align="right">0.095156</td>
+<td>Reached and held</td>
+<td align="right">25.02</td>
+</tr>
+<tr>
+<td>H02</td>
+<td>Historical 4.4 sphere, new scene</td>
+<td align="right">257.650439</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>N01</td>
+<td>Known LiuQP ellipsoid reference rerun</td>
+<td align="right">0.000620</td>
+<td>Reached and held</td>
+<td align="right">16.72</td>
+</tr>
+<tr>
+<td>N02</td>
+<td>Known NEO ellipsoid, 46 mm</td>
+<td align="right">0.000183</td>
+<td>Reached and held</td>
+<td align="right">6.04</td>
+</tr>
+<tr>
+<td>N03</td>
+<td>Known NEO ellipsoid, 300 mm</td>
+<td align="right">0.000183</td>
+<td>Reached and held</td>
+<td align="right">6.26</td>
+</tr>
+<tr>
+<td>N04</td>
+<td>Known NEO sphere, 46 mm</td>
+<td align="right">312.716553</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>N05</td>
+<td>Known NEO sphere, 300 mm</td>
+<td align="right">312.716553</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>O01</td>
+<td>Online LiuQP adaptive sphere</td>
+<td align="right">273.042437</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>O02</td>
+<td>Online LiuQP ellipsoid</td>
+<td align="right">0.005167</td>
+<td>Reached and held</td>
+<td align="right">21.34</td>
+</tr>
+<tr>
+<td>O03</td>
+<td>Online NEO sphere, 300 mm</td>
+<td align="right">369.147935</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>O04</td>
+<td>Online NEO ellipsoid, 300 mm</td>
+<td align="right">374.576967</td>
+<td>Aborted</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>O05</td>
+<td>Online NEO sphere, 46 mm</td>
+<td align="right">232.074424</td>
+<td>Aborted</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>O06</td>
+<td>Online NEO ellipsoid, 46 mm</td>
+<td align="right">370.201639</td>
+<td>Not reached</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>A01</td>
+<td>No-manipulability NEO sphere, 300 mm</td>
+<td align="right">260.659817</td>
+<td>Aborted</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>No-manipulability NEO ellipsoid, 300 mm</td>
+<td align="right">343.031284</td>
+<td>Aborted</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>No-manipulability NEO ellipsoid, 46 mm</td>
+<td align="right">0.502953</td>
+<td>Reached and held</td>
+<td align="right">6.42</td>
+</tr>
+</tbody></table>
+<h3 id="section-13">Relationship to earlier results</h3>
+<ul>
+<li>All eight known-environment runs reproduce their respective old joint trajectories exactly, after fresh rebuilding and execution with 388 proxies. The added supports did not change these solutions; other tasks may behave differently.</li>
+<li>H01 changes from 0.177 to 0.095 mm final error; H02 from 263.724 to 257.650 mm. O01 changes from 256.611 to 273.042 mm; O02 from 0.021 to 0.005 mm.</li>
+<li>K03 has 1,634 successful same-QP fallbacks and zero failed fallbacks; the sphere configuration still does not reach.</li>
+<li>Old A03 reached and subsequently left the tolerance, ending at 1.525 mm. New A03 confirms reach at 6.42 s, holds through the end, and finishes at 0.503 mm, with 2,729 final consecutive qualifying cycles. Its new asynchronous trajectory does not establish that the supports fixed the old map-update issue. The old 41.96 s map event is not part of this trajectory.</li>
+</ul>
+<p>Full comparisons are in <a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/comparison.json">comparison.json</a>. Each configuration was attempted once; case counts are not statistical success rates. NEO here is a local position-task core adaptation, not the authors&#39; complete software and recovery mechanisms. A03 is an ablation, not the unmodified NEO result.</p>
+<p><img src="../files/current-overview/figures/new_scene_error_curves_preview.png" alt="Recorded error curves" loading="lazy"></p>
+<h2 id="section-14">6. Open issue: map publication latency</h2>
+<h3 id="section-15">Control frequency and map frequency are different</h3>
+<p>The nominal control period is 20 ms (50 Hz). Control can continue using the last published map while perception works. A configured camera request rate of 30 Hz therefore does not imply 30 new proxy maps per second.</p>
+<p>The following values are recomputed from O01/O02 perception and cycle CSV files. Publication frequency uses the runner&#39;s recorded wall-clock rate; map ages use logged simulation-cycle timestamps.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th align="right">O01: adaptive spheres</th>
+<th align="right">O02: ellipsoids</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Published maps in the 60 s trial</td>
+<td align="right">21</td>
+<td align="right">51</td>
+</tr>
+<tr>
+<td>Mean publication rate, wall clock</td>
+<td align="right">0.33 Hz</td>
+<td align="right">0.82 Hz</td>
+</tr>
+<tr>
+<td>Age at publication, median</td>
+<td align="right">3.00 s</td>
+<td align="right">1.24 s</td>
+</tr>
+<tr>
+<td>Age during control, median</td>
+<td align="right">4.36 s</td>
+<td align="right">1.80 s</td>
+</tr>
+<tr>
+<td>Age during control, maximum</td>
+<td align="right">6.06 s</td>
+<td align="right">3.04 s</td>
+</tr>
+</tbody></table>
+<p><strong>Publication age</strong> measures source-observation to publication delay. <strong>Age during control</strong> measures source-observation to the current control cycle; it increases while a published map is reused. Even with a stationary cabinet, robot motion reveals new surfaces. Delayed publication makes those observations available to collision constraints late.</p>
+<h3 id="section-16">Where the time goes</h3>
+<p>Mean timings over published perception frames:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th align="right">O01: adaptive spheres</th>
+<th align="right">O02: ellipsoids</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Proxy management/construction</td>
+<td align="right">1569.3 ms</td>
+<td align="right">800.0 ms</td>
+</tr>
+<tr>
+<td>Proxy coverage verification</td>
+<td align="right">1251.5 ms</td>
+<td align="right">282.4 ms</td>
+</tr>
+<tr>
+<td>MVT construction/audit stage</td>
+<td align="right">5.8 ms</td>
+<td align="right">3.5 ms</td>
+</tr>
+</tbody></table>
+<p>The proxy-update total contains management and coverage-check work. Other stages may overlap, so summing all stage means does not give end-to-end latency. The principal measured cost is proxy construction/management and coverage verification, rather than MVT construction alone.</p>
+<p>Published-frame statistics exclude work still in flight or not published by termination. These are measurements of these runs, not repeated benchmark estimates. Source records are under <span class="archive-link" title="原始归档路径：results/O01/">O01</span> and <span class="archive-link" title="原始归档路径：results/O02/">O02</span>, especially <code>perception_frames.csv</code> and <code>cycles.csv</code> in their <code>A-CV-*</code> subdirectories.</p>
+<p><strong>Next evaluation:</strong> preserve coverage guarantees while assessing local refitting, reuse of unaffected coverage evidence, and publication scheduling. Report control timing and map age separately. Changes to stale-map handling need a new protocol and runs.</p>
+<h2 id="section-17">7. Open issue: MVT layer concentration</h2>
+<h3 id="section-18">Layer number, proxy size, and sensing resolution differ</h3>
+<p>The current MVT base width is 15 mm. Code levels are zero-based; explanatory layers below are one-based.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th align="right">Code level</th>
+<th align="right">Cell width</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="right">0</td>
+<td align="right">15 mm</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="right">1</td>
+<td align="right">30 mm</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="right">2</td>
+<td align="right">60 mm</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="right">3</td>
+<td align="right">120 mm</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="right">4</td>
+<td align="right">240 mm</td>
+</tr>
+</tbody></table>
+<p>Higher layers have larger cells. A sphere in layer 5 does not have a 240 mm radius or diameter. An index cell width is also not the occupancy-map or CenterVox resolution.</p>
+<h3 id="section-19">Actual assignment rule</h3>
+<p><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/runtimes/online/native_mvt/native_mvt.cpp">The C++ implementation</a> chooses the finest level satisfying, with a small numerical slack:</p>
+<pre><code>cell_width(level) &gt; maximum_query_half_extent + maximum_proxy_AABB_half_extent
+cell_width(level) = 15 mm * 2^level</code></pre>
+<p>Each proxy occupies one cell at one level. The rule ensures that an overlapping query can find it in the query-center cell or one of its 26 neighbors. Arbitrarily moving proxies to finer cells without changing the query neighborhood could miss candidates.</p>
+<p>For the current LiuQP online cases, <a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/runtimes/online/run_protocol_v3_online_ablation.py">the shared builder</a> uses:</p>
+<pre><code>maximum_query_half_extent
+  = maximum_robot_certificate_radius
+    + near_distance + safety_margin + motion_padding + numerical_padding
+  = 61.8466 mm + 40 mm + 6 mm + 0 mm + 0.005 mm
+  = approximately 107.8516 mm</code></pre>
+<p>The indexed obstacle AABB receives another 0.005 mm outward padding. These numerical paddings affect indexing, not collision geometry. This formula describes the shared LiuQP index; NEO can rebuild its own index for its influence distance.</p>
+<p><strong>Even a point-sized proxy cannot enter the first three layers under this query bound:</strong> 107.85 mm already exceeds layer 3&#39;s 60 mm cell width.</p>
+<p>For a sphere, effective radius equals AABB half-width before numerical padding:</p>
+<table>
+<thead>
+<tr>
+<th align="right">Effective sphere radius</th>
+<th align="right">Query half-width plus radius, approximately</th>
+<th align="right">Layer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">5 mm</td>
+<td align="right">112.85 mm</td>
+<td align="right">4: 120 mm cells</td>
+</tr>
+<tr>
+<td align="right">10 mm</td>
+<td align="right">117.85 mm</td>
+<td align="right">4: 120 mm cells</td>
+</tr>
+<tr>
+<td align="right">20 mm</td>
+<td align="right">127.85 mm</td>
+<td align="right">5: 240 mm cells</td>
+</tr>
+<tr>
+<td align="right">30 mm</td>
+<td align="right">137.85 mm</td>
+<td align="right">5: 240 mm cells</td>
+</tr>
+</tbody></table>
+<p>The sphere-radius boundary is approximately 12.14 mm after indexing paddings. Different small spheres can therefore occupy just two adjacent layers.</p>
+<h3 id="section-20">Recorded distribution</h3>
+<table>
+<thead>
+<tr>
+<th>Final map</th>
+<th align="right">Layer 4</th>
+<th align="right">Layer 5</th>
+<th align="right">Total proxies</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O01: adaptive spheres</td>
+<td align="right">530</td>
+<td align="right">3277</td>
+<td align="right">3807</td>
+</tr>
+<tr>
+<td>O02: ellipsoids</td>
+<td align="right">282</td>
+<td align="right">2063</td>
+<td align="right">2345</td>
+</tr>
+</tbody></table>
+<p>Only layers 4 and 5 contain proxies across every published O01/O02 frame. O01&#39;s effective sphere radii range from approximately <strong>5.21 to 29.91 mm</strong> across saved snapshots; the snapshot-entry median is approximately <strong>18.89 mm</strong>. This counts entries across snapshots rather than distinct physical objects.</p>
+<p>Adaptive spheres are not identical. Their size range, combined with a common query bound, maps into only two bins.</p>
+<p><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/runtimes/online/incremental_proxy_manager.py">The adaptive builder</a> limits local over-approximation: beyond certified per-cell measurement support and residual coverage, each candidate receives at most one CenterVox diagonal of extra geometric budget. For 7.5 mm CenterVox cells this is about 12.99 mm. Oversized candidates are subdivided before coverage selection. Adaptation responds to covering needs, not a requirement to populate all layers.</p>
+<p>Ellipsoids may be thin normal to a surface but long tangentially. Index assignment uses maximum world-axis AABB half-width, so a thin ellipsoid does not automatically occupy a fine layer.</p>
+<h3 id="section-21">Interpretation and next evaluation</h3>
+<ul>
+<li>MVT performs candidate selection, but the recorded cases exercise only two nonempty adjacent layers.</li>
+<li>Logs report five allocated levels and 135 cell lookups per robot query (<code>5 * 27</code>); this is not five populated layers.</li>
+<li>Occupancy alone does not measure acceleration. Compare candidate counts, query time, memory, and zero-missed-candidate checks against full scan and a suitable single-level table on identical snapshots and queries.</li>
+<li><code>runtimes/online/radius_binned_mvt.py</code> is a query-radius-class prototype, not the table selected by the current shared <code>_build_mvt_only</code> helper. It replicates proxy references across classes and lacks the single native handle expected by the current fused kernels.</li>
+<li>Radius classes may reduce coarse-layer concentration, but do not automatically populate fine layers: even the smallest robot sphere plus the current near distance and safety margin yields about <strong>64.87 mm</strong>, greater than layer 3&#39;s 60 mm width.</li>
+</ul>
+<p>First benchmark frozen snapshots and queries; then assess radius classes, empty-layer traversal, or a different neighborhood policy with no-miss verification. Filling more layers is not itself the objective. Changing base width merely to rename layers is not evidence of a speedup.</p>
+<h2 id="section-22">8. Failures and evidence boundaries</h2>
+<h3 id="section-23">Four aborted attempts</h3>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th align="right">Executed duration</th>
+<th align="right">Final recorded error</th>
+<th>Verified failure</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O04</td>
+<td align="right">14.04 s</td>
+<td align="right">374.577 mm</td>
+<td>Distance-kernel KKT residual about <code>1.256e-7</code>, above the fixed <code>1e-7</code> threshold</td>
+</tr>
+<tr>
+<td>O05</td>
+<td align="right">3.30 s</td>
+<td align="right">232.074 mm</td>
+<td>Infeasible collision-avoidance velocity constraints</td>
+</tr>
+<tr>
+<td>A01</td>
+<td align="right">3.18 s</td>
+<td align="right">260.660 mm</td>
+<td>Infeasible collision-avoidance velocity constraints</td>
+</tr>
+<tr>
+<td>A02</td>
+<td align="right">5.90 s</td>
+<td align="right">343.031 mm</td>
+<td>Infeasible collision-avoidance velocity constraints</td>
+</tr>
+</tbody></table>
+<p>Independent HiGHS linear programs for O05/A01/A02 find the full hard-constraint set infeasible, the set without obstacle rows feasible, and obstacle rows alone infeasible. A02&#39;s <code>infeasible fixed workspace row</code> message is generic and does not identify the workspace boundary as the cause.</p>
+<p>O04 stopped in geometry evaluation before a new QP was assembled. Its saved candidate QP is from the previous assembly and is marked in <code>failed_qp_validity.json</code>; it cannot establish feasibility at the failing state. Tolerances were not relaxed to convert the attempt into a success.</p>
+<h3 id="section-24">Physical checks and remaining protocol failures</h3>
+<p>Independent audits find no physical penetration at saved states in all 19 attempts. Continuous 6 mm clearance between robot certificate spheres and all 12 true boxes passes over recorded intervals under linear joint interpolation. Aborted cases cover only their executed prefixes. This does not prove continuous self-collision clearance, floor clearance, or dynamic/hardware tracking safety.</p>
+<table>
+<thead>
+<tr>
+<th>Reaching case</th>
+<th align="right">Late / never-observed samples</th>
+<th align="right">Controller p99</th>
+<th>Remaining issue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H01</td>
+<td align="right">55 / 7</td>
+<td align="right">20.764 ms</td>
+<td>Observability fails; p99 exceeds 20 ms</td>
+</tr>
+<tr>
+<td>O02</td>
+<td align="right">7 / 7</td>
+<td align="right">11.816 ms</td>
+<td>Observability fails</td>
+</tr>
+<tr>
+<td>A03</td>
+<td align="right">71 / 8</td>
+<td align="right">6.827 ms</td>
+<td>Observability fails</td>
+</tr>
+</tbody></table>
+<p>These are observability sample counts, not counts of delayed or dropped map packets. Physical clearance and online proxy clearance also differ: sampled minimum proxy gaps include 2.881 mm for H01 and 5.419 mm for A03, despite zero recorded sweep failures. See <a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/reports/audits/results.json">the independent audit</a> for probe scope and exact values.</p>
+<p>H02 records 2,823 OSQP maximum-iteration steps and one <code>primal infeasible inaccurate</code> step; O01 records 2,842 and one respectively. Their non-reaching outcomes cannot be attributed exclusively to proxy geometry.</p>
+<h3 id="section-25">Supported conclusions</h3>
+<ol>
+<li>In this task and these configurations, known-environment ellipsoids reach with both local controller implementations; tested spheres do not.</li>
+<li>Historical 4.3 and current online LiuQP ellipsoids also reach after fresh observation and mapping.</li>
+<li>Known-environment NEO performance does not transfer directly to the online setup. Geometry-kernel failures, infeasible constraints, and objective trade-offs are different mechanisms.</li>
+<li>Removing the manipulability term produces final task success in this A03 run; sensing evidence remains incomplete.</li>
+<li>General superiority of a shape or controller, global path infeasibility, and statistical reliability are not established by this batch.</li>
+</ol>
+<h2 id="section-26">9. Replay and visualization</h2>
+<p>Double-click <span class="archive-link" title="原始归档路径：打开新场景实验总览.cmd">the experiment browser</span>, or open a group:</p>
+<table>
+<thead>
+<tr>
+<th>Launcher</th>
+<th>Initial case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="archive-link" title="原始归档路径：01_已知环境LiuQP.cmd">Known LiuQP</span></td>
+<td>K02</td>
+</tr>
+<tr>
+<td><span class="archive-link" title="原始归档路径：02_历史管线4.3和4.4.cmd">Historical 4.3/4.4</span></td>
+<td>H01</td>
+</tr>
+<tr>
+<td><span class="archive-link" title="原始归档路径：03_已知环境NEO.cmd">Known NEO</span></td>
+<td>N02</td>
+</tr>
+<tr>
+<td><span class="archive-link" title="原始归档路径：04_在线LiuQP与NEO.cmd">Current online comparison</span></td>
+<td>O02</td>
+</tr>
+<tr>
+<td><span class="archive-link" title="原始归档路径：05_去可操作度消融.cmd">Manipulability ablations</span></td>
+<td>A03</td>
+</tr>
+</tbody></table>
+<p>Direct replay starts with opaque physical bodies. The browser&#39;s certificate-view button starts with certificates only. Keys work in both the replay window and Chinese panel:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F1</td>
+<td>Physical cabinet and robot only</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Environment proxies and robot certificate spheres only</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>Bodies plus certificates; cabinet remains opaque</td>
+</tr>
+<tr>
+<td>B / H</td>
+<td>Toggle cabinet body / robot visual body independently</td>
+</tr>
+<tr>
+<td>O / R</td>
+<td>Toggle environment proxies / robot certificates independently</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Toggle all certificates, preserving body visibility</td>
+</tr>
+<tr>
+<td>1 / 2</td>
+<td>Paired sphere / ellipsoid case for the current controller configuration</td>
+</tr>
+<tr>
+<td>Left / Right, or <code>[</code> / <code>]</code></td>
+<td>Previous / next case in the group</td>
+</tr>
+<tr>
+<td>Space / 0</td>
+<td>Pause or resume / restart</td>
+</tr>
+<tr>
+<td>N / F / S</td>
+<td>One step / final pose / first confirmed reach</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Next published online map, then pause</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Optional cabinet transparency; off by default</td>
+</tr>
+<tr>
+<td>C / U</td>
+<td>Original robot collision geometry / separate uncertainty component</td>
+</tr>
+</tbody></table>
+<p>Use the selector when a case lacks a counterpart in the current group. Pair selection does not silently change the controller or NEO influence distance. Left mouse drag rotates, right drag translates, and the wheel zooms.</p>
+<p>Orange-red shapes are environment spheres, blue shapes are ellipsoid cores, and green spheres are robot certificates. Separately drawn <code>Q</code> and <code>U</code> are not the full Minkowski-sum envelope. Known maps stay fixed; online proxies change at their recorded publication cycles. The panel shows map number, count, source time, and publication time.</p>
+<p>Replay uses forward kinematics on recorded states and never calls a controller. The normalized trajectory includes the initial state; map selection respects the relation between a post-step frame and its control cycle.</p>
+<h2 id="section-27">10. Verification and reading order</h2>
+<h3 id="section-28">Verify this delivery</h3>
+<p>The recorded Windows environment is <code>D:\anaconda3\envs\simple\python.exe</code>; launchers accept <code>CABINET_PYTHON</code> as an override. From this directory in PowerShell:</p>
+<pre><code>&amp; &#39;D:\anaconda3\envs\simple\python.exe&#39; -B .\verify_delivery.py
+&amp; &#39;D:\anaconda3\envs\simple\python.exe&#39; -B .\replay.py --check
+&amp; &#39;D:\anaconda3\envs\simple\python.exe&#39; -B .\browse.py --check</code></pre>
+<p>These write verification reports without rerunning control or replacing sealed experiment results.</p>
+<table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>formal_runtime_manifest.json</code>, <code>audits/source_integrity.json</code></td>
+<td>Formal source identity: 363 locked files unchanged through the batch</td>
+</tr>
+<tr>
+<td><code>runtime_manifest.json</code>, <code>source_changes.json</code>, <code>plan/preflight-lock.json</code></td>
+<td>Preparation and preflight provenance</td>
+</tr>
+<tr>
+<td><code>verification/result_file_manifest.json</code></td>
+<td>Saved-result and log hash seal</td>
+</tr>
+<tr>
+<td><code>verification/delivery_check.json</code></td>
+<td>Delivery verification</td>
+</tr>
+<tr>
+<td><code>verification/replay_check.json</code></td>
+<td>Recorded-position and causal-map checks</td>
+</tr>
+<tr>
+<td><code>verification/keyboard_display_check.txt</code></td>
+<td>Actual-window shortcut/display checks</td>
+</tr>
+<tr>
+<td><code>audits/known_old_new_trajectory.json</code></td>
+<td>Pointwise known-environment old/new comparison</td>
+</tr>
+<tr>
+<td><code>preflight/*.json</code></td>
+<td>Scene, robot, camera, support visibility, and known-cover checks</td>
+</tr>
+</tbody></table>
+<p>Earlier archive and original-location evidence were checked across 480 files. Display scripts and this README can evolve independently of the frozen runtime and sealed scientific results; documentation/display edits do not imply a new experiment.</p>
+<h3 id="section-29">New experiments and regeneration</h3>
+<p>Use a new isolated runtime/output directory and a new protocol. <code>prepare.py</code> refuses an already prepared runtime. <code>batch.py</code> preserves and skips attempts with existing identities, including failures; <code>run_case.py</code> refuses an existing case directory. Reissuing this batch is not a fresh repeat of all 19 cases.</p>
+<p>Native Windows libraries, absolute asset paths, and machine-specific CPU-affinity settings require explicit validation when moving computers. Smoke truncation is not uniformly implemented across dispatcher branches; inspect the selected runner rather than assuming <code>--smoke</code> shortens every case.</p>
+<p><code>audit_results.py</code> writes reconstructed evidence into result folders. <code>assemble_delivery.py</code> is the original one-time builder: it writes catalog/replay artifacts and copies viewer code from the parent archive. <strong>Rerunning it does not preserve later viewer fixes.</strong> Use <code>verify_delivery.py</code> for this sealed delivery; regenerate audits or delivery artifacts in a separate workspace.</p>
+<h3 id="section-30">Top-down reading order</h3>
+<ol>
+<li>This README and <code>plan/experiment-protocol.md</code>: task, comparison scope, evidence conditions.</li>
+<li><code>batch.py</code>, then <code>run_case.py</code>: which code actually runs each case.</li>
+<li>Known branch: <code>runtimes/known/run.py</code>, <code>src/known_volume.py</code>, and <code>src/core/robot.py</code> before the controller.</li>
+<li>Online branch: <code>external_neo_adaptive/run_study.py</code>, then <code>run_protocol_v3_async_online.py::run_one</code>, worker, and publication helpers.</li>
+<li>Controller <code>solve</code>: how an available map becomes joint velocity.</li>
+<li>Relevant index and geometry calls: MVT and native distance kernels. Understand why a query is needed before studying its numerical iterations.</li>
+<li>A case&#39;s cycle/perception CSVs, snapshots, and independent audit alongside replay.</li>
+</ol>
+<p>For a presentation, show the task and feedback loop first, then known representation comparisons, online results, map-age measurements, and the MVT assignment rule. End with measured limitations and the next evaluation. A successful animation is evidence of task completion, not completion of every research condition.</p>
+</article><p class="source-note">原始来源：<code>Cabinet_Experiments/rerun_grounded_20260917/README.md</code><br>SHA-256：<code>5e53132e5dcf69ee6dc99dcba58c46c21a7ea8057058f1f6df1d771f0282eee4</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

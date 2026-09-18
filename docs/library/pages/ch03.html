@@ -1,0 +1,950 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>第三章 · 已知体积实验代码阅读指南 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script><script src="../vendor/mathjax-3.2.2.js" defer></script><script src="../vendor/mermaid-12.0.0.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">第三章 环境已知体积实验代码阅读指南</a><a class="depth-2" href="#section-2">3.1 本章解决的阅读问题</a><a class="depth-2" href="#section-3">3.2 先把整个实验压缩成一句话</a><a class="depth-2" href="#section-4">3.3 文件引用关系和数据方向</a><a class="depth-2" href="#section-5">3.4 静态初始化：进入第一个控制周期前发生什么</a><a class="depth-3" href="#section-6">3.4.1 run.py::load_scene：读取实验定义</a><a class="depth-3" href="#section-7">3.4.2 known_volume.py：把 8 个实体盒变成 368 个凸代理</a><a class="depth-3" href="#section-8">3.4.3 robot.py：建立物理模型和机器人证书球</a><a class="depth-3" href="#section-9">3.4.4 voxel_index.py：建立宽阶段 MVT</a><a class="depth-3" href="#section-11">3.4.5 ProtocolLiuQPController.__init__：冻结控制器参数</a><a class="depth-2" href="#section-12">3.5 一个控制周期的完整调用链</a><a class="depth-3" href="#section-13">3.5.1 末端任务反馈：公式（14）—（17）</a><a class="depth-3" href="#section-14">3.5.2 机器人所有证书球的当前状态：公式（1）—（13）</a><a class="depth-3" href="#section-15">3.5.3 关节界：公式（19）—（20）</a><a class="depth-3" href="#section-16">3.5.4 MVT 候选查询：只减少需要检查的 pair</a><a class="depth-3" href="#section-17">3.5.5 椭球精确最近点：公式（E-B1）—（E-B11）</a><a class="depth-3" href="#section-18">3.5.6 切平面、净空和 QP 硬行：公式（E-C）—（23E）</a><a class="depth-3" href="#section-19">3.5.7 ordered erase-remove：公式（E-H1）—（E-H6）</a><a class="depth-3" href="#section-20">3.5.8 三状态：公式（E-I2）、（26E）和（27E）</a><a class="depth-3" href="#section-21">3.5.9 工作空间边界：公式（21）—（22）</a><a class="depth-3" href="#section-22">3.5.10 OSQP 求解和失败行为：公式（E-I4）</a><a class="depth-3" href="#section-23">3.5.11 状态更新和只读物理审计：公式（E-J1）—（E-J2）</a><a class="depth-2" href="#section-24">3.6 ellipsoid_closest_prune_pairs_warm 到底在做什么</a><a class="depth-3" href="#section-25">3.6.1 为什么先使用 OBB 下界</a><a class="depth-3" href="#section-26">3.6.2 为什么是 lazy closest</a><a class="depth-3" href="#section-27">3.6.3 为什么函数还需要 group_offsets</a><a class="depth-3" href="#section-28">3.6.4 它返回什么，谁消费这些结果</a><a class="depth-2" href="#section-29">3.7 每个代码模块应当怎样理解</a><a class="depth-3" href="#section-30">3.7.1 assets/scene.json 与 assets/drawer.xml</a><a class="depth-3" href="#section-31">3.7.2 src/known_volume.py</a><a class="depth-3" href="#section-32">3.7.3 src/core/robot.py</a><a class="depth-3" href="#section-33">3.7.4 src/core/voxel_index.py</a><a class="depth-3" href="#section-34">3.7.5 src/core/geometry.py</a><a class="depth-3" href="#section-35">3.7.6 src/core/native_support.py</a><a class="depth-3" href="#section-36">3.7.7 native/collision.cpp</a><a class="depth-3" href="#section-37">3.7.8 src/core/controller.py</a><a class="depth-3" href="#section-38">3.7.9 run.py</a><a class="depth-3" href="#section-39">3.7.10 aggregate.py、view.py 与 tests</a><a class="depth-2" href="#section-40">3.8 第二章公式到代码的双向索引</a><a class="depth-2" href="#section-41">3.9 关键变量词典</a><a class="depth-2" href="#section-42">3.10 从控制输出到实验结论</a><a class="depth-2" href="#section-43">3.11 推荐的实际阅读顺序</a><a class="depth-2" href="#section-44">3.12 建议设置的断点与观察值</a><a class="depth-2" href="#section-45">3.13 阅读完成后的整体心智模型</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">数学与代码阅读 / MD</div><h1>第三章 · 已知体积实验代码阅读指南</h1><p>自上而下的文件职责、调用关系与公式对应；对应早期 8 盒、368 代理实验。</p><div class="actions"><a class="primary" download href="../files/ch03/03_%E7%8E%AF%E5%A2%83%E5%B7%B2%E7%9F%A5%E4%BD%93%E7%A7%AF%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E6%8C%87%E5%8D%97.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/ch03/03_%E7%8E%AF%E5%A2%83%E5%B7%B2%E7%9F%A5%E4%BD%93%E7%A7%AF%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E6%8C%87%E5%8D%97.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。历史版本的代理数量、场景和结论不自动代表当前 19 组重跑。原文中的本机路径对应其原始实验目录。</div></header><article id="content" class="prose"><h1 id="section-1">第三章 环境已知体积实验代码阅读指南</h1>
+<h2 id="section-2">3.1 本章解决的阅读问题</h2>
+<p>第二章已经给出了机械臂点雅可比、椭球最近点、分离平面、ordered erase-remove 和三状态 QP 的数学定义，但公式仍然是按数学对象组织的。程序执行时，这些对象并不是按照第二章的小节顺序逐个出现，而是被压缩进一次控制周期：程序先取得当前关节状态，再计算全部机器人证书球的位置和雅可比；随后从 368 个环境代理中查询候选，对候选求最近点并删去被已有平面覆盖的冗余代理；保留下来的平面被转换为 QP 行，OSQP 给出关节速度，主循环再用 Euler 步更新关节位置。若直接从 <code>collision.cpp</code> 的某个内核向下阅读，读者只能看见数组、索引、Newton、CONTACT 标记和删除循环，却看不到它们在整个周期中的输入来源和输出用途。</p>
+<p>本章采用自上而下的阅读方式。阅读的基本单位不是“一个文件”，而是“一个控制周期中数据如何从实验输入变成关节速度”。文件职责、函数调用和第二章公式都挂在这条数据流上。阅读完本章后，应当能够回答三个问题：当前周期已知哪些量；这些量经过哪些几何计算变成 QP；QP 输出如何成为下一周期的状态。</p>
+<p>本章只解释 <code>D:\MuJoCo\LiuQP_known_volume</code> 的环境已知完整体积实验。该实验不使用深度相机、点云、CenterVox 或在线占据地图。第二章中含方向不确定性矩阵 <span class="math-inline">\(U_j\)</span> 的一般支持和推导保留为控制器能力，但当前运行没有向控制器传入 <code>obstacle_uncertainty_shapes</code>，因此 <span class="math-inline">\(U_j=0\)</span>。识别“代码具备某条分支”和“本实验实际执行某条分支”的区别，是本章最重要的阅读原则之一。</p>
+<h2 id="section-3">3.2 先把整个实验压缩成一句话</h2>
+<p>该实验把抽屉的 8 个已知实体盒确定性地切成 368 个相同子盒集合，再分别用球或椭球完整外包每个子盒；两组运行使用同一个 UR5e、同一个初始关节构型、同一个最终 Cartesian 目标、同一套 LiuQP 状态机和 QP，只改变环境代理的几何形状。每个 20 ms 周期中，控制器根据当前状态重新构造局部线性安全约束，求解关节速度并前进一步。程序最终比较两种完整体积外包是否允许同一局部控制器到达目标。</p>
+<p>这里没有预先生成的路径。<code>scene.json</code> 虽然使用字段名 <code>waypoints</code>，但当前场景只有一个三维点，<code>run.py</code> 只读取 <code>scene.waypoints[-1]</code> 作为唯一目标。控制器每一周期只看到当前位置和这个最终目标。它既不知道下一周期的构型，也不知道抽屉通道对应的全局同伦路径。</p>
+<p>可以把实验分成静态初始化和重复控制两部分：</p>
+<div class="math-block">\[
+\underbrace{\text{场景}\rightarrow\text{完整体积代理}\rightarrow
+\text{机器人证书}\rightarrow\text{MVT 索引}\rightarrow\text{控制器}}_{\text{只构造一次}}
+\]</div>
+<div class="math-block">\[
+\underbrace{q_k\rightarrow\text{运动学}\rightarrow\text{候选代理}\rightarrow
+\text{精确几何}\rightarrow\text{活动平面}\rightarrow
+\text{QP}\rightarrow\dot q_k\rightarrow q_{k+1}}_{\text{每 20 ms 重复一次}}.
+\]</div>
+<h2 id="section-4">3.3 文件引用关系和数据方向</h2>
+<p>下面的图只画当前实验主线。箭头表示“调用或读取”，不是 Python 包的继承关系。</p>
+<pre class="mermaid">flowchart TD
+    CMD[&quot;运行球体积版.cmd / 运行椭球体积版.cmd&quot;] --&gt; RUN[&quot;run.py&quot;]
+    SCENE[&quot;assets/scene.json&quot;] --&gt; RUN
+    XML[&quot;assets/drawer.xml&quot;] --&gt; ROBOT[&quot;src/core/robot.py&quot;]
+    RUN --&gt; KV[&quot;src/known_volume.py&quot;]
+    RUN --&gt; ROBOT
+    RUN --&gt; MVT[&quot;src/core/voxel_index.py&quot;]
+    RUN --&gt; CTRL[&quot;src/core/controller.py&quot;]
+
+    KV --&gt; COVER[&quot;VolumeCover: centers / radii / Q / AABB&quot;]
+    ROBOT --&gt; CERT[&quot;UR5 MuJoCo model + CertificateSphere&quot;]
+    MVT --&gt; DLL[&quot;native/collision.dll&quot;]
+    CTRL --&gt; ROBOT
+    CTRL --&gt; GEOM[&quot;src/core/geometry.py&quot;]
+    CTRL --&gt; NS[&quot;src/core/native_support.py&quot;]
+    NS --&gt; DLL
+    DLL_SRC[&quot;native/collision.cpp&quot;] -.编译来源.-&gt; DLL
+
+    CTRL --&gt; QDOT[&quot;qdot + ProtocolStepMetrics&quot;]
+    QDOT --&gt; RUN
+    RUN --&gt; LOG[&quot;results/{sphere,ellipsoid}/&quot;]
+    LOG --&gt; AGG[&quot;aggregate.py&quot;]
+    LOG --&gt; VIEW[&quot;view.py&quot;]
+    LOG --&gt; TEST[&quot;tests/check_experiment.py&quot;]
+    AGG --&gt; TABLE[&quot;tables/results.csv + comparison.json&quot;]</pre>
+<p>程序启动时，<code>run.py</code> 人工把 <code>src</code> 和 <code>src/core</code> 插入 <code>sys.path</code>，所以这些文件使用的是扁平导入，例如 <code>from controller import ...</code>，而不是常见的包内相对导入。真正的 Python 调用关系如下表。</p>
+<table>
+<thead>
+<tr>
+<th>调用者</th>
+<th>被调用模块</th>
+<th>取得的对象</th>
+<th>在实验中的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>run.py</code></td>
+<td><code>known_volume.py</code></td>
+<td><code>build_volume_cover</code>、<code>coverage_audit</code></td>
+<td>从已知盒体产生公平的球/椭球环境代理</td>
+</tr>
+<tr>
+<td><code>run.py</code></td>
+<td><code>robot.py</code></td>
+<td>场景数据类、MuJoCo 模型、机器人证书、状态更新</td>
+<td>提供物理模型、当前状态和机器人球树</td>
+</tr>
+<tr>
+<td><code>run.py</code></td>
+<td><code>voxel_index.py</code></td>
+<td><code>NativeMultilevelMVT</code></td>
+<td>为大量环境代理建立宽阶段候选索引</td>
+</tr>
+<tr>
+<td><code>run.py</code></td>
+<td><code>controller.py</code></td>
+<td><code>ProtocolLiuQPController</code></td>
+<td>把目标、运动学和碰撞平面组装成速度 QP</td>
+</tr>
+<tr>
+<td><code>controller.py</code></td>
+<td><code>robot.py</code></td>
+<td><code>certificate_world_state</code> 等</td>
+<td>计算式（1）—（13）对应的当前球心和点雅可比</td>
+</tr>
+<tr>
+<td><code>controller.py</code></td>
+<td><code>native_support.py</code></td>
+<td><code>NativeEllipsoidSupport</code></td>
+<td>把 NumPy 数组传给 C++ 批处理内核</td>
+</tr>
+<tr>
+<td><code>controller.py</code></td>
+<td><code>geometry.py</code></td>
+<td>最近点与一般支持法向</td>
+<td>Python 参考/回退路径；当前默认融合路径不执行它</td>
+</tr>
+<tr>
+<td><code>voxel_index.py</code>、<code>native_support.py</code></td>
+<td><code>collision.dll</code></td>
+<td>MVT、最近点、筛选函数</td>
+<td>当前运行的宽阶段与窄阶段高频实现</td>
+</tr>
+<tr>
+<td><code>view.py</code>、<code>aggregate.py</code>、<code>tests/*</code></td>
+<td><code>results/*</code></td>
+<td>历史构型、代理、逐周期日志和汇总</td>
+<td>回放、统计和独立验收，不参与生成控制命令</td>
+</tr>
+</tbody></table>
+<p><code>collision.cpp</code> 与 <code>collision.dll</code> 的关系也要区分：Python 实际加载的是 DLL；CPP 是 DLL 的源代码。阅读 CPP 是为了理解 DLL 的行为，修改 CPP 后若不重新编译 DLL，Python 运行结果不会改变。</p>
+<h2 id="section-5">3.4 静态初始化：进入第一个控制周期前发生什么</h2>
+<h3 id="section-6">3.4.1 <code>run.py::load_scene</code>：读取实验定义</h3>
+<p><code>run.py:47</code> 读取 <code>assets/scene.json</code>，构造 <code>SceneDefinition</code>。文件给出 8 个抽屉/柜体盒、初始关节角 <span class="math-inline">\(q_0\)</span> 和唯一末端目标。盒体数据被 <code>known_volume.py</code> 用来构造碰撞证书；<code>robot.py::build_model</code> 则从 <code>assets/drawer.xml</code> 加载 MuJoCo 物理场景。</p>
+<p>这意味着实验中存在两个必须保持一致的场景层：</p>
+<ol>
+<li><code>scene.json</code> 描述用于 LiuQP 的已知环境盒体；</li>
+<li><code>drawer.xml</code> 描述用于 MuJoCo 正向运动学和最终物理接触审计的实体。</li>
+</ol>
+<p><code>coverage_audit</code> 证明代理覆盖 <code>scene.json</code> 中的盒体，并不单独证明 JSON 盒体与 XML geom 完全相同。当前实验把两份资产冻结并记录哈希，以固定这一契约。以后若修改场景，应同时检查这两层，不能只看覆盖审计。</p>
+<p><code>SceneDefinition.duration</code> 在当前 <code>run.py</code> 主循环中没有控制运行时长；实际循环长度由 <code>MAXIMUM_CYCLES=3000</code> 决定，因此模拟时长为 <span class="math-inline">\(3000\times0.02=60\)</span> s。</p>
+<h3 id="section-7">3.4.2 <code>known_volume.py</code>：把 8 个实体盒变成 368 个凸代理</h3>
+<p><code>subdivide_known_boxes</code> 按最大边长 75 mm 沿三个坐标轴切分每个闭盒。若原盒半尺寸为 <span class="math-inline">\(h=(h_x,h_y,h_z)\)</span>，每个轴的分块数为</p>
+<div class="math-block">\[
+n_a=\max\!\left(1,\left\lceil\frac{2h_a}{0.075}\right\rceil\right),
+\qquad
+h_a^{\mathrm{cell}}=\frac{h_a}{n_a}.
+\]</div>
+<p>球组和椭球组共享同一批子盒中心、半尺寸、所属原盒编号和 <code>proxy_id</code>。差别只发生在 <code>build_volume_cover</code> 中：</p>
+<div class="math-block">\[
+r_j=\lVert h_j\rVert_2,
+\qquad
+Q_j=\operatorname{diag}\!\left(3h_{jx}^2,3h_{jy}^2,3h_{jz}^2\right).
+\]</div>
+<p>球半径是子盒半对角线。椭球的三个半轴为 <span class="math-inline">\(\sqrt 3h_j\)</span>，即 <span class="math-inline">\(\sqrt{\lambda_a(Q_j)}\)</span>。这里的 <code>ellipsoid_shapes</code> 正是第二章式（E-A2）—（E-A3）的形状矩阵 <span class="math-inline">\(Q_j\)</span>；当前代理轴与世界坐标对齐，所以 <span class="math-inline">\(R=I\)</span>。椭球的 AABB 半尺寸也是 <span class="math-inline">\(\sqrt3h_j\)</span>。</p>
+<p><code>coverage_audit</code> 检查每个子盒的 8 个顶点。对球计算顶点距离除以半径；对椭球计算</p>
+<div class="math-block">\[
+v^TQ_j^{-1}v.
+\]</div>
+<p>若 8 个顶点都不超过 1，由于球、椭球和子盒都是凸集，整个子盒都在对应代理内。该检查回答“代理是否完整覆盖实体”，不回答“代理是否紧”“机器人能否通过”或“QP 是否可达”。</p>
+<h3 id="section-8">3.4.3 <code>robot.py</code>：建立物理模型和机器人证书球</h3>
+<p><code>build_model</code> 从 XML 建立 <code>MjModel</code>；<code>set_configuration</code> 写入 <span class="math-inline">\(q\)</span>，把速度清零，然后执行 <code>mujoco.mj_forward</code>。后者更新刚体位姿、site 位置和 MuJoCo 接触数据，但不替 LiuQP 求解速度。</p>
+<p><code>build_robot_certificate</code> 遍历 UR5 的 box、capsule 和 cylinder geom，并用一组外包球覆盖这些几何体。每个 <code>CertificateSphere</code> 保存所属 body、局部球心和半径。这个过程只在启动时执行一次。</p>
+<p><code>certificate_world_state</code> 在每个周期执行。它用当前 body 位姿把局部球心变换到世界坐标，并调用 <code>mujoco.mj_jac</code> 得到每个球心的三维平移雅可比 <span class="math-inline">\(J_{p,i}\)</span>。这对应第二章式（1）—（13）：程序没有手写 UR5 的齐次变换链，而是让 MuJoCo 计算同一个运动学映射及点雅可比。</p>
+<h3 id="section-9">3.4.4 <code>voxel_index.py</code>：建立宽阶段 MVT</h3>
+<p><code>run.py:132</code> 用所有代理的中心和 AABB 构造 <code>NativeMultilevelMVT</code>。查询半径额外包含</p>
+<div class="math-block">\[
+d_{\mathrm{near}}+d_{\mathrm{safe}}+\varepsilon_{\mathrm{out}}
+=0.04+0.006+5\times10^{-6}\ \mathrm m.
+\]</div>
+<p>MVT 把不同尺寸的代理分配到不同体素层。每层查询机器人球中心所在格及相邻的 <span class="math-inline">\(3^3=27\)</span> 个格，再用球到 AABB 的欧氏距离条件剔除明显不相交的代理。AVX2 一次比较 8 个 AABB，只改变比较吞吐量。</p>
+<p>MVT 的输出是候选代理 ID。它既不计算椭球最近距离，也不产生 QP 行，更不判断 NORMAL、NEAR 或 CONTACT。可以把它理解为通讯录索引：它快速返回“哪些代理值得进入精确几何阶段”，而不会回答这些代理究竟有多近。</p>
+<h4 id="section-10">3.4.4.1 当前 368 个代理是否真的需要“多层”MVT</h4>
+<p>当前代理尺寸种类确实很少。球组只有 6 种半径，约为 48.08--53.70 mm，所以球的 AABB 几乎同样大。椭球组也只有 6 种轴对齐 AABB 尺寸组合；其半尺寸各分量约在 25.98--62.07 mm 之间，形状方向不同，但尺度仍处于同一数量级。</p>
+<p>实际 MVT 统计进一步说明：球组和椭球组的 368 个代理全部位于 level 4，对应体素边长约 0.24 m；level 0--3 的代理数均为 0。5 个已创建层的代理计数都是</p>
+<div class="math-block">\[
+(0,0,0,0,368).
+\]</div>
+<p>因此，本实验没有利用“不同尺寸代理分配到不同层”的优势。每组只占用 36 个空间哈希单元，真正仍在发挥作用的是单个有效层上的按位置索引：即使代理大小相同，中心仍分布在抽屉底板、侧壁、顶板和柜体各处，查询只访问当前机器人球附近的空间单元，不必对每个机器人球扫描全部 368 个代理。</p>
+<p>是否需要 MVT 要分两层回答。算法正确性不依赖 MVT；用一个执行相同球--AABB 包含判据的 <span class="math-inline">\(O(N)\)</span> 暴力宽阶段，也能返回相同候选。当前共有 65 个机器人证书球，完全扫描需要每周期执行 <span class="math-inline">\(65\times368=23920\)</span> 次廉价 AABB 检查，这在本规模下未必不可接受。MVT 避免这次全扫描，并允许候选数组留在 C++ 中直接进入融合最近点与 prune 内核，但它也要执行哈希单元查询。没有专门的 MVT--暴力宽阶段消融，不能仅凭代码结构断言 MVT 在 368 个近等尺寸代理上一定更快。</p>
+<p>保留 MVT 的主要工程理由是沿用冻结控制器的查询接口、避免为这个小实验另写一套热路径，并保持方法可扩展到更多、尺寸跨度更大的代理。若本章只解释几何因果，MVT 可以被理解为可替换加速器；球与椭球差异的核心证据来自完整体积代理形状及其生成的活动 QP 平面，不来自 MVT。</p>
+<p>代码中的 0.04 m 也不是完整查询半径。它是 <code>NEAR_DISTANCE</code>，随后与安全余量和浮点外扩相加：</p>
+<div class="math-block">\[
+p_{\mathrm{query}}
+=0.04+0.006+0.000005
+=0.046005\ \mathrm m.
+\]</div>
+<p><code>query_spheres</code> 再把每个机器人证书球自己的半径 <span class="math-inline">\(r_i\)</span> 加进去，所以实际传给 C++ 的查询半径是</p>
+<div class="math-block">\[
+R_i^{\mathrm{query}}=r_i+0.046005.
+\]</div>
+<p>当前 65 个机器人球的半径约为 18.87--61.85 mm，对应实际查询半径约为 64.87--107.85 mm。40 mm 表示希望在进入 NEAR 状态前关注的原始表面距离，6 mm 对应 QP 使用的安全膨胀，5 μm 用于吸收 float32 AABB 边界误差。MVT 只用这个膨胀球寻找“可能落入关注范围”的 AABB；候选进入 C++ 后，KKT 最近点才计算真实 <span class="math-inline">\(c_{ij}\)</span> 和 <span class="math-inline">\(h_{ij}\)</span>，状态机再用真实 <span class="math-inline">\(c_{ij}\)</span> 判定 NORMAL、NEAR 或 CONTACT。</p>
+<h3 id="section-11">3.4.5 <code>ProtocolLiuQPController.__init__</code>：冻结控制器参数</h3>
+<p><code>run.py:158--160</code> 根据表示类型传入 <code>obstacle_radii</code> 或 <code>obstacle_shapes</code>。两组共享安全余量 6 mm、NEAR 阈值 40 mm、CONTACT 阈值 0、同一个 MVT 和同一套 QP 权重。椭球组没有传入不确定性形状，所以当前有</p>
+<div class="math-block">\[
+U_j=0,\qquad \delta_j=\texttt{obstacle\_offsets}[j]=0.
+\]</div>
+<p><code>update_obstacles</code> 对椭球形状矩阵预计算特征值和旋转矩阵，并创建按“机器人球 × 障碍代理”排列的乘子缓存 <code>_multiplier_dense</code>。缓存保存上一周期的 <span class="math-inline">\(\lambda^*\)</span>，供本周期 Newton 热启动。控制器还创建 <code>NativeEllipsoidSupport</code>，通过 <code>ctypes</code> 加载同一个 <code>collision.dll</code>。</p>
+<h2 id="section-12">3.5 一个控制周期的完整调用链</h2>
+<p><code>run.py:181</code> 调用一次 <code>controller.solve(target)</code>，得到 <span class="math-inline">\(\dot q_k\)</span>。当前椭球默认路径可以展开为：</p>
+<pre><code>run.py::run
+└─ controller.py::ProtocolLiuQPController.solve
+   ├─ task_feedback
+   ├─ robot.py::certificate_world_state
+   ├─ joint_velocity_bounds
+   ├─ _prefetch_exact_closest_pairs
+   │  └─ native_support.py::closest_prune_pairs_mvt_warm
+   │     └─ collision.cpp::mvt_ellipsoid_closest_prune_pairs_warm
+   │        ├─ mvt_multilevel_query_sphere_impl
+   │        └─ ellipsoid_closest_prune_pairs_warm
+   │           └─ ellipsoid_closest_points_warm
+   ├─ active_planes_for_robot_sphere
+   ├─ _persistent_solver_update
+   └─ osqp.OSQP.solve
+run.py::run
+├─ q_after = q_before + qdot * DT
+├─ robot.py::set_configuration
+└─ 读取 MuJoCo contact，记录日志</code></pre>
+<p>这里最容易误判的是 <code>geometry.py</code>。当前配置同时满足：椭球表示、无方向不确定性、启用 native batch、启用 lazy prune、MVT 含原生 handle。因此 <code>_prefetch_exact_closest_pairs</code> 在 <code>controller.py:399</code> 直接进入 C++ 融合路径。Python 的 <code>closest_point_on_ellipsoid</code> 是清晰的参考实现和关闭批处理后的回退实现，并非本次默认运行中每个 pair 实际经过的函数。</p>
+<p>下面按 <code>solve</code> 内的数据产生顺序解释一次周期。</p>
+<h3 id="section-13">3.5.1 末端任务反馈：公式（14）—（17）</h3>
+<p><code>task_feedback</code> 读取当前末端位置 <span class="math-inline">\(x_{ee}(q_k)\)</span>，由 <code>mujoco.mj_jacSite</code> 得到 <span class="math-inline">\(J_{ee}(q_k)\)</span>，并计算</p>
+<div class="math-block">\[
+v_d=K_p(x_g-x_{ee}).
+\]</div>
+<p>代码再把 <span class="math-inline">\(\lVert v_d\rVert\)</span> 截断到 0.18 m/s。该函数输出 <code>ee, ee_jacobian, desired_velocity</code>。它只给出“如果没有其他约束，希望末端怎样移动”，不直接求逆运动学，也不生成中间目标。</p>
+<p><code>solve</code> 把软任务写进 OSQP 的 Hessian 和梯度：</p>
+<div class="math-block">\[
+P_0=w_v I+w_tJ_{ee}^TJ_{ee},
+\qquad
+g_0=-w_tJ_{ee}^Tv_d.
+\]</div>
+<p>在 OSQP 的标准目标
+<span class="math-inline">\(\frac12\dot q^TP\dot q+g^T\dot q\)</span>
+下，这等价于第二章公式（25）的速度正则和任务跟踪平方项，忽略与 <span class="math-inline">\(\dot q\)</span> 无关的常数。</p>
+<h3 id="section-14">3.5.2 机器人所有证书球的当前状态：公式（1）—（13）</h3>
+<p><code>certificate_world_state</code> 返回三个数组：</p>
+<table>
+<thead>
+<tr>
+<th>数组</th>
+<th align="right">形状</th>
+<th>数学含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>positions</code></td>
+<td align="right"><span class="math-inline">\(N_R\times3\)</span></td>
+<td>每个机器人证书球心 <span class="math-inline">\(p_i(q_k)\)</span></td>
+</tr>
+<tr>
+<td><code>jacobians_full</code></td>
+<td align="right"><span class="math-inline">\(N_R\times3\times n_v\)</span></td>
+<td>每个球心点雅可比 <span class="math-inline">\(J_{p,i}(q_k)\)</span></td>
+</tr>
+<tr>
+<td><code>radii</code></td>
+<td align="right"><span class="math-inline">\(N_R\)</span></td>
+<td>固定机器人球半径 <span class="math-inline">\(r_i\)</span></td>
+</tr>
+</tbody></table>
+<p>这一步解释了为什么不能把所有障碍约束都乘末端雅可比 <span class="math-inline">\(J_{ee}\)</span>。障碍可能靠近前臂、肘部或腕部，每个机器人球必须使用自己的 <span class="math-inline">\(J_{p,i}\)</span>。</p>
+<h3 id="section-15">3.5.3 关节界：公式（19）—（20）</h3>
+<p><code>joint_velocity_bounds</code> 同时考虑硬速度界和一步后的位置界：</p>
+<div class="math-block">\[
+\max\!\left(-\dot q_{\max},
+\frac{q_{\min}+\epsilon_q-q_k}{\Delta t}\right)
+\le\dot q\le
+\min\!\left(\dot q_{\max},
+\frac{q_{\max}-\epsilon_q-q_k}{\Delta t}\right).
+\]</div>
+<p>代码为 6 个关节各加入一行单位向量。OSQP 允许同一行同时有有限下界和上界，所以这些行直接成为矩阵 <span class="math-inline">\(A\)</span> 的前 6 行。</p>
+<h3 id="section-16">3.5.4 MVT 候选查询：只减少需要检查的 pair</h3>
+<p>理论上的全 pair 数是</p>
+<div class="math-block">\[
+N_RN_O
+=\texttt{len(robot\_spheres)}\times368.
+\]</div>
+<p>若对每个 pair 都求椭球最近点，很多时间会浪费在远处代理上。融合入口 <code>mvt_ellipsoid_closest_prune_pairs_warm</code> 对每个机器人球调用 <code>mvt_multilevel_query_sphere_impl</code>，查询半径为</p>
+<div class="math-block">\[
+r_i+d_{\mathrm{near}}+d_{\mathrm{safe}}+\varepsilon_{\mathrm{out}}.
+\]</div>
+<p>查询得到的 <code>obstacle_indices</code> 由 <code>group_offsets</code> 分组：第 <span class="math-inline">\(i\)</span> 个机器人球对应扁平数组区间
+<span class="math-inline">\([\texttt{group\_offsets}[i],\texttt{group\_offsets}[i+1])\)</span>。
+因此 C++ 可以用一个连续数组表达“许多机器人球各自的一组候选”，避免 Python 对每个球调用一次 DLL。</p>
+<p>宽阶段只能保守地多报，不能漏掉进入 NEAR 范围的代理。多报的候选会在精确最近点或 erase-remove 阶段被处理。</p>
+<h3 id="section-17">3.5.5 椭球精确最近点：公式（E-B1）—（E-B11）</h3>
+<p>对候选 pair <span class="math-inline">\((i,j)\)</span>，机器人球心 <span class="math-inline">\(p_i\)</span> 作为点，环境椭球中心 <span class="math-inline">\(o_j\)</span>、形状矩阵 <span class="math-inline">\(Q_j\)</span> 作为障碍。C++ <code>ellipsoid_closest_points_warm</code> 先把点变换到椭球特征坐标：</p>
+<div class="math-block">\[
+Q_j=R_j\operatorname{diag}(\mu_1,\mu_2,\mu_3)R_j^T,
+\qquad
+z=R_j^T(p_i-o_j).
+\]</div>
+<p>外部点最近点的局部坐标为</p>
+<div class="math-block">\[
+y_a(\lambda)=\frac{\mu_a z_a}{\lambda+\mu_a},
+\]</div>
+<p>其中 <span class="math-inline">\(\lambda\ge0\)</span> 是标量方程</p>
+<div class="math-block">\[
+F(\lambda)=
+\sum_{a=1}^{3}
+\frac{\mu_a z_a^2}{(\lambda+\mu_a)^2}-1=0
+\]</div>
+<p>的唯一根。这分别对应第二章式（E-B5）和（E-B6）。程序建立根区间，用受保护 Newton 更新；Newton 步离开区间或出现非有限值时改用区间中点，Newton 迭代结束后仍未达容差时继续二分。上一周期同一 pair 的 <span class="math-inline">\(\lambda^*\)</span> 是 <code>initial_multipliers</code>，只用于选择更好的初值，不改变方程和最终几何定义。</p>
+<p>求根后，程序恢复世界坐标表面点</p>
+<div class="math-block">\[
+x_{O,j}=o_j+R_jy(\lambda^*)
+\]</div>
+<p>及从机器人指向障碍物的单位法向</p>
+<div class="math-block">\[
+\tilde s_{ij}
+=\frac{x_{O,j}-p_i}{\lVert x_{O,j}-p_i\rVert}.
+\]</div>
+<p>这对应式（E-B9）—（E-B11）。因此“迭代”并不表示它在试探一条运动路径；它只是在一个当前构型、一个球—椭球 pair 上数值求解精确最近点所需的一维根。</p>
+<p>若机器人球心真正进入核心椭球，代码返回一个恢复保护结果：surface 被设为当前点，并用中心方向作 fallback normal。第二章 2.13 已说明，这不是外部点 KKT 推导的精确有符号内部解。正常无穿透运行依赖不进入该分支；调试时应检查 <code>closest_point_max_residual</code> 和 MuJoCo 穿透日志。</p>
+<h3 id="section-18">3.5.6 切平面、净空和 QP 硬行：公式（E-C）—（23E）</h3>
+<p>当前实验 <span class="math-inline">\(\delta_j=0\)</span>，所以最近表面点本身就是平面上的障碍支持点。程序保存</p>
+<div class="math-block">\[
+\beta_{ij}=\tilde s_{ij}^Tx_{O,j},
+\qquad
+c_{ij}=\lVert x_{O,j}-p_i\rVert-r_i,
+\qquad
+h_{ij}=c_{ij}-d_{\mathrm{safe}}.
+\]</div>
+<p><code>ProtocolSeparatingPlane.clearance</code> 存的是 <span class="math-inline">\(h_{ij}\)</span>，即已经减去 6 mm 安全余量的净空；<code>surface_clearance = plane.clearance + safety_margin</code> 才恢复为尚未减安全余量的 <span class="math-inline">\(c_{ij}\)</span>。</p>
+<p>机器人球心一步更新近似为
+<span class="math-inline">\(p_i^+\approx p_i+\Delta tJ_{p,i}\dot q\)</span>。
+要求一步后不跨过安全平面，可得</p>
+<div class="math-block">\[
+\tilde s_{ij}^TJ_{p,i}\dot q
+\le \frac{h_{ij}}{\Delta t}.
+\]</div>
+<p>在 <code>controller.py:805</code>，<code>projected = plane.normal_to_obstacle @ jacobian</code> 就是行向量
+<span class="math-inline">\(a_{ij}=\tilde s_{ij}^TJ_{p,i}\)</span>；
+随后 <code>upper.append(plane.clearance / self.dt)</code> 写入式（23E）的右端。几何模块输出的是平面，控制器才把平面变成关节速度约束。</p>
+<h3 id="section-19">3.5.7 ordered erase-remove：公式（E-H1）—（E-H6）</h3>
+<p>一个机器人球的 MVT 候选可能来自同一块墙的许多相邻代理。若每个代理都生成 QP 行，约束数量会增加，而且很多平面表达的是同一个局部阻挡方向。LiuQP 的 ordered erase-remove 依次保留当前排序最靠前的候选平面，并检查该平面是否已经把其他代理整体放在障碍侧。</p>
+<p>对保留平面的法向 <span class="math-inline">\(s\)</span> 和偏置 <span class="math-inline">\(\beta\)</span>，候选椭球 <span class="math-inline">\(k\)</span> 在该方向上的最小支持投影为</p>
+<div class="math-block">\[
+m_k(s)=s^To_k-\sqrt{s^TQ_ks}-\delta_k.
+\]</div>
+<p>若</p>
+<div class="math-block">\[
+m_k(s)\ge\beta-\varepsilon,
+\]</div>
+<p>则椭球 <span class="math-inline">\(k\)</span> 整体位于这条平面的障碍侧，该平面已经足以阻止当前机器人球朝它运动，候选 <span class="math-inline">\(k\)</span> 可以从本轮剩余集合删除。这对应第二章式（E-H2）—（E-H5）。代码中的 <code>support3(shape, normal)</code> 计算 <span class="math-inline">\(\sqrt{s^TQ_ks}\)</span>，<code>remaining.swap(kept)</code> 实现 ordered erase-remove。</p>
+<p>“prune”删除的是冗余 QP 候选，并不删除场景实体，也不改变下一周期的 MVT。每个周期会依据新的 <span class="math-inline">\(q_k\)</span> 重新查询和筛选。</p>
+<h3 id="section-20">3.5.8 三状态：公式（E-I2）、（26E）和（27E）</h3>
+<p>状态分类使用原始表面间隙 <span class="math-inline">\(c_{ij}\)</span>，而不是已经减去安全余量的 <span class="math-inline">\(h_{ij}\)</span>：</p>
+<div class="math-block">\[
+\begin{cases}
+c_{ij}\ge d_{\min} &amp; \text{NORMAL},\\
+0&lt;c_{ij}&lt;d_{\min} &amp; \text{NEAR},\\
+c_{ij}\le0 &amp; \text{CONTACT/RECOVERY}.
+\end{cases}
+\]</div>
+<p>三种状态都保留式（23E）的基础硬行。NORMAL 不增加其他项。NEAR 把 <span class="math-inline">\(a_{ij}\)</span> 收集进 <code>near_matrix</code>，在 Hessian 中增加</p>
+<div class="math-block">\[
+w_nA_n^TA_n,
+\]</div>
+<p>对应公式（26E）的
+<span class="math-inline">\(\frac12w_n\sum(a_{ij}\dot q)^2\)</span>。
+这个软项惩罚法向速度，使运动更倾向沿障碍切向滑动。</p>
+<p>CONTACT/RECOVERY 不使用 NEAR 软项，而是增加</p>
+<div class="math-block">\[
+a_{ij}\dot q\le-v_{\mathrm{rep},ij},
+\]</div>
+<p>对应公式（27E）。由于 <span class="math-inline">\(\tilde s_{ij}\)</span> 从机器人指向障碍物，负法向速度表示远离障碍。恢复速度随穿入程度增加，并封顶于 <code>repulsive_speed=0.035</code> m/s。</p>
+<h3 id="section-21">3.5.9 工作空间边界：公式（21）—（22）</h3>
+<p>控制器对每个机器人证书球和 6 个轴对齐工作空间面计算</p>
+<div class="math-block">\[
+n_f^TJ_{p,i}\dot q
+\le\frac{b_f-r_i-n_f^Tp_i}{\Delta t}.
+\]</div>
+<p><code>solve</code> 使用 <code>np.einsum</code> 一次性生成所有工作空间行。<code>_append_workspace_constraints</code> 保留了逐球实现，但当前 <code>solve</code> 采用向量化代码，没有调用这个辅助函数。</p>
+<h3 id="section-22">3.5.10 OSQP 求解和失败行为：公式（E-I4）</h3>
+<p>前面得到的目标、关节界、工作空间行、碰撞硬行和 CONTACT 恢复行被写成</p>
+<div class="math-block">\[
+\min_{\dot q}\quad
+\frac12\dot q^TP\dot q+g^T\dot q,
+\qquad
+l\le A\dot q\le u.
+\]</div>
+<p><code>_persistent_solver_update</code> 复用 OSQP 的稀疏矩阵模式，上一周期速度作为 primal warm start；QP 行按
+<code>(&#39;collision&#39;, robot_index, proxy_id)</code>
+等身份重新匹配 dual warm start。QP 热启动与椭球乘子热启动是两件事：前者猜 <span class="math-inline">\(\dot q\)</span> 和对偶变量，后者猜最近点方程的 <span class="math-inline">\(\lambda\)</span>。</p>
+<p>若 OSQP 没有返回 <code>solved*</code> 状态，代码输出严格零速度。程序不会随机扰动、切换路点或调用全局规划器。</p>
+<h3 id="section-23">3.5.11 状态更新和只读物理审计：公式（E-J1）—（E-J2）</h3>
+<p><code>run.py:182</code> 执行</p>
+<div class="math-block">\[
+q_{k+1}=q_k+\Delta t\dot q_k.
+\]</div>
+<p><code>set_configuration</code> 把 <span class="math-inline">\(q_{k+1}\)</span> 写入 MuJoCo 并运行 <code>mj_forward</code>。随后主循环读取 <code>data.contact</code>，把距离小于 <span class="math-inline">\(-10^{-8}\)</span> m 的接触记为物理穿透。该接触数据用于验收和成功判据，不会回退、裁剪或重写刚才的 <span class="math-inline">\(\dot q_k\)</span>。</p>
+<p>成功必须同时满足：末端误差小于 1 mm、当前周期无物理穿透，并连续保持 50 个周期。运行即使提前达到条件也不会 break，而会继续保存完整 3000 周期轨迹，所以 <code>first_sustained_success_time_s</code> 和最终误差是不同概念。</p>
+<h2 id="section-24">3.6 <code>ellipsoid_closest_prune_pairs_warm</code> 到底在做什么</h2>
+<p>这个函数名称可以按四段拆开：</p>
+<ul>
+<li><code>ellipsoid_closest</code>：对需要的球心—椭球 pair 求式（E-B6）的精确外点最近点；</li>
+<li><code>prune_pairs</code>：按式（E-H4）执行 ordered erase-remove；</li>
+<li><code>warm</code>：使用上一周期同一 pair 的 <span class="math-inline">\(\lambda^*\)</span> 作为求根初值；</li>
+<li><code>pairs</code>：一次处理多个机器人球及其候选代理，而不是只处理一个 pair。</li>
+</ul>
+<p>它不是“用 contact 方法迭代求球—椭球距离”。最近点始终由 KKT 标量根求解。参数 <code>contact_distance</code> 只服务于 CONTACT/RECOVERY 状态优先级：几何冗余删除可能使一个接触 pair 被另一平面覆盖，但接触恢复规则要求实际接触 pair 自己的恢复行仍被保留，因此函数要在删除前识别可能接触的 pair，并在删除后把实际接触但被删掉的 pair 加回活动集合。</p>
+<p>函数的内部顺序如下。</p>
+<pre class="mermaid">flowchart TD
+    A[&quot;一个机器人球的一组 MVT 候选&quot;] --&gt; B[&quot;按保守距离下界排序&quot;]
+    B --&gt; C[&quot;OBB 距离下界预筛可能 CONTACT 的 pair&quot;]
+    C --&gt; D[&quot;只对可能 CONTACT 的 pair 先求精确最近点&quot;]
+    D --&gt; E[&quot;remaining = 全部候选&quot;]
+    E --&gt; F[&quot;取 remaining 的第一个候选&quot;]
+    F --&gt; G[&quot;若尚未计算，则求 KKT 最近点&quot;]
+    G --&gt; H[&quot;保留它的切平面&quot;]
+    H --&gt; I[&quot;用 m_k(s) 检查其余椭球&quot;]
+    I --&gt; J[&quot;删除已被该平面覆盖的候选&quot;]
+    J --&gt; K{&quot;remaining 为空？&quot;}
+    K -- 否 --&gt; F
+    K -- 是 --&gt; L[&quot;补回实际 CONTACT 但被几何删除的 pair&quot;]
+    L --&gt; M[&quot;返回活动 pair、法向、表面点、残差和迭代统计&quot;]</pre>
+<h3 id="section-25">3.6.1 为什么先使用 OBB 下界</h3>
+<p>每个椭球在自身主轴坐标中都被半轴长度组成的 OBB 包含。对同一个点，</p>
+<div class="math-block">\[
+d(p,\mathrm{OBB})\le d(p,\mathcal E).
+\]</div>
+<p>因此</p>
+<div class="math-block">\[
+d(p,\mathrm{OBB})-\delta_j-r_i&gt;d_{\mathrm{contact}}
+\]</div>
+<p>可以安全推出真实球—椭球表面间隙也大于 CONTACT 阈值。反过来，下界小于阈值只表示“可能接触”，仍需调用精确最近点确认。该预筛可能多算，不会漏掉真实 CONTACT。</p>
+<h3 id="section-26">3.6.2 为什么是 lazy closest</h3>
+<p>普通批处理可以先对全部 MVT 候选求最近点，再做 erase-remove。融合函数发现许多候选会被第一个或前几个保留平面删除，因此用局部 lambda <code>solve_local</code> 延迟计算：只有候选成为当前 <code>remaining.front()</code>，或 OBB 下界表明它可能处于 CONTACT 时，才执行 <code>ellipsoid_closest_points_warm</code>。这改变计算时机和数量，不改变候选顺序、最近点方程或删除判据。</p>
+<p>输出中的 <code>computed</code> 表示这个候选本周期是否真的执行了精确求根；<code>warm_start</code> 表示求根时是否取到了上一周期的有限乘子；<code>newton</code>、<code>bisection</code> 和 <code>residuals</code> 用于把数值求解质量记录进 <code>ProtocolStepMetrics</code>。</p>
+<h3 id="section-27">3.6.3 为什么函数还需要 <code>group_offsets</code></h3>
+<p>所有机器人证书球的候选被拼成一个长数组。若第 <span class="math-inline">\(i\)</span> 组范围是 <span class="math-inline">\([b_i,e_i)\)</span>，函数只在该范围内排序、求最近点和 erase-remove。不同机器人球之间不能互相删候选，因为它们的中心、半径、法向和点雅可比都不同。OpenMP 并行的是这些独立 group，而不是把一个 pair 的 Newton 方程拆给多个线程。</p>
+<h3 id="section-28">3.6.4 它返回什么，谁消费这些结果</h3>
+<p><code>native_support.py::closest_prune_pairs_mvt_warm</code> 为 C++ 准备连续缓冲区，并把返回值还原为每个机器人球的一组局部活动索引。控制器随后构造 <code>ProtocolSeparatingPlane</code>：</p>
+<table>
+<thead>
+<tr>
+<th>C++ 输出</th>
+<th>Python 字段或指标</th>
+<th>后续用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>output_normals</code></td>
+<td><code>normal_to_obstacle</code></td>
+<td>构造 <span class="math-inline">\(a_{ij}=\tilde s^TJ_{p,i}\)</span></td>
+</tr>
+<tr>
+<td><code>output_surfaces</code></td>
+<td><code>surface_point</code></td>
+<td>计算平面偏置和净空</td>
+</tr>
+<tr>
+<td><code>output_active</code>、<code>output_counts</code></td>
+<td><code>active_groups</code></td>
+<td>决定哪些代理进入 QP</td>
+</tr>
+<tr>
+<td><code>output_multipliers</code></td>
+<td><code>_multiplier_dense</code></td>
+<td>下一周期最近点热启动</td>
+</tr>
+<tr>
+<td>Newton/二分次数</td>
+<td><code>closest_point_*_iterations</code></td>
+<td>性能诊断</td>
+</tr>
+<tr>
+<td><code>output_residuals</code></td>
+<td><code>closest_point_max_residual</code></td>
+<td>数值正确性诊断</td>
+</tr>
+<tr>
+<td><code>output_computed</code></td>
+<td>内部统计</td>
+<td>区分 lazy 跳过和真实求解</td>
+</tr>
+<tr>
+<td><code>output_warm_start</code></td>
+<td><code>multiplier_warm_start_hits</code></td>
+<td>评估跨周期复用</td>
+</tr>
+</tbody></table>
+<p>该函数不会看到末端目标、雅可比、QP Hessian、关节界或 OSQP。它的输出还不是控制速度，只是“当前机器人球应保留哪些障碍平面，以及这些平面的几何参数”。</p>
+<h2 id="section-29">3.7 每个代码模块应当怎样理解</h2>
+<h3 id="section-30">3.7.1 <code>assets/scene.json</code> 与 <code>assets/drawer.xml</code></h3>
+<p><code>scene.json</code> 是实验参数层，定义用于证书构造的盒体、<span class="math-inline">\(q_0\)</span> 和最终目标。<code>drawer.xml</code> 是 MuJoCo 模型层，包含机器人和物理障碍 geom。阅读时先核对目标和盒体，再去看 XML；没有必要从 XML 的 mesh、材质或 actuator 细节开始。</p>
+<h3 id="section-31">3.7.2 <code>src/known_volume.py</code></h3>
+<p>该文件只回答“已知实体怎样变成公平的球/椭球代理”。<code>VolumeCover</code> 是静态数据包；<code>subdivide_known_boxes</code> 决定共享分块；<code>build_volume_cover</code> 决定球半径和椭球 <span class="math-inline">\(Q\)</span>；<code>coverage_audit</code> 证明每个子盒被完整包含。它不计算机器人距离，也不参与每周期 QP。</p>
+<h3 id="section-32">3.7.3 <code>src/core/robot.py</code></h3>
+<p>该文件连接抽象公式和 MuJoCo。场景数据类保存配置；<code>build_robot_certificate</code> 建立机器人球树；<code>certificate_world_state</code> 把当前 <span class="math-inline">\(q\)</span> 变成所有 <span class="math-inline">\(p_i,J_{p,i},r_i\)</span>；<code>attachment_position</code> 和 <code>mj_jacSite</code> 支撑末端任务；<code>set_configuration</code> 实现主循环的状态提交。这里应重点读坐标系和雅可比，不必先研究碰撞筛选。</p>
+<h3 id="section-33">3.7.4 <code>src/core/voxel_index.py</code></h3>
+<p>该文件是 <code>ctypes</code> 的 MVT 包装。构造函数声明 DLL 接口、创建索引并记录层数等统计；<code>query_sphere(s)</code> 把机器人球查询转换为候选 ID；<code>native_handle</code> 允许融合内核直接在 C++ 内查询。它是宽阶段加速层，不承担第二章的精确几何证明。</p>
+<h3 id="section-34">3.7.5 <code>src/core/geometry.py</code></h3>
+<p>该文件最适合用来对照第二章公式，因为 Python 写法比 C++ 缓冲区清楚：</p>
+<ul>
+<li><code>support_radius</code> 对应 <span class="math-inline">\(\sqrt{s^TQs}\)</span>；</li>
+<li><code>closest_point_on_ellipsoid</code> 对应式（E-B1）—（E-B11）；</li>
+<li><code>optimal_support_normal_with_uncertainty</code> 对应式（E-G2）及单位球面优化；</li>
+<li><code>optimal_support_separating_normal</code>、<code>optimal_support_sum_separating_normal</code> 是一般形状组合的参考实现。</li>
+</ul>
+<p>当前 known-volume 椭球运行没有方向不确定性，并启用原生融合批处理，因此上述 Python 最近点函数通常不处于热路径。正确读法是先用它理解数学和返回量，再去 C++ 查找等价的批量实现。</p>
+<h3 id="section-35">3.7.6 <code>src/core/native_support.py</code></h3>
+<p>该文件没有新的几何算法。它定义 C 函数签名、检查 NumPy 的 dtype/shape/连续内存，分配输出缓冲区并调用 DLL。当前椭球路径的关键包装是 <code>closest_prune_pairs_mvt_warm</code>；非融合备选是 <code>closest_prune_pairs_warm</code>；含 <span class="math-inline">\(U_j\)</span> 时才使用 <code>normals_sum_*_warm</code>。阅读 <code>ctypes.argtypes</code> 时，应把它看作 Python/C++ 的数据契约，而不是数学推导。</p>
+<h3 id="section-36">3.7.7 <code>native/collision.cpp</code></h3>
+<p>该文件把多个性能模块集中在一个 DLL 中：</p>
+<table>
+<thead>
+<tr>
+<th>大致位置</th>
+<th>模块</th>
+<th>当前实验作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mvt_multilevel_create</code>（约 598 行）</td>
+<td>多层体素索引构造</td>
+<td>启动时建立宽阶段</td>
+</tr>
+<tr>
+<td><code>mvt_multilevel_query_sphere_impl</code>（约 855 行）</td>
+<td>球到 AABB 候选查询</td>
+<td>每周期筛候选，AVX2 可用</td>
+</tr>
+<tr>
+<td><code>ellipsoid_closest_points_warm</code>（约 1537 行）</td>
+<td>KKT 标量根最近点</td>
+<td>当前椭球窄阶段的几何核心</td>
+</tr>
+<tr>
+<td><code>ellipsoid_prune_planes</code>（约 1717 行）</td>
+<td>先全求解再筛选</td>
+<td>备选路径</td>
+</tr>
+<tr>
+<td><code>ellipsoid_closest_prune_pairs_warm</code>（约 1798 行）</td>
+<td>lazy 最近点 + ordered erase-remove + CONTACT 优先</td>
+<td>当前融合路径内部核心</td>
+</tr>
+<tr>
+<td><code>mvt_ellipsoid_closest_prune_pairs_warm</code>（约 2022 行）</td>
+<td>MVT 与上述核心融合</td>
+<td>当前椭球默认 DLL 入口</td>
+</tr>
+<tr>
+<td><code>mvt_sphere_prune_pairs</code>（约 2078 行）</td>
+<td>球代理的等价融合路径</td>
+<td>当前球组默认入口</td>
+</tr>
+</tbody></table>
+<p>阅读顺序应从导出入口向内追一层，而不是从文件第一行顺序读到末尾。当前椭球路径只需依次读 2022、1798、1537 附近的三个函数，再回看 855 附近的 MVT 查询。</p>
+<h3 id="section-37">3.7.8 <code>src/core/controller.py</code></h3>
+<p>这是整个实验的语义中心。数据类 <code>ProtocolSeparatingPlane</code> 保存几何输出；<code>PairRecord</code> 保存三状态；<code>ProtocolStepMetrics</code> 保存周期证据。控制器方法按职责可分为五组：</p>
+<table>
+<thead>
+<tr>
+<th>方法组</th>
+<th>代表函数</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>配置</td>
+<td><code>__init__</code>、<code>update_obstacles</code></td>
+<td>当前障碍表示和缓存是什么</td>
+</tr>
+<tr>
+<td>任务/边界</td>
+<td><code>task_feedback</code>、<code>joint_velocity_bounds</code></td>
+<td>机器人想去哪里、关节允许多快</td>
+</tr>
+<tr>
+<td>几何预取</td>
+<td><code>_prefetch_exact_closest_pairs</code>、<code>_prefetch_sphere_pairs</code></td>
+<td>哪些 pair 进入精确几何并保留</td>
+</tr>
+<tr>
+<td>单球平面</td>
+<td><code>active_planes_for_robot_sphere</code></td>
+<td>C++ 输出怎样变成平面对象</td>
+</tr>
+<tr>
+<td>QP</td>
+<td><code>solve</code>、<code>_persistent_solver_update</code></td>
+<td>平面、任务和边界怎样变成 <span class="math-inline">\(\dot q\)</span></td>
+</tr>
+</tbody></table>
+<p>若只精读一个文件，应当精读 <code>solve</code>，再按它调用的函数向外展开。</p>
+<h3 id="section-38">3.7.9 <code>run.py</code></h3>
+<p><code>run.py</code> 是实验编排层。它创建静态对象，重复调用 <code>controller.solve</code>，提交 Euler 状态，读取 MuJoCo 接触，保存日志并生成 summary。它决定“实验怎样运行”和“成功怎样定义”，但碰撞数学在 controller/native 内。</p>
+<h3 id="section-39">3.7.10 <code>aggregate.py</code>、<code>view.py</code> 与 <code>tests</code></h3>
+<p><code>aggregate.py</code> 只从真实日志汇总球/椭球结果，并把球组 OSQP 迭代上限标记为混杂因素。<code>view.py</code> 回放保存的 <span class="math-inline">\(q\)</span> 历史并叠加代理，不重新运行控制器。<code>tests/check_experiment.py</code> 重建 368 个共享子盒，复核覆盖规则、日志形状、文件哈希、成功保持和零穿透，并要求鲁棒同 QP 的 SLSQP 验证仍显示球组受阻。</p>
+<p>这些文件用于回答“运行结果是否可追溯”，不能用来理解本周期的 <span class="math-inline">\(\dot q\)</span> 是怎样算出来的，所以应当在主控制链之后阅读。</p>
+<h2 id="section-40">3.8 第二章公式到代码的双向索引</h2>
+<table>
+<thead>
+<tr>
+<th>第二章公式</th>
+<th>数学对象</th>
+<th>主要代码位置</th>
+<th>当前默认执行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>（1）—（13）</td>
+<td>刚体运动学、模块点速度、<span class="math-inline">\(J_{p,i}\)</span></td>
+<td><code>robot.py::certificate_world_state</code>，MuJoCo <code>mj_jac</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（14）—（17）</td>
+<td>末端误差反馈 <span class="math-inline">\(v_d\)</span></td>
+<td><code>controller.py::task_feedback</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（19）—（20）</td>
+<td>关节位置/速度界</td>
+<td><code>controller.py::joint_velocity_bounds</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（21）—（22）、（22E）</td>
+<td>工作空间平面一步约束</td>
+<td><code>controller.py::solve</code> 中 <code>workspace_projected/workspace_upper</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（E-A1）—（E-A5）</td>
+<td>环境椭球及球—椭球集合</td>
+<td><code>known_volume.py::build_volume_cover</code>；controller 的 obstacle arrays</td>
+<td>是，<span class="math-inline">\(U=0,\delta=0\)</span></td>
+</tr>
+<tr>
+<td>（E-B1）—（E-B11）</td>
+<td>点到椭球精确最近点</td>
+<td>参考：<code>geometry.py::closest_point_on_ellipsoid</code>；热路径：<code>collision.cpp::ellipsoid_closest_points_warm</code></td>
+<td>C++ 路径是</td>
+</tr>
+<tr>
+<td>（E-C）—（E-F4）</td>
+<td>表面点、法向、平面、间隙</td>
+<td><code>active_planes_for_robot_sphere</code> 和 C++ 最近点输出</td>
+<td>是</td>
+</tr>
+<tr>
+<td>（23E）、（E-F5）</td>
+<td>碰撞速度硬行</td>
+<td><code>controller.py:805--809</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（E-G1）—（E-G12）</td>
+<td>含机器人形状/方向不确定性的支持和</td>
+<td><code>geometry.py::optimal_support_normal_with_uncertainty</code>；<code>native_support.py::normals_sum_*</code>；C++ support kernels</td>
+<td>当前 <span class="math-inline">\(U=0\)</span>，不执行一般分支</td>
+</tr>
+<tr>
+<td>（E-H1）—（E-H6）</td>
+<td>ordered erase-remove</td>
+<td>Python <code>_minimum_support</code> 回退；C++ <code>ellipsoid_closest_prune_pairs_warm</code> 热路径</td>
+<td>是</td>
+</tr>
+<tr>
+<td>（24E）、（25）</td>
+<td>综合 QP 与软任务</td>
+<td><code>controller.py::solve</code>、<code>_persistent_solver_update</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（E-I2）</td>
+<td>NORMAL/NEAR/CONTACT 分类</td>
+<td><code>classify_clearance</code>、<code>surface_clearance</code></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（26E）、（E-I3）</td>
+<td>NEAR 法向速度代价</td>
+<td><code>near_projected_rows</code>、<code>near_matrix.T @ near_matrix</code></td>
+<td>条件执行</td>
+</tr>
+<tr>
+<td>（27E）</td>
+<td>CONTACT/RECOVERY 撤离硬行</td>
+<td><code>contact_recovery</code> 行</td>
+<td>条件执行</td>
+</tr>
+<tr>
+<td>（E-I4）</td>
+<td>当前周期完整 QP</td>
+<td><code>controller.py::solve</code> 的 <span class="math-inline">\(P,g,A,l,u\)</span></td>
+<td>是</td>
+</tr>
+<tr>
+<td>（E-J1）—（E-J2）</td>
+<td>Euler 更新和局部闭环</td>
+<td><code>run.py:181--183</code></td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p>反向阅读时也可使用下面的定位规则：</p>
+<ul>
+<li>看见 <code>positions/jacobians/radii</code>，回到公式（1）—（13）；</li>
+<li>看见 <code>desired_velocity</code>，回到公式（14）—（17）；</li>
+<li>看见 <code>multiplier</code>，回到式（E-B5）—（E-B8）；</li>
+<li>看见 <code>normal/surface/plane_offset</code>，回到式（E-C）—（E-F3）；</li>
+<li>看见 <code>minimum_support/behind/remaining</code>，回到式（E-H2）—（E-H5）；</li>
+<li>看见 <code>projected/clearance/dt</code>，回到式（23E）；</li>
+<li>看见 <code>near_matrix</code>，回到公式（26E）；</li>
+<li>看见 <code>repulsion</code>，回到公式（27E）；</li>
+<li>看见 <code>hessian/gradient/rows/lower/upper</code>，回到式（E-I4）；</li>
+<li>看见 <code>q_before + qdot * DT</code>，回到式（E-J1）。</li>
+</ul>
+<h2 id="section-41">3.9 关键变量词典</h2>
+<table>
+<thead>
+<tr>
+<th>代码变量</th>
+<th>数学符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>target</code></td>
+<td><span class="math-inline">\(x_g\)</span></td>
+<td>唯一末端目标</td>
+</tr>
+<tr>
+<td><code>ee</code></td>
+<td><span class="math-inline">\(x_{ee}(q_k)\)</span></td>
+<td>当前末端位置</td>
+</tr>
+<tr>
+<td><code>desired_velocity</code></td>
+<td><span class="math-inline">\(v_d\)</span></td>
+<td>截速后的末端期望速度</td>
+</tr>
+<tr>
+<td><code>positions[i]</code></td>
+<td><span class="math-inline">\(p_i(q_k)\)</span></td>
+<td>第 <span class="math-inline">\(i\)</span> 个机器人证书球心</td>
+</tr>
+<tr>
+<td><code>jacobians[i]</code></td>
+<td><span class="math-inline">\(J_{p,i}(q_k)\)</span></td>
+<td>该球心的平移雅可比</td>
+</tr>
+<tr>
+<td><code>radii[i]</code></td>
+<td><span class="math-inline">\(r_i\)</span></td>
+<td>机器人证书球半径</td>
+</tr>
+<tr>
+<td><code>obstacle_centers[j]</code></td>
+<td><span class="math-inline">\(o_j\)</span></td>
+<td>环境代理中心</td>
+</tr>
+<tr>
+<td><code>obstacle_shapes[j]</code></td>
+<td><span class="math-inline">\(Q_j\)</span></td>
+<td>环境核心椭球形状矩阵</td>
+</tr>
+<tr>
+<td><code>obstacle_uncertainty_shapes[j]</code></td>
+<td><span class="math-inline">\(U_j\)</span></td>
+<td>方向不确定性形状；当前未传入</td>
+</tr>
+<tr>
+<td><code>obstacle_offsets[j]</code></td>
+<td><span class="math-inline">\(\delta_j\)</span></td>
+<td>各向同性外扩；当前为 0</td>
+</tr>
+<tr>
+<td><code>normal_to_obstacle</code></td>
+<td><span class="math-inline">\(\tilde s_{ij}\)</span></td>
+<td>从机器人球心指向障碍的法向</td>
+</tr>
+<tr>
+<td><code>surface_point</code></td>
+<td><span class="math-inline">\(x_{O,j}\)</span></td>
+<td>障碍近侧支持/最近表面点</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><span class="math-inline">\(\beta_{ij}\)</span></td>
+<td>平面常数 <span class="math-inline">\(\tilde s^Tx_O\)</span></td>
+</tr>
+<tr>
+<td><code>surface_clearance</code></td>
+<td><span class="math-inline">\(c_{ij}\)</span></td>
+<td>尚未减安全余量的表面间隙</td>
+</tr>
+<tr>
+<td><code>plane.clearance</code></td>
+<td><span class="math-inline">\(h_{ij}=c_{ij}-d_{\mathrm{safe}}\)</span></td>
+<td>写入基础硬行的安全净空</td>
+</tr>
+<tr>
+<td><code>projected</code></td>
+<td><span class="math-inline">\(a_{ij}=\tilde s^TJ_{p,i}\)</span></td>
+<td>碰撞 QP 行</td>
+</tr>
+<tr>
+<td><code>_multiplier_dense[i,j]</code></td>
+<td><span class="math-inline">\(\lambda_{ij}^{*,k-1}\)</span></td>
+<td>上周期 KKT 根热启动</td>
+</tr>
+<tr>
+<td><code>previous_velocity</code></td>
+<td><span class="math-inline">\(\dot q_{k-1}\)</span></td>
+<td>OSQP primal 热启动</td>
+</tr>
+<tr>
+<td><code>rows/lower/upper</code></td>
+<td><span class="math-inline">\(A,l,u\)</span></td>
+<td>OSQP 线性约束</td>
+</tr>
+<tr>
+<td><code>hessian/gradient</code></td>
+<td><span class="math-inline">\(P,g\)</span></td>
+<td>OSQP 二次目标</td>
+</tr>
+</tbody></table>
+<p>第二章使用从机器人指向障碍的 <span class="math-inline">\(\tilde s\)</span>，代码字段名 <code>normal_to_obstacle</code> 与它一致。若阅读其他资料使用障碍指向机器人的 <span class="math-inline">\(n\)</span>，两者满足 <span class="math-inline">\(n=-\tilde s\)</span>。符号方向翻转时，平面不等式方向和恢复速度符号也必须一起翻转。</p>
+<h2 id="section-42">3.10 从控制输出到实验结论</h2>
+<p><code>run.py</code> 保存四类核心证据。<code>q_history.npy</code> 和 <code>ee_history.npy</code> 记录状态轨迹；<code>proxies.npz</code> 固定本次使用的代理几何；<code>cycles.csv</code> 保存每周期误差、QP 状态、候选数、活动行、几何残差、迭代次数和物理接触；<code>summary.json</code> 保存成功判据、时间统计、实验禁用项和源文件哈希。</p>
+<p>当前真实汇总中，两组都使用 368 个完整体积代理且 MuJoCo 穿透周期为 0。椭球组达到目标，球组受阻。球组主运行大量达到 OSQP 迭代上限，因此 <code>tests/run_sphere_same_qp_slsqp.py</code> 对同一个已组装 QP 使用 SLSQP 回退；回退均成功求解但机器人仍停在相同位置。这个补充实验用于排除“只是 OSQP 没解出来”的解释，不能改写为新的规划算法。</p>
+<p>实验允许的结论只针对当前场景、75 mm 共享实体分块和当前 LiuQP 参数：球的各向同性完整体积外包在局部控制中形成闭塞，而同一子盒的椭球外包保留方向相关空间，使控制器通过。它不证明所有球覆盖都会失败，也不证明椭球 LiuQP 具有全局完备性。</p>
+<h2 id="section-43">3.11 推荐的实际阅读顺序</h2>
+<p>建议把阅读分成六轮，每一轮只回答一个问题。</p>
+<table>
+<thead>
+<tr>
+<th align="right">轮次</th>
+<th>文件和函数</th>
+<th>本轮只回答的问题</th>
+<th>对照公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td><code>run.py:100--228</code></td>
+<td>一个实验怎样初始化、循环和判定成功</td>
+<td>（E-J1）—（E-J2）</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td><code>controller.py::solve</code></td>
+<td>一个周期怎样从 <span class="math-inline">\(q_k,target\)</span> 变成 <span class="math-inline">\(\dot q_k\)</span></td>
+<td>（14）—（27E）、（E-I4）</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td><code>robot.py::certificate_world_state</code> 和 <code>task_feedback</code></td>
+<td><span class="math-inline">\(J_{ee}\)</span> 与各 <span class="math-inline">\(J_{p,i}\)</span> 从哪里来</td>
+<td>（1）—（17）</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td><code>known_volume.py</code>、<code>voxel_index.py::query_sphere(s)</code></td>
+<td>368 个代理是什么，候选集合如何产生</td>
+<td>（E-A1）—（E-A5）</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td><code>geometry.py::closest_point_on_ellipsoid</code></td>
+<td>单个 pair 的最近点公式怎样落成代码</td>
+<td>（E-B1）—（E-B11）</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>C++ 2022 → 1798 → 1537 行附近</td>
+<td>批处理怎样把 MVT、lazy 最近点和 erase-remove 融合</td>
+<td>（E-B6）、（E-H4）</td>
+</tr>
+</tbody></table>
+<p>读完第六轮再看 <code>native_support.py</code> 的 <code>ctypes</code> 参数和持久化 OSQP 内存复用。它们解释性能，不改变方法语义。<code>aggregate.py</code>、<code>view.py</code> 和测试留到末尾，用于验证你对数据流的理解。</p>
+<p>不建议从 <code>robot.py</code> 第一行一路顺序读到 <code>collision.cpp</code>。更有效的方式是在 <code>controller.solve</code> 中选一行，例如
+<code>active, candidates, removed = ...</code>，
+向下追它如何计算；再回到 <code>solve</code> 看返回值怎样变成 QP 行。这种“主流程向下展开、返回主流程继续”的阅读方式仍然是自上而下，只是在每个步骤内部做一次短距离下钻。</p>
+<h2 id="section-44">3.12 建议设置的断点与观察值</h2>
+<p>第一次调试可以只运行一个周期，把 <code>--cycles</code> 设为 1。建议观察下列位置。</p>
+<table>
+<thead>
+<tr>
+<th>断点</th>
+<th>应观察的变量</th>
+<th>你要验证的理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>run.py:117</code></td>
+<td><code>cover.centers.shape</code>、<code>sphere_radii</code>、<code>ellipsoid_shapes</code></td>
+<td>球/椭球共享子盒，只改变外包形状</td>
+</tr>
+<tr>
+<td><code>run.py:181</code></td>
+<td><code>q_before</code>、<code>target</code></td>
+<td>控制器输入只有当前状态和最终目标</td>
+</tr>
+<tr>
+<td><code>controller.py:722</code></td>
+<td><code>ee_jacobian</code>、<code>desired_velocity</code></td>
+<td>任务反馈只是 QP 软目标</td>
+</tr>
+<tr>
+<td><code>controller.py:723</code></td>
+<td><code>positions.shape</code>、<code>jacobians.shape</code></td>
+<td>每个机器人球都有自己的点雅可比</td>
+</tr>
+<tr>
+<td><code>controller.py:762</code></td>
+<td><code>exact_batches</code></td>
+<td>当前椭球确实走 native fused path</td>
+</tr>
+<tr>
+<td><code>controller.py:779</code></td>
+<td><code>candidates</code>、<code>removed</code>、<code>active</code></td>
+<td>MVT 候选与活动 QP 平面不是同一集合</td>
+</tr>
+<tr>
+<td><code>controller.py:805</code></td>
+<td><code>projected</code>、<code>plane.clearance/self.dt</code></td>
+<td>式（23E）怎样进入 <span class="math-inline">\(A,u\)</span></td>
+</tr>
+<tr>
+<td><code>controller.py:812</code></td>
+<td><code>surface_clearance</code>、<code>state</code></td>
+<td>三状态使用 <span class="math-inline">\(c\)</span>，不是 <span class="math-inline">\(h\)</span></td>
+</tr>
+<tr>
+<td><code>controller.py:870</code></td>
+<td><code>result.info.status</code>、<code>result.x</code></td>
+<td>OSQP 输出才是关节速度</td>
+</tr>
+<tr>
+<td><code>run.py:182</code></td>
+<td><code>qdot</code>、<code>q_after</code></td>
+<td>速度怎样通过 Euler 成为新构型</td>
+</tr>
+</tbody></table>
+<p>C++ 调试不必作为第一步。先在 Python 侧确认 <code>exact_batches</code> 的内容和活动行，再把一个 robot group 的 <code>obstacle_indices</code>、<code>computed</code>、<code>output_active</code> 对应起来。这样进入 <code>ellipsoid_closest_prune_pairs_warm</code> 时，你已经知道每个数组的上游来源和下游消费者。</p>
+<h2 id="section-45">3.13 阅读完成后的整体心智模型</h2>
+<p>这套程序可以被分成三种彼此不能混淆的计算。</p>
+<p>第一种是表示计算：<code>known_volume.py</code> 把真实盒体变成球或椭球证书。它决定环境几何有多保守，但不产生运动。</p>
+<p>第二种是查询与几何计算：MVT 找候选，椭球 KKT 求真实最近点，ordered erase-remove 选活动平面。它们把非线性几何在当前 <span class="math-inline">\(q_k\)</span> 处转换成有限组平面，但不知道任务目标，也不求关节速度。</p>
+<p>第三种是控制计算：<code>controller.solve</code> 把末端任务、关节界、工作空间界和活动碰撞平面写进 QP，OSQP 得到 <span class="math-inline">\(\dot q_k\)</span>。<code>run.py</code> 再更新 <span class="math-inline">\(q\)</span> 并记录 MuJoCo 真值接触。</p>
+<p>所以，一个周期的因果链可以写成：</p>
+<div class="math-block">\[
+\boxed{
+(q_k,x_g,\mathcal O)
+\rightarrow
+(p_i,J_{p,i})
+\rightarrow
+\mathcal C_i^{\mathrm{MVT}}
+\rightarrow
+(x_{O,j},\tilde s_{ij},c_{ij})
+\rightarrow
+\mathcal S_i^E
+\rightarrow
+(P,g,A,l,u)
+\rightarrow
+\dot q_k
+\rightarrow
+q_{k+1}}
+\]</div>
+<p>其中，<span class="math-inline">\(\mathcal C_i^{\mathrm{MVT}}\)</span> 是宽阶段候选集，<span class="math-inline">\(\mathcal S_i^E\)</span> 是 erase-remove 后的活动平面集。前者大并且允许多报，后者小并且直接决定 QP。你在 <code>collision.cpp</code> 看到的 CONTACT 标记，只是为了保证活动集合不会丢失必须执行恢复的 pair；它不是另一套距离求解器。你在第二章看到的 IRIS-inspired 平面思想，只负责解释分离平面怎样从凸几何产生；当前程序没有运行 IRIS 区域膨胀、削构型空间或区域链规划。</p>
+<p>到这里，第二章中的公式就不再是分散的推导：公式（1）—（20）产生任务和运动学，式（E-B6）产生每个候选的真实最近点，式（E-H4）缩减约束，式（23E）、（26E）和（27E）定义三状态下进入 QP 的行或代价，式（E-I4）给出当前周期速度，式（E-J1）把速度推进到下一周期。整个实验就是不断重复这条链，直到达到成功保持条件或耗尽 3000 个周期。</p>
+</article><p class="source-note">原始来源：<code>liu_qp_reproduction/ur5_liuqp_iris_scenes/chapters/03_环境已知体积实验代码阅读指南.md</code><br>SHA-256：<code>08850faa96e893582a6257f0bf9880e0b02c5d3dcd83549dedcdec74e22a116c</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

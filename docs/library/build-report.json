@@ -1,0 +1,362 @@
+{
+  "documents": [
+    {
+      "id": "chapter1-word",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 0,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "ch01",
+      "math": 63,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "ch02",
+      "math": 336,
+      "diagrams": 0,
+      "headings": 17,
+      "unresolved": 0,
+      "displayFixes": 1
+    },
+    {
+      "id": "ch03",
+      "math": 153,
+      "diagrams": 2,
+      "headings": 45,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "math-spec",
+      "math": 213,
+      "diagrams": 0,
+      "headings": 61,
+      "unresolved": 3,
+      "displayFixes": 0
+    },
+    {
+      "id": "v42",
+      "math": 1,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v43",
+      "math": 8,
+      "diagrams": 0,
+      "headings": 5,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v44",
+      "math": 9,
+      "diagrams": 0,
+      "headings": 7,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v43-v44-evidence",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 4,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v4-v5-audit",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 8,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v5-view",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v51-support",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 4,
+      "unresolved": 9,
+      "displayFixes": 0
+    },
+    {
+      "id": "v51-acceptance",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 7,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v51-protocol",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "v51-comparison",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 8,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-protocol",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 25,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-progress",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "et30-diagnosis",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 10,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-assets",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 7,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-3-protocol",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 7,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-3-math",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-3-report",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-4-protocol",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-4-math",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 5,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-4-report",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "exp07-frozen",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 1,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "neo-known",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "neo-sphere",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 8,
+      "unresolved": 1,
+      "displayFixes": 0
+    },
+    {
+      "id": "neo-online",
+      "math": 2,
+      "diagrams": 0,
+      "headings": 12,
+      "unresolved": 1,
+      "displayFixes": 0
+    },
+    {
+      "id": "neo-ablation",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 11,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "current-overview",
+      "math": 0,
+      "diagrams": 2,
+      "headings": 30,
+      "unresolved": 9,
+      "displayFixes": 0
+    },
+    {
+      "id": "current-results",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 7,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "current-viewer",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 3,
+      "unresolved": 0,
+      "displayFixes": 0
+    }
+  ],
+  "unresolved": [
+    {
+      "document": "math-spec",
+      "target": "../paper_assets/liu_yim_2021.pdf"
+    },
+    {
+      "document": "math-spec",
+      "target": "../../IRIS.pdf"
+    },
+    {
+      "document": "math-spec",
+      "target": "../../vcc_paper.pdf"
+    },
+    {
+      "document": "v51-support",
+      "target": "查看实验5.1.cmd"
+    },
+    {
+      "document": "v51-support",
+      "target": "docs/首版验收报告.md"
+    },
+    {
+      "document": "v51-support",
+      "target": "docs/开发协议.md"
+    },
+    {
+      "document": "v51-support",
+      "target": "src/v43_ellipsoid/continuous_volume.py"
+    },
+    {
+      "document": "v51-support",
+      "target": "validation/evaluation_round2.json"
+    },
+    {
+      "document": "v51-support",
+      "target": "comparisons"
+    },
+    {
+      "document": "v51-support",
+      "target": "comparisons/plan/experiment-protocol.md"
+    },
+    {
+      "document": "v51-support",
+      "target": "comparisons/tables/comparison.csv"
+    },
+    {
+      "document": "v51-support",
+      "target": "comparisons/tables/rollouts.csv"
+    },
+    {
+      "document": "neo-sphere",
+      "target": "plan/experiment-protocol.md"
+    },
+    {
+      "document": "neo-online",
+      "target": "plan/experiment-protocol.md"
+    },
+    {
+      "document": "current-overview",
+      "target": "../README.md"
+    },
+    {
+      "document": "current-overview",
+      "target": "results/O01/"
+    },
+    {
+      "document": "current-overview",
+      "target": "results/O02/"
+    },
+    {
+      "document": "current-overview",
+      "target": "打开新场景实验总览.cmd"
+    },
+    {
+      "document": "current-overview",
+      "target": "01_已知环境LiuQP.cmd"
+    },
+    {
+      "document": "current-overview",
+      "target": "02_历史管线4.3和4.4.cmd"
+    },
+    {
+      "document": "current-overview",
+      "target": "03_已知环境NEO.cmd"
+    },
+    {
+      "document": "current-overview",
+      "target": "04_在线LiuQP与NEO.cmd"
+    },
+    {
+      "document": "current-overview",
+      "target": "05_去可操作度消融.cmd"
+    }
+  ]
+}

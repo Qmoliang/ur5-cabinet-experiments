@@ -22,3 +22,7 @@ The cabinet videos and posters are rendered from this project's recorded MuJoCo 
 
 No new blanket license is assigned to the original project code in this snapshot. Existing third-party license notices remain applicable. Select an appropriate repository license before offering broader reuse rights.
 
+
+## Research document rendering
+
+The library uses Marked 17.0.5 (MIT), MathJax 3.2.2 (Apache 2.0), and Mermaid 12.0.0 (MIT). Full original licenses and bundled dependency notices are retained. See [document rendering notices](docs/library/licenses.html). Original document contents retain their existing rights.
