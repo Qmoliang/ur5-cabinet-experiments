@@ -2,6 +2,8 @@
 
 A recorded study of how obstacle representations and online perception affect reaching into a narrow cabinet. The robot uses 65 certificate spheres; environment proxies are spheres or ellipsoids. Controllers include LiuQP and a local position-task adaptation of NEO.
 
+**[Open the interactive experiment website](https://qmoliang.github.io/ur5-cabinet-experiments/)**
+
 **19 attempts · 15 full-duration runs · 4 early terminations.** A completed run is not necessarily a successful reach. Each configuration was attempted once.
 
 ![The recorded cabinet scene](docs/assets/O02-real.webp)
