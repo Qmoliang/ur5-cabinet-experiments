@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-11-04T08:14:33.942431+00:00",
+  "purpose": "test whether the index benefit survives a stronger full-scan implementation",
+  "version": 2,
+  "single_query_buffer": "reused output buffer in both linear AVX2 and NativeMultilevelMVT; v1 results retained in supplementary_v1",
+  "source_selection": "identical to PROTOCOL.json, no outcome-based selection",
+  "arms": [
+    "linear_global_avx2",
+    "mvt_scalar",
+    "mvt_simd"
+  ],
+  "query_repeats": 21,
+  "qp_repeats": 9,
+  "same_unfused_qp_path": true,
+  "representation_order": "alternating by snapshot",
+  "no_new_trajectories": true
+}

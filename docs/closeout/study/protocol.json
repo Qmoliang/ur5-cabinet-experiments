@@ -1,0 +1,324 @@
+{
+  "created_at": "2026-11-04T07:29:34.376041+00:00",
+  "selection": "both cohorts; seed 1 of all 15 tasks; last published snapshot; 3 equally-spaced saved configurations during that snapshot interval",
+  "selected": [
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__drawer__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__cage__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__cage_wide__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__exit__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_4shelves_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_4shelves_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_bins_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_bins_t1__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_bins_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_bins_t3__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_ur3_shelf_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_ur3_shelf_t1__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__iris_ur3_shelf_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__wall2_topm10__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "ellipsoid",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17",
+      "id": "online__wall2_topm15__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__drawer__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__cage__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__cage_wide__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__exit__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_4shelves_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_4shelves_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_bins_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_bins_t1__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_bins_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_bins_t3__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_ur3_shelf_t0__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_ur3_shelf_t1__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__iris_ur3_shelf_t2__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__wall2_topm10__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    },
+    {
+      "cohort": "sphere",
+      "base": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104",
+      "id": "online__wall2_topm15__s01",
+      "run": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp"
+    }
+  ],
+  "source_hashes": {
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "dd956ec5f3025820471f8c8129891f60dc02ca204d1b29245393c19c4d916eee",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "91c8225fee19fc280da6605d8e603afb4ef857ee3a15fde61a6850c6b60602da",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "4cc3960a4fa8d95d69cbf3043c015940be82a33e5f3dd77fc9f45fbac17f38eb",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "a4a8ebe37c403948641bb45812c6ebed123f2aabb8d5358e9933d88c287253b0",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "3d630fcb02709cea8346b5e22403b1ad94d2ac7da7b2f9e0865faa6e9e06edb1",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "c973edd98cd0d80663f3bb105453f747d3434e3792e8c8f488c2bfdac79b00da",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "3edd9c60f0f1a9a91d1b9ce324c7748350a09a2563bc4e559acc7610f0a88ce3",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "90ee70a1fff351c7c3533511c092582bb2f0cc83c1db36c743973e2e719f0054",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "cd59a7e8ad8d2abfb2aa79ae5be793ca776096776a8fbc6202b489c1d512b946",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "d600b2826d1b2a6b4b114c14e86d635f6a5e1544f6207c2769b2bdba3a78cc94",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "1bca6e91e5fc2b3dafa1c8d8dd5daf88e468da52791fd080dd624dbbfb63e380",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "866b6322ad4d8f7e50a18f24064713fa46841116578c2c36505de04e2bff7dd8",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "72b8c9c9acf368312bf9c9d72774f2c7221dbbde28a6581d3ccbec5d53b6a63e",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "a8566075cf1b324bf0bcb1c0024ec6620b7306878df789687fa19b2e32306126",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "a07187bcadb5cc36043c791c54143cd545724d8a8c010ff27e65e1449a6fece3",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "a4a8ebe37c403948641bb45812c6ebed123f2aabb8d5358e9933d88c287253b0",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "52dfb601cff23a30bac1b4dfc1a4cb1c8f25f00c854eaaeaeedb78dcee3a6cb8",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "5cea749d1cf51d33717899b3a15003320daced1afb6691ba9d019b68c326624e",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "e3b39674801293be58730756561657d2f54c1eb4897bb9bfd4097cd373d9eb8d",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "17d0dd90feae945039502d6ed47779dfecef927cef29a84a19fad59ff52a0fbe",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "ff1a4d588780f12a3328946fcda2a1ec7292c2e568c5c97aa0e0f3b9b33393b2",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "4d76a0d1be9bd0ae9d92f80390ca3418858f0f609b999657a2d42ebfb5f662a6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "3b48d6cfbb09fe2bc7328d7aec3db504f329265c4f381ea0292e66c309b39cb4",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "17d0dd90feae945039502d6ed47779dfecef927cef29a84a19fad59ff52a0fbe",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "b1892b6328efb70efafa1d2dd362e4bdbe0d3cf545ae258198b3f52764de910f",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "3d0b86af0b028fd8c6aad4fe12c251ba2ea95d4cfe8edf0b62c8990352bf8b60",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "6faf11e1d6188183a9ac885a02dd13119dff4807db56a4e7e7af17e27f0564c9",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "74741462f754f81afd516ff8e6c938d1c6001a2d0692fa44e671c7f553d7c633",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "40c0b7b48533024fd6c2138311b05519351f1aa7732c371e7cb077e4933f81e7",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "bdd3f4ca6eb02483f87d623fc7c99ffc2826b0a9b8428c7b0fd6a2d3c07bc4cb",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "fc429785aeec36fb20a4e7a239391f1d0b62f60b4c0893c17d0c6698e041087e",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "25e3a88ca99ab0aff32c7cff704f056754a3d63df4fd31469b0fd6cdac69834d",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "92d0ba999415c7e0fe9af148a81bfd18d4bd091c7e3069ce3db9376dd3e1822a",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "b1aae0c9a23e786e782ebafa7b68e8ed67ab21b05cccf536e382c386d8e4d8ee",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "5bee2b5152f92746ae28ef38f175dc88ede8a73231ca09fab8c372eead6ee26f",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "5130cf7c25f6d731c91ceece092d55a3a2db6e1fccabd4b19bd359b5f16049fb",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "6b0bdb95687f3cb11b60defc0e328c0d03f344cd7e8c8c789d2d6a97d1c83261",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "4f3f070c04dec86188d2f1695612442f4d4b0f89d39f288a7671f896504ebf20",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "341ece728cd383a34e291dcc480dcf2eaac3d23bcdea6bd8d968372587f34860",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "704da7d2b53628658bf0f3ef93211723d1939527165e9c75d733ba9b244e2729",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "d055701798df1a9ca70cf84786aea96f4d2cd57f33bf3ac6b22e3d0e86ae5747",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "70f16a992e505a0bb2444f7a9ec92658c90137daee5eb0cf4cddc93c1574574c",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "cef942c8bcd75c23a54d2fd4c2ab4a7da77cc2eed2e041d197f560bdd51e2a53",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "a2f132cfd55ec10c858571ed8477ac18c05f0f0a8c4fedce3e21f220f18e222a",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "191c26d4166f14d4e3fba420217cba630bc7a8ddec6d08be13b1f0b4c7d09d44",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "f1d9b801e32e5b26748cb7ac3e0347348bb5d3e88acc4e44c943d68aff190a93",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "4a19591187151a5d08dbf048d0761eef5763b838fcc412e0ecb5314ed3e16758",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "546bbd101ee8545642890aec32a917a325b8d31402c0a5a3db562b22a78c3d00",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "3dd93205bdbd719c4b710b25d324f55b2f02c639e9d2eafddb7ae2eec9d75bec",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "fd609fe531ae1a0cc23eb46e5011adf58f8fce2d25e35aa676bd2df608d7e5b9",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "c52ccc40586c39c51005626fe4141335be295360f3aa556e63c499a8ace5c83a",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "2e40fc76208926997741db083f92d37a2867132e28876ef0f4e6df3bb6b4ad4c",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/final_r17/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-ellipsoid-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "3dd93205bdbd719c4b710b25d324f55b2f02c639e9d2eafddb7ae2eec9d75bec",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "dd956ec5f3025820471f8c8129891f60dc02ca204d1b29245393c19c4d916eee",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "91c8225fee19fc280da6605d8e603afb4ef857ee3a15fde61a6850c6b60602da",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "53158b08fd5f41f80eb7c5694e4a1ecce62ebda2ed386925accf78ab6b33f4fe",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__drawer__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "a4a8ebe37c403948641bb45812c6ebed123f2aabb8d5358e9933d88c287253b0",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "3d630fcb02709cea8346b5e22403b1ad94d2ac7da7b2f9e0865faa6e9e06edb1",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "c973edd98cd0d80663f3bb105453f747d3434e3792e8c8f488c2bfdac79b00da",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "6b4773e3fd4b0eab117aefac3df048eed087b28ec6dbfb42f33bc7ae89816cc7",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "90ee70a1fff351c7c3533511c092582bb2f0cc83c1db36c743973e2e719f0054",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "cd59a7e8ad8d2abfb2aa79ae5be793ca776096776a8fbc6202b489c1d512b946",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "d600b2826d1b2a6b4b114c14e86d635f6a5e1544f6207c2769b2bdba3a78cc94",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "e4a7afeb3eb46899bb611c3615d5438ab70e0dc4c075c28bdf506892865cd9a3",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__cage_wide__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "866b6322ad4d8f7e50a18f24064713fa46841116578c2c36505de04e2bff7dd8",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "eea20671b2e47697ab040af513ea776a79a63f12f609f1a7610e97b9e4f6afb5",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "0012ab68bd151153b74fd9a7a849f4e8f02f972ef2c71d097cc3221c679c6350",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "3e884fc69bc4a017ca127d58ec346edffd2101f5ac5a4183773d238bf027d614",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__exit__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "a4a8ebe37c403948641bb45812c6ebed123f2aabb8d5358e9933d88c287253b0",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "d4a81559e197b6e1fc2a2d15d45ea4d7ed06ef95420a1e82df791146af2274ef",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "43af47696c94609a69a250d8a57a2f3ceb8744e16c061f8d9162be5adc72f7b5",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "28c01415b8e795bf6c48ce78f4c68a8b5d0a01cec7be631db42d443a327e08fb",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "17d0dd90feae945039502d6ed47779dfecef927cef29a84a19fad59ff52a0fbe",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "897813bfee0b2629809c699274321c1b6727f16cbb0094d9e9dc0ae4e610b15b",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "826401e51bbb0d9968beb309fec1068e9e4650027dfb9a63e57d97bd089a04db",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "793c1b4288c960677edbd16b53ddddcd465cfa2c87c915de8603745de0ce7818",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_4shelves_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "17d0dd90feae945039502d6ed47779dfecef927cef29a84a19fad59ff52a0fbe",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "b1892b6328efb70efafa1d2dd362e4bdbe0d3cf545ae258198b3f52764de910f",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "3d0b86af0b028fd8c6aad4fe12c251ba2ea95d4cfe8edf0b62c8990352bf8b60",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "30d1e66ab938a548a0e9cd87877c0f0baf4a821870ee98b34f45bc110241df71",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "1db2fc55f6ce04f6da982ee30e92a088a53225d57798c4e3e234ba9f29668177",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "8cb0de5b1a40392e7234db72e7983159555fe6eb96724177cb24d292fcd3e9cd",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "8094e4afed554121ac599b4765cae41ab3c3963d7c539f2ffdb070b4bc81aa66",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "fc429785aeec36fb20a4e7a239391f1d0b62f60b4c0893c17d0c6698e041087e",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "25e3a88ca99ab0aff32c7cff704f056754a3d63df4fd31469b0fd6cdac69834d",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "c7adccf395581d8109f78ec48cdb9b3cc541832a6200e63d0d1fd8a2ac9dcb36",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "b1aae0c9a23e786e782ebafa7b68e8ed67ab21b05cccf536e382c386d8e4d8ee",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "5bee2b5152f92746ae28ef38f175dc88ede8a73231ca09fab8c372eead6ee26f",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "472a67a2fa5f2e592df1792d4c26586864c5ffb8e18c1ebcc014fe84bdc8bd72",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_bins_t3__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "1d1810b8aacbd71e9b4ba9be933debe7dc0b8dde35191f574bc10cec3c56c8c6",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "6b0bdb95687f3cb11b60defc0e328c0d03f344cd7e8c8c789d2d6a97d1c83261",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "4f3f070c04dec86188d2f1695612442f4d4b0f89d39f288a7671f896504ebf20",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "90e062238c8fb6d657c2ed66bac53ecc1159db35007a98f451d71869396c06f2",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t0__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "c3b2d39fa3db8b6bf3eb382355f572d95f957f9c2713ebca47ba0faeb39daf9f",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "df42acb2a750e80e436bc59ec7064ec62d5a08df31db4bf4def5cce0937de549",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "64a71575b5d4ed728db99332b458a8931d8582295f965b2d3e4afe58be6d3f6a",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t1__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "cef942c8bcd75c23a54d2fd4c2ab4a7da77cc2eed2e041d197f560bdd51e2a53",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "a2f132cfd55ec10c858571ed8477ac18c05f0f0a8c4fedce3e21f220f18e222a",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "3bf8eb2df6f31fa909f1a83444c837fd0a28828120251c4b39a1112bd0fca74b",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__iris_ur3_shelf_t2__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "be9e1facc631fe5ea83f88e6cf0928a7b65b8471cbc182031b9c0cb549ce7893",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "93528bfaa68238d55ecc344358ab5b330430a229b7396680077a8916f23980b5",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "2a80c4163a9fbb3567fb1c61505fe395b7042b40cfb0c72794a9c5c724b564cb",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "219715f03afc0bbc02dfa217268bb9a63f993d572990a4dfe1e61b8f9c09a4c9",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm10__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "3dd93205bdbd719c4b710b25d324f55b2f02c639e9d2eafddb7ae2eec9d75bec",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_proxy_snapshots.npz": "f2e7c00537f1534d5994812994f2816e0e7981c71b99ff43d36307e4036b2516",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/causal_centervox_snapshots.npz": "a71f4e1301d86bf1d1d6599309bc5a7ace786ed7b0737c780a15895ae1b0749e",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/q_history.npy": "08f478c52869bb8fcf5b20cc2ea6f3b4b9f1377db438afa1906e5348c6b3ab93",
+    "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/closeout/sphere_r17_pair_20261104/runs/online__wall2_topm15__s01/A-CV-camera_quarter-mvt_simd-sphere-cv2.5mm-ui1.05-cr25mm-rawDirLeaves-cam320x180s1-r70mm-multi-observed_only-paced-maplog-sweepaudit-tol1mm-hold50-stop-omp4-prionormal-posqp/scene.xml": "3dd93205bdbd719c4b710b25d324f55b2f02c639e9d2eafddb7ae2eec9d75bec"
+  },
+  "proxy_budget": "same full measured-cell count and centers; no removal, merging or hand-selected cap",
+  "unknown_space": "excluded from index/component timing; unchanged exact boxes retained in separate full-map clearance comparison",
+  "coverage": "analytic inclusion of saved directional uncertainty sets and scalar offsets; does not independently re-prove sensor noise bound or raw-world coverage",
+  "query_arms": [
+    "cpp_linear_same_aabb",
+    "mvt_scalar",
+    "mvt_simd"
+  ],
+  "query_repeats": 21,
+  "qp_repeats": 9,
+  "qp_scope": "one-step frozen-pose observed-obstacle LiuQP workload; no planner, no integration, no perception, no frontier rows or execution guard; same zero previous velocity and final target",
+  "threading": "one pinned CPU, one native geometry thread, BLAS=1",
+  "fusion": "native fused shortcut hidden in all three query arms to isolate index/SIMD; no frozen runtime changes",
+  "timing": "warmup then deterministic randomized interleaving; build cost separate; descriptive median/p95, not hard real-time guarantee",
+  "no_new_trajectories": true,
+  "no_algorithm_modifications": true
+}

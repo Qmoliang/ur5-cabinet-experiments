@@ -1,0 +1,64 @@
+{
+  "sphere": {
+    "query_ms": {
+      "linear_global_avx2": 1.7882195,
+      "mvt_scalar": 0.0776335,
+      "mvt_simd": 0.07443449999999999
+    },
+    "qp_ms": {
+      "linear_global_avx2": 8.682628,
+      "mvt_scalar": 2.027013,
+      "mvt_simd": 2.0107625000000002
+    },
+    "build_ms": {
+      "linear_global_avx2": 9.185549,
+      "mvt_scalar": 9.835523,
+      "mvt_simd": 9.167911499999999
+    },
+    "query_speedup_median": 29.163266089882143,
+    "query_speedup_min": 0.9775495252568265,
+    "query_speedup_max": 219.18295191892508,
+    "qp_speedup_median": 2.362594888063402,
+    "simd_extra_ratio_median": 1.083392074818668,
+    "mvt_query_faster_snapshots": 29,
+    "mvt_qp_faster_snapshots": 29,
+    "amortization_batches_median": 0.0
+  },
+  "ellipsoid": {
+    "query_ms": {
+      "linear_global_avx2": 1.7737889999999998,
+      "mvt_scalar": 0.076846,
+      "mvt_simd": 0.0729165
+    },
+    "qp_ms": {
+      "linear_global_avx2": 5.4197745,
+      "mvt_scalar": 2.2453655,
+      "mvt_simd": 2.2264045
+    },
+    "build_ms": {
+      "linear_global_avx2": 9.264003,
+      "mvt_scalar": 12.707678999999999,
+      "mvt_simd": 11.4460175
+    },
+    "query_speedup_median": 28.688115406749432,
+    "query_speedup_min": 1.0581594422251446,
+    "query_speedup_max": 222.3372906675053,
+    "qp_speedup_median": 1.881667441891119,
+    "simd_extra_ratio_median": 1.0531779659125005,
+    "mvt_query_faster_snapshots": 30,
+    "mvt_qp_faster_snapshots": 27,
+    "amortization_batches_median": 2.5
+  },
+  "complete": true,
+  "snapshots": 30,
+  "candidate_equivalence": true,
+  "max_qp_difference": 0.0,
+  "max_command_difference": 0.0,
+  "source_integrity_passed": true,
+  "no_new_trajectories": true,
+  "representation_cost": {
+    "ellipsoid_over_sphere_query_ratio_median": 0.9243690508419644,
+    "ellipsoid_over_sphere_qp_ratio_median": 0.7838920322781491
+  },
+  "conclusion_zh": "相对带全局AABB和AVX2的线性扫描，MVT SIMD的查询加速比中位数为球29.16×、椭球28.69×；在30份快照中分别有29、30份更快。QP组件的配对加速比中位数为2.36×和1.88×。主要收益来自索引减少扫描范围；MVT内SIMD的增益较小，不能把整体收益归给SIMD，也不能外推为整套系统的同等提速。"
+}

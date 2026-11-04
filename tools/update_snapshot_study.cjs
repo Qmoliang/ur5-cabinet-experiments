@@ -1,0 +1,21 @@
+const fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'..');
+const page=path.join(root,'docs/closeout/index.html');let html=fs.readFileSync(page,'utf8');
+function replace(a,b){if(html.split(a).length!==2)throw Error('Expected unique text: '+a.slice(0,70));html=html.replace(a,b);}
+if(!html.includes('LATEST PAIRED STUDY')){
+replace('FINAL RECORD / 2026.11.03 · 已收尾，不再重跑','FINAL RECORD / 2026.11.04 · 已收尾，新增离线分析');
+replace('<div><strong>2</strong><p>在线未到达 · 失败完整保留</p></div><div><strong>0</strong><p>本次在线安全 / 数据审计错误</p></div>','<div><strong>275<span>/300</span></strong><p>在线球表示 · 安全到达91.67%</p></div><div><strong>23</strong><p>配对中仅椭球成功 · 反向0项</p></div>');
+replace('两组来自不同冻结版本和时间规则，分开报告；不合并成 598/600 的统一成功率，也不把差异直接归因于地图知识。','已知地图v5保留原规则；在线球/椭球配对保持LiuQP和规划逻辑一致，仅切换环境表示。三个批次分别统计，不合并成功率。');
+replace('<section id="results" class="wrap section">','<section class="wrap section" id="latest-study"><div class="section-head"><div><div class="eyebrow">LATEST PAIRED STUDY / 2026.11.04</div><h2>球275/300，椭球298/300。</h2></div><a class="button dark" href="study/">查看配对、同快照与性能结果 ↗</a></div><p>同一LiuQP与规划辅助下，275项两组都成功，23项仅椭球成功，2项两组都失败。窄笼架为2/20对19/20；当前四层货架t2两组均20/20。失败全部保留。</p><p>新增30份同快照、等代理数量的覆盖与净空比较，以及原生线性扫描、MVT标量、MVT SIMD和更强AVX2全扫描参照。查询与QP等价检查通过；这次分析没有产生新轨迹，也没有改脱困算法。</p><div class="links"><a href="study/">完整比较与科学图表 ↗</a><a href="study/research-design.html">IRIS-ZO研究设计（尚未运行）↗</a></div><p class="note">下方600条回放仍为已知地图300条与椭球在线300条；新增球组提供全部300项配对记录和冻结审计归档。</p></section>\n<section id="results" class="wrap section">');
+replace('<h2>完整结果，固定分母。</h2>','<h2>已知地图与椭球在线归档。</h2>');
+replace('<div class="failures">','<h3 class="subheading">椭球最终版保留的两项失败</h3><div class="failures">');
+replace('固定静态回归任务中，已知地图 v5 达到 300/300；在线最终版达到 298/300 安全到达。','固定静态回归任务中，已知地图v5达到300/300；在线椭球最终版298/300，同条件球组275/300。');
+replace('本次只有椭球 + 脱困组合，不能单独证明椭球优于球，或给出跨论文控制器排名。','新增配对保持LiuQP与脱困不变，不能据此量化它们自身改进的独立收益，也不支持跨论文控制器排名。');
+replace('<div class="download-grid">','<div class="download-grid"><a href="study/">最新球/椭球配对与快照分析 <span>RESULTS ↗</span></a><a href="study/paired-comparison-bundle.zip" download>球组冻结代码与配对审计 <span>ZIP ↓</span></a>');
+fs.writeFileSync(page,html);
+}
+const readme=path.join(root,'README.md');let md=fs.readFileSync(readme,'utf8');
+if(!md.includes('## Paired online and frozen-snapshot study')){
+const text=`\n## Paired online and frozen-snapshot study — 2026-11-04\n\n**[Open the updated paired results and performance study](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/study/)**\n\nThe sphere ablation is complete: **275/300** safe arrivals versus the reused ellipsoid result **298/300**. Both succeeded in 275 cases, only ellipsoids succeeded in 23, and neither succeeded in 2; no sphere-only successes. The sphere run kept LiuQP, planning/tracking logic, inputs and acceptance rules fixed, propagating the representation switch through view selection, planning, control and certification. No outcome-driven tuning or replacement of failed cases.\n\nAn offline study uses 30 preselected saved maps (seed 1 of all 15 tasks from both cohorts) and 90 saved poses. Sphere and ellipsoid proxies have identical cell centers/counts and cover the same saved uncertainty sets. Native C++ linear AABB, scalar MVT and SIMD MVT are checked for identical candidates, QP matrices and commands; a stronger global-AABB/AVX2 linear scan is also tested. All input hashes and the original frozen runtime integrity pass. No new robot trajectories or planner runs were generated for this snapshot study.\n\nThe performance numbers measure fixed-pose component workloads, not end-to-end real-time performance. SIMD's incremental contribution is separated from spatial indexing, construction cost and the stronger full-scan reference. The site retains narrow clearance evidence and limitations, including that sampled poses do not prove all 23 closed-loop differences are geometric impossibility.\n\n[IRIS-ZO-inspired screening and region-planning comparison design](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/study/research-design.html) is explicitly **proposed, not implemented or executed**.\n\n`;
+md=md.replace('# UR5 Cabinet Experiments\n','# UR5 Cabinet Experiments\n'+text);fs.writeFileSync(readme,md);
+}
+console.log('Updated main report and README');

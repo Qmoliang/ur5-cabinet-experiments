@@ -1,5 +1,18 @@
 # UR5 Cabinet Experiments
 
+## Paired online and frozen-snapshot study — 2026-11-04
+
+**[Open the updated paired results and performance study](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/study/)**
+
+The sphere ablation is complete: **275/300** safe arrivals versus the reused ellipsoid result **298/300**. Both succeeded in 275 cases, only ellipsoids succeeded in 23, and neither succeeded in 2; no sphere-only successes. The sphere run kept LiuQP, planning/tracking logic, inputs and acceptance rules fixed, propagating the representation switch through view selection, planning, control and certification. No outcome-driven tuning or replacement of failed cases.
+
+An offline study uses 30 preselected saved maps (seed 1 of all 15 tasks from both cohorts) and 90 saved poses. Sphere and ellipsoid proxies have identical cell centers/counts and cover the same saved uncertainty sets. Native C++ linear AABB, scalar MVT and SIMD MVT are checked for identical candidates, QP matrices and commands; a stronger global-AABB/AVX2 linear scan is also tested. All input hashes and the original frozen runtime integrity pass. No new robot trajectories or planner runs were generated for this snapshot study.
+
+The performance numbers measure fixed-pose component workloads, not end-to-end real-time performance. SIMD's incremental contribution is separated from spatial indexing, construction cost and the stronger full-scan reference. The site retains narrow clearance evidence and limitations, including that sampled poses do not prove all 23 closed-loop differences are geometric impossibility.
+
+[IRIS-ZO-inspired screening and region-planning comparison design](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/study/research-design.html) is explicitly **proposed, not implemented or executed**.
+
+
 ## Static study closeout — 2026-11-03
 
 **[Open the final report and MuJoCo replay website](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/)**

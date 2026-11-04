@@ -1,0 +1,76 @@
+{
+  "pairedRows": 15,
+  "basicRows": 2,
+  "strongRows": 2,
+  "coverage": "30/30",
+  "support": "2.09 mm",
+  "equivalence": "首轮 11,700 组候选查询的ID与顺序完全一致；180 个固定姿态QP实例的矩阵与速度指令最大差异均为 0。强基线补充检查也通过，未通过漏掉候选换取速度。",
+  "performance": "相对带全局AABB和AVX2的线性扫描，MVT SIMD的查询加速比中位数为球29.16×、椭球28.69×；在30份快照中分别有29、30份更快。QP组件的配对加速比中位数为2.36×和1.88×。主要收益来自索引减少扫描范围；MVT内SIMD的增益较小，不能把整体收益归给SIMD，也不能外推为整套系统的同等提速。 在相同快照的配对比较中，椭球/球的MVT查询时间比中位数为0.924，QP组件时间比为0.784；这只是本工作负载的表现，不表示单次椭球距离计算更便宜或椭球在所有地图上都更快。",
+  "links": [
+    {
+      "url": "http://127.0.0.1:8765/closeout/",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/research-design.html",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/paired-report.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/case-pairs.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/paired-comparison-bundle.zip",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/snapshot-comparison.svg",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/summary.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/strong-summary.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/results.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/strong-results.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/protocol.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/strong-protocol.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/environment.json",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8765/closeout/study/snapshot-study-bundle.zip",
+      "status": 206
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "designPending": true,
+  "mainUpdated": true,
+  "mainRows": 15,
+  "errors": [],
+  "badRequests": []
+}

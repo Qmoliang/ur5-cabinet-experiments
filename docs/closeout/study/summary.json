@@ -1,0 +1,93 @@
+{
+  "sphere": {
+    "query_ms_median_of_snapshot_medians": {
+      "cpp_linear_same_aabb": 33.615796,
+      "mvt_scalar": 0.0828515,
+      "mvt_simd": 0.0805505
+    },
+    "qp_ms_median_of_snapshot_medians": {
+      "cpp_linear_same_aabb": 36.8955085,
+      "mvt_scalar": 2.030628,
+      "mvt_simd": 2.071809
+    },
+    "build_ms_median": {
+      "cpp_linear_same_aabb": 1.213324,
+      "mvt_scalar": 9.7286105,
+      "mvt_simd": 9.091664
+    },
+    "linear_to_simd_speedup_median": 388.0133386494772,
+    "scalar_to_simd_speedup_median": 1.0735584636173512,
+    "linear_to_simd_qp_speedup_median": 17.480453476671734,
+    "simd_faster_than_scalar_snapshots": 25,
+    "simd_faster_than_linear_snapshots": 30,
+    "build_amortization_query_batches_median": 1.0
+  },
+  "ellipsoid": {
+    "query_ms_median_of_snapshot_medians": {
+      "cpp_linear_same_aabb": 33.631748,
+      "mvt_scalar": 0.084009,
+      "mvt_simd": 0.0735025
+    },
+    "qp_ms_median_of_snapshot_medians": {
+      "cpp_linear_same_aabb": 35.2005485,
+      "mvt_scalar": 1.8817455,
+      "mvt_simd": 1.8768005
+    },
+    "build_ms_median": {
+      "cpp_linear_same_aabb": 1.3337815,
+      "mvt_scalar": 13.301867999999999,
+      "mvt_simd": 12.2258105
+    },
+    "linear_to_simd_speedup_median": 414.8435484176511,
+    "scalar_to_simd_speedup_median": 1.037319399511437,
+    "linear_to_simd_qp_speedup_median": 19.55950060271123,
+    "simd_faster_than_scalar_snapshots": 25,
+    "simd_faster_than_linear_snapshots": 30,
+    "build_amortization_query_batches_median": 1.0
+  },
+  "geometry": {
+    "snapshots": 30,
+    "saved_pose_queries": 90,
+    "proxy_count_min": 52753,
+    "proxy_count_max": 829409,
+    "all_equal_counts_and_cell_coverage_passed": true,
+    "support_excess_mm_median_of_snapshot_medians": 2.092745539740222,
+    "support_excess_mm_median_of_snapshot_p95": 4.4826376536680925,
+    "observed_ellipsoid_safe_sphere_blocked": 1,
+    "observed_sphere_safe_ellipsoid_blocked": 0,
+    "full_map_ellipsoid_safe_sphere_blocked": 1,
+    "full_map_sphere_safe_ellipsoid_blocked": 0,
+    "near_pose_count": 39,
+    "near_clearance_gain_mm_median": 1.8587882984439155,
+    "observed_both_above_6": 89,
+    "observed_both_below_6": 0,
+    "clearance_cap_mm": 30,
+    "operating_ellipsoid_safe_sphere_blocked": 1,
+    "operating_sphere_safe_ellipsoid_blocked": 0
+  },
+  "equivalence": {
+    "candidate_query_sets": 11700,
+    "all_ids_and_order_identical": true,
+    "qp_instances": 180,
+    "max_qp_matrix_difference": 0.0,
+    "max_velocity_command_difference": 0.0
+  },
+  "representation_cost": {
+    "ellipsoid_over_sphere_simd_query_ratio_median": 0.9106810666022067,
+    "ellipsoid_over_sphere_qp_ratio_median": 0.7752367008942447
+  },
+  "complete": true,
+  "source_integrity_passed": true,
+  "runtime_integrity_passed": true,
+  "no_new_trajectories": true,
+  "statistic_note": "Each snapshot is weighted equally. Speedups are medians of per-snapshot paired ratios, not ratios of displayed medians.",
+  "limitations": [
+    "Snapshot seed 1 from each task and both source cohorts; not all saved maps, seeds or worst-case queries.",
+    "Coverage is for saved measured-cell uncertainty sets under their existing error assumptions, not arbitrary unseen world geometry.",
+    "Clearance is clipped at +30 mm; these are fixed-pose certificates, not global path existence proofs.",
+    "Observed proxy sums are not union volume, and core volume excludes isotropic offsets.",
+    "One pinned CPU, warm repeated fixed-pose solves; index arms randomized; representation arms run sphere then ellipsoid. Not an end-to-end real-time benchmark.",
+    "Common unfused narrowphase path isolates indexing; full production fusion, sensing, planning, frontier rows and execution protection are outside this timing.",
+    "Original LiuQP sphere-tree construction is not benchmarked; it constructs geometry and is not the same abstraction as an AABB query index."
+  ]
+}

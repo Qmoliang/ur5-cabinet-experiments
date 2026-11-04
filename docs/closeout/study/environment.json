@@ -1,0 +1,13 @@
+{
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+  "mujoco": "3.11.0",
+  "numpy": "1.26.4",
+  "platform": "Linux-6.14.0-37-generic-x86_64-with-glibc2.39",
+  "affinity": [
+    56
+  ],
+  "compiler": "g++ (Ubuntu 14.2.0-4ubuntu2~24.04) 14.2.0",
+  "cpu": "INTEL(R) XEON(R) GOLD 6530",
+  "benchmark_source_sha256": "36c8db54b16eb0a1a2735f7b83c5875cfdde340796c666173e049211c923ad85",
+  "linear_reference_sha256": "cce93708fed12afd54d161b04f45459db94b562c8e7ded07dee2980ff4984ae1"
+}

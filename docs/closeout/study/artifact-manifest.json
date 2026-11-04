@@ -1,0 +1,22 @@
+{
+  "summarize_snapshots.py": "0f42788a9043d032bcdd7a59b1c347fc87693600bba94c1ef78f54b693d9fd61",
+  "STRONG_SUMMARY.json": "06da291b9e017516a5c1f051017f5e7daa4ac93de9be784b2807d8b846a4e632",
+  "benchmark_strong_reference.py": "9d13ae84cbd660900a324be47a9ecc2b802634e6bd3b90474d2c87667a745a8b",
+  "linear_avx2.cpp": "0d25c009e917126e164de779e9d79ec4b159d51e5c29cc4d65d6419c19755aa7",
+  "STRONG_PROTOCOL.json": "d951b1c1fb548beee32045b90224c6440d8e8edb18507731e243cd0ac5aa4a8e",
+  "STRONG_RESULTS.json": "b36607f4abb7f05aa5210e4e0cd93b217b244725d7b3ff26b881c033bc45e554",
+  "ENVIRONMENT.json": "263c640ed2a887c9d628f6df3ba103747c7ca4c7d9b11480e9fa328eab03ac3e",
+  "snapshot-comparison.png": "43c38559ff76d93c8982c6cc8a5515b9eeaab305c74443a2c2d6e24692a0d452",
+  "SUMMARY.json": "ba3b9fa6f917b410016211c9116de6a9f0c4db7df56dbd663c284c0dffe567d5",
+  "benchmark_snapshots.py": "36c8db54b16eb0a1a2735f7b83c5875cfdde340796c666173e049211c923ad85",
+  "RESULTS.json": "65c7e9b04a0e7e50c836046cd1dcbe5bd3f3edabc17ec03d72f19d294f31bb04",
+  "FINAL_INTEGRITY.json": "13b64ed8be958b41e19afaaeaca35ff09ac68ee9dd0c05cee267421db2603b26",
+  "summarize_strong.py": "6bb1b1d50b5e55810b5aabbef6887ed3b82cedf2e1cf98b7145db0d7b7ca3201",
+  "snapshot-comparison.svg": "fcfa0c9b246cbe5b523176fe224dcdf79683485361ad55b445ade1480daae79f",
+  "brute_aabb.cpp": "cce93708fed12afd54d161b04f45459db94b562c8e7ded07dee2980ff4984ae1",
+  "PROTOCOL.json": "63d89787679fe587e69270bdae895d05a55129590fbc8fde9c438e3a4c918b02",
+  "supplementary_v1/STRONG_SUMMARY.json": "0fea8457941b67500d843805436a522876421563ebddef6ecd13762e8e7d0b8e",
+  "supplementary_v1/benchmark_strong_reference.py": "351a02755305e2dee7eb4e21840fca7490fb3b86f2b71056c18152c8389f8a14",
+  "supplementary_v1/STRONG_PROTOCOL.json": "2536ffee842e674985d7a26ec3e8656dd8e7a9b9784ba5018f312cd331df2d8b",
+  "supplementary_v1/STRONG_RESULTS.json": "27efd6bb2d4d8e823855f916d3b2e6d7de5efd9e4cb260779181fba97d5a23b2"
+}
