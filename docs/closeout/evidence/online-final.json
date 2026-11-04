@@ -1,0 +1,165 @@
+{
+  "version": "final_r17",
+  "updated_at": "2026-11-03T12:37:19.487897+00:00",
+  "phase": "closed_complete",
+  "expected": 300,
+  "completed": 300,
+  "safe_arrivals": 298,
+  "ordinary_nonarrivals": 2,
+  "validity_or_safety_errors": 0,
+  "active": {},
+  "closed": true,
+  "study_complete": true,
+  "engineering_goal_met": false,
+  "conclusion_zh": "固定300项回归评估已完成：298/300安全到达，2项普通未到达。未满足全部指定任务均成功的工程目标；失败是本轮结果，不再启动逐案例修改。",
+  "data_role": "已多次用于开发的固定回归矩阵，不是未见数据泛化验证",
+  "scope": {
+    "tasks": 15,
+    "starts_per_task": 20,
+    "environment_margin_mm": 6,
+    "self_margin_mm": 5,
+    "normal_operating_margin_mm": 6.5,
+    "goal_tolerance_mm": 1,
+    "goal_hold_cycles": 50,
+    "maximum_active_s": 300,
+    "timing_report_only": true,
+    "stop_after_goal": true
+  },
+  "by_task": {
+    "drawer": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 19,
+      "ordinary_nonarrivals": 1,
+      "validity_or_safety_errors": 0
+    },
+    "cage": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 19,
+      "ordinary_nonarrivals": 1,
+      "validity_or_safety_errors": 0
+    },
+    "cage_wide": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "exit": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_4shelves_t0": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_4shelves_t2": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_bins_t0": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_bins_t1": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_bins_t2": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_bins_t3": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_ur3_shelf_t0": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_ur3_shelf_t1": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "iris_ur3_shelf_t2": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "wall2_topm10": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    },
+    "wall2_topm15": {
+      "expected": 20,
+      "completed": 20,
+      "safe_arrivals": 20,
+      "ordinary_nonarrivals": 0,
+      "validity_or_safety_errors": 0
+    }
+  },
+  "failure_causes": {
+    "operating_contract_unavailable": 1,
+    "active_horizon_exhausted": 1
+  },
+  "failures": [
+    {
+      "id": "online__cage__s08",
+      "outcome": "not_reached",
+      "termination_reason": "operating_contract_unavailable",
+      "attempt_valid": true,
+      "safety_verified": true
+    },
+    {
+      "id": "online__drawer__s20",
+      "outcome": "not_reached",
+      "termination_reason": "active_horizon_exhausted",
+      "attempt_valid": true,
+      "safety_verified": true
+    }
+  ],
+  "no_post_freeze_tuning": true,
+  "known_reruns_started": false,
+  "limitations": [
+    "结论限于固定仿真任务、起点和观测规则。",
+    "不把旧固定地图结论重新开题，也不据本轮单一椭球加脱困系统宣称新的表示消融结论。",
+    "所有普通失败保留；修改算法需另立开发阶段，不延续本轮收尾。",
+    "虚拟外部相机的载体运动未获认证，不外推为实机或动态部署保证。"
+  ],
+  "changed_frozen_artifacts": [],
+  "changed_original_files": []
+}

@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-11-03T08:24:49.566652+00:00",
+  "artifact_count": 1307,
+  "manifest_sha256": "1343d99f676895749658ad44d498b02a9aa330b486a4494c9c7a4126950bb264",
+  "boundary_checks_passed": true,
+  "no_new_algorithm_or_scene_overrides": true,
+  "freeze_applies_before_smoke": true
+}

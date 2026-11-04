@@ -1,5 +1,40 @@
 # UR5 Cabinet Experiments
 
+## Static study closeout — 2026-11-03
+
+**[Open the final report and MuJoCo replay website](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/)**
+
+| Frozen cohort | Safe arrivals / accepted trials | Scope |
+| --- | --- | --- |
+| Known map, v5 | 300/300 (100%) | Original criteria, including original 120 s budget |
+| Online, final_r17 | 298/300 (99.33%) | Safety and arrival; timing reported separately, 300 s active horizon |
+
+The study is complete. Two online non-arrivals are retained, with no safety or evidence-validity audit errors. No further experiments will be run for this closeout. The goal of all 300 online tasks succeeding was not met. These cohorts have different frozen versions and timing/observation policies: do not pool the rates or treat their difference as a controlled map-knowledge effect. The starts were used during development, so this is a fixed regression study, not held-out generalization evidence.
+
+- Cage seed 8: certified path accepted, tracking stalled, normal operating clearance unavailable; safe stop.
+- Drawer seed 20: 31 searches returned no_goal, no accepted path, active horizon exhausted; safe non-arrival. No common specific root cause has been established.
+
+The report preserves the earlier fixed-map factorial comparison and its acceleration-defect caveat, historical dynamic failures, and the original 19-case website/document library. It does not claim universal ellipsoid superiority, real-time guarantees, dynamic safety or hardware readiness.
+
+### Playback, without rerunning experiments
+
+All 600 saved joint/endpoint trajectories are available. Official MuJoCo **3.11.0** WASM recomputes forward kinematics; no controller or physics stepping is run. Three.js displays the original model. Keys **1** physical scene, **2** robot certificate spheres, **3** endpoint trail, **4** sampled published map; mouse orbit/pan/zoom, time scrub, playback speed and case selection are supported. Map samples are visual aids, not complete safety geometry. There are **32 MP4 recordings**: seed 1 of each task/cohort and both online failures. All original saved trajectory frames are retained losslessly.
+
+- [Final online report](docs/closeout/evidence/online-final.json)
+- [Known v5 original report](docs/closeout/evidence/known-v5-comparison.json)
+- [600-case index](docs/closeout/data.json)
+- [Trajectory provenance and hashes](docs/closeout/evidence/replay-provenance.json)
+- [Browser checks](docs/closeout/evidence/browser-validation.json)
+- [Historical 19-case website](https://qmoliang.github.io/ur5-cabinet-experiments/historical.html)
+
+Preview with `node tools/preview_closeout.cjs`, then open http://127.0.0.1:8765/closeout/. Install the pinned verification dependencies with `npm ci` and run `node tools/check_closeout.cjs` (Chrome required). The website itself serves vendored JS/WASM and needs no build tools or CDN. Export/render tools read the existing source archive only. Full high-volume causal map histories and pair logs remain in the original server archive. Frozen controller code has native/server dependencies; clean-machine rerunning is not validated.
+
+---
+
+<details><summary>Historical 19-case project README (original claims and limitations)</summary>
+
+## Historical snapshot
+
 A recorded study of how obstacle representations and online perception affect reaching into a narrow cabinet. The robot uses 65 certificate spheres; environment proxies are spheres or ellipsoids. Controllers include LiuQP and a local position-task adaptation of NEO.
 
 **[Open the interactive experiment website](https://qmoliang.github.io/ur5-cabinet-experiments/)**
@@ -97,3 +132,5 @@ The source corresponds to the grounded cabinet rerun dated 2026-09-17. Original 
 
 Third-party assets and vendored components retain their included licenses. No additional repository-wide license has been selected for the original research code; publication alone does not grant a new blanket license.
 
+
+</details>

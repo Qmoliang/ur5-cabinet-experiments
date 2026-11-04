@@ -1,0 +1,20 @@
+const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
+(async()=>{
+ const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-unsafe-swiftshader']});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],bad=[];page.on('pageerror',e=>{errors.push(String(e));console.log('PAGE_ERROR',String(e));});page.on('response',r=>{if(r.status()>=400)bad.push([r.status(),r.url()]);});
+ await page.goto(process.env.SITE_URL||'http://127.0.0.1:8765/closeout/');await page.waitForSelector('body[data-ready=true]');
+ await page.locator('#load3d').click();await page.waitForFunction(()=>window.replayApi?.loaded,{},{timeout:120000});
+ const checks={rows:await page.locator('#task-results tr').count(),case:await page.locator('#case-label').textContent(),robotMeshes:await page.evaluate(()=>replayApi.robot.children.length),fk:await page.evaluate(async()=>{const r=window.replayApi,checks=await(await fetch('evidence/fk-checks.json')).json();let max=0;for(const c of checks){const p=r.verifyPose(c.q);max=Math.max(max,...p.map((x,i)=>Math.abs(x-c.ee[i])));}r.setFrame(0);return {count:checks.length,maxErrorM:max};})};
+ await page.locator('#viewer').scrollIntoViewIfNeeded();await page.locator('#viewer').focus();checks.views=[];
+ for(const key of ['1','2','3','4']){await page.keyboard.press(key);checks.views.push(await page.evaluate(()=>({view:replayApi.view,robot:replayApi.robot.visible,certificate:replayApi.cert.visible,environment:replayApi.environment.visible,cloud:replayApi.cloud.visible})));}
+ await page.keyboard.press('1');await page.locator('#play').click();await page.waitForTimeout(700);checks.play=await page.evaluate(()=>({frame:replayApi.frame,playing:replayApi.playing}));await page.locator('#play').click();
+ await page.locator('#seek').evaluate(e=>{e.value=1000;e.dispatchEvent(new Event('input',{bubbles:true}));});checks.seek=await page.evaluate(()=>replayApi.frame);
+ const before=await page.evaluate(()=>replayApi.camera.position.toArray());const box=await page.locator('#viewport').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+100,box.y+box.height/2+40,{steps:10});await page.mouse.up();await page.waitForTimeout(300);checks.rotation={before,after:await page.evaluate(()=>replayApi.camera.position.toArray())};
+ await page.locator('#viewer').screenshot({path:'verification/replay-desktop.png'});
+ await page.locator('#mode').selectOption('known');await page.waitForFunction(()=>replayApi.loaded&&replayApi.case.mode==='known');checks.known=await page.evaluate(()=>({id:replayApi.case.id,frames:replayApi.case.frames}));
+ await page.locator('#mode').selectOption('online');await page.locator('#task').selectOption('drawer');await page.locator('#seed').selectOption('20');await page.waitForFunction(()=>replayApi.loaded&&replayApi.case.id==='online__drawer__s20');checks.drawer=await page.evaluate(()=>({id:replayApi.case.id,frames:replayApi.case.frames}));
+ await page.locator('#seed').selectOption('2');await page.waitForFunction(()=>replayApi.loaded&&replayApi.case.id==='online__drawer__s02');checks.noVideo=await page.locator('#recording').isHidden();
+ await page.setViewportSize({width:390,height:844});await page.screenshot({path:'verification/closeout-mobile.png',fullPage:true});checks.mobile=await page.evaluate(()=>({viewport:innerWidth,width:document.documentElement.scrollWidth}));
+ checks.errors=errors;checks.badRequests=bad;fs.writeFileSync('verification/closeout-check.json',JSON.stringify(checks,null,2));console.log(JSON.stringify(checks));await browser.close();
+ if(errors.length||bad.length||checks.robotMeshes<20||checks.rows!==15||checks.fk.count!==1800||checks.fk.maxErrorM>1e-8||checks.play.frame<=0||checks.seek!==1000||checks.mobile.width>checks.mobile.viewport||JSON.stringify(before)===JSON.stringify(checks.rotation.after))process.exitCode=1;
+})().catch(e=>{console.error(e);process.exit(1);});

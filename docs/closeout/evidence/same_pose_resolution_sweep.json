@@ -1,0 +1,92 @@
+{
+  "scenario": "known_static_iris_4shelves_t2",
+  "reference": {
+    "scenario": "known_static_iris_4shelves_t2",
+    "reference_case": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/all_scenes_factorial_20261030/new/known_static_iris_4shelves_t2/ellipsoid_escape/seed01",
+    "reference_q": [
+      -4.311421855828351,
+      -0.8165125287514908,
+      0.2198830493585949,
+      0.11015505039931017,
+      0.4908653380325387,
+      1.147975786788203
+    ],
+    "proxy_counts": {
+      "sphere": 1632,
+      "ellipsoid": 1632
+    },
+    "final_pose_gap_mm": {
+      "sphere": -18.70529698726285,
+      "ellipsoid": 14.702498669850335
+    },
+    "physical_box_gap_mm": 18.852076700802932,
+    "interpretation": "Same robot pose and cell partition; this witness is not a proof that no other sphere-feasible target pose exists."
+  },
+  "sphere_resolution_measurements": [
+    {
+      "cell_span_m": 0.075,
+      "proxy_count": 1632,
+      "gap_mm": -18.70529698726285,
+      "passes6mm": false,
+      "wall_s": 0.009242546977475286
+    },
+    {
+      "cell_span_m": 0.06,
+      "proxy_count": 2600,
+      "gap_mm": -11.391296471275007,
+      "passes6mm": false,
+      "wall_s": 0.01163556706160307
+    },
+    {
+      "cell_span_m": 0.05,
+      "proxy_count": 3648,
+      "gap_mm": -5.773937926223868,
+      "passes6mm": false,
+      "wall_s": 0.013658647076226771
+    },
+    {
+      "cell_span_m": 0.04,
+      "proxy_count": 7250,
+      "gap_mm": -0.30193402073376563,
+      "passes6mm": false,
+      "wall_s": 0.025035072001628578
+    },
+    {
+      "cell_span_m": 0.03,
+      "proxy_count": 15120,
+      "gap_mm": 6.270284880168897,
+      "passes6mm": true,
+      "wall_s": 0.05482567206490785
+    },
+    {
+      "cell_span_m": 0.025,
+      "proxy_count": 21504,
+      "gap_mm": 8.22172548520969,
+      "passes6mm": true,
+      "wall_s": 0.07672443601768464
+    },
+    {
+      "cell_span_m": 0.02,
+      "proxy_count": 39000,
+      "gap_mm": 10.942521521741057,
+      "passes6mm": true,
+      "wall_s": 0.14341826201416552
+    },
+    {
+      "cell_span_m": 0.015,
+      "proxy_count": 110320,
+      "gap_mm": 11.84473941810537,
+      "passes6mm": true,
+      "wall_s": 0.4303699159063399
+    },
+    {
+      "cell_span_m": 0.01,
+      "proxy_count": 311520,
+      "gap_mm": 14.800910649416105,
+      "passes6mm": true,
+      "wall_s": 1.2443734420230612
+    }
+  ],
+  "scope": "Posthoc geometry at one fixed successful pose only. Not a new controller trial, not a minimum-count optimization, not proof of whole-path feasibility.",
+  "safety_margin_unchanged_m": 0.006
+}

@@ -26,3 +26,7 @@ No new blanket license is assigned to the original project code in this snapshot
 ## Research document rendering
 
 The library uses Marked 17.0.5 (MIT), MathJax 3.2.2 (Apache 2.0), and Mermaid 12.0.0 (MIT). Full original licenses and bundled dependency notices are retained. See [document rendering notices](docs/library/licenses.html). Original document contents retain their existing rights.
+
+## Final closeout browser replay
+
+The 2026-11-03 replay uses official @mujoco/mujoco 3.11.0 (Apache-2.0) and Three.js 0.178.0 (MIT), vendored under docs/closeout/vendor with license texts. UR5 mesh licensing is unchanged. Playback recomputes original saved configurations without running a controller or physics integration. See docs/closeout/evidence/dependencies.txt.

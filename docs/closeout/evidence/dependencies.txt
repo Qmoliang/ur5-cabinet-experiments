@@ -1,0 +1,9 @@
+Playback dependencies (vendored; no runtime CDN)
+MuJoCo @mujoco/mujoco 3.11.0 — Google DeepMind, Apache-2.0. Official single-thread WASM.
+https://github.com/google-deepmind/mujoco/tree/main/wasm
+License: ../vendor/MUJOCO-LICENSE.txt
+Three.js 0.178.0 — MIT. License: ../vendor/THREE-LICENSE.txt
+UR5e meshes — ROS Industrial / MuJoCo Menagerie; BSD license: ../vendor/UR5-ASSETS-LICENSE.txt
+Rendering uses saved states only. No mj_step and no controller reruns.
+Server-only video rendering: imageio 2.37.0, imageio-ffmpeg 0.6.0, Pillow, original MuJoCo 3.11.0.
+Local test dependency: Playwright 1.56.1.

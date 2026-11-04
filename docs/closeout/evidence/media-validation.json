@@ -1,0 +1,262 @@
+{
+  "links": 14,
+  "videos": [
+    {
+      "id": "known__cage__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1965,
+      "error": null
+    },
+    {
+      "id": "known__cage_wide__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1835,
+      "error": null
+    },
+    {
+      "id": "known__drawer__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.181,
+      "error": null
+    },
+    {
+      "id": "known__exit__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1865,
+      "error": null
+    },
+    {
+      "id": "known__iris_4shelves_t0__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1807,
+      "error": null
+    },
+    {
+      "id": "known__iris_4shelves_t2__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1918,
+      "error": null
+    },
+    {
+      "id": "known__iris_bins_t0__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1867,
+      "error": null
+    },
+    {
+      "id": "known__iris_bins_t1__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1938,
+      "error": null
+    },
+    {
+      "id": "known__iris_bins_t2__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1905,
+      "error": null
+    },
+    {
+      "id": "known__iris_bins_t3__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1922,
+      "error": null
+    },
+    {
+      "id": "known__iris_ur3_shelf_t0__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1832,
+      "error": null
+    },
+    {
+      "id": "known__iris_ur3_shelf_t1__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1886,
+      "error": null
+    },
+    {
+      "id": "known__iris_ur3_shelf_t2__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1884,
+      "error": null
+    },
+    {
+      "id": "known__wall2_topm10__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.182,
+      "error": null
+    },
+    {
+      "id": "known__wall2_topm15__s01",
+      "duration": 20.1,
+      "width": 640,
+      "height": 400,
+      "time": 12.1917,
+      "error": null
+    },
+    {
+      "id": "online__cage__s01",
+      "duration": 11.3,
+      "width": 640,
+      "height": 400,
+      "time": 6.9145,
+      "error": null
+    },
+    {
+      "id": "online__cage__s08",
+      "duration": 6.2,
+      "width": 640,
+      "height": 400,
+      "time": 3.8519,
+      "error": null
+    },
+    {
+      "id": "online__cage_wide__s01",
+      "duration": 5.1,
+      "width": 640,
+      "height": 400,
+      "time": 3.1814,
+      "error": null
+    },
+    {
+      "id": "online__drawer__s01",
+      "duration": 6.2,
+      "width": 640,
+      "height": 400,
+      "time": 3.8482,
+      "error": null
+    },
+    {
+      "id": "online__drawer__s20",
+      "duration": 50.1,
+      "width": 640,
+      "height": 400,
+      "time": 30.1923,
+      "error": null
+    },
+    {
+      "id": "online__exit__s01",
+      "duration": 7.9,
+      "width": 640,
+      "height": 400,
+      "time": 4.8761,
+      "error": null
+    },
+    {
+      "id": "online__iris_4shelves_t0__s01",
+      "duration": 20.5,
+      "width": 640,
+      "height": 400,
+      "time": 12.4289,
+      "error": null
+    },
+    {
+      "id": "online__iris_4shelves_t2__s01",
+      "duration": 28.7,
+      "width": 640,
+      "height": 400,
+      "time": 17.3483,
+      "error": null
+    },
+    {
+      "id": "online__iris_bins_t0__s01",
+      "duration": 2.5,
+      "width": 640,
+      "height": 400,
+      "time": 1.623,
+      "error": null
+    },
+    {
+      "id": "online__iris_bins_t1__s01",
+      "duration": 11.6,
+      "width": 640,
+      "height": 400,
+      "time": 7.089,
+      "error": null
+    },
+    {
+      "id": "online__iris_bins_t2__s01",
+      "duration": 2.4,
+      "width": 640,
+      "height": 400,
+      "time": 1.5673,
+      "error": null
+    },
+    {
+      "id": "online__iris_bins_t3__s01",
+      "duration": 5.1,
+      "width": 640,
+      "height": 400,
+      "time": 3.1833,
+      "error": null
+    },
+    {
+      "id": "online__iris_ur3_shelf_t0__s01",
+      "duration": 1.9,
+      "width": 640,
+      "height": 400,
+      "time": 1.2743,
+      "error": null
+    },
+    {
+      "id": "online__iris_ur3_shelf_t1__s01",
+      "duration": 4.7,
+      "width": 640,
+      "height": 400,
+      "time": 2.9475,
+      "error": null
+    },
+    {
+      "id": "online__iris_ur3_shelf_t2__s01",
+      "duration": 2.4,
+      "width": 640,
+      "height": 400,
+      "time": 1.5685,
+      "error": null
+    },
+    {
+      "id": "online__wall2_topm10__s01",
+      "duration": 4.5,
+      "width": 640,
+      "height": 400,
+      "time": 2.8229,
+      "error": null
+    },
+    {
+      "id": "online__wall2_topm15__s01",
+      "duration": 4,
+      "width": 640,
+      "height": 400,
+      "time": 2.5318,
+      "error": null
+    }
+  ],
+  "errors": []
+}

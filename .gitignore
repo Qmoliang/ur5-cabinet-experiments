@@ -9,3 +9,6 @@ verification/
 **/results/
 **/smoke/
 **/logs/
+
+/web-data.zip
+/videos.zip

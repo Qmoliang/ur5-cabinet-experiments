@@ -1,0 +1,5397 @@
+{
+  "state": "completed_with_all_failures_retained",
+  "attempts_finished": 600,
+  "expected_attempts": 600,
+  "audited": 600,
+  "strict_pass": 426,
+  "audit_errors": 0,
+  "rows": [
+    {
+      "task": "drawer",
+      "label": "抽屉进入",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 0,
+      "historical_ellipsoid_no_escape_strict": 9,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "drawer",
+      "label": "抽屉进入",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 12,
+      "reported_goal": 12,
+      "audited": 20,
+      "strict_pass": 12,
+      "failures": {
+        "updated_map_or_command_not_certified": 8
+      },
+      "historical_sphere_no_escape_strict": 10,
+      "historical_sphere_escape_strict": 13,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "cage",
+      "label": "窄笼架",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 0,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "cage",
+      "label": "窄笼架",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 3,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "updated_map_or_command_not_certified": 17,
+        "not_reached": 3
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "cage_wide",
+      "label": "宽笼架",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "cage_wide",
+      "label": "宽笼架",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "exit",
+      "label": "抽屉退出",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 0,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "exit",
+      "label": "抽屉退出",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_4shelves_t0",
+      "label": "四层货架目标0",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 0,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_4shelves_t0",
+      "label": "四层货架目标0",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_4shelves_t2",
+      "label": "四层货架目标2",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 0,
+      "historical_ellipsoid_no_escape_strict": 0,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_4shelves_t2",
+      "label": "四层货架目标2",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_bins_t0",
+      "label": "分格货架目标0",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_bins_t0",
+      "label": "分格货架目标0",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_bins_t1",
+      "label": "分格货架目标1",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 0,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_bins_t1",
+      "label": "分格货架目标1",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_bins_t2",
+      "label": "分格货架目标2",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_bins_t2",
+      "label": "分格货架目标2",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_bins_t3",
+      "label": "分格货架目标3",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 0,
+      "historical_sphere_escape_strict": 0,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_bins_t3",
+      "label": "分格货架目标3",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 0,
+      "reported_goal": 0,
+      "audited": 20,
+      "strict_pass": 0,
+      "failures": {
+        "initial_map_not_certified": 20
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_ur3_shelf_t0",
+      "label": "UR3货架目标0",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_ur3_shelf_t0",
+      "label": "UR3货架目标0",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_ur3_shelf_t1",
+      "label": "UR3货架目标1",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_ur3_shelf_t1",
+      "label": "UR3货架目标1",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 19,
+      "reported_goal": 19,
+      "audited": 20,
+      "strict_pass": 19,
+      "failures": {
+        "updated_map_or_command_not_certified": 1
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "iris_ur3_shelf_t2",
+      "label": "UR3货架目标2",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 20,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 20,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "iris_ur3_shelf_t2",
+      "label": "UR3货架目标2",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "wall2_topm10",
+      "label": "墙体上方目标-10mm",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 8,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 1,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "wall2_topm10",
+      "label": "墙体上方目标-10mm",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 16,
+      "reported_goal": 16,
+      "audited": 20,
+      "strict_pass": 16,
+      "failures": {
+        "updated_map_or_command_not_certified": 4
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    },
+    {
+      "task": "wall2_topm15",
+      "label": "墙体上方目标-15mm",
+      "mode": "known",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 20,
+      "audited": 20,
+      "strict_pass": 20,
+      "failures": {},
+      "historical_sphere_no_escape_strict": 3,
+      "historical_sphere_escape_strict": 20,
+      "historical_ellipsoid_no_escape_strict": 1,
+      "historical_ellipsoid_escape_strict": 20,
+      "historical_comparison_note": "同起点目标与标准；历史包含不同代码版本"
+    },
+    {
+      "task": "wall2_topm15",
+      "label": "墙体上方目标-15mm",
+      "mode": "online",
+      "expected": 20,
+      "attempts_finished": 20,
+      "full_trajectories": 20,
+      "reported_goal": 19,
+      "audited": 20,
+      "strict_pass": 19,
+      "failures": {
+        "not_reached": 1
+      },
+      "historical_sphere_no_escape_strict": null,
+      "historical_sphere_escape_strict": null,
+      "historical_ellipsoid_no_escape_strict": null,
+      "historical_ellipsoid_escape_strict": null,
+      "historical_comparison_note": "历史在线为远起点且相机配置不同，只作参考，不能直接复用"
+    }
+  ],
+  "all_600_strict_pass": false,
+  "initial_free_calibration_m": 0.005,
+  "initial_geometry_audit": {
+    "purpose": "Offline dataset audit only; these geometry values are not supplied to online perception or planning.",
+    "records": [
+      {
+        "task": "drawer",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.08545820745475192,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.08804543871129251,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.13117699876930786,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.06676415015079898,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.06848334003997272,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.101155350635915,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.07876012493226173,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.058282385869260114,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.06930628314388285,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.0611987271674385,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.08181282681761298,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.07891615902166059,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1290187549420766,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.10794281762585296,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.05063641944148517,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.06745900782113796,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.10155112832214531,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.07221515063444772,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.07151706696614786,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "drawer",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.07475642453795218,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21545820745475197,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.21666927712605927,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.25790313285991295,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.19642296280124483,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19643614164703166,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.23150264896681993,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.2092723877739076,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.17549484049410374,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.1973759411723654,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.1907848133831011,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.21091816193472013,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.20897692730038037,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.25351517656584793,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.2232049861731813,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.18132163253352007,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.19752027487581358,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.23207684136984658,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.20282158711626974,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.2015170669661479,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "cage",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.20358143089206593,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21589213027220988,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.21404406091411293,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.25770444606556386,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.1999936921188789,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19360143476607738,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.22847842034422722,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.2087366213095198,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.17549484049410374,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.1945065377747376,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.18715554789143918,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.21521387708652007,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.2111791172109983,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.25351517656584793,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.2232049861731813,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.17952034074020062,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.199759937060407,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.2315032371389497,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.20058346314363334,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.20270221252026416,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "cage_wide",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.2081723251583203,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.019113013669204065,
+        "self_gap_m": 0.019958353925687504,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349054684930508,
+          -1.953695025365534,
+          -1.1248350466410955,
+          -1.7308195666237993,
+          -0.048768923741222624,
+          -0.2664538032466895
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.019441063820418797,
+        "self_gap_m": 0.020030178153985244,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349363698051893,
+          -1.9558540556288597,
+          -1.119032862125188,
+          -1.745501078781395,
+          -0.031473259728319526,
+          -0.2630704101011539
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.017935221132130114,
+        "self_gap_m": 0.01995972631043056,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348972328218778,
+          -1.9536161430119445,
+          -1.1268998762849063,
+          -1.731106891836628,
+          -0.05819410355444661,
+          -0.2792885209347617
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.01762611663260774,
+        "self_gap_m": 0.019924839393643513,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349153562731401,
+          -1.9526152154928014,
+          -1.129826153246283,
+          -1.7237141651057548,
+          -0.07117900908473003,
+          -0.2761047891296686
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.02053870578549994,
+        "self_gap_m": 0.019849979759685922,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.34889177856787,
+          -1.9539739723186837,
+          -1.1272044551676297,
+          -1.7071715711926598,
+          -0.012241597209514898,
+          -0.3048112448955525
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.020370880913474748,
+        "self_gap_m": 0.01986288223113903,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349396288818502,
+          -1.9538129335875671,
+          -1.1269969883910242,
+          -1.7100942345656123,
+          -0.03206723488040427,
+          -0.25794550198063376
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.01773049827587239,
+        "self_gap_m": 0.019946318950752516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349871422027604,
+          -1.9546776826582521,
+          -1.1264745627800452,
+          -1.728287852816109,
+          -0.058396359240706824,
+          -0.2893006707987929
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.01707012438420466,
+        "self_gap_m": 0.01997790769250727,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.34900950628634,
+          -1.9534844307610182,
+          -1.1281311552639928,
+          -1.734887449463409,
+          -0.056726082543111095,
+          -0.2967409633307461
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.02055145950373256,
+        "self_gap_m": 0.019808357703062753,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.34892736208798,
+          -1.9533981376225704,
+          -1.1293659329320045,
+          -1.6975191592000975,
+          -0.012459523209099587,
+          -0.3246414633224836
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.018920133141226675,
+        "self_gap_m": 0.019912340788610143,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349003754379459,
+          -1.9536390563136832,
+          -1.1277809223254773,
+          -1.7210190887866084,
+          -0.03663273925546927,
+          -0.3041484612021077
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.0182708089821986,
+        "self_gap_m": 0.01991921760618904,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.3491917735923105,
+          -1.9528054930882948,
+          -1.1288239082471054,
+          -1.7225050728976103,
+          -0.06332156220361947,
+          -0.27429917835921386
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.02052109717002688,
+        "self_gap_m": 0.01978538082914335,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349803007134251,
+          -1.9541895106883136,
+          -1.1282443850801234,
+          -1.692033237412665,
+          -0.020973396806589713,
+          -0.3141432396101693
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.02060548805356461,
+        "self_gap_m": 0.01988938906622186,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348397792159941,
+          -1.9533325752900341,
+          -1.1261241966074278,
+          -1.7160024393823428,
+          -0.025892105686277835,
+          -0.29013491009458653
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.016954367751987137,
+        "self_gap_m": 0.020121935060576614,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349220891412431,
+          -1.9552190094367548,
+          -1.1202584617897013,
+          -1.763310931603115,
+          -0.05826290642012354,
+          -0.2528038305251342
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.019327345965519355,
+        "self_gap_m": 0.019954062009479558,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348537480306276,
+          -1.953634359414115,
+          -1.1253505157558297,
+          -1.7299191978241675,
+          -0.031759590985245244,
+          -0.28144383805130907
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.020878672986764,
+        "self_gap_m": 0.019783697245858413,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349353922380009,
+          -1.953653264286213,
+          -1.128041334099627,
+          -1.6916265806280244,
+          -0.014016850126426799,
+          -0.3101395341457909
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.01703092020194677,
+        "self_gap_m": 0.01998722293790684,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.349372585465067,
+          -1.9531085274210207,
+          -1.1275162728768358,
+          -1.7368061248675797,
+          -0.07659675288678441,
+          -0.2613757377956365
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.020456098840242083,
+        "self_gap_m": 0.019943051739115585,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348408260945086,
+          -1.9539557982979339,
+          -1.1232506552442283,
+          -1.7275967726472674,
+          -0.015804938143538717,
+          -0.27746404690053106
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.019149117145779965,
+        "self_gap_m": 0.019879840704814265,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348998202345314,
+          -1.953062079856877,
+          -1.1292264675336239,
+          -1.7138886947381244,
+          -0.04396945379333866,
+          -0.2981186156735598
+        ]
+      },
+      {
+        "task": "exit",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.019844523881702797,
+        "self_gap_m": 0.01985698552241002,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -5.348963562394876,
+          -1.9525401316790145,
+          -1.129502746744715,
+          -1.7087624212876968,
+          -0.04489642063803855,
+          -0.2879683543372146
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.06912687415459301,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.08962703022102876,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1303191175695791,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.04558971098212296,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.07398853517826796,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.09880188700869698,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.06861450957639557,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.07387402695434694,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.0745532065835714,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.06618040564568398,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.05924321970108164,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.059231522443480775,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1288804578937673,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.11626112081640542,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.04993329413560646,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.04790361740216942,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.09014026140278798,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.07004778166584158,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.0534700966285965,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_4shelves_t0",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.0516573965607071,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.06912687415459301,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.08962703022102876,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1303191175695791,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.04558971098212296,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.07398853517826796,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.09880188700869698,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.06861450957639557,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.07387402695434694,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.0745532065835714,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.06618040564568398,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.05924321970108164,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.059231522443480775,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1288804578937673,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.11626112081640542,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.04993329413560646,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.04790361740216942,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.09014026140278798,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.07004778166584158,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.0534700966285965,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_4shelves_t2",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.0516573965607071,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21886494493559336,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.19267480045237756,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1839676854639571,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.21921380679620367,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19262172669872052,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.19822140150150463,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.22126860151892558,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.16938141500319698,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.19277743455636615,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.19646228064172866,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.2161885790855836,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.21747734779113942,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1800782960691597,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16291143663356816,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.2134145783361824,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.21557385656292039,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.2129017666983112,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.2088568101954119,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.21527649340304733,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_bins_t0",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.21429889549893372,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21886494493559336,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.19267480045237756,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1839676854639571,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.21921380679620367,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19262172669872052,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.19822140150150463,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.22126860151892558,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.16938141500319698,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.19277743455636615,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.19646228064172866,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.2161885790855836,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.21747734779113942,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1800782960691597,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16291143663356816,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.2134145783361824,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.21557385656292039,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.2129017666983112,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.2088568101954119,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.21527649340304733,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_bins_t1",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.21429889549893372,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21886494493559336,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.19267480045237756,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1839676854639571,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.21921380679620367,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19262172669872052,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.19822140150150463,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.22126860151892558,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.16938141500319698,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.19277743455636615,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.19646228064172866,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.2161885790855836,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.21747734779113942,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1800782960691597,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16291143663356816,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.2134145783361824,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.21557385656292039,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.2129017666983112,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.2088568101954119,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.21527649340304733,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_bins_t2",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.21429889549893372,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.21886494493559336,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.19267480045237756,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.1839676854639571,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.21921380679620367,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.19262172669872052,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.19822140150150463,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.22126860151892558,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.16938141500319698,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.19277743455636615,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.19646228064172866,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.2161885790855836,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.21747734779113942,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.1800782960691597,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16291143663356816,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.2134145783361824,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.21557385656292039,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.2129017666983112,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.2088568101954119,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.21527649340304733,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_bins_t3",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.21429889549893372,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.16191520072126192,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.15790445426007604,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.20101503220943928,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.14879550174334671,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.1373561964787029,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.17283992033705098,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.15386153155502685,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.11940347307049544,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.13828247525878767,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.1313526959173935,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.16456903746274482,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.1586617049359058,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.19705963487820133,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16979680870090041,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.12450776636877021,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.1473687516866149,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.17657671779363382,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.14545398658941033,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.1494598172788194,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t0",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.15790816127168622,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.16191520072126192,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.15790445426007604,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.20101503220943928,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.14879550174334671,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.1373561964787029,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.17283992033705098,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.15386153155502685,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.11940347307049544,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.13828247525878767,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.1313526959173935,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.16456903746274482,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.1586617049359058,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.19705963487820133,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16979680870090041,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.12450776636877021,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.1473687516866149,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.17657671779363382,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.14545398658941033,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.1494598172788194,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t1",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.15790816127168622,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.16191520072126192,
+        "self_gap_m": 0.02175470670559957,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.685243427172285,
+          -1.3709741451872954,
+          -1.8298525738445122,
+          -2.121795088870496,
+          0.05004588169792744,
+          -0.41415869790271487
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.15790445426007604,
+        "self_gap_m": 0.02214842875134155,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.693069967685847,
+          -1.4381924744363908,
+          -1.8670276048232761,
+          -2.178710596422271,
+          0.09476345750031666,
+          -0.37926913291905395
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.20101503220943928,
+        "self_gap_m": 0.021527254067420322,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.600476680706265,
+          -1.5398383039280625,
+          -1.8254694853173925,
+          -2.0850257075966745,
+          -0.01785437624125074,
+          -0.4472572846754037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.14879550174334671,
+        "self_gap_m": 0.021196291949901656,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.735112194406108,
+          -1.4207909169786423,
+          -1.7631882280841218,
+          -2.0236798397986653,
+          -0.07729177636496078,
+          -0.43673758972951204
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.1373561964787029,
+        "self_gap_m": 0.021255853298493506,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742619208038196,
+          -1.4782730021437607,
+          -1.858792508758444,
+          -2.0356149653870017,
+          0.06158041498875369,
+          -0.430992106554825
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.17283992033705098,
+        "self_gap_m": 0.0214043344534429,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.649866849051186,
+          -1.3232304871715037,
+          -1.9740390195765323,
+          -2.0635354803591985,
+          0.05546405881693539,
+          -0.36887033525181584
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.15386153155502685,
+        "self_gap_m": 0.02162445755396942,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7024611291076495,
+          -1.39711777548693,
+          -1.8600813204217923,
+          -2.101166819228142,
+          -0.017955450894314575,
+          -0.48605975427073855
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.11940347307049544,
+        "self_gap_m": 0.02146450443145819,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.789435956700368,
+          -1.47888719202141,
+          -1.914429763081931,
+          -2.0742180838541984,
+          -0.11085099062056361,
+          -0.4459222863251458
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.13828247525878767,
+        "self_gap_m": 0.02119703638040605,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.742664483574668,
+          -1.3999125570084032,
+          -1.9291916990057931,
+          -2.0238319834124447,
+          0.06195073949887603,
+          -0.45910797667131037
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.1313526959173935,
+        "self_gap_m": 0.02129538803564516,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7576895592288,
+          -1.4483062843745753,
+          -1.8854646905195844,
+          -2.043288434470558,
+          -0.00765094810767299,
+          -0.43015327394532293
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.16456903746274482,
+        "self_gap_m": 0.021510389103196366,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.700812998412864,
+          -1.3440676753468552,
+          -1.7851383737243849,
+          -2.0821525811296615,
+          -0.010120387191050802,
+          -0.4628466361725867
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.1586617049359058,
+        "self_gap_m": 0.021180527820093296,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.7028639757688,
+          -1.3597478877471083,
+          -1.8092950065892575,
+          -2.0204394002077786,
+          0.08571689953097537,
+          -0.4967553336532319
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.19705963487820133,
+        "self_gap_m": 0.021347644081870114,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.611184808777653,
+          -1.5659716478722552,
+          -1.7984712288882392,
+          -2.0531553659072306,
+          0.07069058957332498,
+          -0.41719596402099596
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.16979680870090041,
+        "self_gap_m": 0.022330565018874447,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.667746648273615,
+          -1.4610287607802899,
+          -1.925048944301067,
+          -2.2028857558823214,
+          -0.012883519814862975,
+          -0.3740971078903592
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.12450776636877021,
+        "self_gap_m": 0.021514421243329286,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.774066287918478,
+          -1.4588824381783392,
+          -1.8266775098136625,
+          -2.0828415586853777,
+          0.031058898590147006,
+          -0.3961112453504481
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.1473687516866149,
+        "self_gap_m": 0.021108234243770722,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.732258821667543,
+          -1.3805158779913616,
+          -1.7944067214924937,
+          -2.0050911400633504,
+          0.09567039330071873,
+          -0.45573689556342734
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.17657671779363382,
+        "self_gap_m": 0.021740845378324332,
+        "workspace_slack_m": 0.001153415615735065,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.647459514100231,
+          -1.3951334885300446,
+          -1.8733730034163567,
+          -2.1196493201328996,
+          -0.08995297512769121,
+          -0.4355455119717511
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.14545398658941033,
+        "self_gap_m": 0.021692198178584733,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.724139637052579,
+          -1.4685598909568744,
+          -1.8126822447572826,
+          -2.112027957204021,
+          0.10547386751882877,
+          -0.39027182468585814
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.1494598172788194,
+        "self_gap_m": 0.02154215354659405,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.721023875241724,
+          -1.3623511177607428,
+          -1.8255815536213655,
+          -2.087545412726098,
+          0.038385128442754726,
+          -0.5089799018151778
+        ]
+      },
+      {
+        "task": "iris_ur3_shelf_t2",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.15790816127168622,
+        "self_gap_m": 0.02128233405930919,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          -4.720506059559093,
+          -1.3518712972879678,
+          -1.7765310216727768,
+          -2.0407754309110504,
+          0.0254847979660604,
+          -0.4609549166961766
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.03691563798917103,
+        "self_gap_m": 0.013093088840609075,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.0584034462984935,
+          4.546452361169595,
+          1.9085488049288215,
+          4.198733390765485,
+          1.2918225693748557,
+          -6.0399422128594935
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.0498558772188215,
+        "self_gap_m": 0.013451854375998596,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.104678819738253,
+          4.528460436495211,
+          1.9120015933932257,
+          4.046717711001761,
+          1.3798218331368177,
+          -5.968111081709378
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.09039377102635973,
+        "self_gap_m": 0.013291431053780823,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.197272106717835,
+          4.426814607003539,
+          1.9535597128991093,
+          4.1404025998273575,
+          1.2672039993952504,
+          -6.036099233465728
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.049084517427117634,
+        "self_gap_m": 0.014354546229620391,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.064052963599157,
+          4.5620294347318495,
+          1.852245381353501,
+          4.180879673977596,
+          1.3016055099376453,
+          -5.946538073739666
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.05488183847966371,
+        "self_gap_m": 0.012942552421760973,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.055129579385905,
+          4.488379908787841,
+          1.9202366894580578,
+          4.18981334203703,
+          1.3466387906252548,
+          -6.019834055345149
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.04320343221414114,
+        "self_gap_m": 0.013892177889556937,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.147881938372914,
+          4.643422423760097,
+          1.8049901786399696,
+          4.161892827064833,
+          1.3405224344534366,
+          -5.95771228404214
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.03136526803448877,
+        "self_gap_m": 0.01298486876063976,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.095287658316451,
+          4.569535135444672,
+          1.9189478777947095,
+          4.12426148819589,
+          1.2671029247421866,
+          -6.074901703061062
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.06756370580360005,
+        "self_gap_m": 0.013905280278620692,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.008312830723733,
+          4.487765718910191,
+          1.864599435134571,
+          4.151210223569833,
+          1.1742073850159376,
+          -6.03476423511547
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.04701263260470075,
+        "self_gap_m": 0.01265731675589159,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.055084303849433,
+          4.566740353923198,
+          1.8498374992107087,
+          4.201596324011587,
+          1.3470091151353771,
+          -6.0479499254616345
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.04976767147594018,
+        "self_gap_m": 0.013409017426937207,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.0400592281953,
+          4.518346626557026,
+          1.8935645076969174,
+          4.182139872953473,
+          1.277407427528828,
+          -6.018995222735647
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.032964426715078425,
+        "self_gap_m": 0.012686718823252289,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.123712468527175,
+          4.551794636616967,
+          1.9699990513756476,
+          4.076424840185048,
+          1.3681639027357486,
+          -6.03014098331902
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.054030001292712036,
+        "self_gap_m": 0.01356669257452391,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.063878377094758,
+          4.488564697988991,
+          1.9272671451654189,
+          4.218729262899605,
+          1.2887390696872536,
+          -6.0005253719880285
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.09053079438013906,
+        "self_gap_m": 0.013050438935480916,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.186563978646448,
+          4.400681263059346,
+          1.9805579693282627,
+          4.172272941516801,
+          1.355748965209826,
+          -6.00603791281132
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.07885987359547503,
+        "self_gap_m": 0.014253766107764038,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.130002139150485,
+          4.505624150151311,
+          1.8539802539154349,
+          4.022542551541711,
+          1.2721748558216381,
+          -5.962939056680684
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.034294321897750606,
+        "self_gap_m": 0.013607927360919387,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.023682499505622,
+          4.507770472753262,
+          1.9523516884028393,
+          4.142586748738654,
+          1.316117274226648,
+          -5.984953194140772
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.06403254450103399,
+        "self_gap_m": 0.012816208133753382,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.12243501008621,
+          4.536286774476386,
+          1.8614123449125035,
+          4.13359812410681,
+          1.2966445809234357,
+          -6.0710781117682355
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.04419967362804695,
+        "self_gap_m": 0.013882492410446177,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.150289273323869,
+          4.571519422401557,
+          1.9056561948001451,
+          4.105778987291132,
+          1.19510540050881,
+          -6.0243874607620755
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.042127319212878094,
+        "self_gap_m": 0.013202831271295238,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.073609150371522,
+          4.498093019974727,
+          1.9663469534592193,
+          4.113400350220011,
+          1.39053224315533,
+          -5.979113773476183
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.04239045124587746,
+        "self_gap_m": 0.013833677196458841,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.124900382437044,
+          4.526506372392043,
+          1.9642274254103487,
+          4.190745612727584,
+          1.2514740237051851,
+          -5.998900937870893
+        ]
+      },
+      {
+        "task": "wall2_topm10",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.05767871207216694,
+        "self_gap_m": 0.013346923375294393,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.049520115407032,
+          4.509579827117698,
+          1.8827332071633935,
+          4.215251321338451,
+          1.287021868166726,
+          -6.01890542056257
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 1,
+        "environment_solid_box_gap_m": 0.03691563798917103,
+        "self_gap_m": 0.013093088840609075,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.0584034462984935,
+          4.546452361169595,
+          1.9085488049288215,
+          4.198733390765485,
+          1.2918225693748557,
+          -6.0399422128594935
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 2,
+        "environment_solid_box_gap_m": 0.0498558772188215,
+        "self_gap_m": 0.013451854375998596,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.104678819738253,
+          4.528460436495211,
+          1.9120015933932257,
+          4.046717711001761,
+          1.3798218331368177,
+          -5.968111081709378
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 3,
+        "environment_solid_box_gap_m": 0.09039377102635973,
+        "self_gap_m": 0.013291431053780823,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.197272106717835,
+          4.426814607003539,
+          1.9535597128991093,
+          4.1404025998273575,
+          1.2672039993952504,
+          -6.036099233465728
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 4,
+        "environment_solid_box_gap_m": 0.049084517427117634,
+        "self_gap_m": 0.014354546229620391,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.064052963599157,
+          4.5620294347318495,
+          1.852245381353501,
+          4.180879673977596,
+          1.3016055099376453,
+          -5.946538073739666
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 5,
+        "environment_solid_box_gap_m": 0.05488183847966371,
+        "self_gap_m": 0.012942552421760973,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.055129579385905,
+          4.488379908787841,
+          1.9202366894580578,
+          4.18981334203703,
+          1.3466387906252548,
+          -6.019834055345149
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 6,
+        "environment_solid_box_gap_m": 0.04320343221414114,
+        "self_gap_m": 0.013892177889556937,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.147881938372914,
+          4.643422423760097,
+          1.8049901786399696,
+          4.161892827064833,
+          1.3405224344534366,
+          -5.95771228404214
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 7,
+        "environment_solid_box_gap_m": 0.03136526803448877,
+        "self_gap_m": 0.01298486876063976,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.095287658316451,
+          4.569535135444672,
+          1.9189478777947095,
+          4.12426148819589,
+          1.2671029247421866,
+          -6.074901703061062
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 8,
+        "environment_solid_box_gap_m": 0.06756370580360005,
+        "self_gap_m": 0.013905280278620692,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.008312830723733,
+          4.487765718910191,
+          1.864599435134571,
+          4.151210223569833,
+          1.1742073850159376,
+          -6.03476423511547
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 9,
+        "environment_solid_box_gap_m": 0.04701263260470075,
+        "self_gap_m": 0.01265731675589159,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.055084303849433,
+          4.566740353923198,
+          1.8498374992107087,
+          4.201596324011587,
+          1.3470091151353771,
+          -6.0479499254616345
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 10,
+        "environment_solid_box_gap_m": 0.04976767147594018,
+        "self_gap_m": 0.013409017426937207,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.0400592281953,
+          4.518346626557026,
+          1.8935645076969174,
+          4.182139872953473,
+          1.277407427528828,
+          -6.018995222735647
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 11,
+        "environment_solid_box_gap_m": 0.032964426715078425,
+        "self_gap_m": 0.012686718823252289,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.123712468527175,
+          4.551794636616967,
+          1.9699990513756476,
+          4.076424840185048,
+          1.3681639027357486,
+          -6.03014098331902
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 12,
+        "environment_solid_box_gap_m": 0.054030001292712036,
+        "self_gap_m": 0.01356669257452391,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.063878377094758,
+          4.488564697988991,
+          1.9272671451654189,
+          4.218729262899605,
+          1.2887390696872536,
+          -6.0005253719880285
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 13,
+        "environment_solid_box_gap_m": 0.09053079438013906,
+        "self_gap_m": 0.013050438935480916,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.186563978646448,
+          4.400681263059346,
+          1.9805579693282627,
+          4.172272941516801,
+          1.355748965209826,
+          -6.00603791281132
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 14,
+        "environment_solid_box_gap_m": 0.07885987359547503,
+        "self_gap_m": 0.014253766107764038,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.130002139150485,
+          4.505624150151311,
+          1.8539802539154349,
+          4.022542551541711,
+          1.2721748558216381,
+          -5.962939056680684
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 15,
+        "environment_solid_box_gap_m": 0.034294321897750606,
+        "self_gap_m": 0.013607927360919387,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.023682499505622,
+          4.507770472753262,
+          1.9523516884028393,
+          4.142586748738654,
+          1.316117274226648,
+          -5.984953194140772
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 16,
+        "environment_solid_box_gap_m": 0.06403254450103399,
+        "self_gap_m": 0.012816208133753382,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.12243501008621,
+          4.536286774476386,
+          1.8614123449125035,
+          4.13359812410681,
+          1.2966445809234357,
+          -6.0710781117682355
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 17,
+        "environment_solid_box_gap_m": 0.04419967362804695,
+        "self_gap_m": 0.013882492410446177,
+        "workspace_slack_m": 0.0011534156157351066,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.150289273323869,
+          4.571519422401557,
+          1.9056561948001451,
+          4.105778987291132,
+          1.19510540050881,
+          -6.0243874607620755
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 18,
+        "environment_solid_box_gap_m": 0.042127319212878094,
+        "self_gap_m": 0.013202831271295238,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.073609150371522,
+          4.498093019974727,
+          1.9663469534592193,
+          4.113400350220011,
+          1.39053224315533,
+          -5.979113773476183
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 19,
+        "environment_solid_box_gap_m": 0.04239045124587746,
+        "self_gap_m": 0.013833677196458841,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.124900382437044,
+          4.526506372392043,
+          1.9642274254103487,
+          4.190745612727584,
+          1.2514740237051851,
+          -5.998900937870893
+        ]
+      },
+      {
+        "task": "wall2_topm15",
+        "seed": 20,
+        "environment_solid_box_gap_m": 0.05767871207216694,
+        "self_gap_m": 0.013346923375294393,
+        "workspace_slack_m": 0.0011534156157350928,
+        "meets_initial_geometry": true,
+        "initial_q": [
+          4.049520115407032,
+          4.509579827117698,
+          1.8827332071633935,
+          4.215251321338451,
+          1.287021868166726,
+          -6.01890542056257
+        ]
+      }
+    ],
+    "count": 300,
+    "passed": 300,
+    "minimum_environment_gap_m": 0.016954367751987137
+  },
+  "paired_inputs": {
+    "passed": true,
+    "records": 600,
+    "paired_start_target_conditions": 300,
+    "distinct_geometry_groups": 7,
+    "geometry_groups": [
+      [
+        "drawer",
+        "exit"
+      ],
+      [
+        "cage"
+      ],
+      [
+        "cage_wide"
+      ],
+      [
+        "iris_4shelves_t0",
+        "iris_4shelves_t2"
+      ],
+      [
+        "iris_bins_t0",
+        "iris_bins_t1",
+        "iris_bins_t2",
+        "iris_bins_t3"
+      ],
+      [
+        "iris_ur3_shelf_t0",
+        "iris_ur3_shelf_t1",
+        "iris_ur3_shelf_t2"
+      ],
+      [
+        "wall2_topm10",
+        "wall2_topm15"
+      ]
+    ],
+    "mismatches": [],
+    "original_start_source": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/all_scenes_factorial_20261030/entries",
+    "exclusion": "wall2 original target: independently proved infeasible; neither mode counted as completed"
+  },
+  "frozen_code": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/dev/v5/code",
+  "dynamics_enabled": false
+}

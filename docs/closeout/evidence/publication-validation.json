@@ -1,0 +1,9 @@
+{
+  "case_count": 600,
+  "total_saved_frames": 2524347,
+  "all_trajectory_payload_hashes_match": true,
+  "known_passed": 300,
+  "online_passed": 298,
+  "video_count": 32,
+  "no_experiments_rerun": true
+}

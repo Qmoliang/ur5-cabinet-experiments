@@ -1,0 +1,34 @@
+{
+  "scenario": "known_static_iris_4shelves_t2",
+  "same_version": "d30cc9309ed29fe475994a719f9eef3b342aa9a032cc4529af6134120092a6cd",
+  "same_version_paired_seeds": [
+    1,
+    2,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    16,
+    18,
+    19,
+    20
+  ],
+  "paired_strict_passes": {
+    "sphere_no_escape": 0,
+    "sphere_escape": 0,
+    "ellipsoid_no_escape": 0,
+    "ellipsoid_escape": 15
+  },
+  "reused_ellipsoid_escape_seeds": [
+    3,
+    5,
+    13,
+    14,
+    17
+  ]
+}

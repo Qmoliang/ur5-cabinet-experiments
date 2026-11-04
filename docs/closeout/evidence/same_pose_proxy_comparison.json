@@ -1,0 +1,68 @@
+[
+  {
+    "scenario": "known_static_iris_4shelves_t0",
+    "reference_case": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/repair_20261029/runs/known_v1/ellipsoid_seed01",
+    "reference_q": [
+      -4.284826787980509,
+      -1.2065057011234466,
+      1.590367551597624,
+      -1.3219152884021856,
+      0.9474220972039529,
+      -0.557401108221395
+    ],
+    "proxy_counts": {
+      "sphere": 1632,
+      "ellipsoid": 1632
+    },
+    "final_pose_gap_mm": {
+      "sphere": -14.471632511912247,
+      "ellipsoid": 18.220065765946515
+    },
+    "physical_box_gap_mm": 22.060257566646438,
+    "interpretation": "Same robot pose and cell partition; this witness is not a proof that no other sphere-feasible target pose exists."
+  },
+  {
+    "scenario": "known_static_iris_4shelves_t2",
+    "reference_case": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/all_scenes_factorial_20261030/new/known_static_iris_4shelves_t2/ellipsoid_escape/seed01",
+    "reference_q": [
+      -4.311421855828351,
+      -0.8165125287514908,
+      0.2198830493585949,
+      0.11015505039931017,
+      0.4908653380325387,
+      1.147975786788203
+    ],
+    "proxy_counts": {
+      "sphere": 1632,
+      "ellipsoid": 1632
+    },
+    "final_pose_gap_mm": {
+      "sphere": -18.70529698726285,
+      "ellipsoid": 14.702498669850335
+    },
+    "physical_box_gap_mm": 18.852076700802932,
+    "interpretation": "Same robot pose and cell partition; this witness is not a proof that no other sphere-feasible target pose exists."
+  },
+  {
+    "scenario": "known_static_cage",
+    "reference_case": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/escape_batch/liuqp/cage_ellipsoid_straight_seed01",
+    "reference_q": [
+      -5.437338532086494,
+      -2.1509463746711712,
+      -0.8408139573622335,
+      -1.84032393248387,
+      -0.21701920892276513,
+      -0.35770093486756077
+    ],
+    "proxy_counts": {
+      "sphere": 150,
+      "ellipsoid": 150
+    },
+    "final_pose_gap_mm": {
+      "sphere": -17.604471940039236,
+      "ellipsoid": 8.986930850611182
+    },
+    "physical_box_gap_mm": 12.479910481209666,
+    "interpretation": "Same robot pose and cell partition; this witness is not a proof that no other sphere-feasible target pose exists."
+  }
+]
