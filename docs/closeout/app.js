@@ -25,7 +25,7 @@ async function loadEngine(){
   if(loadingEngine)return loadingEngine;
   $('load3d').disabled=true;$('loading').hidden=false;$('loading').textContent='正在加载 MuJoCo 与原机器人模型…';
   loadingEngine=(async()=>{try{
-    if(!replay){const {Replay}=await import('./replay.js');replay=await Replay.create($('viewport'),{
+    if(!replay){const {Replay}=await import('./replay.js?v=20261104');replay=await Replay.create($('viewport'),{
       onTime(frame,error){$('seek').value=frame;$('time').textContent=`${fmt(frame*.02)} s`;$('frame-metric').textContent=`帧 ${frame}/${selected.frames-1} · 误差 ${fmt(error,3)} mm`;},
       onPause(){$('play').textContent='▶ 播放';},isCurrent(token){return token===loadToken;}
     });window.replayApi=replay;}

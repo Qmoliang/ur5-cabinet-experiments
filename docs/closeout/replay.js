@@ -8,9 +8,15 @@ export class Replay{
   static async create(host,callbacks){const r=new Replay(host,callbacks);await r.init();return r;}
   constructor(host,callbacks){this.host=host;this.callbacks=callbacks;this.frame=0;this.playing=false;this.speed=6;this.view=1;this.loaded=false;this.cloudIndex=-1;}
   async init(){
-    this.mj=await loadMujoco();this.robotInfo=await (await fetchOK('models/robot.json')).json();
+    document.getElementById('loading').textContent='正在下载压缩引擎与模型（约7 MB），首次加载请稍候…';
+    const [wasm,assets]=await Promise.all([
+      fetchOK('vendor/mujoco.wasm.gz').then(async r=>new Uint8Array(await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer())),
+      fetchOK('models/assets.json.gz').then(async r=>JSON.parse(await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).text()))
+    ]);
+    document.getElementById('loading').textContent='资源已下载，正在初始化 MuJoCo 与原机器人模型…';
+    this.mj=await loadMujoco({wasmBinary:wasm});this.robotInfo=await (await fetchOK('models/robot.json')).json();
     this.mj.FS.mkdir('/replay');this.mj.FS.mkdir('/replay/assets');
-    await Promise.all(this.robotInfo.assets.map(async name=>{this.mj.FS.writeFile(`/replay/assets/${name}`,new Uint8Array(await (await fetchOK(`models/assets/${name}`)).arrayBuffer()));}));
+    for(const name of this.robotInfo.assets)this.mj.FS.writeFile(`/replay/assets/${name}`,assets[name]);
     this.mj.FS.writeFile('/replay/robot.xml',await (await fetchOK('models/robot.xml')).text());
     this.model=this.mj.MjModel.from_xml_path('/replay/robot.xml');this.data=new this.mj.MjData(this.model);
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color('#e6eae3');
