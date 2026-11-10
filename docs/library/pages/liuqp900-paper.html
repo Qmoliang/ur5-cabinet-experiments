@@ -1,0 +1,427 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>论文初稿：执行贡献、控制贡献与完整实验 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script><script src="../vendor/mathjax-3.2.2.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">面向受约束机械臂到达的认证执行与终态引导持续绕行</a><a class="depth-2" href="#section-2">摘要</a><a class="depth-2" href="#section-3">1. 问题与研究动机</a><a class="depth-2" href="#section-4">2. 与既有方法的关系</a><a class="depth-2" href="#section-5">3. 问题定义与评价对象</a><a class="depth-2" href="#section-6">4. 分层方法</a><a class="depth-3" href="#section-7">4.1 执行层：把提案变成可接受的实际动作</a><a class="depth-3" href="#section-8">4.2 控制层：终态线准备与持续绕行</a><a class="depth-3" href="#section-9">4.3 退出绕行与防回陷记忆</a><a class="depth-3" href="#section-10">4.4 保留原QP接口的含义</a><a class="depth-2" href="#section-11">5. 理论结论与经验结论的边界</a><a class="depth-2" href="#section-12">6. 实验设计与计数</a><a class="depth-3" href="#section-13">6.1 主实验900次，历史参照另列</a><a class="depth-3" href="#section-14">6.2 双重成功指标与失败保留</a><a class="depth-3" href="#section-15">6.3 归因与统计解释</a><a class="depth-2" href="#section-16">7. 冻结主实验结果</a><a class="depth-3" href="#section-17">7.1 执行器贡献</a><a class="depth-3" href="#section-18">7.2 新控制贡献</a><a class="depth-3" href="#section-19">7.3 完整耗时与收益代价</a><a class="depth-2" href="#section-20">8. 全部B组失败与关键退化</a><a class="depth-2" href="#section-21">9. 历史尝试提供什么证据</a><a class="depth-2" href="#section-22">10. 局限与投稿前必要补充</a><a class="depth-2" href="#section-23">11. 结论</a><a class="depth-2" href="#section-24">数据、代码与参考文献</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">2026-11 冻结控制对照与方法 / MD</div><h1>论文初稿：执行贡献、控制贡献与完整实验</h1><p>基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。</p><div class="actions"><a class="primary" download href="../files/liuqp900/paper-draft.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/liuqp900/paper-draft.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。本库跨多个版本；指标须按各文档的队列与协议解释，不能混合统计。原文中的本机路径对应其原始实验目录。</div><div class="version-note">1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。</div></header><article id="content" class="prose"><h1 id="section-1">面向受约束机械臂到达的认证执行与终态引导持续绕行</h1>
+<p><strong>论文初稿，2026-11-10。</strong> 本稿对应已公开冻结版本 <code>0f402010bb8335df661fdace8745106b7ee5aede</code>。本次仅整理文稿、统计和图示，没有修改控制代码、输入、成功判据或任何原始结果。作者、单位和投稿 venue 待填写；相关工作与新颖性定位仍需系统补全。</p>
+<p><a href="liuqp900-methods.html">完整方法及21个编号公式</a> · <a href="liuqp900-proofs.html">条件证明</a> · <a href="liuqp900-code.html">主张—代码映射</a> · <a href="liuqp900-tables.html">逐任务结果</a> · <a href="liuqp900-ledger.html">历史实验台账</a> · <a href="liuqp900-explanation.html">2000字内讲解</a> · <a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/" rel="noopener noreferrer">900次回放</a></p>
+<h2 id="section-2">摘要</h2>
+<p>逐时刻满足约束的速度优化，并不自动保证后续仍可执行，也不保证机械臂在非凸障碍环境中持续接近目标。针对本项目 LiuQP 实现中观察到的执行可行性丢失和长期近停滞，本文研究相互分离的执行层与控制层。执行层将实际状态、命令版本、原QP约束和制动续轨迹绑定，通过认证恒速前缀、静止计算等待及备份消费管理延迟。控制层利用有限静态终态假设，改善当前构型至终态固定收缩线的最弱见证余量；必要时转为真正受阻机器人部位的持续切向运动，并以构型重复证据、净目标进展及连续证书决定换向或恢复原任务。每次优化的运动决策变量仍为当前关节速度，控制阶段不调用RRT或搜索航点链，但显式使用静态IK和未来固定线段验证。</p>
+<p>在15类任务、每类20个历史输入条件上，冻结三组各300次运行：C为原目标与原执行方式，A为原目标与共同认证执行器，B为终态初始化及新控制与共同执行器。C/A/B的物理安全到达为174/186/294次，严格成功为128/186/294次。C→A严格新增59、退化1；A→B新增109、退化1。B完整单次墙钟中位数144.661秒，明显高于A的41.134秒，不能据成功率改善宣称普遍加速。全部失败、初始化成本及审计均保留。本文证明若干代数性质与明确契约下的证书续接结论；有限预算成功、绕行效果及整体可靠性仅有本批实验支持，不主张全局收敛、完备性或实机硬实时。</p>
+<p><strong>关键词：</strong> 约束速度控制；二次规划；制动证书；终态引导；持续绕行；可追溯实验。</p>
+<h2 id="section-3">1. 问题与研究动机</h2>
+<p>本项目最早的在线系统将观测建图、认证RRT路径、航点跟踪和执行安全门组合，取得298/300次安全到达。这个系统结果不能证明局部LiuQP本身能解决相同的到达问题。固定地图和既有认证路径上的四条件执行消融进一步发现：LiuQP跟踪与简单关节比例跟踪均4/4通过，后者没有调用QP，且这四条轨迹没有被安全门改写。该证据否定了“这些成功必须依靠LiuQP”的归因，但没有证明简单跟踪器可替代整个300例系统。<a href="liuqp900-ledger.html">历史来源H01</a></p>
+<p>移除路径引导后，真实货架输入出现长期近停滞。早期仅末端绕行及姿态调整的最终四条改进运行安全到达0/4；另一次阻塞释放虽从真实停滞状态成功一次，同版本两个重复仍失败。因此，非零速度、局部间隙增大、累计路程增长和最终到达必须分开判断。部分失败还有原速度约束集合为空或数值求解失败，不能全部归称严格局部极小。<a href="liuqp900-ledger.html">H02—H04</a></p>
+<p>本文据此研究两个具体问题：第一，如何将当下提案与未来可接受制动、计算等待和实际执行状态一致地连接；第二，如何在安全约束内产生能够跨阻塞部位维持的进展，而非反复回到相邻代理或同一受困构型。它们是本实现中经记录暴露的问题，不被表述成原LiuQP文献在所有平台上的必然缺陷。</p>
+<p>本文贡献限定为三个层次：</p>
+<ol>
+<li><strong>执行层整体。</strong> 认证原QP行可接受的制动后继、实际命令授权、恒速前缀及计算/反馈时钟管理；明确递归续接所需契约及当前实现例外。</li>
+<li><strong>控制层整体。</strong> 有限终态初始化、最弱线余量准备、受阻部位切向传递、构型重复检测和Cartesian净进展恢复门；保留原硬约束与审计标准。</li>
+<li><strong>分层证据。</strong> 三组同输入的900次冻结对照，逐例新增与退化、完整耗时、全部失败和历史否定性实验；不将机制触发次数或混合开发记录当作独立因果贡献。</li>
+</ol>
+<h2 id="section-4">2. 与既有方法的关系</h2>
+<p>Liu与Yim将机械臂操作描述为连续求解的线性约束QP，并在模块化机器人上验证。本文的“LiuQP基线”具体指本仓库的UR5e实现与既定约束、代理几何和数值配置，不等于已逐项复现原文所有平台和实验。<a href="https://arxiv.org/abs/2104.02755" rel="noopener noreferrer">Liu与Yim，2021</a></p>
+<p>CBF-QP工作将安全约束与性能目标在优化中区分；其不变性结论依赖相应模型、可行性和正则条件。本文同样区分任务效果与可接受动作，但不能将已有CBF定理直接移植为当前离散、延迟、切换及浮点实现的完整保证。<a href="https://arxiv.org/abs/1609.06408" rel="noopener noreferrer">Ames等，2017</a></p>
+<p>预测安全过滤器也接收外部提案并检查是否可安全执行。本文采用固定制动备份和已认证短恒速段，而非在线优化一般未来状态序列；这种结构差异尚不足以单独证明新颖性或优越性。<a href="https://arxiv.org/abs/1812.05506" rel="noopener noreferrer">Wabersich与Zeilinger，预印本2018</a></p>
+<p>最终控制有表面跟随、切向持续和历史重复检测，但本文没有给出一般高维Bug型完备性证明。固定终态线验证也不等于全局路径搜索。对相关脱困、导航函数、混合控制和备份证书方法的系统文献比较，以及相同终态信息下的公开基线实验，仍是投稿前工作。</p>
+<h2 id="section-5">3. 问题定义与评价对象</h2>
+<p>令 <span class="math-inline">\(q\in\mathbb R^6\)</span> 为关节构型，<span class="math-inline">\(w\)</span> 为上一实际执行速度，<span class="math-inline">\(p(q)\)</span> 为末端位置，<span class="math-inline">\(p_g\)</span> 为目标。采用运动学反馈：</p>
+<div class="math-block">\[
+x_k=(q_k,w_k),\qquad q_{k+1}=q_k+\Delta t\,v_k^{\rm exec},\qquad w_{k+1}=v_k^{\rm exec},\quad\Delta t=0.02\ {
+m s}.
+\]</div>
+<p>原名义速度问题为</p>
+<div class="math-block">\[
+\min_{v\in\mathcal C(x_k;\mathcal O)}\tfrac12v^TH_0v+g_0^Tv,\qquad
+\mathcal C=\{v:l\le Av\le u\}.
+\]</div>
+<p><span class="math-inline">\(\mathcal O\)</span> 是历史运动前可用观测发布中选定的冻结地图；原约束覆盖观测障碍、未知前沿、自碰撞、工作空间、关节位置、速度、加速度及制动边界。矩阵随实际状态重建。“保持原约束”指同一状态下不删除或放宽原行，不是保持矩阵数值永远不变。改变目标函数不能使空的 <span class="math-inline">\(\mathcal C\)</span> 变为非空。</p>
+<p>环境硬余量6 mm、名义工作余量6.5 mm、自碰撞余量5 mm；目标要求误差严格小于1 mm并连续保持50个物理周期。每次上限为300秒仿真和1200秒完整单次计算期限，B的终态初始化计入后者。求解和动作认证等待计入物理时间；独立事后审计单列。名义关节速度与加速度限制不变。完整参数、有效OSQP容差及历史默认值的区别见<a href="liuqp900-methods.html">方法正文</a>。</p>
+<p>模型内证书与真实场景安全也分开。代理外包、机器人覆盖及误差界有效，是将模型认证解释为物理安全所需的额外前提。实验以场景几何独立审计保存轨迹，但没有硬件、接触动力学、模型误差或传感噪声验证。</p>
+<h2 id="section-6">4. 分层方法</h2>
+<h3 id="section-7">4.1 执行层：把提案变成可接受的实际动作</h3>
+<p>执行器在实际状态处认证候选命令及确定性逐关节制动尾；每个后继重建原QP行，并检查物理几何与已提交记忆。证书绑定精确的 <span class="math-inline">\((q,w)\)</span>、记忆签名和命令版本，终点必须具有可重复的精确静止见证。零速度不被预设为总是可行。原安全门裁剪或缩放后的真正命令必须有匹配证书；无新授权命令时仅消费现有备份，无可接受备份则失败。</p>
+<p>新提案在认证静止状态计算；对同一速度最多认证10个恒速前缀，每个前缀都有可接受制动尾。实测计算时长 <span class="math-inline">\(t_c\)</span> 转为 <span class="math-inline">\(\max(1,\lceil t_c/\Delta t-10^{-9}\rceil)\)</span> 个调度周期。等待仍消耗物理预算，但不推进反馈停滞计数；反馈计数包括实际动作、制动及零速度反馈，不等于只数非零位移。</p>
+<p>它有可观察的行为成本：本批从静止求新命令，在 $a_{\max}=10\ {
+m rad/s^2}$ 和20 ms周期下，理想起步及后续保持/制动速度满足各关节 $|v_i|\le0.2\ {
+m rad/s}$。因此执行器不是透明过滤器，C→A同时改变认证、停走及速度保守性，现有对照不能将这些因素再独立拆分。</p>
+<h3 id="section-8">4.2 控制层：终态线准备与持续绕行</h3>
+<p>首先从有限静态IK候选中选择满足终态位置、关节及几何要求的 <span class="math-inline">\(q_g\)</span>。在保持两维姿态特征的零空间内，以截断SVD寻找真正可达的局部平移方向，并认证目标附近回退线段。该步骤提供进入方向，不能证明当前状态与终态连通；候选池也不穷尽所有可行终态。</p>
+<p>随后检验固定线</p>
+<div class="math-block">\[
+\gamma_q(s)=(1-s)q+s q_g,\quad s\in[0,1].
+\]</div>
+<p>线上的构型是解析评估点，不是被优化的未来状态序列。未能认证时，从违反余量的见证构造 <span class="math-inline">\(h_i(q)\)</span> 及梯度 <span class="math-inline">\(b_i\)</span>，先用原可行集内的辅助LP提高最弱线性预测余量，再产生当前速度提案。准备项使用目标侧支持平面及姿态特征，不能将全部见证行的零空间当成始终保有可用姿态自由度：历史T0失败中，这个见证矩阵接近满秩，投影几乎消掉了姿态任务。</p>
+<p>固定线整段通过模型几何与记忆认证后，控制可提出沿 <span class="math-inline">\(q_g-q\)</span> 的收缩速度，仍须满足原QP与执行层检查。几何认证并未证明存在符合全部加速度约束的正速度时间参数化；提案级收缩性质也不自动覆盖保持、分量制动和切换后的全部实际轨迹。</p>
+<p>准备及实际特征进展持续停滞时，控制转向真正受阻的机器人部位。近表面任务只控制法向修正与切向运动两项，把其余姿态准备放在这个任务的零空间，而非始终要求末端位置不变。跨代理或机器人部位切换时，将旧世界切向投影到新切平面：</p>
+<div class="math-block">\[
+\tau_+=\frac{(I-n_+n_+^T)\tau_-}{\|(I-n_+n_+^T)\tau_-\|}.
+\]</div>
+<p>投影非退化时保留方向连续性；新部位的重试标记单独重置，切换使旧命令失效。若完整构型历史显示同部位、同向运动在足够反馈时间与累计行程后返回旧邻域，则尝试反转切向。历史构型仅用于重复检测，不成为航点、路线或搜索树。</p>
+<h3 id="section-9">4.3 退出绕行与防回陷记忆</h3>
+<p>“离开某个代理”不足以退出。令开始绕行时的末端位置为 <span class="math-inline">\(p_h\)</span>，<span class="math-inline">\(r_h=\|p_g-p_h\|\)</span>，<span class="math-inline">\(n_h=(p_g-p_h)/r_h\)</span>，并取 <span class="math-inline">\(\delta_h=\min(\rho/2,r_h/4)\)</span>。定义</p>
+<div class="math-block">\[
+\psi_h(q)=n_h^T[p(q)-p_h]-\delta_h.
+\]</div>
+<p>原任务恢复要求已取得净目标距离改善、满足规定的平面余量，并在停稳后同时认证临时记忆下的零速度备份和具有正目标下降率的原任务提案，才提交记忆。已提交的Cartesian记忆继续参与速度行及连续运动/制动认证。另一种退出是当前至终态整段认证成功，进入终态收缩；并非每次退出都提交新记忆。</p>
+<p>该平面保留精确目标位置的所有关节构型，并排除记录位置附近一部分区域，但不保证保留全部1 mm目标球、必要绕行通路或集合连通性。它不能排除在其他区域再次停滞。</p>
+<h3 id="section-10">4.4 保留原QP接口的含义</h3>
+<p>各阶段可写成带附加目标和附加速度行的凸提案。若辅助最优解为 <span class="math-inline">\(v^*\)</span>、附加上界行乘子为 <span class="math-inline">\(\lambda^*\)</span>，则以</p>
+<div class="math-block">\[
+\Delta g=\Delta H_\sigma v^*+\Delta g_\sigma+D_\sigma^T\lambda^*
+\]</div>
+<p>修正原梯度，可在明确KKT条件与 <span class="math-inline">\(H_0\succ0\)</span> 下得到同状态的等价唯一解。冻结实现允许复用经残差核验的辅助解；这不是保持原目标不变，也不是每次必做独立的第二次重解。裁剪后的速度还须重新核验和认证。此代数等价不提供脱困、计算更快或后续保持步仍为当前原目标最优的保证。</p>
+<p>完整分支、阈值、命令发布顺序及已知执行缺口见<a href="liuqp900-methods.html">方法正文</a>；证明及适用条件见<a href="liuqp900-proofs.html">证明附录</a>。</p>
+<h2 id="section-11">5. 理论结论与经验结论的边界</h2>
+<table>
+<thead>
+<tr>
+<th>主张</th>
+<th>证据性质</th>
+<th>本稿允许的结论</th>
+<th>不允许的外推</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1 KKT重写</td>
+<td>条件代数证明</td>
+<td>同状态、精确KKT下的解等价</td>
+<td>原目标未变、必然脱困或更快</td>
+</tr>
+<tr>
+<td>P2 秩感知方向</td>
+<td>条件线性代数证明</td>
+<td>可达子空间内的局部方向与正确零空间维数</td>
+<td>有限非线性连通性、所有备用终态同样有效</td>
+</tr>
+<tr>
+<td>P3 证书续接</td>
+<td>依赖契约的归纳证明</td>
+<td>状态、版本、模型和原子消费一致时的数值可接受续轨迹</td>
+<td>冻结浮点程序无条件递归可行、无条件实机安全</td>
+</tr>
+<tr>
+<td>P4—P6 记忆/曲率/切向</td>
+<td>明示假设下证明</td>
+<td>目标纤维保留、给定曲率界的下界、非退化投影不任意反向</td>
+<td>全目标球与通路保留、全局防循环或浮点无误差</td>
+</tr>
+<tr>
+<td>P7—P9 收缩/准备/速度界</td>
+<td>提案或特定调度条件下证明</td>
+<td>一步共线收缩、固定见证线性预测、理想0.2 rad/s界</td>
+<td>整个闭环单调进展、有限预算到达</td>
+</tr>
+<tr>
+<td>294/300、109新增及各机制效果</td>
+<td>本批实验支持</td>
+<td>指定历史输入、预算和运行环境中的观察</td>
+<td>未见世界可靠性、完备脱困、模块独立主效应</td>
+</tr>
+</tbody></table>
+<p>即使所有单步动作安全，仍可能一直安全地停滞。本文没有共同Lyapunov函数贯穿全部模式的下降证明，也没有一般非凸环境中的有限逃逸或必达定理。</p>
+<h2 id="section-12">6. 实验设计与计数</h2>
+<h3 id="section-13">6.1 主实验900次，历史参照另列</h3>
+<p>主实验是15类任务×20个起点/目标输入编号×3组，共300个配对条件、900次运行。seed在这里是起点表编号，不是300个独立环境或随机路径样本。C为原LiuQP目标、原单步延迟执行和原安全门；A改用共同认证执行器；B在A上增加终态初始化与新控制。三组采用同一冻结输入、机器人、数值求解配置、安全标准与预算，C/A禁止读取B的终态信息。</p>
+<p>A/B每对顺序执行并交替先后，C在后续批次补跑。共同机器、每运行四核及相同并发配置降低环境差异，但实测延迟和负载并未完全随机化。A/B的600条记录在C补跑中只读复用；不是又跑了一遍600次。</p>
+<p>旧在线RRT系统另有300次，因此可以写“900次控制对照，附300次历史系统参照，共1200条所选运行记录”。四者地图使用、规划参与、计时和验收协议不完全一致，不能写成1200次同协议四臂实验。旧已知场景300次及球表示300次亦独立存在，连同主实验构成至少1800条这些批次的记录；这仍不是全项目历次尝试的穷尽总数。<a href="liuqp900-ledger.html">计数与去重口径</a></p>
+<h3 id="section-14">6.2 双重成功指标与失败保留</h3>
+<p>物理安全到达要求目标保持、物理安全与预算通过。严格成功另要求每个实际速度符合原QP行验收、末态制动/静止和适用的记忆审计。C没有在线备份，故仅事后从真实末态重建制动尾；缺少在线证书文件本身不被判失败，事后结果也没有反馈给控制器。</p>
+<p>全部300次/组进入分母，包括初始化、数值求解、执行协议、安全及预算失败。原始到达、物理安全到达和严格成功分别保留。历史补充证书不倒填原失败标签；固定时序重放、失败快照续跑与未启动取消作业单列。</p>
+<h3 id="section-15">6.3 归因与统计解释</h3>
+<p>C→A衡量执行层整体在原目标下的增量，A→B衡量终态初始化与控制整体在共同执行器上的增量。缺少“新控制＋原执行器”第四组，也缺少“相同终态初始化＋简单控制”等对照，不能估计全部交互或将收益唯一归到某个公式。机制触发是过程证据，不是消融。</p>
+<p>本稿优先报告配对转移、任务分层和耗时分布，不把900条当作900个独立Bernoulli样本给出泛化显著性。主矩阵曾参与开发，早期12对和15对虽在当时按方法留出，后来输入参与修复，不能再次包装为最终版本的全新独立测试集。</p>
+<h2 id="section-16">7. 冻结主实验结果</h2>
+<table>
+<thead>
+<tr>
+<th>组</th>
+<th>原始到达</th>
+<th>物理安全到达</th>
+<th>严格成功</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>175/300</td>
+<td>174/300（58.00%）</td>
+<td>128/300（42.67%）</td>
+</tr>
+<tr>
+<td>A</td>
+<td>186/300</td>
+<td>186/300（62.00%）</td>
+<td>186/300（62.00%）</td>
+</tr>
+<tr>
+<td>B</td>
+<td>294/300</td>
+<td>294/300（98.00%）</td>
+<td>294/300（98.00%）</td>
+</tr>
+</tbody></table>
+<p><img src="../files/liuqp900/figures/outcomes.svg" alt="三组结果与逐段贡献" loading="lazy"></p>
+<p>图1：左侧分开物理安全到达和严格成功；右侧显示C→A及A→B的新增和退化。所有柱均保留失败分母，不代表独立环境泛化率。</p>
+<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>口径</th>
+<th>共同成功</th>
+<th>新增</th>
+<th>退化</th>
+<th>共同失败</th>
+<th>净增</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C→A</td>
+<td>严格</td>
+<td>127</td>
+<td>59</td>
+<td>1</td>
+<td>113</td>
+<td>58</td>
+</tr>
+<tr>
+<td>C→A</td>
+<td>物理安全到达</td>
+<td>171</td>
+<td>15</td>
+<td>3</td>
+<td>111</td>
+<td>12</td>
+</tr>
+<tr>
+<td>A→B</td>
+<td>严格</td>
+<td>185</td>
+<td>109</td>
+<td>1</td>
+<td>5</td>
+<td>108</td>
+</tr>
+<tr>
+<td>A→B</td>
+<td>物理安全到达</td>
+<td>185</td>
+<td>109</td>
+<td>1</td>
+<td>5</td>
+<td>108</td>
+</tr>
+<tr>
+<td>C→B</td>
+<td>严格</td>
+<td>128</td>
+<td>166</td>
+<td>0</td>
+<td>6</td>
+<td>166</td>
+</tr>
+<tr>
+<td>C→B</td>
+<td>物理安全到达</td>
+<td>173</td>
+<td>121</td>
+<td>1</td>
+<td>5</td>
+<td>120</td>
+</tr>
+</tbody></table>
+<h3 id="section-17">7.1 执行器贡献</h3>
+<p>严格成功由128增至186，净增58；新增59例中44例原已物理安全到达但原QP/末态备份审计未过，14例原未到达，1例原已到达但物理安全失败。物理安全到达仅净增12（新增15、退化3）。因此，“新增59个严格成功”不等于“多解决59个原本到不了的目标”。</p>
+<p>C有161条运行出现实际原QP行违规、7条出现独立LP确认的不可行状态、68条末态原QP固定制动尾未通过；这些集合可重叠，不能相加。A分别为0、0、1，B为0、0、0。这支持执行可接受性的经验改善，但A保留的一致性异常意味着不能声称冻结程序无条件实现了P3契约。<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/pure300-report.txt" rel="noopener noreferrer">原始审计报告</a></p>
+<h3 id="section-18">7.2 新控制贡献</h3>
+<p>A→B物理与严格口径均新增109、退化1、净增108。新增109例全部激活扩展，20例发生表面绕行，只有1例触发构型重复重选。这说明大部分新增成功不能仅归于重复检测或表面绕行；终态准备与进入、执行配合等整体都在作用。</p>
+<p>四层货架T0、T2中A各0/20、B各20/20；箱格T1由0/20至18/20；墙体上方两个目标分别由3/20至20/20、1/20至19/20。这些任务分层说明增益集中在哪里，但不是在这些场景上额外调参的授权。<a href="liuqp900-tables.html">完整15任务表</a></p>
+<h3 id="section-19">7.3 完整耗时与收益代价</h3>
+<table>
+<thead>
+<tr>
+<th>组</th>
+<th>完整单次中位数/s</th>
+<th>P90/s</th>
+<th>最大值/s</th>
+<th>含共享准备计费中位数/s</th>
+<th>终态初始化中位数/s</th>
+<th>事后审计中位数/s</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>15.192</td>
+<td>1057.509</td>
+<td>1200.305</td>
+<td>17.753</td>
+<td>0.000</td>
+<td>25.679</td>
+</tr>
+<tr>
+<td>A</td>
+<td>41.134</td>
+<td>184.455</td>
+<td>272.429</td>
+<td>43.944</td>
+<td>0.000</td>
+<td>26.394</td>
+</tr>
+<tr>
+<td>B</td>
+<td>144.661</td>
+<td>352.447</td>
+<td>602.915</td>
+<td>146.202</td>
+<td>79.490</td>
+<td>12.139</td>
+</tr>
+</tbody></table>
+<p><img src="../files/liuqp900/figures/timing.svg" alt="完整单次耗时分布摘要" loading="lazy"></p>
+<p>图2：全部尝试的完整单次墙钟，采用对数纵轴；包含B初始化，独立事后审计另列。各列中位数不能相加还原另一列中位数。共享输入提取/完整性核验是共同阶段，附加计费列保留其成本，不将其误称每个方法都独立执行一遍。</p>
+<p>共同严格成功的127个C/A条件，完整墙钟中位数为3.776→7.832秒；185个A/B共同成功条件为9.131→185.053秒。B初始化中位数79.490秒；全部尝试中B更少长尾失败，不代表简单共同成功案例更快。C的最大1200.305秒包含超时后的收尾，超预算运行不获得成功资格。</p>
+<p>A/B正式并行批次106.79分钟，含审计126.37分钟；从输入提取开始至审计完成150.83分钟。C补跑分别112.09、113.09分钟，从预检开始115.87分钟。这些是不同批次的经过时间，不是逐条墙钟之和，也不是可直接加成一次连续900条任务的端到端耗时。<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/paired300-report.txt" rel="noopener noreferrer">A/B报告</a> · <a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/pure300-report.txt" rel="noopener noreferrer">C报告</a></p>
+<h2 id="section-20">8. 全部B组失败与关键退化</h2>
+<table>
+<thead>
+<tr>
+<th>B组失败案例</th>
+<th>末误差/mm</th>
+<th>仿真/s</th>
+<th>完整墙钟/s</th>
+<th>扩展激活</th>
+<th>绕行次数</th>
+<th>重复检测次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__drawer__s08&amp;arm=B" rel="noopener noreferrer">drawer s08</a></td>
+<td>323.152788</td>
+<td>300</td>
+<td>453.513</td>
+<td>是</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__drawer__s14&amp;arm=B" rel="noopener noreferrer">drawer s14</a></td>
+<td>417.761618</td>
+<td>300</td>
+<td>464.987</td>
+<td>是</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__iris_bins_t0__s17&amp;arm=B" rel="noopener noreferrer">iris_bins_t0 s17</a></td>
+<td>1.380197</td>
+<td>300</td>
+<td>160.882</td>
+<td>否</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__iris_bins_t1__s13&amp;arm=B" rel="noopener noreferrer">iris_bins_t1 s13</a></td>
+<td>339.562401</td>
+<td>300</td>
+<td>312.484</td>
+<td>是</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__iris_bins_t1__s15&amp;arm=B" rel="noopener noreferrer">iris_bins_t1 s15</a></td>
+<td>304.413178</td>
+<td>300</td>
+<td>391.550</td>
+<td>是</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/#case=online__wall2_topm15__s11&amp;arm=B" rel="noopener noreferrer">wall2_topm15 s11</a></td>
+<td>327.438423</td>
+<td>300</td>
+<td>218.003</td>
+<td>是</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>这六例均在300秒仿真预算结束，保存轨迹的物理、原QP可接受性及记忆审计通过；没有被改判成成功。前五例已激活扩展，四例实际进入表面绕行；安全续轨迹和启用绕行都不足以保证预算内到达。记录能证明剩余误差和模式经历，尚不能仅据这些汇总字段唯一确定各例失败根因。</p>
+<p><code>iris_bins_t0 / seed 17</code>是唯一A→B退化：A在56.12秒仿真内成功，B停在1.380197 mm，且没有激活新机制。激活门要求误差大于2 mm，到达门小于1 mm；该观测与1—2 mm未覆盖区间相容，但本批没有进行单因素反事实重跑，不能写成已经完成唯一因果证明。C在此物理安全到达，却有10个原QP行违规周期，所以C→B严格统计双方失败，而物理口径仍是退化。</p>
+<p>C→A唯一严格退化为<code>iris_bins_t3 / seed 8</code>：C在8.16秒成功，A耗尽300秒，B成功。物理口径另有<code>wall2_topm10 / seed 4</code>和<code>exit / seed 5</code>两例退化。不能用严格口径的“C→B零退化”掩盖物理口径的一例退化。</p>
+<p>C的<code>iris_bins_t0 / seed 6</code>原始到达但最低环境间隙5.9575 mm低于6 mm，按原标准计安全失败。A的<code>wall2_topm10 / seed 11</code>在等待步拒绝前推进内部备份，实际状态未推进，造成末态备份不匹配；实际已执行轨迹安全、原行通过，不能据此认定该状态QP无解。A的<code>iris_bins_t0 / seed 13</code>则在认证静止状态达到QP最大迭代数，属数值失败，保留在分母。详细可追溯解释见<a href="liuqp900-notes.html">实现缺口</a>。</p>
+<h2 id="section-21">9. 历史尝试提供什么证据</h2>
+<p>开发记录用于解释设计选择，不合并成最终方法成功率。以下证据链与对应否定结果同时保留：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>记录支持的认识</th>
+<th>必须保留的负面结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>固定路径执行消融</td>
+<td>系统成功不等于LiuQP不可替代</td>
+<td>仅4条件，不能推断其余296例</td>
+</tr>
+<tr>
+<td>低维末端/姿态绕行</td>
+<td>可行瞬时方向不等于释放真正阻塞</td>
+<td>最终改进0/4；33条开发/筛选记录保留</td>
+</tr>
+<tr>
+<td>单阻塞释放</td>
+<td>部位与跨周期几何身份重要</td>
+<td>真实停滞成功1次，同版2次重复失败</td>
+</tr>
+<tr>
+<td>目标端进入与重选向</td>
+<td>目标侧信息和方向更新有帮助</td>
+<td>固定快照成功不能代表原始起点；自然延迟仍失败</td>
+</tr>
+<tr>
+<td>整段进入证书</td>
+<td>准备后认证固定收缩反馈可修复具体失败</td>
+<td>最终8项7到达，含确定性重复；原始起点仍失败</td>
+</tr>
+<tr>
+<td>目标侧平面与曲率证书</td>
+<td>固定失败时序下的目标干预、同阈值证书改进有局部因果证据</td>
+<td>早期v1—v6失败、回归退化均保留；最终12/12是同场景开发验证</td>
+</tr>
+<tr>
+<td>留出与秩修复</td>
+<td>初始化必须计入总分母，真实秩应决定可达方向</td>
+<td>早期9/12含3初始化失败；修复旧失败初始化3/3但闭环仅1/3</td>
+</tr>
+<tr>
+<td>四T0分项诊断</td>
+<td>原行可行性、部位切换与持续进展须分开</td>
+<td>中间候选快照3/4、原起点3/4、旧成功34/35，未接受替代</td>
+</tr>
+<tr>
+<td>持续绕行与时钟修复</td>
+<td>运输切向、部位局部重试、反馈时钟与重复检测形成最终组合</td>
+<td>单独降低退出门等方案未稳定获益；43/43及追加16/16仍是已参与开发的集合</td>
+</tr>
+</tbody></table>
+<p>其中时钟消融在相同动作段与循环检测下，四个定向条件由2/4至4/4；重复检测生效前4615个反馈状态与无检测版本一致，随后一次重选使具体失败到达。这些强于单纯观察触发次数，但仍只支持对应版本、输入和干预，不证明各机制在900条中的独立效应。<a href="liuqp900-ledger.html">逐批来源、数量及未采用分支</a></p>
+<p>历史球/椭球300对照回答几何表示问题，离线IRIS/GCS尝试回答路径覆盖和求路问题；它们不并入局部控制成功率。旧IRIS集成还存在方法/库配置对齐限制，不能用工程小样本否定原方法。最终控制未采用6D探索树、历史回退航点或既有成功路线。</p>
+<h2 id="section-22">10. 局限与投稿前必要补充</h2>
+<p><strong>证据独立性。</strong> 正式矩阵是冻结回归而非全新封存测试集；任务共享布局，历史快照和固定时序重复相关。需另建未参与开发的新任务/布局、固定终态信息公平基线及多负载重复，才能支撑更强泛化与时效主张。</p>
+<p><strong>贡献尚未完全拆开。</strong> A将认证、停走、速度保守性和时钟组合；B将静态初始化、目标准备、持续绕行和退出门组合。缺少第四臂及最终版本的系统组件消融。109次机制激活不等于该机制独立创造109个成功。</p>
+<p><strong>理论与程序仍有距离。</strong> P3依赖原子状态更新，A已出现契约例外；P7不覆盖所有保持/制动前缀；P8预测不保证实际长期进展；记忆可能排除必要通路。任何后续修复都须新冻结、新验证，不能把修复后的保证或结果倒填本批。</p>
+<p><strong>终态与触发不完备。</strong> 有限IK候选不穷尽可行终态，重选终态未统一重做初始秩感知过程；1—2 mm激活空档是明确实现边界。终态信息帮助控制但也增加初始化耗时，不能声称只改变一个廉价瞬时梯度就获得全部收益。</p>
+<p><strong>物理与运行范围。</strong> 仅MuJoCo运动学反馈、历史冻结观测；历史地图可能受旧规划系统的观测策略影响。没有动态障碍、在线感知更新、执行误差、扰动、实机安全或硬实时验证。代理、机器人覆盖、曲率和浮点误差契约未被整体形式化验证。</p>
+<p><strong>复现范围。</strong> 已公开900条完整保存轨迹、原始结果/日志/审计、终态输入、冻结源码和哈希。约8.86 GB完整地图仍在原实验归档，公开的是来源、选择规则、哈希与显示采样；目前不声称下载网页即可在干净机器上完整重跑。播放时只做正运动学，没有重新控制或仿真。</p>
+<h2 id="section-23">11. 结论</h2>
+<p>当前结果支持一个范围明确的判断：在这300个历史输入条件上，认证执行层改善了实际原行与备份验收，新控制及终态初始化在相同执行层上又显著增加了预算内安全到达，代价是额外计算及少量退化。持续绕行与退出机制是有明确设计依据和开发反事实证据的工程方法，尚不是一般脱困完备性定理。论文应以“条件性性质、冻结同输入对照、完整失败与成本披露”为主线，而不是宣称已经普遍解决非凸运动规划或LiuQP的所有缺点。</p>
+<h2 id="section-24">数据、代码与参考文献</h2>
+<ul>
+<li>冻结发布：<a href="https://github.com/Qmoliang/ur5-cabinet-experiments/commit/0f402010bb8335df661fdace8745106b7ee5aede" rel="noopener noreferrer">0f40201</a>；<a href="https://github.com/Qmoliang/ur5-cabinet-experiments/tree/0f402010bb8335df661fdace8745106b7ee5aede/experiment/liuqp900" rel="noopener noreferrer">方法源码</a>；<a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/data.json" rel="noopener noreferrer">900条索引</a>。</li>
+<li>完整推导与证据：<a href="liuqp900-methods.html">方法</a>、<a href="liuqp900-proofs.html">证明</a>、<a href="liuqp900-status.html">性质分类</a>、<a href="liuqp900-code.html">源码映射</a>、<a href="liuqp900-ledger.html">历史台账</a>。</li>
+<li>Chao Liu and Mark Yim. <em>A Quadratic Programming Approach to Manipulation in Real-Time Using Modular Robots</em>. 2021. <a href="https://arxiv.org/abs/2104.02755" rel="noopener noreferrer">作者预印本</a>。</li>
+<li>Aaron D. Ames, Xiangru Xu, Jessy W. Grizzle, and Paulo Tabuada. <em>Control Barrier Function Based Quadratic Programs for Safety Critical Systems</em>. IEEE Transactions on Automatic Control, 2017. <a href="https://arxiv.org/abs/1609.06408" rel="noopener noreferrer">作者预印本</a>。</li>
+<li>Kim P. Wabersich and Melanie N. Zeilinger. <em>A predictive safety filter for learning-based control of constrained nonlinear dynamical systems</em>. 2018预印本。本文仅据该作者预印本定位结构关系，不把本文执行器说成对其全部理论的实现。<a href="https://arxiv.org/abs/1812.05506" rel="noopener noreferrer">作者预印本</a>。</li>
+</ul>
+<p>以上相关工作属于初步定位，尚不构成完成的新颖性检索或充分的文献实验比较。</p>
+</article><p class="source-note">原始来源：<code>publication/liuqp900/paper-draft.md</code><br>SHA-256：<code>ff14e34b4404aa68432c3401ca22525d23df1e3e87e64867bd0c4de161d38742</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

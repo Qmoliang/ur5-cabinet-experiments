@@ -1,0 +1,268 @@
+{
+  "frozen_comparison_commit": "0f402010bb8335df661fdace8745106b7ee5aede",
+  "scope": "Copies of original reports and result tables, not new runs; historical success labels remain unchanged.",
+  "counting": "Source-table entries include development, diagnostic replays and initialization/startup failures. Do not sum as independent samples or add final subsets twice.",
+  "files": [
+    {
+      "study": "H01",
+      "kind": "original_report",
+      "source": "liuqp_execution_ablation_20261105/delivery/EXECUTION_ABLATION_REPORT.txt",
+      "file": "execution-ablation-report.txt",
+      "bytes": 5661,
+      "sha256": "21c819f1507258aaeda2072e64ddedbaa9023129bebb1192efd7a13ce7e96a51",
+      "source_table_entries": 8
+    },
+    {
+      "study": "H01",
+      "kind": "original_results",
+      "source": "liuqp_execution_ablation_20261105/delivery/FINAL_REPORT.json",
+      "file": "execution-ablation-results.json",
+      "bytes": 20215,
+      "sha256": "35aa24a587e853e0fb9983215cb62b1ee213a2ff4f4e2c8831af45070e4e63c5",
+      "source_table_entries": 8
+    },
+    {
+      "study": "H02",
+      "kind": "original_report",
+      "source": "liuqp_lowdim_pilot_20261106/delivery/FINAL_REPORT.txt",
+      "file": "lowdim-pilot-report.txt",
+      "bytes": 7190,
+      "sha256": "8f825e277a364a1ae17580c1d6864bdab08c008cc3dc0cbca1688a607df04d1c",
+      "source_table_entries": 33
+    },
+    {
+      "study": "H02",
+      "kind": "original_results",
+      "source": "liuqp_lowdim_pilot_20261106/delivery/FINAL_REPORT.json",
+      "file": "lowdim-pilot-results.json",
+      "bytes": 61189,
+      "sha256": "40c72bed169ccbac1b6a085f8b332d51e97a034237d91ad0246b24b803b992a8",
+      "source_table_entries": 33
+    },
+    {
+      "study": "H03",
+      "kind": "original_report",
+      "source": "liuqp_release_study_20261106/delivery/FINAL_REPORT.txt",
+      "file": "release-report.txt",
+      "bytes": 5570,
+      "sha256": "89fccf246c4bda161f313e6cb0627cce73c6043aa771f834203923938b8e09f2",
+      "source_table_entries": 38
+    },
+    {
+      "study": "H03",
+      "kind": "original_results",
+      "source": "liuqp_release_study_20261106/delivery/RESULTS.json",
+      "file": "release-results.json",
+      "bytes": 305745,
+      "sha256": "f19d5bb825b7de588e4a67f2430668bff4ee6f8063c2f464e4728ba3d3303af8",
+      "source_table_entries": 38
+    },
+    {
+      "study": "H04",
+      "kind": "original_report",
+      "source": "liuqp_goal_entry_study_20261106/delivery/FINAL_REPORT.txt",
+      "file": "goal-entry-report.txt",
+      "bytes": 6829,
+      "sha256": "8a9f6c34fe7579cfb28d349e0eca22000c672a23974daa70c36828c9e03ad0c6",
+      "source_table_entries": 49
+    },
+    {
+      "study": "H04",
+      "kind": "original_results",
+      "source": "liuqp_goal_entry_study_20261106/delivery/RESULTS.json",
+      "file": "goal-entry-results.json",
+      "bytes": 135178,
+      "sha256": "4df422c37a1bfcda73cd4b4723a2062027fc9f4f69200e018a15f4a728680d04",
+      "source_table_entries": 49
+    },
+    {
+      "study": "H05",
+      "kind": "original_report",
+      "source": "liuqp_reheading_study_20261107/delivery/FINAL_REPORT.txt",
+      "file": "reheading-report.txt",
+      "bytes": 7180,
+      "sha256": "8d0b3aa2cfa66e55501a385165151c01b4f5d04a099ba593b39f4433f0d197e7",
+      "source_table_entries": 15
+    },
+    {
+      "study": "H05",
+      "kind": "original_results",
+      "source": "liuqp_reheading_study_20261107/delivery/RESULTS.json",
+      "file": "reheading-results.json",
+      "bytes": 227600,
+      "sha256": "700bd2efec19f267d3982dbad0fe27e3720abfeb3d11a4cd0e41a165c953b098",
+      "source_table_entries": 15
+    },
+    {
+      "study": "H06",
+      "kind": "original_report",
+      "source": "liuqp_entry_certificate_20261107/delivery/FINAL_REPORT.txt",
+      "file": "entry-certificate-report.txt",
+      "bytes": 5952,
+      "sha256": "4d506535e011fd393e2d4880e61dc5ce1f7cb788962437919c43cb1320faea33",
+      "source_table_entries": 19
+    },
+    {
+      "study": "H06",
+      "kind": "original_results",
+      "source": "liuqp_entry_certificate_20261107/delivery/RESULTS.json",
+      "file": "entry-certificate-results.json",
+      "bytes": 56102,
+      "sha256": "b70095e9289d39e34f4c743935e57b159fcbeeacb55e7e3e4cf4b14b816194ef",
+      "source_table_entries": 19
+    },
+    {
+      "study": "H07",
+      "kind": "original_report",
+      "source": "liuqp_progress_acceptance_20261107/delivery/FINAL_REPORT.txt",
+      "file": "progress-acceptance-report.txt",
+      "bytes": 14018,
+      "sha256": "66b3ef9a4a1ed8d35b02b58af0523eb2755c2e2a0f7ba47aeb54324e62147010",
+      "source_table_entries": 62
+    },
+    {
+      "study": "H07",
+      "kind": "original_results",
+      "source": "liuqp_progress_acceptance_20261107/delivery/RESULTS.json",
+      "file": "progress-acceptance-results.json",
+      "bytes": 175278,
+      "sha256": "750139ee95e1953e44a819fc27de9b1ba5892874ecda2fd040c7ee5fd9a6663d",
+      "source_table_entries": 62
+    },
+    {
+      "study": "H08",
+      "kind": "original_report",
+      "source": "liuqp_holdout_20261108/delivery/FINAL_REPORT.txt",
+      "file": "holdout-report.txt",
+      "bytes": 6267,
+      "sha256": "057204261b702ed3e922a4f8170c751f2d106bd08ff4f7b36ce0dd6354f16de9",
+      "source_table_entries": 24
+    },
+    {
+      "study": "H08",
+      "kind": "original_results",
+      "source": "liuqp_holdout_20261108/delivery/RESULTS.json",
+      "file": "holdout-results.json",
+      "bytes": 55530,
+      "sha256": "1804bc0399a0c1fb4f2aa0c37c04687dbd5946eae4e524247e106cd023ebb186",
+      "source_table_entries": 24
+    },
+    {
+      "study": "H09",
+      "kind": "original_report",
+      "source": "liuqp_rank_init_20261108/delivery/FINAL_REPORT.txt",
+      "file": "rank-init-report.txt",
+      "bytes": 9381,
+      "sha256": "0b7111edb435f2c289ba034b7e5602fa23a05405bcea18f1d757b91f45d8f404",
+      "source_table_entries": 54
+    },
+    {
+      "study": "H09",
+      "kind": "original_results",
+      "source": "liuqp_rank_init_20261108/delivery/RESULTS.json",
+      "file": "rank-init-results.json",
+      "bytes": 142233,
+      "sha256": "18d9681186f129b25ba126ea9bac4c8d8482b8af3e37dede421f25d232f4dc0c",
+      "source_table_entries": 54
+    },
+    {
+      "study": "H10",
+      "kind": "original_report",
+      "source": "liuqp_t0_continuation_20261109/delivery/FINAL_REPORT.txt",
+      "file": "t0-continuation-report.txt",
+      "bytes": 29612,
+      "sha256": "1980154dab329e951e985cda8d7bb93821bd9bf9694928e73264e35943f6a766",
+      "source_table_entries": 156
+    },
+    {
+      "study": "H10",
+      "kind": "original_results",
+      "source": "liuqp_t0_continuation_20261109/delivery/RESULTS.json",
+      "file": "t0-continuation-results.json",
+      "bytes": 208917,
+      "sha256": "78867e026a42abd6ac8914ffd23ba62cd346420792ae6b321a7f93a3100d181c",
+      "source_table_entries": 156
+    },
+    {
+      "study": "H11",
+      "kind": "original_report",
+      "source": "liuqp_t0_causal_20261109/delivery/FINAL_REPORT.txt",
+      "file": "t0-causal-report.txt",
+      "bytes": 7469,
+      "sha256": "356a98055027858f1b102d94b8e3dc503dd02cf7a5b746b3646f2f70b66e28bb",
+      "source_table_entries": 131
+    },
+    {
+      "study": "H11",
+      "kind": "original_results",
+      "source": "liuqp_t0_causal_20261109/delivery/RESULTS.json",
+      "file": "t0-causal-results.json",
+      "bytes": 231814,
+      "sha256": "4ba778bfb2b497370d818b0a83258cc5201c47a2d2b098317bd8eaed1a4e07e0",
+      "source_table_entries": 131
+    },
+    {
+      "study": "H12",
+      "kind": "original_report",
+      "source": "liuqp_continuation_exit_20261109/delivery/FINAL_REPORT.txt",
+      "file": "continuation-exit-report.txt",
+      "bytes": 7696,
+      "sha256": "8f048a78f10752743ccfca6fa1308c80a55143a5e74eb532235380f61148bb6f",
+      "source_table_entries": 151
+    },
+    {
+      "study": "H12",
+      "kind": "original_results",
+      "source": "liuqp_continuation_exit_20261109/delivery/RESULTS.json",
+      "file": "continuation-exit-results.json",
+      "bytes": 244778,
+      "sha256": "6c56b7cf525cd7a4355caa2cc4becf796ffa0fb3bf2b8ebe0913e88e8ca60ce2",
+      "source_table_entries": 151
+    },
+    {
+      "study": "AB900",
+      "kind": "original_report",
+      "source": "liuqp_paired300_20261109/delivery/FINAL_REPORT.txt",
+      "file": "paired300-report.txt",
+      "bytes": 9132,
+      "sha256": "f8171076fb7c136c8bc8a936d4484ee3bd9eac4581ed924548ac8c7383c6917f",
+      "source_table_entries": 600
+    },
+    {
+      "study": "C900",
+      "kind": "original_report",
+      "source": "liuqp_pure300_20261110/delivery/FINAL_REPORT.txt",
+      "file": "pure300-report.txt",
+      "bytes": 11201,
+      "sha256": "032a59fe16ef7ba159dff2c868efd7779c052e2a583d962bb4f98e552d00c1d8",
+      "source_table_entries": 300
+    },
+    {
+      "study": "historical-sphere",
+      "kind": "original_results",
+      "source": "sphere_r17_pair_20261104/delivery/CLOSEOUT_REPORT.json",
+      "file": "sphere-r17-report.json",
+      "bytes": 27445,
+      "sha256": "6b50c2b5bd12b844754eb6be25021b9f0ec8bcfac5c78dc5b3c2802597d7c276",
+      "source_table_entries": 300
+    },
+    {
+      "study": "historical-gcs",
+      "kind": "original_report",
+      "source": "gcs_path_pilot_20261104/delivery/PILOT_REPORT.txt",
+      "file": "gcs-pilot-report.txt",
+      "bytes": 10326,
+      "sha256": "027f154b13d4b793032ec440262ed1216e52c9b3139ef3d309575b1a424f69b6",
+      "source_table_entries": 48
+    },
+    {
+      "study": "historical-iris",
+      "kind": "original_report",
+      "source": "iris_engineering_alignment_20261105/delivery/ALIGNMENT_REPORT.txt",
+      "file": "iris-alignment-report.txt",
+      "bytes": 9712,
+      "sha256": "03172b077622144449a74e8f559b72f558f7dca77909946e5f2b5a88ebc70252",
+      "source_table_entries": 48
+    }
+  ]
+}

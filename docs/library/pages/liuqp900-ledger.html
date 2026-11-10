@@ -1,0 +1,229 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>实验台账：900、1200与历史尝试 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">实验台账：900、1200及历史尝试的正确口径</a><a class="depth-2" href="#section-2">1. 为什么可以说1200，也为什么它不是项目总量</a><a class="depth-2" href="#section-3">2. 围绕最终控制的开发证据链</a><a class="depth-2" href="#section-4">3. 其他路线与未采用方案</a><a class="depth-2" href="#section-5">4. 计数与证据等级规则</a><a class="depth-2" href="#section-6">5. 原始来源与完整性</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">2026-11 冻结控制对照与方法 / MD</div><h1>实验台账：900、1200与历史尝试</h1><p>基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。</p><div class="actions"><a class="primary" download href="../files/liuqp900/experiment-ledger.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/liuqp900/experiment-ledger.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。本库跨多个版本；指标须按各文档的队列与协议解释，不能混合统计。原文中的本机路径对应其原始实验目录。</div><div class="version-note">1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。</div></header><article id="content" class="prose"><h1 id="section-1">实验台账：900、1200及历史尝试的正确口径</h1>
+<p>本台账服务于<a href="liuqp900-paper.html">论文初稿</a>。所有旧报告按原文归档，解释更正写在本页；不改写旧判定，不把复制的报告、网页播放或数学核验计成新实验。</p>
+<h2 id="section-2">1. 为什么可以说1200，也为什么它不是项目总量</h2>
+<table>
+<thead>
+<tr>
+<th>批次</th>
+<th align="right">运行记录</th>
+<th>通过结果</th>
+<th>在论文中的角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C：原目标＋原执行方式</td>
+<td align="right">300</td>
+<td>物理174，严格128</td>
+<td>主对照</td>
+</tr>
+<tr>
+<td>A：原目标＋共同执行器</td>
+<td align="right">300</td>
+<td>物理186，严格186</td>
+<td>主对照</td>
+</tr>
+<tr>
+<td>B：终态初始化与新控制＋共同执行器</td>
+<td align="right">300</td>
+<td>物理294，严格294</td>
+<td>主对照</td>
+</tr>
+<tr>
+<td>旧在线椭球RRT系统 final_r17</td>
+<td align="right">300</td>
+<td>原协议安全到达298</td>
+<td>历史系统参照，非同协议第四臂</td>
+</tr>
+<tr>
+<td>旧已知场景系统</td>
+<td align="right">300</td>
+<td>原协议通过300</td>
+<td>另一个历史批次</td>
+</tr>
+<tr>
+<td>旧在线球表示配对</td>
+<td align="right">300</td>
+<td>原协议安全到达275</td>
+<td>几何表示实验，椭球基线只读复用</td>
+</tr>
+</tbody></table>
+<p>因此，选取前四行时是 <strong>900＋300＝1200条运行记录</strong>；主配对仍是300条件×3组。六行计1800条这些已确认批次的记录，另有开发、诊断、消融和重跑，所以全项目历史总量超过1200。这里不声称已完成全项目跨版本、跨归档的穷尽去重。尤其球/椭球报告中的298/300复用了同一个旧椭球批次，不能再额外加300。</p>
+<p>旧600条索引明确区分known/online各300；球表示收尾报告另记新增300、基线复用。来源：<a href="https://qmoliang.github.io/ur5-cabinet-experiments/closeout/data.json" rel="noopener noreferrer">旧索引</a>、<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/sphere-r17-report.json" rel="noopener noreferrer">球表示原报告</a>、<a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/data.json" rel="noopener noreferrer">新900索引</a>。</p>
+<p><strong>论文建议措辞：</strong> “在300个历史输入条件上完成900次三组冻结控制对照，并提供300次旧在线规划系统运行作为历史参照。”不能写“1200个独立场景”“1200次同协议随机试验”，也不能用298→294推断新方法净退化4例。新旧地图使用、规划参与、时间和严格判据的差异见<a href="liuqp900-reconciliation.html">版本核对</a>。</p>
+<h2 id="section-3">2. 围绕最终控制的开发证据链</h2>
+<p>下表数量是对应原始结果表的条目数，含各版开发、原失败复现、回归和部分初始化/启动失败，不是每行最终算法的统一成功率。后文的最终验证子集已包含在对应整批条目里，不再相加。各阶段结果可能共享输入或重演同一时序，不能作为独立样本合并。</p>
+<table>
+<thead>
+<tr>
+<th>ID／研究</th>
+<th align="right">原结果表条目</th>
+<th>与最终方案有关的证据</th>
+<th>必须保留的限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H01 固定路径执行消融，11-05</td>
+<td align="right">8（4条件×2）</td>
+<td>LiuQP与普通P跟踪均4/4；原系统成功不能独归LiuQP</td>
+<td>已有认证路径、四条件，不能推论整个300例无QP结果</td>
+</tr>
+<tr>
+<td>H02 低维绕行试验，11-06</td>
+<td align="right">33</td>
+<td>球/椭球都可在同一货架长期近停滞；实际姿态分支已执行</td>
+<td>最终改进安全到达0/4；不能证明严格孤立局部极小</td>
+</tr>
+<tr>
+<td>H03 阻塞释放，11-06</td>
+<td align="right">38</td>
+<td>识别前臂附近阻塞，需要基座/肩部协调退让</td>
+<td>真实停滞恢复1次成功，同版本2次重复失败；单代理打开不等于持续绕行</td>
+</tr>
+<tr>
+<td>H04 目标端进入，11-06/07</td>
+<td align="right">49</td>
+<td>静态终态、目标侧局部进入与持续几何记忆接入</td>
+<td>最终固定快照3/3，重置后原初态2/3，坏延迟0/1；5条原安全审计未过</td>
+</tr>
+<tr>
+<td>H05 目标端重选向，11-07</td>
+<td align="right">15</td>
+<td>固定坏时序可重演，方向族耗尽不等于物理无路</td>
+<td>5条原始到达仅2条过原完整审计；补充证书支持5条，原标签不改；确定性重复非独立</td>
+</tr>
+<tr>
+<td>H06 整段进入证书，11-07</td>
+<td align="right">19</td>
+<td>最终8项7到达；最弱余量与平均余量的两条件对照为2/2与1/2</td>
+<td>8项含确定性重复；原初态仍失败；19项包含2次启动错误，另1计划未启动不计入</td>
+</tr>
+<tr>
+<td>H07 实际进展与目标侧平面，11-07/08</td>
+<td align="right">62</td>
+<td>去延迟/去缓存仍失败，保留坏时序而改目标侧平面可到达；同阈值曲率证书修复一例回归</td>
+<td>最新12/12为同场景开发验证；早期失败和安全审计未通过仍在原表</td>
+</tr>
+<tr>
+<td>H08 当时方法留出，11-08</td>
+<td align="right">24（12对）</td>
+<td>基线3/12，新方法9/12</td>
+<td>3例初始化失败必须计分母；21条有轨迹；输入后来参与修复，不再是最终独立留出</td>
+</tr>
+<tr>
+<td>H09 秩感知初始化，11-08/09</td>
+<td align="right">54</td>
+<td>旧初始化失败3/3修复但闭环1/3；旧成功21/21逐状态保持；15新对照9/15→13/15</td>
+<td>初始化成功不等于到达；不能将不同测试集9/12→13/15直接当涨幅</td>
+</tr>
+<tr>
+<td>H10 T0延续/部位调整，11-09</td>
+<td align="right">156</td>
+<td>见证满秩抹掉姿态项、虚拟见证切换、真实阻塞部位过期与原QP不可行被分开</td>
+<td>最终原起点11/12、快照5/12、回归34/35，未获稳定替代验收；84项启动前取消不计运行</td>
+</tr>
+<tr>
+<td>H11 T0分项因果与接口修复，11-09</td>
+<td align="right">131</td>
+<td>严格静止状态与裁剪后认证的接口修复；同坏时序单因素复验支持裁剪修复</td>
+<td>最终快照3/4、原起点3/4、回归34/35；末态强制接回续跑不替换原失败</td>
+</tr>
+<tr>
+<td>H12 持续绕行与退出最终验证，11-09</td>
+<td align="right">151</td>
+<td>最终4快照＋4原起点＋35回归共43/43，追加16/16；时钟消融2/4→4/4</td>
+<td>43项未启动候选另列；35回归来自24个来源，含快照/重演；没有未见泛化保证</td>
+</tr>
+</tbody></table>
+<p>H10/H11的未获接受候选不能被H12的成功“覆盖”。H12最终版保留净进展退出门；提前退出、缩小进展门和可逆目标试探等并未稳定获益，没有进入正式B组。完整记录的继承关系通过原报告中的版本、配置和来源字段追踪。</p>
+<p>H11同四条固定失败时序的比较为旧局部排斥0/4、Cartesian进展3/4、禁部位切换2/4、仅终态证书退出1/4。它支持对应版本的设计选择，不是最终B组在300条件上的组件消融。H12重复检测启用前4615个反馈状态一致，随后重选使一个失败到达；该单例因果证据不能升级成“109个新增都来自重复检测”。</p>
+<h2 id="section-4">3. 其他路线与未采用方案</h2>
+<ul>
+<li><strong>几何表示。</strong> 球表示新增300次，275通过；旧椭球基线298/300只读复用，逐例椭球独有成功23。该实验包含原在线系统与规划，不能解释新C/A/B共同椭球输入下的控制收益。</li>
+<li><strong>离线区域覆盖与GCS，48项。</strong> 每方法16个配置，均有6个共同目标池为空、未调用规划器；实际进入求路的10条件中RRT10、IRIS-Fast＋GCS1、IRIS-Precise＋GCS0。Fast还有区域尝试上限导致提前停止，不能把14秒预算的潜力视作已穷尽。<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/gcs-pilot-report.txt" rel="noopener noreferrer">原报告</a></li>
+<li><strong>工程引导对齐的另一48项。</strong> 原报告中实际调用求路的10条件，当前RRT10、两种IRIS集成各0。它描述当时集成、冷启动和预算，不证明IRIS-ZO原方法普遍不如RRT。相关分支仍有实现/文献对齐待审计问题；尚未获准用于对等方法排名的144项材料不在本次发布中补入。<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/iris-alignment-report.txt" rel="noopener noreferrer">原报告</a></li>
+<li><strong>6D探索树、旧回退航点提案。</strong> 是历史设计分支，不属于最终冻结B控制。没有在本台账中给仅有推导或未启动方案虚构闭环运行数。</li>
+<li><strong>区域体积、连接器、端点反馈、采样器等专项检查。</strong> 属于更早规划工程诊断，不能与本论文到达分母相加。主稿只引用与控制归因有关的已核对结论；本页不是项目所有文件的全量目录。</li>
+</ul>
+<h2 id="section-5">4. 计数与证据等级规则</h2>
+<ol>
+<li>一条正式运行由“批次＋版本＋条件＋方法＋实际尝试ID”识别；同一结果的本地副本、ZIP副本、网页载荷和新汇总不是新运行。</li>
+<li>初始化失败计入所分配方法的总尝试分母，但不冒称存在运动轨迹。启动前取消作业不计已执行运行；启动后中止前缀保留并标明。</li>
+<li>固定延迟重演用于可复现性或单因素因果诊断；相同输入的自然延迟重复用于有限鲁棒性检查。两者都不是新环境样本。</li>
+<li>从失败末态重新给预算续跑是诊断；原失败仍失败，不能将续跑成功倒填原300秒结果。</li>
+<li>已确认接口根因、单因素干预支持、日志相容假说及尚无定位，按这四种强度分别叙述。正的单步速度、局部证书或目标侧记忆不作为最终到达证明。</li>
+<li>新900三组是顺序增量设计。C→A、A→B不能识别第四臂交互，也不能将认证、低速、停走及初始化等组件各自独立归因。</li>
+</ol>
+<h2 id="section-6">5. 原始来源与完整性</h2>
+<p>本次归档H01—H12的原始报告及结果JSON副本，另附A/B、C、球表示与两份离线求路报告。原文件的全文、失败标签与版本口径保留；如果历史措辞与最终冻结代码冲突，以<a href="liuqp900-notes.html">方法更正</a>和本稿限定为准，不修改旧报告以掩盖差异。</p>
+<p>每个来源的路径、字节数、公开文件SHA-256和结果条目数见<a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/manifest.json" rel="noopener noreferrer">来源清单</a>。报告副本不是历史全部轨迹的再次上传；各研究原轨迹与输入归档继续保留。本次没有生成任何新的机械臂实验运行。</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>原报告</th>
+<th>原结果表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H01</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/execution-ablation-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/execution-ablation-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H02</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/lowdim-pilot-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/lowdim-pilot-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H03</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/release-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/release-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H04</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/goal-entry-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/goal-entry-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H05</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/reheading-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/reheading-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H06</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/entry-certificate-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/entry-certificate-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H07</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/progress-acceptance-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/progress-acceptance-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H08</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/holdout-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/holdout-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H09</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/rank-init-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/rank-init-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H10</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/t0-continuation-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/t0-continuation-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H11</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/t0-causal-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/t0-causal-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+<tr>
+<td>H12</td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/continuation-exit-report.txt" rel="noopener noreferrer">报告</a></td>
+<td><a href="https://qmoliang.github.io/ur5-cabinet-experiments/library/files/liuqp900/history-evidence/continuation-exit-results.json" rel="noopener noreferrer">结果JSON</a></td>
+</tr>
+</tbody></table>
+<p>主900的冻结输入与源记录哈希、原始证据分包及完整回放仍由<a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/" rel="noopener noreferrer">实验网站</a>提供。所有表格由冻结索引重算，见<a href="liuqp900-tables.html">表格附录</a>；不以新统计覆盖原JSON。</p>
+</article><p class="source-note">原始来源：<code>publication/liuqp900/experiment-ledger.md</code><br>SHA-256：<code>759687a44030a478a4b5add4c699c1d47624c35e8d8630a2a35bbbcdc7d477dd</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

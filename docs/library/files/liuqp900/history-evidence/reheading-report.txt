@@ -1,0 +1,45 @@
+目标端重新选向：同一货架复验
+完成时间：2026-11-07T07:46:22.910392+08:00
+
+所有试验均为 MuJoCo；用户已明确没有实体 UR5e。本轮没有连接或控制实体机器人。
+同一目标、场景、停滞快照、安全阈值和 300 s 仿真预算保持不变。
+
+分组结果（固定延迟重复是确定性复现，不能作为独立统计样本）：
+original_failure: 到达 0/1；经原安全与记忆审计的到达 0/1；使用补充工作空间界且其余审计通过的到达 0/1
+  reference_failed_schedule: local_direction_family_exhausted, 242.76s, 808.3832138119025mm, 重选 0 次, 首次 Nones, workspace=False
+v1_fixed: 到达 0/3；经原安全与记忆审计的到达 0/3；使用补充工作空间界且其余审计通过的到达 0/3
+  reheading_failed_schedule_1: motion_budget_exhausted, 300.00s, 785.580300249113mm, 重选 1 次, 首次 240.74s, workspace=False
+  reheading_failed_schedule_2: motion_budget_exhausted, 300.00s, 785.580300249113mm, 重选 1 次, 首次 240.74s, workspace=False
+  reheading_failed_schedule_3: motion_budget_exhausted, 300.00s, 785.580300249113mm, 重选 1 次, 首次 240.74s, workspace=False
+v1_measured: 到达 0/3；经原安全与记忆审计的到达 0/3；使用补充工作空间界且其余审计通过的到达 0/3
+  reheading_measured_1: motion_budget_exhausted, 300.00s, 824.9144631495607mm, 重选 1 次, 首次 32.28s, workspace=False
+  reheading_measured_2: motion_budget_exhausted, 300.00s, 438.4722588745146mm, 重选 0 次, 首次 Nones, workspace=False
+  reheading_measured_3: motion_budget_exhausted, 300.00s, 517.3480531102422mm, 重选 0 次, 首次 Nones, workspace=True
+v1_online: 到达 1/1；经原安全与记忆审计的到达 1/1；使用补充工作空间界且其余审计通过的到达 1/1
+  reheading_original_start: safe_arrival_candidate, 82.24s, 0.7984970193739774mm, 重选 1 次, 首次 62.06s, workspace=True
+v2_fixed: 到达 3/3；经原安全与记忆审计的到达 0/3；使用补充工作空间界且其余审计通过的到达 3/3
+  reheading_v2_failed_schedule_1: safe_arrival_candidate, 244.04s, 0.7596827267411133mm, 重选 18 次, 首次 10.68s, workspace=False
+  reheading_v2_failed_schedule_2: safe_arrival_candidate, 244.04s, 0.7596827267411133mm, 重选 18 次, 首次 10.68s, workspace=False
+  reheading_v2_failed_schedule_3: safe_arrival_candidate, 244.04s, 0.7596827267411133mm, 重选 18 次, 首次 10.68s, workspace=False
+v2_measured: 到达 1/3；经原安全与记忆审计的到达 1/3；使用补充工作空间界且其余审计通过的到达 1/3
+  reheading_v2_measured_1: motion_budget_exhausted, 300.00s, 472.5685846216285mm, 重选 15 次, 首次 10.8s, workspace=False
+  reheading_v2_measured_2: motion_budget_exhausted, 300.00s, 792.4446232663827mm, 重选 23 次, 首次 9.28s, workspace=True
+  reheading_v2_measured_3: safe_arrival_candidate, 121.46s, 0.7960825127383996mm, 重选 14 次, 首次 10.96s, workspace=True
+v2_online: 到达 0/1；经原安全与记忆审计的到达 0/1；使用补充工作空间界且其余审计通过的到达 0/1
+  reheading_v2_original_start: local_direction_family_exhausted, 50.42s, 757.9213120022686mm, 重选 4 次, 首次 26.52s, workspace=True
+
+关键证据：
+第二版固定失败延迟三次均在 244.04 s 到达；三次是同一确定性时序，不是三个独立成功样本。自然延迟只有 1/3 到达，从原始起点的整程检查失败。本轮尚未实现稳定脱困。
+全部 15 条轨迹的障碍、自碰、关节/制动、速度/加速度及记忆检查均通过。原工作空间审计 10 条未通过；同容差补充界通过其中 4 条，另 6 条失败运行仍有未能认证的区间，不能宣称它们连续安全已获证明。全部 5 条到达轨迹在保留原审计结果的同时获得完整补充组合核验。
+原安全审计保持原样。补充工作空间证书对全部 15 条轨迹统一执行，使用逐机器人球的活动关节界和端点一致抛物线下界，容差仍为 -1e-10 m；只补充工作空间，不替代障碍、自碰、关节、制动和记忆审计。端点运动学仍为 MuJoCo 浮点计算，不是精确实数或硬件保证。
+原失败对照与上一轮 12139 个关节状态逐项一致。第一版的三次坏时序回放在 240.74 s 才换向约 29.04 度，三次均未在 300 s 内到达。这一失败没有删除。
+第二版不再把“旧动作还能执行”当成继续沿用的充分理由。在实际没有净进展时，比较通过同一安全门后的目标侧速度；请求重选时，新方向必须严格优于旧方向。移动时先制动，再在停止状态重新求解和认证。
+方向来自目标端的当前切向，以及由已认证局部回退段决定的正交侧；候选只有当前二维切平面的四个方向。目标端终态、QP 目标、硬安全及原有防回陷约束没有更换或删除。
+局部记忆记录实际状态和已尝试的目标切向类别，避免在同一状态附近反复作相同选择；它不是路径图，也不优化未来构型。
+单步候选可认证不算到达。所有成功、失败及原工作空间审计未通过的记录都分别列出。
+固定延迟项只使用旧计算延迟数组，不使用旧关节轨迹作控制参考；实际计算时间仍记录。是否消耗延迟数组尾部见 RESULTS.json。
+本轮没有验证实体机、持续新感知、跨 seed/场景或硬实时。局部方向重选也不构成全局可达性或所有局部极小可逃逸的证明。
+
+代码入口：reheading_policy_v2.py；底层仍使用原 LiuQP 当前速度求解与原安全门。
+原有文件完整性：{"previous_files_checked": 786, "changed": [], "input_manifest": [{"task": "iris_4shelves_t2", "seed": 1, "input_file": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_execution_ablation_20261105/inputs/iris_4shelves_t2/input.npz", "scene": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_execution_ablation_20261105/inputs/iris_4shelves_t2/scene.xml", "metadata": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_execution_ablation_20261105/inputs/iris_4shelves_t2/metadata.json", "input_sha256": "4d8ccc867a264660b9873e73341f87361d9bdca464ccd53ca0b3b19605053375", "scene_sha256": "17d0dd90feae945039502d6ed47779dfecef927cef29a84a19fad59ff52a0fbe", "selection": "four predeclared seed1 no-path baseline screens; original accepted route is not read by the controller", "reachability_evidence": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_execution_ablation_20261105/trials/iris_4shelves_t2_simple_p/audit.json"}]}
+全部运行统计：{"runs": 15, "goal_arrivals": 5, "validated_arrivals": 2, "supplementary_certified_arrivals": 5, "supplementary_workspace_passed": 9, "audited": 15, "safety_not_passed": ["reference_failed_schedule", "reheading_failed_schedule_1", "reheading_failed_schedule_2", "reheading_failed_schedule_3", "reheading_measured_1", "reheading_measured_2", "reheading_v2_failed_schedule_1", "reheading_v2_failed_schedule_2", "reheading_v2_failed_schedule_3", "reheading_v2_measured_1"]}

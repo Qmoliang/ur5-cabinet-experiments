@@ -1,0 +1,55 @@
+持续绕行与退出条件修复：最终验证
+完成时间：2026-11-09T19:09:49.635068+08:00
+
+结果：本次固定验证集合的到达与安全检查未发现退化。最终43/43严格到达；额外16/16 T0重复严格到达。
+四个T0失败快照：4/4。
+四个T0原始起点：4/4。
+35条旧成功回归：35/35。
+快照的两次追加重复：8/8。
+原始起点的两次追加重复：8/8。
+
+保持的标准：20ms物理积分；6mm环境硬安全、6.5mm工作余量、5mm自碰撞；原关节位置、速度、加速度与制动限制；末端误差<1mm连续50周期。每项仍不超过300秒仿真、1200秒计算，运行中的求解和动作段认证等待均计入300秒；初始化按原口径单列，本次含初始化的总壁钟也未超过1200秒。没有删除既有防回退约束、缩小障碍或使用成功路线。
+
+确认的根因与修复：
+1. 受控机器人部位切换时，原代码把持续绕行方向清空。新的终态方向可能与此前绕行相反。保持当前世界切向在新切平面上的投影，避免无依据重置；但重选次数仍按新部位重置，不能连同旧部位已经耗尽的重试标记一起继承。三个原失败在固定时序下均恢复，旧失败轨迹均逐状态复现。
+2. 计算等待与实际动作反馈混在同一个停滞时钟里，且延迟改变了动作保持与模式切换。执行器现在在经过原QP及记忆约束认证的静止状态计算，把最多10个恒定速度保持步及其每个前缀的制动尾逐一认证。计算耗时按实际测量转换为等待周期，仍完整计入物理时限；停滞判断只随动作/反馈周期推进。未优化未来构型，也未构造规划路线。
+3. 累计行程不等于净进展。旧绕回检测仅在离开4cm粗节点后执行，漏掉了节点内部的小循环。失败记录在按原姿态尺度归一化的构型空间中累计走约0.29m后，返回距旧构型约0.000018m的位置，共检出457次重复。现在用已执行的完整构型历史、同部位及同向运动检查重复，沿用原1mm精度、100反馈周期和两倍近障距离作为判断尺度；历史点仅用于识别重复，从不作航点或搜索节点。
+相同动作段与循环检测的时钟消融：把计算等待重新计入停滞与反馈更新时，四个定向案例仅2/4严格到达；采用动作/反馈时钟为4/4。该对照用于机制归因，不代表未见场景成功率。
+4. 新循环检测生效前，与未加检测版本的4615个反馈状态逐元素相同；一次明确的绕行方向重选使原300秒失败恢复到232.24秒到达。另三个定向成功的全部共同反馈状态保持逐元素相同。见MOTION_CLOCK_CAUSAL_CHECK.json。
+
+退出条件：最终版本保留原来的净进展退出门和记忆提交条件。提前退出、缩小新进展门、可逆目标试探等开发方案没有获得稳定收益，未进入最终版本。问题不能概括为只要降低退出门槛就能解决。
+
+耗时边界：
+本次确认的是到达与安全不退化，并非每个案例都更快。在与上一轮同输入候选的34个共同成功记录中，仿真完成时间中位数为48.69s→37.34s，15项耗时增加；全部最终与重复运行仍在原预算内。
+时间受实际计算环境影响，不能把这份描述统计当作隔离的性能排名或硬实时保证。
+
+全部已执行开发、诊断与回归（分组，不合并为一个总成功率）：
+BLOCK_JOBS.json:execution_clock_development/certified_blocks：严格到达 1/4；状态 {"execution_error": 3, "safe_arrival_candidate": 1}。
+BLOCK_V2_JOBS.json:execution_clock_development/certified_blocks_v2：严格到达 3/4；状态 {"safe_arrival_candidate": 3, "motion_budget_exhausted": 1}。
+BLOCK_V3_JOBS.json:execution_clock_development/certified_blocks_recurrence：严格到达 4/4；状态 {"safe_arrival_candidate": 4}。
+CLOCK_ABLATION_JOBS.json:clock_ablation/waits_count_as_stagnation：严格到达 2/4；状态 {"safe_arrival_candidate": 2, "motion_budget_exhausted": 2}。
+FINAL_BLOCK_JOBS.json:measured_snapshot/certified_blocks_configuration_recurrence：严格到达 4/4；状态 {"safe_arrival_candidate": 4}。
+FINAL_BLOCK_JOBS.json:measured_original/certified_blocks_configuration_recurrence：严格到达 4/4；状态 {"safe_arrival_candidate": 4}。
+FINAL_BLOCK_JOBS.json:success_regression/certified_blocks_configuration_recurrence：严格到达 35/35；状态 {"safe_arrival_candidate": 35}。
+JOINT_HEADING_JOBS.json:natural_development/joint_heading：严格到达 0/4；状态 {"motion_budget_exhausted": 4}。
+NATURAL_JOBS.json:natural_failure_validation/combined：严格到达 2/3；状态 {"safe_arrival_candidate": 2, "motion_budget_exhausted": 1}。
+PAIRED_JOBS.json:matched_delay_failure_diagnostic/control：严格到达 0/3；状态 {"motion_budget_exhausted": 3}。
+PAIRED_JOBS.json:matched_delay_failure_diagnostic/transport：严格到达 3/3；状态 {"safe_arrival_candidate": 3}。
+PAIRED_JOBS.json:matched_delay_failure_diagnostic/exit：严格到达 0/3；状态 {"motion_budget_exhausted": 3}。
+PAIRED_JOBS.json:matched_delay_failure_diagnostic/combined：严格到达 2/3；状态 {"safe_arrival_candidate": 2, "motion_budget_exhausted": 1}。
+PROJECTION_JOBS.json:diagnostic_suffix/projected_fixed_terminal：严格到达 1/3；状态 {"safe_arrival_candidate": 1, "motion_budget_exhausted": 2}。
+R2_JOBS.json:natural_failure_validation/provisional_exit：严格到达 0/3；状态 {"motion_budget_exhausted": 3}。
+R3_JOBS.json:development_fixed/transport_with_task_local_retry：严格到达 4/4；状态 {"safe_arrival_candidate": 4}。
+R3_JOBS.json:development_natural/transport_with_task_local_retry：严格到达 2/4；状态 {"motion_budget_exhausted": 2, "safe_arrival_candidate": 2}。
+REPEAT_JOBS.json:measured_snapshot_repeat/certified_blocks_configuration_recurrence：严格到达 8/8；状态 {"safe_arrival_candidate": 8}。
+REPEAT_JOBS.json:measured_original_repeat/certified_blocks_configuration_recurrence：严格到达 8/8；状态 {"safe_arrival_candidate": 8}。
+VALIDATION_JOBS.json:measured_snapshot/transport_only：严格到达 3/4；状态 {"motion_budget_exhausted": 1, "safe_arrival_candidate": 3}。
+VALIDATION_JOBS.json:measured_original/transport_only：严格到达 3/4；状态 {"safe_arrival_candidate": 3, "motion_budget_exhausted": 1}。
+VALIDATION_JOBS.json:success_regression/transport_only：严格到达 32/35；状态 {"safe_arrival_candidate": 32, "wall_budget_exhausted": 1, "motion_budget_exhausted": 2}。
+
+固定时序对照中，旧回归失败按原记录的251.54秒有效前缀复现，不冒称重新运行满300秒；最终及重复59项均使用完整的原300秒时限。
+未启动的R3最终43项：其开发自然延迟门未通过，预先创建的任务未启动，不计入任何运行分母。早期执行器3条中止来自新增记忆后等待证书没有同步更新；独立目录修正等待证书，并去掉重复观察同一反馈状态，所有原始失败保留。
+
+使用与范围：
+本结果限于同一MuJoCo运动学反馈、冻结历史观测地图与指定输入。35条旧成功记录来自24个任务-起点来源，含旧回放及快照；追加重复是同条件鲁棒性检查，不是新场景泛化。没有RRT、路径搜索、未来构型优化、实体硬件或新增在线感知实验。
+最终入口为final_block_runtime下的冻结运行时；reproduce_case.py只允许创建新的输出目录，拒绝覆盖旧记录。reproduction.txt给出服务器环境与命令。原代码和结果均通过完整性核验；新的验证版本与被否决的开发版本分开封存。

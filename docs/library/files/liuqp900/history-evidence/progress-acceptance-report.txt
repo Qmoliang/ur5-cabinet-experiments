@@ -1,0 +1,116 @@
+实际进展验收与同货架回归：完整记录
+完成时间：2026-11-08T01:38:34.091381+08:00
+
+最终有效修改有两项：以朝向冻结终态机器人部位的支撑平面定义未来碰撞解除目标；以端点一致的曲率下界补充原记忆连续证书。实际阶段验收保留，安全阈值与记忆约束未放宽。
+原始起点完整失败时序三次均23.22秒到达，误差0.2333mm，轨迹逐元素相同。自然延迟三次26.90、29.22、29.32秒到达。全部六个既有成功案例回归通过，包括此前带三条记忆约束的静止失败。
+原始起点：10.22秒启动脱困，误差约386mm；准备时误差先增至535mm，同时基座/肩/肘约变化+1.46/+1.18/+0.37rad；16.02秒开始执行已认证进入反馈，23.22秒达到目标并完成保持。
+因果证据：保持原准备目标，去延迟、去缓存、二者同时去掉都失败；保持完整失败延迟，改用终态侧平面目标即到达。因此本场景的关键缺口更支持为准备目标的解除方向，而非仅有时序或缓存问题。不能外推为所有环境的唯一原因。
+另一条回归失败是记忆门的保守证书：初始记忆值约-9.9638e-11，候选物理制动安全，实际下一步记忆值约+2.0443e-4，原证书仍拒绝。新下界使用同一曲率界与同一-1e-10阈值，认证该向内动作；该回归随后41.76秒到达。
+最新12条实际轨迹另按同一运行时-1e-10记忆阈值重建检查；全部终端后缀证书重放单列。原audit.json和memory_audit.json不被替换。
+最终方法见METHOD_FINAL.txt；前面多轮失败是真实研发结果，不是从全部运行中只挑12次成功。最终12个输入在运行前冻结；固定时序重复也不是三个独立统计样本。
+最终结论：最新冻结12项到达 12/12，经独立审计到达 12/12。下文保留此前失败开发、回归退化和所有诊断，不能把旧版本失败与最终版本混为一谈。
+所有试验仍为同一货架、同一目标终态、相同安全阈值和300秒运动预算；无RRT调用、无航点链或未来六维构型优化。不同计算预算的诊断组单列。
+
+诊断对照（不把计算延迟关闭的试验当作实时系统）：
+exact_failure_trace: motion_budget_exhausted, 300.00s, 649.120892871mm, wall=81.37s, safety=True
+old_cycle_schedule: motion_budget_exhausted, 300.00s, 649.120892871mm, wall=80.10s, safety=True
+old_zero_delay: motion_budget_exhausted, 300.00s, 381.101852340mm, wall=385.29s, safety=True
+old_full_refresh_cycle: motion_budget_exhausted, 300.00s, 704.746574721mm, wall=543.25s, safety=True
+old_full_refresh_zero_delay_exact: motion_budget_exhausted, 300.00s, 382.219678123mm, wall=903.64s, safety=True
+
+组合诊断的慢实现保留中止前缀，完整试验使用等价负间隙见证筛选：36个实际轨迹状态的见证标识、值、梯度逐位一致，并对原已执行前缀另作逐关节状态核查。该优化减少距离计算，不删除原地图或改变执行安全门。
+完整复现：原来3043次求解实际使用旧延迟文件2106项及其末尾937次重复。本轮按原执行规则重建完整有效序列，15001个关节状态逐元素一致，新回放补尾0次。按周期映射后再次逐状态一致。
+延迟不是唯一解释：关闭旧策略计算延迟也没有到达。
+见证切换确实存在：137个全图刷新检查点中11个遗漏更差见证超过0.2mm，最大2.3929mm。取消缓存对照的完整结果列在上表，不能仅凭这些统计断言它是唯一根因。
+2561次有见证决策中，2498次预测改善；其中637次实际下一步的线性改善没有兑现，622次同见证非线性重算没有改善。不同指标有重叠，不能相加当作因果贡献比例。
+两个失败末态的静态重算均有原安全门接受的非零速度，全图刷新后的单步裕度分别改善约0.3874mm和0.1451mm。不能把失败解释为末态完全无可行动作。
+
+各冻结组及补充组：
+retained_diagnostic_prefix: 到达 0/1，经独立审计到达 0/1
+  old_full_refresh_zero_delay: diagnostic_prefix_interrupted, 91.08s, error=382.208661mm, safety=True, memory=True, tail=0
+development_v1_to_v4: 到达 0/8，经独立审计到达 0/8
+  progress_original_cycle_v1: motion_budget_exhausted, 300.00s, error=415.660381mm, safety=True, memory=True, tail=0
+  progress_original_measured_v1: motion_budget_exhausted, 300.00s, error=396.152414mm, safety=True, memory=True, tail=0
+  progress_original_cycle_v2: motion_budget_exhausted, 300.00s, error=1119.284041mm, safety=True, memory=True, tail=0
+  progress_original_measured_v2: motion_budget_exhausted, 300.00s, error=1464.137835mm, safety=True, memory=True, tail=0
+  progress_original_cycle_v3: motion_budget_exhausted, 300.00s, error=1497.597809mm, safety=True, memory=True, tail=0
+  progress_original_measured_v3: motion_budget_exhausted, 300.00s, error=1501.940502mm, safety=True, memory=True, tail=0
+  progress_original_cycle_v4: motion_budget_exhausted, 300.00s, error=405.543526mm, safety=True, memory=True, tail=0
+  progress_original_measured_v4: motion_budget_exhausted, 300.00s, error=459.529770mm, safety=True, memory=True, tail=0
+frozen_v4_original: 到达 1/4，经独立审计到达 1/4
+  final_original_cycle_1: motion_budget_exhausted, 300.00s, error=405.543526mm, safety=True, memory=True, tail=0
+  final_original_cycle_repeat: motion_budget_exhausted, 300.00s, error=405.543526mm, safety=True, memory=True, tail=0
+  final_original_measured_1: safe_arrival_candidate, 137.94s, error=0.457959mm, safety=True, memory=True, tail=0
+  final_original_measured_2: motion_budget_exhausted, 300.00s, error=437.708689mm, safety=True, memory=True, tail=0
+frozen_v4_regression: 到达 5/6，经独立审计到达 5/6
+  regression_failed_timing_1: safe_arrival_candidate, 51.92s, error=0.444173mm, safety=True, memory=True, tail=0
+  regression_failed_timing_2: safe_arrival_candidate, 102.18s, error=0.460031mm, safety=True, memory=True, tail=0
+  regression_end_1: safe_arrival_candidate, 31.20s, error=0.410252mm, safety=True, memory=True, tail=0
+  regression_end_2: motion_budget_exhausted, 300.00s, error=434.538945mm, safety=True, memory=True, tail=0
+  regression_stall_measured_1: safe_arrival_candidate, 114.66s, error=0.412051mm, safety=True, memory=True, tail=0
+  regression_stall_measured_2: safe_arrival_candidate, 125.98s, error=0.461191mm, safety=True, memory=True, tail=0
+application_v5: 到达 1/2，经独立审计到达 1/2
+  progress_original_cycle_v5: motion_budget_exhausted, 300.00s, error=392.736686mm, safety=True, memory=True, tail=0
+  progress_original_measured_v5: safe_arrival_candidate, 78.26s, error=0.395517mm, safety=True, memory=True, tail=0
+persistent_v6_original: 到达 0/2，经独立审计到达 0/2
+  progress_original_cycle_v6: motion_budget_exhausted, 300.00s, error=393.496152mm, safety=True, memory=True, tail=0
+  progress_original_measured_v6: motion_budget_exhausted, 300.00s, error=408.984233mm, safety=True, memory=True, tail=0
+persistent_v6_regression: 到达 4/6，经独立审计到达 4/6
+  persistent_regression_failed_timing_1: safe_arrival_candidate, 33.74s, error=0.380696mm, safety=True, memory=True, tail=0
+  persistent_regression_failed_timing_2: execution_error, 253.44s, error=450.715140mm, safety=False, memory=True, tail=0
+  persistent_regression_end_1: safe_arrival_candidate, 18.24s, error=0.413814mm, safety=True, memory=True, tail=0
+  persistent_regression_end_2: safe_arrival_candidate, 154.48s, error=0.425055mm, safety=True, memory=True, tail=0
+  persistent_regression_stall_measured_1: motion_budget_exhausted, 300.00s, error=752.717648mm, safety=False, memory=True, tail=0
+  persistent_regression_stall_measured_2: safe_arrival_candidate, 27.16s, error=0.434834mm, safety=True, memory=True, tail=0
+goal_plane_development: 到达 4/4，经独立审计到达 4/4
+  progress_original_cycle_goal_plane: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  progress_original_measured_goal_plane: safe_arrival_candidate, 39.68s, error=0.358519mm, safety=True, memory=True, tail=0
+  progress_original_cycle_goal_plane_accepted: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  progress_original_measured_goal_plane_accepted: safe_arrival_candidate, 29.30s, error=0.356946mm, safety=True, memory=True, tail=0
+goal_plane_before_memory_fix: 到达 11/12，经独立审计到达 11/12
+  goal_plane_final_cycle_1: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  goal_plane_final_cycle_2: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  goal_plane_final_cycle_3: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  goal_plane_final_measured_1: safe_arrival_candidate, 29.56s, error=0.359586mm, safety=True, memory=True, tail=0
+  goal_plane_final_measured_2: safe_arrival_candidate, 29.32s, error=0.357793mm, safety=True, memory=True, tail=0
+  goal_plane_final_measured_3: safe_arrival_candidate, 29.48s, error=0.357512mm, safety=True, memory=True, tail=0
+  goal_plane_regression_failed_1: safe_arrival_candidate, 14.32s, error=0.455764mm, safety=True, memory=True, tail=0
+  goal_plane_regression_failed_2: safe_arrival_candidate, 14.54s, error=0.458923mm, safety=True, memory=True, tail=0
+  goal_plane_regression_end_1: safe_arrival_candidate, 13.46s, error=0.470223mm, safety=True, memory=True, tail=0
+  goal_plane_regression_end_2: motion_budget_exhausted, 300.00s, error=792.444292mm, safety=True, memory=True, tail=0
+  goal_plane_regression_stall_1: safe_arrival_candidate, 19.44s, error=0.464643mm, safety=True, memory=True, tail=0
+  goal_plane_regression_stall_2: safe_arrival_candidate, 18.98s, error=0.458121mm, safety=True, memory=True, tail=0
+latest_fixed_failure: 到达 3/3，经独立审计到达 3/3
+  memory_aligned_final_cycle_1: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  memory_aligned_final_cycle_2: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+  memory_aligned_final_cycle_3: safe_arrival_candidate, 23.22s, error=0.233297mm, safety=True, memory=True, tail=0
+latest_measured_delay: 到达 3/3，经独立审计到达 3/3
+  memory_aligned_final_measured_1: safe_arrival_candidate, 29.22s, error=0.360184mm, safety=True, memory=True, tail=0
+  memory_aligned_final_measured_2: safe_arrival_candidate, 26.90s, error=0.359749mm, safety=True, memory=True, tail=0
+  memory_aligned_final_measured_3: safe_arrival_candidate, 29.32s, error=0.357306mm, safety=True, memory=True, tail=0
+latest_regression: 到达 6/6，经独立审计到达 6/6
+  memory_aligned_regression_end_2: safe_arrival_candidate, 41.76s, error=0.441878mm, safety=True, memory=True, tail=0
+  memory_aligned_regression_failed_1: safe_arrival_candidate, 14.32s, error=0.455764mm, safety=True, memory=True, tail=0
+  memory_aligned_regression_failed_2: safe_arrival_candidate, 14.54s, error=0.458923mm, safety=True, memory=True, tail=0
+  memory_aligned_regression_end_1: safe_arrival_candidate, 13.44s, error=0.472582mm, safety=True, memory=True, tail=0
+  memory_aligned_regression_stall_1: safe_arrival_candidate, 18.94s, error=0.460265mm, safety=True, memory=True, tail=0
+  memory_aligned_regression_stall_2: safe_arrival_candidate, 18.98s, error=0.458851mm, safety=True, memory=True, tail=0
+
+此前实现与被否定的设计（完整保留）：
+v1：实际阶段验收、非线性预测核验、延迟命令状态有效区。把宏观进展阈值用于很短的模型更新导致过度保守，失败保留。
+v2/v3：把模型一致性和实际阶段验收分开，增加目标入口方向上的退让与两维姿态准备。远距离外推及逐步外推均未修复原失败，部分运行末端远离目标约1.5m，方案不采用。
+v4：改为当前进入阻塞对应的二维切向动作，每一段实际执行后验收。原始起点固定时序仍失败，旧成功案例回归出现失败。
+v5：执行瞬间重算同见证非线性进展，缩放或制动后重算。固定时序仍失败；一条自然延迟到达不能替代重复稳定性证据。执行门额外耗时单独记录，未声称整环硬实时。
+v6：保持跨阶段最高已达到的准备裕度，不把局部回补计为新能力，持续运输绕行方向直到新进展、停滞、局部绕回或预算边界。它保留了记账不下降，但这本身不保证物理状态持续接近可进入区域。最新版本回归结果单独列出。
+
+早期版本暴露的数学限制：
+构造进入可行性指标m(q)，不等于构造了能把状态送进其可行域的控制律。单步预测、局部真实改善、最好值记账单调，都不能替代闭环可达性证明。
+v4固定失败中14次接受的阶段改善，有11次未超过此前最好裕度；v5对应为24次中的21次。记录表明局部回补可反复发生而不累积成新的进入能力。
+相同原始起点、终态和固定进入反馈存在自然延迟成功执行，不能说该反馈族结构上绝对不可达；但也不能据少数成功断言准备策略可靠。
+缓存/延迟诊断是算法干预，不等同于对所有物理原因完成定量归因；对照结果与剩余不确定性必须一起解释。
+
+证据与限制：
+所有成功、失败、运行预算耗尽均保留。重复固定时序不是独立统计样本；自然延迟受计算环境影响，不能把不同版本的单次耗时直接当作算法速度排名。
+继承的防回退半空间从续跑第0周期独立审计，没有为成功删约束。输入场景、地图及485个前轮受保护文件无变化。
+地图冻结、运动学反馈，无实体机或动态接触验证；没有持续扩展感知地图。
+源码与全部实际闭环轨迹在sources_and_trajectories.zip。所有逐请求见证诊断在另一个raw_decision_traces.zip，服务器原文件和逐文件哈希同时保留。

@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "frozen_commit": "0f402010bb8335df661fdace8745106b7ee5aede",
+  "main_runs": 900,
+  "matched_conditions": 300,
+  "historical_source_files": 29,
+  "history_table_counts": {
+    "H01": 8,
+    "H02": 33,
+    "H03": 38,
+    "H04": 49,
+    "H05": 15,
+    "H06": 19,
+    "H07": 62,
+    "H08": 24,
+    "H09": 54,
+    "H10": 156,
+    "H11": 131,
+    "H12": 151
+  },
+  "historical_counts_are_not_independent_samples": true,
+  "original_documents_unchanged": 40,
+  "controller_inputs_results_and_replays_unchanged": true,
+  "explanation_nonwhitespace_characters": 1231,
+  "checked_links": 284,
+  "broken_links": [],
+  "new_simulations": 0,
+  "browser": {
+    "base": "http://127.0.0.1:8767/",
+    "checks": [
+      {
+        "name": "paper",
+        "width": 1440,
+        "viewport": 1440,
+        "math": 26,
+        "mathErrors": 0,
+        "images": [
+          {
+            "loaded": true,
+            "width": 848
+          },
+          {
+            "loaded": true,
+            "width": 806
+          }
+        ],
+        "leakedMarkers": false
+      },
+      {
+        "name": "ledger",
+        "width": 1440,
+        "viewport": 1440,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      },
+      {
+        "name": "explanation",
+        "width": 1440,
+        "viewport": 1440,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      },
+      {
+        "name": "tables",
+        "width": 1440,
+        "viewport": 1440,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      },
+      {
+        "name": "paper",
+        "width": 390,
+        "viewport": 390,
+        "math": 26,
+        "mathErrors": 0,
+        "images": [
+          {
+            "loaded": true,
+            "width": 348
+          },
+          {
+            "loaded": true,
+            "width": 348
+          }
+        ],
+        "leakedMarkers": false
+      },
+      {
+        "name": "ledger",
+        "width": 390,
+        "viewport": 390,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      },
+      {
+        "name": "explanation",
+        "width": 390,
+        "viewport": 390,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      },
+      {
+        "name": "tables",
+        "width": 390,
+        "viewport": 390,
+        "math": 0,
+        "mathErrors": 0,
+        "images": [],
+        "leakedMarkers": false
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  "original_history_sources_unchanged": 29,
+  "original_frozen_record_sha256": "ac94bab1a55c65a2da1d0157426d868a57790e83c094350116dbb984a492bdef"
+}

@@ -1,0 +1,54 @@
+目标端引导 LiuQP：本轮实现与验证
+完成时间：2026-11-07T01:04:23.223059+08:00
+
+结论：已实现目标端局部反推与持续绕行控制，但不能宣称可靠性问题已经解决。必须同时看固定快照、在线触发和失败时序复现，不能只取最后一组成功。
+
+实现遵循原意：从目标端推导进入方向、完整终态的零空间姿态偏置与持续绕行记忆；不调用 RRT 搜索，不生成当前状态到目标的关节路径。
+正常动作仍由当前速度 QP 求解，原物理安全和到达标准保留。暂态原 QP 不可行时仅执行已有证书允许的制动，再重试原 QP；停车后仍无解则失败。
+
+必须并列报告以下结果：
+fixed_snapshot_final_execution: 3/3 经物理与记忆审计的到达
+  entry_final_memory_stall_1: safe_arrival_candidate, 131.24 s, 0.803970 mm, 认证制动 0 周期, 记忆 1 条
+  entry_final_memory_stall_2: safe_arrival_candidate, 85.52 s, 0.801959 mm, 认证制动 0 周期, 记忆 2 条
+  entry_final_memory_stall_3: safe_arrival_candidate, 89.84 s, 0.803147 mm, 认证制动 0 周期, 记忆 1 条
+online_before_progress_reset: 0/1 经物理与记忆审计的到达
+  entry_final_memory_initial: motion_budget_exhausted, 300.00 s, 834.461714 mm, 认证制动 5 周期, 记忆 0 条
+online_after_progress_reset: 2/3 经物理与记忆审计的到达
+  online_activation_reset_1: safe_arrival_candidate, 108.04 s, 0.597480 mm, 认证制动 0 周期, 记忆 4 条
+  online_activation_reset_2: motion_budget_exhausted, 300.00 s, 519.284452 mm, 认证制动 0 周期, 记忆 3 条
+  online_activation_reset_3: safe_arrival_candidate, 55.02 s, 0.685821 mm, 认证制动 1 周期, 记忆 1 条
+recorded_failed_delay_stress: 0/1 经物理与记忆审计的到达
+  failed_latency_schedule_replay: local_direction_family_exhausted, 242.76 s, 808.383214 mm, 认证制动 0 周期, 记忆 0 条
+same_control_law_before_execution_recovery: 1/3 经物理与记忆审计的到达
+  entry_v7_memory_stall_1: qp_not_converged, 82.88 s, 603.748401 mm, 认证制动 0 周期, 记忆 0 条
+  entry_v7_memory_stall_2: local_direction_family_exhausted, 242.76 s, 808.383214 mm, 认证制动 0 周期, 记忆 0 条
+  entry_v7_memory_stall_3: safe_arrival_candidate, 105.12 s, 0.805143 mm, 认证制动 0 周期, 记忆 1 条
+versioned_ablations: 0/2 经物理与记忆审计的到达
+  entry_v7_only_stall: motion_budget_exhausted, 300.00 s, 383.370643 mm, 认证制动 0 周期, 记忆 0 条
+  entry_v7_clearance_exit_stall: motion_budget_exhausted, 300.00 s, 384.356926 mm, 认证制动 0 周期, 记忆 0 条
+
+固定快照的三个最终回放不能代表所有进入状态。未重置进展参考的原初态整程失败也保留：激活时相对固定快照腕部相差约 1.59 rad，而且只过四个周期就进入绕行。之后的整程复验只修正进展参考初始化，不更换初态。
+失败延迟序列回放只替换命令计算延迟，不输入旧运动轨迹。它是离线时序诊断，不能与实际测得延迟的运行混成成功率，也不能被隐藏。
+该回放与此前失败运行的 12139 个关节状态逐项完全相同，最大关节轨迹差和目标误差差均为 0，且没有使用人工延长的延迟序列尾部。失败可以在同一输入下由同一调度模式确定性重现。
+在该失败末态重新构造当前目标导向的切向基后，多个局部速度都能通过完整安全门。这个只读诊断没有执行它们，也没有证明最终到达；它表明在线保存的方向族耗尽不等于物理无路，方向记忆与目标侧参考的更新仍需解决。
+此前同一持久绕行控制律也有失败：必须参考上表 execution-recovery 前的三次记录，不能只展示最后一个较好的批次。
+
+安全审计的限定：49 条轨迹都完成审计，44 条通过原完整安全审计，5 条非成功轨迹的工作空间连续认证未通过；这些失败结果没有改判。五条记录的环境碰撞、自碰与代理检查通过，工作空间最低采样余量约为 -1e-10 m，处于数值边界，不能把它描述为已确认的宏观碰撞，也不能把采样结果代替连续证明。所有计入到达的运行均通过完整物理与记忆审计。
+
+本轮真正推导并实现的内容：
+1. 静态终态 IK 与局部回退段认证，提供进入轴和受阻部位的目标侧几何；这不证明当前到该入口的连通性。
+2. 当前任务雅可比 K_sigma 与零空间 N_sigma=I-K_sigma^dagger K_sigma。正常时跟踪末端进入场；绕行时跟踪受阻点的安全法向/切向分量。完整终态只作为零空间姿态偏置。
+3. 切向方向跨代理变化持续运输，法向修正不再退出绕行阶段；避免重复切回最终点吸引而反复制动。
+4. 以实际净特征进展和目标侧相容性决定退出，并保留逐段、逐制动可认证的防回陷半空间；其目标终态始终在内，但不能保证连通性。
+5. 原硬约束、追加约束及新目标的 KKT 作用映射成原执行 QP 的有效梯度，并验证实际执行解；QP 与制动安全证书的数值保留量已对齐。
+
+失败分析中区分了：旧增广余量求解器假停滞、局部姿态投影混淆构型分支、自碰证书与提案差异、OPEN/BYPASS 抖动、实际方向族耗尽、原 QP 暂态不可行、在线激活历史污染和时序敏感性。各类证据单独保存，未把它们统称为局部极小。
+两次精确回放表明，原 QP 暂态不可行可在一次已有认证制动后恢复；这支持有限恢复分支，不支持放宽硬安全或在空可行集里凭目标函数产生动作。
+
+结论边界：
+这是已实现的研究控制器，不是全局逃逸定理。目标端信息是局部的，没有获得 RRT 反向树的连接关系。固定快照、在线触发及延迟压力的结果必须一起判断。
+目标姿态是内部准备参考；到达仍按原末端位置任务判定，不声称额外完成了未给定的末端姿态精确跟踪。
+没有真实硬件、持续新感知、传感噪声或跨 seed/场景验证；控制与安全认证耗时单独记录，不宣称硬实时。
+原项目与前两轮记录哈希保持不变：{"previous_release_study": {"checked": 534, "unchanged": 534, "changed_or_missing": []}, "first_lowdim_study": {"checked": 433, "unchanged": 433, "changed_or_missing": []}, "formal_original": {"checked": 892, "unchanged": 892, "changed_or_missing": []}}
+本轮运行统计（混合开发版本）：{"runs": 49, "audited": 49, "safety_audits_passed": 44, "safety_audits_not_passed": 5, "memory_audits_passed": 49, "validated_arrivals": 9, "development_interruptions": 2}
+详细公式见 FINAL_METHOD.txt；中间推导见 DERIVATION.txt；全部失败与中止前缀见 RESULTS.json 与压缩包。

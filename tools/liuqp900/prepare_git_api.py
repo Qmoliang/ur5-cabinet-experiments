@@ -1,7 +1,8 @@
 """Prepare immutable Git objects for the authenticated GitHub Git-data connector."""
 from pathlib import Path
-import subprocess,json,hashlib,base64,sys
-W=Path(__file__).resolve().parents[2];OUT=W/'.local/github-api';OUT.mkdir(parents=True,exist_ok=True);(OUT/'objects').mkdir(exist_ok=True)
+import subprocess,json,hashlib,base64,sys,argparse
+parser=argparse.ArgumentParser();parser.add_argument('--output',default='.local/github-api');args=parser.parse_args()
+W=Path(__file__).resolve().parents[2];OUT=(W/args.output).resolve();assert OUT.is_relative_to(W),'Output must remain inside the repository';OUT.mkdir(parents=True,exist_ok=True);(OUT/'objects').mkdir(exist_ok=True)
 def git(*args):return subprocess.check_output(['git',*args],cwd=W)
 old={line.split(b'\t')[0].split()[2].decode() for line in git('ls-tree','-r','-z','HEAD').split(b'\0') if line};stage={}
 for line in git('ls-files','-s','-z').decode('utf-8').split('\0'):

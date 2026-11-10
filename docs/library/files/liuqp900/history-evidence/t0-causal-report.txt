@@ -1,0 +1,58 @@
+T0四例：阻塞部位、QP可行性与持续进展分项验证
+完成时间：2026-11-09T16:29:13.373956+08:00
+
+结论：已修复两处确定的执行接口缺陷，并完成机制消融；整体候选仍未达到稳定替代验收。
+
+四个原失败快照：到达 3/4；物理、原QP、记忆及同阈值连续记忆全部通过的到达 3/4。
+四个原始起点：到达 3/4；物理、原QP、记忆及同阈值连续记忆全部通过的到达 3/4。
+35条旧成功回归：到达 34/35；物理、原QP、记忆及同阈值连续记忆全部通过的到达 34/35。
+
+已确认并修复的两处接口缺陷：
+1. 近零上一速度被过早判为可永久复用的静止状态。旧证书在约1e-15残余速度后与真实零速度不一致。修复要求速度与上一速度精确为零，多检查一段原制动过渡；不放宽任何容差。见EXACT_REST_TEST.json。
+2. 名义QP解在关节边界有约1.28e-8数值偏差，执行器按原边界裁剪，但证书仍绑定裁剪前速度，导致严格匹配失败并反复制动。修复先使用同一关节边界归一化真正要执行的命令，再认证该命令。证书匹配1e-10与原QP行1e-7阈值不变。
+单因素完整复验：iris_bins_t2 seed8原300秒未到达；保持相同失败延迟序列，只改裁剪后的认证，11.52秒到达，四项审计均通过。该项是组件因果验证，不是新场景统计。
+
+分项实验：
+PAIRED_JOBS.json:paired_snapshot/compact：到达0/4，完成4/4，四项审计到达0。
+PAIRED_JOBS.json:paired_snapshot/fiber：到达3/4，完成4/4，四项审计到达3。
+PAIRED_JOBS.json:paired_snapshot/no_frame_transfer：到达2/4，完成4/4，四项审计到达2。
+PAIRED_JOBS.json:paired_snapshot/terminal_only：到达1/4，完成4/4，四项审计到达1。
+MEASURED_JOBS.json:measured_snapshot/fiber：到达4/4，完成4/4，四项审计到达4。
+MEASURED_JOBS.json:measured_original/fiber：到达3/4，完成4/4，四项审计到达3。
+REGRESSION_JOBS.json:success_regression/fiber_exact_rest：到达28/35，完成35/35，四项审计到达28。
+STAGE_B_JOBS.json:measured_snapshot/persistent_full：到达1/4，完成4/4，四项审计到达1。
+STAGE_B_JOBS.json:measured_original/persistent_full：到达3/4，完成4/4，四项审计到达3。
+STAGE_B_JOBS.json:frame_factorial/control：到达0/1，完成1/1，四项审计到达0。
+STAGE_B_JOBS.json:frame_factorial/motion_only：到达0/1，完成1/1，四项审计到达0。
+STAGE_B_JOBS.json:frame_factorial/winding_only：到达0/1，完成1/1，四项审计到达0。
+STAGE_B_JOBS.json:frame_factorial/combined：到达1/1，完成1/1，四项审计到达1。
+COMPATIBILITY_JOBS.json:measured_snapshot/legacy_then_extension：到达2/4，完成4/4，四项审计到达2。
+COMPATIBILITY_JOBS.json:measured_original/legacy_then_extension：到达2/4，完成4/4，四项审计到达2。
+COMPATIBILITY_JOBS.json:success_regression/legacy_then_extension：到达4/6，完成6/6，四项审计到达4。
+REPAIRED_JOBS.json:measured_snapshot/clipped_command_exact_rest_legacy_first：到达3/4，完成4/4，四项审计到达3。
+REPAIRED_JOBS.json:measured_original/clipped_command_exact_rest_legacy_first：到达3/4，完成4/4，四项审计到达3。
+REPAIRED_JOBS.json:success_regression/clipped_command_exact_rest_legacy_first：到达34/35，完成35/35，四项审计到达34。
+CLIP_ABLATION_JOBS.json:exact_failure_timing_component/clipped_nominal_only：到达1/1，完成1/1，四项审计到达1。
+FORCED_GOAL_JOBS.json:diagnostic_suffix_only/forced_original_goal_from_final_state：到达1/2，完成2/2，四项审计到达1。
+
+根因与证据边界：
+A. 持续进展：相同四条完整固定延迟序列下，旧局部排斥记忆0/4、Cartesian净目标进展3/4、禁用跨部位切换2/4、只按终端证书退出1/4。四条旧失败各15001个关节状态逐元素重现。局部离开一个排斥球不等于累计向目标推进；恢复净进展规则有帮助，但不是普遍到达保证。禁用部位切换的seed4触及1200秒计算预算，未运行满300秒仿真，单列为wall_budget_exhausted。
+B. 阻塞部位：原始seed7失败有29次部位切换，其中19次旧部位仍在近障区且最近100周期移动超过原0.2mm阈值。终态特征不改善不能直接解释为该部位没有运动。固定失败时序的2x2对照中，原条件、仅改运动判据、仅保留绕行方向均失败，二者合用成功；但自然延迟整组退化，因此不采用这一候选。保存其全部失败，不能用唯一成功宣传稳定修复。
+C. QP可行性：重新独立构造原约束并用HiGHS检查两个旧停车失败，均物理制动安全但原速度约束不可行。物理6mm安全与原控制工作余量不是同一个不变量。所有新分项组保留原约束可行的制动续轨迹，最终严格静止端点可重复保持。保护本身不产生任务进展，其实现还必须与实际裁剪和延迟命令一致。
+D. 回归：先保留旧准备目标、仅在实际进展停滞后启用新扩展，作为明确单独的兼容性候选测试；不得把不同版本、不同自然计算延迟的单次成败全部归给某一参数。两个接口缺陷的确定归因来自原状态复现和单因素完整时序验证。
+
+修复候选所有未到达/未通过审计：
+repaired__measured__snapshot__iris_4shelves_t0__s04__candidate：motion_budget_exhausted，300.00s，误差6.929420679104014mm，physical=True，memory=True，feasibility=True，strict_memory=True。
+repaired__measured__original__iris_4shelves_t0__s08__candidate：motion_budget_exhausted，300.00s，误差220.67152646090716mm，physical=True，memory=True，feasibility=True，strict_memory=True。
+repaired__candidate__regression__regression__prior_development__memory_aligned_regression_end_2：wall_budget_exhausted，251.54s，误差404.5100791232554mm，physical=True，memory=True，feasibility=True，strict_memory=True。
+
+强制接回原目标的末态续跑：1/2到达；这是从300秒失败末态重新开始的诊断，不替代原失败，不计入四例修复成功。
+
+剩余失败的解释：
+只读末态反事实求解见remaining_probes。某些失败仍有通过原QP、物理与记忆制动证书的目标下降速度；不能把它们称为物理无路或原QP完全无解。接近目标但预算内未完成仍计失败，正的单步目标速度也不能冒充最终到达。
+
+范围与交付：
+全部是MuJoCo运动学反馈与历史冻结观测地图；未调用RRT/路径规划，未删除障碍或继承记忆，未新增在线感知或实体机试验。仍为原6mm环境、5mm自碰撞、原6.5mm工作余量、原关节速度/加速度/制动限制、1mm连续50周期标准。
+自然延迟运行不能逐元素重复；固定时序用于机制归因，不是新独立统计样本或实时性能排名。35条回归来自24个不同任务-起点来源，包含开发回放与快照，不能称35个独立场景。
+所有试验独立保留；旧源码与结果保护哈希一致。整体候选未自动替换原版本；两个已确认的接口修复与未获接受的控制策略明确分开。
+RESULTS.json提供每条记录、原路径及四项审计；INTEGRITY.json核验源码和旧结果；sources_and_trajectories.zip保存本轮源码、配置、实际轨迹、事件和审计。完整决策见证trace大文件仍保留在服务器，路径、大小及SHA256单列。

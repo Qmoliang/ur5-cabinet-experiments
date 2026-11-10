@@ -27,6 +27,58 @@
   ],
   "documents": [
     {
+      "id": "liuqp900-paper",
+      "title": "论文初稿：执行贡献、控制贡献与完整实验",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/paper-draft.md",
+      "filename": "paper-draft.md",
+      "source": "publication/liuqp900/paper-draft.md",
+      "sha256": "ff14e34b4404aa68432c3401ca22525d23df1e3e87e64867bd0c4de161d38742",
+      "note": "基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。",
+      "scope_note": "1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。",
+      "assets": {
+        "figures/outcomes.svg": "files/liuqp900/figures/outcomes.svg",
+        "figures/timing.svg": "files/liuqp900/figures/timing.svg"
+      }
+    },
+    {
+      "id": "liuqp900-ledger",
+      "title": "实验台账：900、1200与历史尝试",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/experiment-ledger.md",
+      "filename": "experiment-ledger.md",
+      "source": "publication/liuqp900/experiment-ledger.md",
+      "sha256": "759687a44030a478a4b5add4c699c1d47624c35e8d8630a2a35bbbcdc7d477dd",
+      "note": "基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。",
+      "scope_note": "1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。"
+    },
+    {
+      "id": "liuqp900-explanation",
+      "title": "2000字以内讲解新版方法",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/explanation-under-2000.md",
+      "filename": "explanation-under-2000.md",
+      "source": "publication/liuqp900/explanation-under-2000.md",
+      "sha256": "32af9acfdea994b9585aa5e5ca1da44d59ece8209aa136a413cb633f5511649b",
+      "note": "基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。",
+      "scope_note": "1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。"
+    },
+    {
+      "id": "liuqp900-tables",
+      "title": "冻结900次：逐例重算表格与全部失败",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/experiment-tables.md",
+      "filename": "experiment-tables.md",
+      "source": "publication/liuqp900/experiment-tables.md",
+      "sha256": "7faf9a39017e2e7802580e2ac5e86374a4798bec4bc4c14a6fa30396cb30945d",
+      "note": "基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。",
+      "scope_note": "1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。"
+    },
+    {
       "id": "liuqp900-methods",
       "title": "方法初稿：认证执行与终态引导持续绕行",
       "group": "liuqp900",

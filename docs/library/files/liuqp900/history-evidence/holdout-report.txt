@@ -1,0 +1,49 @@
+冻结版本留出验证：原LiuQP成对对照
+完成时间：2026-11-08T10:38:36.115305+08:00
+
+主结果：新方法 9/12 经审计到达；原LiuQP 3/12。初始化失败计入新方法总分母，未剔除。
+控制器公式与参数未改，新终态按原静态初始化规则各计算一次，固定rank 0，没有根据新案例结果换终态、重跑或调参。
+12个任务×seed条件：4个任务、seed 2/7/13、3种实际货架几何。其中4shelves_t0与t2是同一布局的不同目标。任务名中的ur3仅是场景来源标签，本轮机器人均为同一UR5e。
+
+逐任务结果：
+iris_4shelves_t2: 原LiuQP 0/3，新方法 2/3，初始化失败 1，实际触发脱困 2
+iris_4shelves_t0: 原LiuQP 0/3，新方法 1/3，初始化失败 2，实际触发脱困 1
+iris_ur3_shelf_t0: 原LiuQP 3/3，新方法 3/3，初始化失败 0，实际触发脱困 0
+iris_bins_t1: 原LiuQP 0/3，新方法 3/3，初始化失败 0，实际触发脱困 3
+
+逐案例（所有失败保留）：
+iris_4shelves_t2__s02: baseline=motion_budget_exhausted, 300.00s, 378.3475059880044mm；new=safe_arrival_candidate, 29.30s, 0.2102589139871996mm；goal_init=80.36s；escape=True
+iris_4shelves_t2__s07: baseline=motion_budget_exhausted, 300.00s, 378.36443803874073mm；new=safe_arrival_candidate, 27.78s, 0.3854662374884943mm；goal_init=66.52s；escape=True
+iris_4shelves_t2__s13: baseline=motion_budget_exhausted, 300.00s, 378.40111843814043mm；new=initialization_failed, 0.00s, Nonemm；goal_init=19.18s；escape=False
+iris_4shelves_t0__s02: baseline=motion_budget_exhausted, 300.00s, 318.1736381591126mm；new=initialization_failed, 0.00s, Nonemm；goal_init=143.42s；escape=False
+iris_4shelves_t0__s07: baseline=motion_budget_exhausted, 300.00s, 346.05592623288453mm；new=initialization_failed, 0.00s, Nonemm；goal_init=123.46s；escape=False
+iris_4shelves_t0__s13: baseline=motion_budget_exhausted, 300.00s, 328.6537406731951mm；new=safe_arrival_candidate, 35.78s, 0.17290978705286006mm；goal_init=238.06s；escape=True
+iris_ur3_shelf_t0__s02: baseline=safe_arrival_candidate, 5.66s, 0.1784158578613367mm；new=safe_arrival_candidate, 5.66s, 0.1784158578613367mm；goal_init=291.83s；escape=False
+iris_ur3_shelf_t0__s07: baseline=safe_arrival_candidate, 5.56s, 0.17546489251166272mm；new=safe_arrival_candidate, 5.56s, 0.17546489251166272mm；goal_init=290.76s；escape=False
+iris_ur3_shelf_t0__s13: baseline=safe_arrival_candidate, 6.04s, 0.1760679661186402mm；new=safe_arrival_candidate, 6.04s, 0.1760679661186402mm；goal_init=246.78s；escape=False
+iris_bins_t1__s02: baseline=motion_budget_exhausted, 300.00s, 384.43981235123044mm；new=safe_arrival_candidate, 40.56s, 0.3567717559968492mm；goal_init=13.82s；escape=True
+iris_bins_t1__s07: baseline=wall_budget_exhausted, 232.86s, 384.544939723903mm；new=safe_arrival_candidate, 36.30s, 0.17380838337221052mm；goal_init=14.16s；escape=True
+iris_bins_t1__s13: baseline=wall_budget_exhausted, 259.50s, 396.3953245739357mm；new=safe_arrival_candidate, 33.64s, 0.27024877971560685mm；goal_init=17.12s；escape=True
+
+如何解释：
+原方法未到达的9个条件中，新方法有6个转为经审计到达；本批没有原方法成功而新方法失败的条件。
+三个alternate shelf条件两者都到达，新方法未触发脱困，因此它们不是平面脱困公式新增收益的证据。不同布局的箱格货架提供了本批跨布局的新增脱困证据。
+新方法9个成功初始化的条件全部完成到达，但整体结果仍应报告9/12，不能改写成9/9以隐藏初始化失败。
+三项初始化失败：4shelves_t2 seed13、4shelves_t0 seed2和seed7。冻结的rank([J;P])=5条件在1e-8阈值下失败；部分最小奇异值约1.6e-9至2.1e-9。
+其中4shelves_t0 seed2的首选终态满足秩条件，但一个未使用的备用分支触发断言，使整个初始化中止。本轮没有绕过该断言或改选分支。
+因此完整流程确有初始化泛化缺陷；未进入控制的三例不能用来断言平面控制律本身必然失败，也不能从总体分母中移除。
+
+公平性与成本：
+基线保留原Cartesian LiuQP目标与硬约束，没有终态姿态目标、额外关节目标或脱困梯度。双方采用相同verified_common数值求解配置、观测输入、执行安全门和到达标准。基线实际梯度增量全为0，相关检查已保存。
+双方控制时域上限300秒，计算壁钟上限1200秒。箱格基线seed7、seed13分别在232.86和259.50仿真秒触及1200秒计算上限，并非运行满300仿真秒后失败。其余未到达基线按完整300秒时域结束。
+新方法额外静态终态初始化耗时约13.8–291.8秒，单独报告，不混入运动仿真时间；不把运动阶段时间当作同等总启动成本下的速度优势。
+所有21条实际执行轨迹均通过原独立物理安全与记忆审计；三个初始化失败没有执行轨迹，其安全审计标记为不适用。
+
+留出与范围限制：
+检查238份既往无路径LiuQP试验配置及历史输入清单，没有找到这12个条件参与本方法开发。
+这些输入来自项目已有RRT工程回归库，过去被项目使用过，不是整个项目完全未见的数据。使用历史运动前因果观测快照，控制器输入没有path字段，也不读取路线或旧终态。没有新增RRT调用。
+因此本批是本方法的留出控制验证，不是从零主动感知未知环境的端到端验证。既有观察过程可能受旧规划器主动观测影响，两种控制器共享相同数据。
+seed表示起点表编号，不是控制器随机路径采样；12对条件有任务/布局相关性，不能当作12个独立新世界。只有3个布局、每条件各一次自然延迟运行，不能据此宣称通用可靠性或100%成功率。
+新方法不能说只对原场景有效，但当前完整初始化流程还不够稳健。本轮不修新案例暴露的问题；后续若修改，应重新冻结并用另一批留出输入验证。
+
+完整性：1519个冻结文件、各案例控制模块、全部已生成有效终态输入及1100个前轮保护文件均未改变。旧开发案例的文件系统适配校验重现1162个关节状态，最大差0；该校验不计入12对验证。

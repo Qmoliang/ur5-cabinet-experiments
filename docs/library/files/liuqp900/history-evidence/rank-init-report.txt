@@ -1,0 +1,78 @@
+秩退化初始化修复：冻结验证与完整回归
+完成时间：2026-11-09T00:00:38.017922+08:00
+
+初始化修复：三个旧失败均可初始化，闭环到达 1/3；初始化成功不等于完整脱困成功。
+旧成功回归：21/21 经审计到达，21条关节轨迹与原有效延迟记录逐元素一致。
+新留出：15/15 完成初始化；修复版本 13/15 经审计到达，原LiuQP 9/15。
+控制器、目标端平面公式、参数及安全门未修改。秩阈值仍为1e-8，没有按新案例放宽阈值、换规则或补跑更容易的终态。
+
+实际修复：
+保持原P（基座/肘部特征）不变，在ker(P)内计算J的可达平移子空间；退化方向投影到真实可达子空间后再构造最小范数局部位移，并保留原连续几何证书。两个旧退化案例仍报告组合秩4、可达平移维数2。
+终态按原静态优先级逐个验证；选中有效终态后，未使用的备用分支明确标记为未评估，不再有权中止整体初始化。所有候选确实不可用时仍返回失败。
+三个旧失败均使用原来的首选终态，qg没有改动；既有成功案例的控制实际使用字段qg、P、target也保持完全一致。
+
+三个旧失败的闭环结果：
+repair__iris_4shelves_t2__s13: safe_arrival_candidate, 34.36s, 0.328401mm, safety=True
+repair__iris_4shelves_t0__s02: motion_budget_exhausted, 300.00s, 200.844241mm, safety=True
+repair__iris_4shelves_t0__s07: motion_budget_exhausted, 300.00s, 193.389304mm, safety=True
+T0两个案例现已进入控制，但仍在300秒预算内未到达。它们是新的控制阶段失败，不能称为仍未修复初始化，也不能称为已经脱困。没有为使它们成功而改控制律或换目标姿态。
+
+新留出逐任务结果：
+iris_4shelves_t2: 原LiuQP 0/3，修复版本 3/3，实际触发脱困 3
+iris_4shelves_t0: 原LiuQP 0/3，修复版本 1/3，实际触发脱困 3
+iris_ur3_shelf_t1: 原LiuQP 3/3，修复版本 3/3，实际触发脱困 0
+iris_bins_t2: 原LiuQP 3/3，修复版本 3/3，实际触发脱困 0
+cage_wide: 原LiuQP 3/3，修复版本 3/3，实际触发脱困 0
+
+新留出逐案例：
+iris_4shelves_t2__s04: baseline=motion_budget_exhausted 300.00s/378.1532262756381mm；new=safe_arrival_candidate 26.66s/0.26915811856561567mm；entry rank=3；goal setup=21.39s
+iris_4shelves_t2__s08: baseline=wall_budget_exhausted 253.34s/529.6444623229904mm；new=safe_arrival_candidate 27.58s/0.25993920836728585mm；entry rank=3；goal setup=300.39s
+iris_4shelves_t2__s14: baseline=motion_budget_exhausted 300.00s/378.22817751237557mm；new=safe_arrival_candidate 27.70s/0.2728729460620853mm；entry rank=3；goal setup=83.23s
+iris_4shelves_t0__s04: baseline=motion_budget_exhausted 300.00s/327.38125031328696mm；new=motion_budget_exhausted 300.00s/198.8140148942226mm；entry rank=2；goal setup=107.38s
+iris_4shelves_t0__s08: baseline=motion_budget_exhausted 300.00s/318.17219052460433mm；new=motion_budget_exhausted 300.00s/194.47526791341411mm；entry rank=3；goal setup=247.47s
+iris_4shelves_t0__s14: baseline=motion_budget_exhausted 300.00s/318.10233610494157mm；new=safe_arrival_candidate 86.82s/0.1473012775475682mm；entry rank=3；goal setup=162.98s
+iris_ur3_shelf_t1__s04: baseline=safe_arrival_candidate 9.38s/0.40331505907315335mm；new=safe_arrival_candidate 9.38s/0.40331505907315335mm；entry rank=2；goal setup=66.06s
+iris_ur3_shelf_t1__s08: baseline=safe_arrival_candidate 15.74s/0.7272839549118361mm；new=safe_arrival_candidate 15.74s/0.7271858050051668mm；entry rank=2；goal setup=82.85s
+iris_ur3_shelf_t1__s14: baseline=safe_arrival_candidate 13.72s/0.6323791109149179mm；new=safe_arrival_candidate 13.72s/0.6322198602924277mm；entry rank=3；goal setup=91.14s
+iris_bins_t2__s04: baseline=safe_arrival_candidate 7.32s/0.22161394777010526mm；new=safe_arrival_candidate 7.32s/0.22161394777010526mm；entry rank=3；goal setup=137.26s
+iris_bins_t2__s08: baseline=safe_arrival_candidate 7.10s/0.20348871062843213mm；new=safe_arrival_candidate 7.10s/0.20348871062843213mm；entry rank=3；goal setup=141.91s
+iris_bins_t2__s14: baseline=safe_arrival_candidate 7.36s/0.20303118856707542mm；new=safe_arrival_candidate 7.36s/0.20303118856707542mm；entry rank=3；goal setup=164.07s
+cage_wide__s04: baseline=safe_arrival_candidate 7.64s/0.5817391404369746mm；new=safe_arrival_candidate 7.64s/0.5817391404369746mm；entry rank=3；goal setup=57.64s
+cage_wide__s08: baseline=safe_arrival_candidate 7.28s/0.26561893786343527mm；new=safe_arrival_candidate 7.28s/0.26561893786343527mm；entry rank=3；goal setup=55.93s
+cage_wide__s14: baseline=safe_arrival_candidate 7.18s/0.3753672527738761mm；new=safe_arrival_candidate 7.18s/0.3753672527738761mm；entry rank=3；goal setup=45.66s
+
+完整回归记录：
+regression__prior_development__memory_aligned_final_cycle_1: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_final_cycle_2: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_final_cycle_3: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_final_measured_1: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_final_measured_2: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_final_measured_3: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_end_1: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_end_2: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_failed_1: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_failed_2: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_stall_1: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_development__memory_aligned_regression_stall_2: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_4shelves_t0__s13__iris_4shelves_t0__s13__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_4shelves_t2__s02__iris_4shelves_t2__s02__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_4shelves_t2__s07__iris_4shelves_t2__s07__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_bins_t1__s02__iris_bins_t1__s02__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_bins_t1__s07__iris_bins_t1__s07__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_bins_t1__s13__iris_bins_t1__s13__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_ur3_shelf_t0__s02__iris_ur3_shelf_t0__s02__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_ur3_shelf_t0__s07__iris_ur3_shelf_t0__s07__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+regression__prior_holdout__iris_ur3_shelf_t0__s13__iris_ur3_shelf_t0__s13__candidate: safe_arrival_candidate, audited=True, max_q_difference=0.0
+
+范围与公平性：
+新批次为seed4/8/14，5个任务、4种几何布局，包含未用于本方法开发的目标/起点条件及cage_wide布局。所有条件在修复和查看新观测输入前已选定。
+这些仍来自历史工程数据，过去可能用于RRT工程回归；本轮不调用RRT，不读取路线，不作六维路径搜索。控制器输入为历史运动前因果观测快照，不是从零主动感知的新环境实验。
+原LiuQP对照保留原目标/约束，双方使用共同数值求解配置与执行安全门。每次控制上限300秒仿真、1200秒计算；候选静态初始化预算及耗时单列。
+回归使用旧有效延迟记录，目的是核查兼容性与轨迹保持，不是新独立样本或运行速度排名。
+新测试集与上一批不同，不能直接把上一批9/12与本批比例当作性能涨幅。修复效果应分别看旧失败初始化、旧成功回归和新留出。
+未触发脱困模块而由原跟踪器直接到达的案例，不计为新增脱困机制收益。本批9个两者均成功的条件未触发脱困；新增收益是四层货架上的4个条件。
+一条原LiuQP基线（T2/seed8）在253.34仿真秒触及1200秒计算上限，不能表述成所有失败都运行满300仿真秒。静态终态初始化成本约21–300秒，单独报告，不能用运动阶段时间宣称同等总时延下的速度优势。
+全部失败、预算耗尽和审计未通过均保留。没有在新案例结果出来后调整公式、参数、候选排序或秩阈值。
+本轮只验证MuJoCo运动学反馈和冻结观测地图，不外推为实体机、动态环境或一般非凸环境的全局可达性保证。
+
+文件：METHOD_AND_PROTOCOL.txt、INITIALIZER_TESTS.json、ALGORITHM_FREEZE.json、NEW_INITIALIZATION_ANALYSIS.json、RESULTS.json及全部trials目录。

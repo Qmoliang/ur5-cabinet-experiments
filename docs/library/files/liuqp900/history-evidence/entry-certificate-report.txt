@@ -1,0 +1,57 @@
+面向后续进入证书的 LiuQP：同一货架实验
+完成时间：2026-11-07T22:45:55.159701+08:00
+
+结果：最终冻结8次中7次到达、1次未到达。7次包含同一固定时序的确定性重复，不是独立样本成功率。所有最终实际轨迹均通过原独立物理安全与记忆审计。
+场景、终态、阈值、原始停滞快照、原观测地图保持不变；无RRT调用，无未来六维构型优化，无航点链。
+终端反馈固定为qdot=alpha*(qg-q)，其整段几何轨迹用标量s确定；这包含未来运动验证，不是纯瞬时末端吸引。不能把它描述成原LiuQP软目标没有改变。
+
+各组结果：
+fixed_failures: 到达 2/2；独立审计到达 2/2
+  certified_failure_1: safe_arrival_candidate, 50.92s, 0.440696861mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+  certified_failure_2: safe_arrival_candidate, 60.18s, 0.321057236mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+actual_failure_snapshots: 到达 2/2；独立审计到达 2/2
+  certified_end_1: safe_arrival_candidate, 17.30s, 0.386714579mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+  certified_end_2: safe_arrival_candidate, 139.98s, 0.400234152mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+measured_latency: 到达 2/2；独立审计到达 2/2
+  certified_measured_1: safe_arrival_candidate, 31.24s, 0.417915119mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+  certified_measured_2: safe_arrival_candidate, 211.88s, 0.432558322mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+original_start: 到达 0/1；独立审计到达 0/1
+  certified_original_start: motion_budget_exhausted, 300.00s, 649.120892871mm, 原安全=True, 记忆=True, 延迟尾部使用=937
+deterministic_repeat: 到达 1/1；独立审计到达 1/1
+  certified_failure_1_repeat: safe_arrival_candidate, 50.92s, 0.440696861mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+old_policy_references: 到达 0/2；独立审计到达 0/2
+  reference_failure_1: motion_budget_exhausted, 300.00s, 472.568584622mm, 原安全=False, 记忆=True, 延迟尾部使用=0
+  reference_failure_2: motion_budget_exhausted, 300.00s, 792.444623266mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+matched_mean_ablation: 到达 1/2；独立审计到达 1/2
+  ablation_mean_1: motion_budget_exhausted, 300.00s, 638.867821155mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+  ablation_mean_2: safe_arrival_candidate, 128.82s, 0.402954058mm, 原安全=True, 记忆=True, 延迟尾部使用=0
+
+机制证据：
+两条上一版失败对照各15001个关节状态逐元素重现，最大差为0。新方法修复了这两条同输入失败；重复时序1的整条轨迹也一致。
+两条实际失败快照续跑分别保留4条、3条原防回退约束，并从续跑第0周期独立审计，不删除原记忆来获得成功。
+失败时序1：末端误差先由378.13mm增至616.88mm，准备阶段基座/肩/肘变化约+0.618/+1.043/+0.253rad；40.52s首次获得进入证书，50.92s完成到达。说明实际执行了退让与姿态调整，而非只核验公式。
+整段证书在新进程由实际首次执行进入状态重放通过。实际进入速度与认证收缩方向的偏离最大约2.5e-12rad/s。该重放复用连续证书实现，另有独立实际轨迹审计，二者不混称。
+成对消融保留最终证书、终端目标和缓存，仅替换最弱间隙为平均阻塞：时序1失败、时序2成功；最终最弱间隙为2/2。支持该目标在这两例有帮助，不构成大样本普遍优势。
+
+仍未解决：
+原始起点300s仍未到达，误差649.120892871mm，全程未获得进入证书；不是安全门拒绝进入后的碰撞。准备势函数和缓存/延迟作用下，实际最弱间隙仍可能反复恶化。
+该原始起点运行用了旧失败延迟序列，并在耗尽后重复末尾延迟937次；不能称为全程同一旧延迟序列。两条主要失败修复及其重复均无尾部扩展。
+两次自然延迟31.24s和211.88s差异很大，尚不能声称稳定时效或实机50Hz。控制器p99在数百毫秒量级，仿真延迟模型已计入。
+本轮新增方法没有证明任意通道可达，也没有新增全局防循环定理。它构造的是固定终端反馈可见域，域外准备仍可能陷入新的局部极小。
+地图冻结、运动学反馈、没有实体机或接触动力学，也没有持续扩展观测地图的闭环。
+
+开发失败及中止（单独统计）：
+  continuation_measured_1: startup_error, sim_s=None, error_mm=None
+  continuation_measured_1_cached: motion_budget_exhausted, sim_s=300.0, error_mm=638.8678211552134
+  continuation_measured_1_maximin: development_interrupted, sim_s=40.6, error_mm=616.877493052959
+  continuation_measured_1_v1: wall_budget_exhausted, sim_s=65.94, error_mm=378.5548355683797
+  continuation_measured_2: startup_error, sim_s=None, error_mm=None
+  continuation_measured_2_cached: wall_budget_exhausted, sim_s=117.58, error_mm=633.3755904750083
+  continuation_measured_2_v1: wall_budget_exhausted, sim_s=65.88, error_mm=378.56708515960116
+continuation_measured_2_maximin 尚未启动即取消：已识别未分段整段证书的计算膨胀，保留第1条开发运行的中止前缀。
+两次启动中止来自事件日志重复mode字段，修复后使用新目录；未算入最终8次。
+原reference_failure_1的工作空间数值边界审计未通过，原标记保留；其与旧失败轨迹完全一致。最终8次均直接通过原审计，不依赖放宽阈值或补充审计。
+
+元数据纠正：Inherited policy_summary.current_goal_q_tracking=false is stale for CERT_ENTER: final implementation deliberately follows one fixed terminal joint-contraction feedback; no intermediate joint goals or searched route. Original raw result files preserved.
+
+完整性：前轮344个保护文件及本轮最终冻结源码无变化；所有运行源码哈希均能对应归档版本。

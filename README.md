@@ -1,3 +1,11 @@
+## 论文初稿与实验台账（2026-11-10）
+
+[完整论文 Markdown](docs/library/files/liuqp900/paper-draft.md) · [公式与图表在线版](https://qmoliang.github.io/ur5-cabinet-experiments/library/pages/liuqp900-paper.html) · [历史实验台账](docs/library/files/liuqp900/experiment-ledger.md) · [2000字以内说明](docs/library/files/liuqp900/explanation-under-2000.md)
+
+以冻结提交 `0f40201` 为证据基准，拆分执行器和控制方案的增量，公开全部六个B组失败、回归退化、成本及证明边界。900次主对照加旧在线RRT300条可称1200条所选记录，不是1200个独立场景或同协议四臂；更早批次另列。此次仅补文稿、来源与图表，不改控制代码或原结果。
+
+---
+
 # UR5 Cabinet Experiments
 
 ## 900次冻结控制对照与方法稿 — 2026-11-10

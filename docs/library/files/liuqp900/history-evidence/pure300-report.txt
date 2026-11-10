@@ -1,0 +1,114 @@
+纯LiuQP第三组：300条件、三组逐例比较
+报告时间：2026-11-10T11:43:10.218637+08:00
+
+C新增300/300次运行及独立审计完成；A/B既有600次结果只读复用，保护哈希一致。冻结后未调参、未替换失败。
+C：原最终目标LiuQP＋原单步/延迟命令执行＋原ExecutionGuard；不使用新增认证执行器、终态IK、姿态目标、绕行或记忆。
+A：原最终目标LiuQP＋新增共同认证执行器。B：新控制方案＋同一共同执行器。
+三组使用同一QP数值配置（verified_common及同一数值恢复），相同椭球输入、模型、起点和目标。因此这里的“纯”指无新增控制/执行机制，不是回退到历史默认OSQP容差。
+
+主结果（每组300个输入条件，15任务×20；不是300个独立场景）：
+组 | 原始目标到达 | 预算内物理安全到达 | 完整严格成功
+C | 175/300 | 174/300 | 128/300 (42.67%)
+A | 186/300 | 186/300 | 186/300 (62.00%)
+B | 294/300 | 294/300 | 294/300 (98.00%)
+完整严格成功要求<1mm连续50物理周期、原物理安全、实际执行原QP行可行、最终制动/静止可行及适用的记忆约束，同时不超过300秒仿真和1200秒完整计算预算。
+C没有在线备份证书：仅在事后由真实末态重建原加速度制动尾，检查同样的原QP行、物理安全和静止见证；不把缺少文件本身判成失败，也绝不把事后见证反馈给控制器。
+
+逐段收益与退化（source→target，所有300对保留）：
+比较 | 口径 | 共同成功 | 新增成功 | 退化 | 双方失败 | 净增
+executor C→A | strict_arrival | 127 | 59 | 1 | 113 | +58
+executor C→A | physical_safe_arrival | 171 | 15 | 3 | 111 | +12
+new_control A→B | strict_arrival | 185 | 109 | 1 | 5 | +108
+new_control A→B | physical_safe_arrival | 185 | 109 | 1 | 5 | +108
+combined C→B | strict_arrival | 128 | 166 | 0 | 6 | +166
+combined C→B | physical_safe_arrival | 173 | 121 | 1 | 5 | +120
+
+严格增益/退化的性质（物理到达与QP可行性改善分开）：
+{"executor": {"gains": {"already_physically_safe_arrival_but_strict_audit_failed": 44, "new_physical_safe_arrival": 15}, "regressions": {"lost_physical_safe_arrival": 1}, "detailed_gain_source_failures": {"physically_safe_arrival_but_original_QP_or_braking_failed": 44, "did_not_reach_goal": 14, "arrived_but_physical_safety_failed": 1}, "detailed_regression_target_failures": {"did_not_reach_goal": 1}}, "new_control": {"gains": {"new_physical_safe_arrival": 109}, "regressions": {"lost_physical_safe_arrival": 1}, "detailed_gain_source_failures": {"did_not_reach_goal": 109}, "detailed_regression_target_failures": {"did_not_reach_goal": 1}}, "combined": {"gains": {"already_physically_safe_arrival_but_strict_audit_failed": 45, "new_physical_safe_arrival": 121}, "regressions": {}, "detailed_gain_source_failures": {"physically_safe_arrival_but_original_QP_or_braking_failed": 45, "did_not_reach_goal": 120, "arrived_but_physical_safety_failed": 1}, "detailed_regression_target_failures": {}}}
+
+三组逐例严格成败模式（顺序C、A、B，1=成功）：
+{"111": 127, "011": 58, "001": 108, "000": 5, "101": 1, "010": 1}
+
+逐任务：
+任务 | C严格/物理安全到达 | A严格/物理安全到达 | B严格/物理安全到达
+drawer | 8/20，14/20 | 18/20，18/20 | 18/20，18/20
+cage | 0/20，7/20 | 15/20，15/20 | 20/20，20/20
+cage_wide | 20/20，20/20 | 20/20，20/20 | 20/20，20/20
+exit | 0/20，10/20 | 11/20，11/20 | 20/20，20/20
+iris_4shelves_t0 | 0/20，0/20 | 0/20，0/20 | 20/20，20/20
+iris_4shelves_t2 | 0/20，0/20 | 0/20，0/20 | 20/20，20/20
+iris_bins_t0 | 0/20，18/20 | 19/20，19/20 | 19/20，19/20
+iris_bins_t1 | 0/20，0/20 | 0/20，0/20 | 18/20，18/20
+iris_bins_t2 | 20/20，20/20 | 20/20，20/20 | 20/20，20/20
+iris_bins_t3 | 20/20，20/20 | 19/20，19/20 | 20/20，20/20
+iris_ur3_shelf_t0 | 20/20，20/20 | 20/20，20/20 | 20/20，20/20
+iris_ur3_shelf_t1 | 20/20，20/20 | 20/20，20/20 | 20/20，20/20
+iris_ur3_shelf_t2 | 20/20，20/20 | 20/20，20/20 | 20/20，20/20
+wall2_topm10 | 0/20，4/20 | 3/20，3/20 | 20/20，20/20
+wall2_topm15 | 0/20，1/20 | 1/20，1/20 | 19/20，19/20
+
+全部尝试的完整耗时（秒；中位数 / P90 / 最大值）：
+阶段 | C | A | B
+静态终态初始化 | 0.000 / 0.000 / 0.000 (n=300) | 0.000 / 0.000 / 0.000 (n=300) | 79.490 / 300.231 / 595.535 (n=300)
+模型/控制器设置 | 1.458 / 2.767 / 4.443 (n=300) | 3.164 / 5.950 / 9.587 (n=300) | 3.340 / 6.334 / 9.711 (n=300)
+完整执行子进程 | 15.192 / 1057.508 / 1200.304 (n=300) | 41.133 / 184.454 / 272.428 (n=300) | 17.066 / 84.797 / 377.141 (n=300)
+完整单次墙钟（含所有初始化） | 15.192 / 1057.509 / 1200.305 (n=300) | 41.134 / 184.455 / 272.429 (n=300) | 144.661 / 352.447 / 602.915 (n=300)
+实际仿真时间 | 18.630 / 300.000 / 300.000 (n=300) | 61.390 / 300.000 / 300.000 (n=300) | 32.010 / 105.050 / 300.000 (n=300)
+独立事后审计 | 25.679 / 122.864 / 379.072 (n=300) | 26.394 / 129.242 / 493.954 (n=300) | 12.139 / 120.740 / 259.308 (n=300)
+等额计入历史共享输入整理及完整性核验的成本 | 17.753 / 1058.001 / 1207.825 (n=300) | 43.944 / 186.194 / 275.462 (n=300) | 146.202 / 358.561 / 605.422 (n=300)
+
+只在共同严格成功的相同条件中比较完整耗时：
+executor C→A：127对；source中位数3.776s，target 7.832s；逐对target−source差值中位数4.259s。
+new_control A→B：185对；source中位数9.131s，target 185.053s；逐对target−source差值中位数170.623s。
+combined C→B：128对；source中位数3.798s，target 220.412s；逐对target−source差值中位数217.018s。
+
+新增C组整批并行墙钟：6725.215s（112.09分钟）；含全部审计：6785.682s（113.09分钟）。
+15任务预检：64.727s；从预检启动到全部审计结束：6952.344s（115.87分钟，含准备间隔）。
+三组各300次完整墙钟累计成本（不能等同于并行整批等待时间）：{"C": 72204.92983271705, "A": 22634.043380601448, "B": 52321.41130629135}
+本轮复用已有输入，没有重跑在线感知或终态初始化；历史输入整理成本单列。所有失败耗时保留，不把失败耗时称作成功耗时。达到期限后正在结束的求解/停止/日志收尾若产生额外墙钟时间，也原样报告；任何完整单次耗时超过1200秒的结果均不能计为成功。
+C遵循原执行时序：测得的求解时间映射为延迟，期间保留旧命令；原安全门耗时计入完整墙钟。A/B会额外把动作段认证耗时映射为静止等待。这是执行层差异的一部分，不能混称三组具有完全相同的物理等待策略。
+
+原始状态和失败阶段：
+C 原始状态：{"safe_arrival_candidate": 175, "motion_budget_exhausted": 79, "wall_budget_exhausted": 18, "qp_not_converged": 28}
+C 失败阶段：{"original_qp_or_terminal_braking": 151, "budget": 18, "control_nonarrival_or_error": 2, "physical_safety": 1}
+C 审计分项：{"physical": {"True": 299, "False": 1}, "feasibility": {"True": 136, "False": 164}, "posthoc_braking": {"True": 300}, "memory": {"True": 300}, "strict_memory": {"True": 300}}
+A 原始状态：{"safe_arrival_candidate": 186, "motion_budget_exhausted": 112, "execution_error": 2}
+A 失败阶段：{"control_nonarrival_or_error": 112, "shared_executor_protocol": 1, "qp_solver_failure": 1}
+A 审计分项：{"physical": {"True": 300}, "feasibility": {"True": 299, "False": 1}, "posthoc_braking": {"None": 300}, "memory": {"True": 300}, "strict_memory": {"True": 300}}
+B 原始状态：{"safe_arrival_candidate": 294, "motion_budget_exhausted": 6}
+B 失败阶段：{"control_nonarrival_or_error": 6}
+B 审计分项：{"physical": {"True": 300}, "feasibility": {"True": 300}, "posthoc_braking": {"None": 300}, "memory": {"True": 300}, "strict_memory": {"True": 300}}
+原QP行违规与QP可行域为空不是同一件事；SAFETY_DETAILS.json分别记录实际速度违规周期，以及独立LP确认无可行解的周期。
+严格回归见REGRESSIONS.json；物理安全到达退化见PHYSICAL_SAFE_REGRESSIONS.json。严格新增成功见GAINS.json，物理到达新增见PHYSICAL_SAFE_GAINS.json；C所有严格失败见C_FAILURES.json。
+
+严格回归案例：
+executor：
+online__iris_bins_t3__s08：C成功，A=motion_budget_exhausted；末端误差326.5192776810554mm，sim 300.000s，wall 136.247s；失败阶段control_nonarrival_or_error。
+new_control：
+online__iris_bins_t0__s17：A成功，B=motion_budget_exhausted；末端误差1.380197170177748mm，sim 300.000s，wall 160.882s；失败阶段control_nonarrival_or_error。
+combined：无
+
+原QP诊断分解（行违规、可行域、末态固定制动尾分别统计）：
+C：{"audits": 300, "actual_row_violation_runs": 161, "LP_infeasible_state_runs": 7, "final_QP_braking_failures": 68, "source_hashes": ["682a370d083c3a599a276a497684bcd8d6f24611c27f841e890631bdef349e53"]}
+A：{"audits": 300, "actual_row_violation_runs": 0, "LP_infeasible_state_runs": 0, "final_QP_braking_failures": 1, "source_hashes": ["682a370d083c3a599a276a497684bcd8d6f24611c27f841e890631bdef349e53"]}
+B：{"audits": 300, "actual_row_violation_runs": 0, "LP_infeasible_state_runs": 0, "final_QP_braking_failures": 0, "source_hashes": ["682a370d083c3a599a276a497684bcd8d6f24611c27f841e890631bdef349e53"]}
+
+C物理安全审计失败案例（不因到达而豁免）：
+online__iris_bins_t0__s06__C：环境最小间隙5.9575195355976645mm，自碰撞最小间隙20.94488745742285mm；完整审计见PHYSICAL_SAFETY_FAILURES.json及原始audit.json。
+
+物理安全到达口径的回归（与严格回归分别保留）：
+executor：online__wall2_topm10__s04, online__exit__s05, online__iris_bins_t3__s08
+new_control：online__iris_bins_t0__s17
+combined：online__iris_bins_t0__s17
+
+归因边界：
+C→A是同数值配置下执行层整体的增量对照，包括命令过滤、制动备份、恒速段保持和计算等待调度；不能把整项收益都归于其中一个子模块。
+A→B保持共同执行器，比较终态初始化与新控制方案整体；全部旧A/B结果未改。
+这是C→A→B的顺序增量设计；没有“新控制方案＋原执行器”第四组，因此不能声称完全分离了交互项或得到了两个模块独立于上下文的主效应。
+C在后续批次执行。相同机器、每组四核和相同并发配置降低环境差异，但实测延迟仍受负载影响；逐例差异不能全部解释成纯数学控制律的因果效应。
+本轮是同一历史冻结地图的回归，不是新在线感知、未见场景或实体硬实时验证；旧路径规划系统298/300不能替代这里的纯组成绩。
+保持6mm硬环境、6.5mm工作余量、5mm自碰撞及原关节速度/加速度/制动约束；安全审计不放宽，所有失败保留。
+A已有的一条共享执行器异常及一次原QP求解失败仍在主分母。该类数值/执行异常不能直接证明原LiuQP目标存在理论缺陷。
+
+交付：
+代码、配置、全部C轨迹/日志/审计及三组逐例比较已归档。8.86GB共享输入继续完整保留在原实验目录，逐文件路径与哈希列于清单；原A/B完整证据包继续保留。

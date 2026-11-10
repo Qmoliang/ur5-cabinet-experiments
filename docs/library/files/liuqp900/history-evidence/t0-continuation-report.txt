@@ -1,0 +1,213 @@
+T0 failure diagnosis and low-dimensional escape revision
+Completed 2026-11-09T11:06:42.296762+08:00
+
+Final frozen results:
+original_start: 11/12 independently validated arrivals
+failed_snapshot: 5/12 independently validated arrivals
+success_regression: 34/35 independently validated arrivals
+Release decision: NOT accepted as a stable replacement: final failures and/or success-regression losses remain
+
+Observed causes in the original four failures:
+1. No full terminal-entry certificate was called, and no no-return memory was committed. Those four failures were NOT caused by memory rejecting an otherwise valid entry.
+2. The pulled-back witness matrix was almost always rank six. Projecting posture preparation into the nullspace of ALL rows numerically deleted that task. Representative projector norms were about 1e-14.
+3. The worst goal-side support-plane witness changed 905--1684 times. 60--68 locally accepted windows did not surpass earlier best margins. Clearing one virtual witness did not imply sustained entry progress.
+4. A fixed terminal IK posture and contraction were insufficient. A static terminal candidate is locally safe, not certified reachable from the current trapped posture. Trying other original terminal candidates helped earlier in the motion but alone failed all four old end-state replays.
+
+Implemented structural changes:
+Keep maximin continuation improvement as feasible inequalities; retain the two-feature posture objective instead of nulling the entire witness matrix. Use a consistent scalar RMS physical-penetration merit to rank and persist terminal options. Only original static terminal IK candidates are compared; no intermediate configuration is optimized.
+When both actual continuation and actual end-effector-plus-two-feature progress stall, switch to two-component physical surface motion of the currently blocking body: normal correction and a persistent goal-conditioned tangent. Project the original two posture features into this TWO-row task nullspace. Temporarily worsening the virtual entry merit is permitted, while all physical safety rows and braking certificates remain unchanged.
+Commit original-form no-return halfspaces only after actual goal-side feature progress and a continuous braking-memory certificate. The memory feature origin stays fixed when the terminal target changes. Actual motion and feature revisits inform direction reversal; no waypoint graph is constructed.
+Reset progress evidence at the actual original-controller/escape handoff and at terminal-target changes. This fixes the measured T2 regression whose guarded controller had inherited 956 cycles of pre-escape non-progress evidence.
+
+All development variants, with every executed failure retained:
+bundle: 1/4 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+consistent: 44/51 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+guarded: 9/10 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+handoff: 50/59 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+posture: 1/4 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+surface: 14/24 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+terminal: 3/4 validated arrivals (different stage/subtask mixtures; not a common-denominator leaderboard)
+
+Executed runs: 156. Cancelled BEFORE launch: 84. Cancelled jobs are individually recorded and excluded from all performance denominators.
+Unconditional surface experiments showed premature-intervention regressions. Their remaining queue was cancelled; already-running workers completed their original budget. The guarded expansion was cancelled before launch when the handoff accounting defect was found. No completed or started trial was deleted.
+
+All final failures:
+handoff_snapshot__repair__iris_4shelves_t0__s07: motion_budget_exhausted, 300.00s, 507.695605mm; physical audit=True; memory audit=True; surface episodes=2, committed memories=1
+handoff_failure_repeat_1__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, 300.00s, 395.174434mm; physical audit=True; memory audit=True; surface episodes=1, committed memories=0
+handoff_snapshot_repeat_1__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, 300.00s, 92.577016mm; physical audit=True; memory audit=True; surface episodes=1, committed memories=0
+handoff_snapshot_repeat_1__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, 300.00s, 1172.089106mm; physical audit=True; memory audit=True; surface episodes=3, committed memories=2
+handoff_snapshot_repeat_2__repair__iris_4shelves_t0__s02: motion_budget_exhausted, 300.00s, 197.693115mm; physical audit=True; memory audit=True; surface episodes=3, committed memories=2
+handoff_snapshot_repeat_2__repair__iris_4shelves_t0__s07: motion_budget_exhausted, 300.00s, 468.250493mm; physical audit=True; memory audit=True; surface episodes=2, committed memories=1
+handoff_snapshot_repeat_3__repair__iris_4shelves_t0__s02: qp_not_solved_at_rest, 101.76s, 268.264801mm; physical audit=True; memory audit=True; surface episodes=1, committed memories=0
+handoff_snapshot_repeat_3__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, 300.00s, 92.562064mm; physical audit=True; memory audit=True; surface episodes=1, committed memories=0
+handoff_regression__regression__prior_development__memory_aligned_regression_end_2: qp_not_solved_at_rest, 208.80s, 561.316697mm; physical audit=True; memory audit=True; surface episodes=3, committed memories=5
+
+Measured remaining mechanisms:
+In the first failed final seed4 original-start repeat, the retained surface point 54 had already opened to 123.76mm, while the recomputed solved original QP was blocked primarily by point 47. In the seed4 saved-state failure, the retained point 51 had 61.02mm clearance while the active constraints had shifted to point 23, self pair (42,55), and point 49. The controller had transported the obstacle proxy for the OLD robot point, but did not transfer its controlled robot frame. This is a concrete stale-blocker failure, not evidence that the physical scene is unreachable.
+Two final failed states (one saved-state replay and one success regression) were independently confirmed to have infeasible original velocity constraints by HiGHS feasibility LPs, as well as the original QP solver, despite passing the independent physical safety audit. The physical guard and the controller operating-distance buffer are different invariants. Physical safety and goal-containing no-return planes do not guarantee recursive QP feasibility. Solver infeasibility certificates are NOT interpreted as optimal dual forces in the diagnostic.
+
+Limits:
+Natural compute-delay repeats are a robustness check at the same seed, not independent unseen samples. All four T0 cases participated in development. The 35 regression records include duplicate earlier replays, not 35 distinct scenes.
+Local terminal merit, a goal-side halfspace, or a positive tangent velocity do not prove future connectivity. Near-equivalent terminal IK solutions can have different indices; finite index history is not a complete recurrence model. A locally useful surface direction can cease to be useful as the blocking link changes. See read-only final_failure_diagnosis for measured remaining cases; hypotheses there are not causal proofs.
+All execution remained MuJoCo kinematic feedback with the original safety margins and numeric tolerances. No RRT, route search, six-dimensional path planning, physical robot, or new online perception was used. Historical frozen observation maps may reflect earlier planner-driven sensing; historical routes are never read by this controller.
+Original frozen source and old results remain unchanged. The last candidate is isolated in this study and is not automatically promoted. No global completeness or general unknown-environment escape guarantee follows from these tests.
+
+Archive scope: source, configs, every executed joint trajectory, snapshots, events, audit results and failure logs are included. Oversized witness-array decision traces remain preserved on the experiment server with exact paths, sizes and hashes in RETAINED_LARGE_DIAGNOSTICS.json. Native/model assets and observed maps remain at INPUTS.json paths.
+
+All individual results:
+posture__repair__iris_4shelves_t0__s02: motion_budget_exhausted, validated=False, sim=300.00s, error=382.883002mm
+posture__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=68.44s, error=0.143701mm
+posture__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=402.047187mm
+posture__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=212.437038mm
+bundle__repair__iris_4shelves_t0__s02: motion_budget_exhausted, validated=False, sim=300.00s, error=383.266626mm
+bundle__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=161.96s, error=0.112773mm
+bundle__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=403.206180mm
+bundle__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=207.626093mm
+terminal__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=87.58s, error=0.143465mm
+terminal__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=85.18s, error=0.145156mm
+terminal__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=203.853988mm
+terminal__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=34.34s, error=0.364326mm
+failure_repeat_1__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=76.86s, error=0.141913mm
+failure_repeat_1__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=23.70s, error=0.493267mm
+failure_repeat_1__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=83.78s, error=0.145118mm
+failure_repeat_1__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=34.86s, error=0.342255mm
+failure_repeat_2__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=81.16s, error=0.143081mm
+failure_repeat_2__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=72.20s, error=0.143507mm
+failure_repeat_2__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=204.411762mm
+failure_repeat_2__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=34.90s, error=0.353836mm
+failure_repeat_3__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=85.94s, error=0.143929mm
+failure_repeat_3__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=71.82s, error=0.144279mm
+failure_repeat_3__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=87.26s, error=0.143829mm
+failure_repeat_3__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=35.54s, error=0.373660mm
+success_regression__repair__iris_4shelves_t2__s13: safe_arrival_candidate, validated=True, sim=62.10s, error=0.167305mm
+success_regression__regression__prior_development__memory_aligned_final_cycle_1: safe_arrival_candidate, validated=True, sim=30.80s, error=0.182463mm
+success_regression__regression__prior_development__memory_aligned_final_cycle_2: safe_arrival_candidate, validated=True, sim=30.64s, error=0.187164mm
+success_regression__regression__prior_development__memory_aligned_final_cycle_3: safe_arrival_candidate, validated=True, sim=26.58s, error=0.184846mm
+success_regression__regression__prior_development__memory_aligned_final_measured_1: safe_arrival_candidate, validated=True, sim=28.02s, error=0.184172mm
+success_regression__regression__prior_development__memory_aligned_final_measured_2: safe_arrival_candidate, validated=True, sim=30.16s, error=0.185947mm
+success_regression__regression__prior_development__memory_aligned_final_measured_3: safe_arrival_candidate, validated=True, sim=30.12s, error=0.180458mm
+success_regression__regression__prior_development__memory_aligned_regression_end_1: safe_arrival_candidate, validated=True, sim=26.78s, error=0.275870mm
+success_regression__regression__prior_development__memory_aligned_regression_end_2: safe_arrival_candidate, validated=True, sim=58.32s, error=0.186132mm
+success_regression__regression__prior_development__memory_aligned_regression_failed_1: safe_arrival_candidate, validated=True, sim=40.40s, error=0.304385mm
+success_regression__regression__prior_development__memory_aligned_regression_failed_2: safe_arrival_candidate, validated=True, sim=38.70s, error=0.314943mm
+success_regression__regression__prior_development__memory_aligned_regression_stall_1: safe_arrival_candidate, validated=True, sim=38.08s, error=0.304213mm
+success_regression__regression__prior_development__memory_aligned_regression_stall_2: safe_arrival_candidate, validated=True, sim=37.98s, error=0.322207mm
+success_regression__regression__prior_holdout__iris_4shelves_t0__s13__iris_4shelves_t0__s13__candidate: safe_arrival_candidate, validated=True, sim=69.88s, error=0.142426mm
+success_regression__regression__prior_holdout__iris_4shelves_t2__s02__iris_4shelves_t2__s02__candidate: safe_arrival_candidate, validated=True, sim=35.82s, error=0.169695mm
+success_regression__regression__prior_holdout__iris_4shelves_t2__s07__iris_4shelves_t2__s07__candidate: safe_arrival_candidate, validated=True, sim=32.68s, error=0.190180mm
+success_regression__regression__prior_holdout__iris_bins_t1__s02__iris_bins_t1__s02__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=155.533436mm
+success_regression__regression__prior_holdout__iris_bins_t1__s07__iris_bins_t1__s07__candidate: safe_arrival_candidate, validated=True, sim=83.58s, error=0.004152mm
+success_regression__regression__prior_holdout__iris_bins_t1__s13__iris_bins_t1__s13__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=4.233845mm
+success_regression__regression__prior_holdout__iris_ur3_shelf_t0__s02__iris_ur3_shelf_t0__s02__candidate: safe_arrival_candidate, validated=True, sim=5.66s, error=0.178416mm
+success_regression__regression__prior_holdout__iris_ur3_shelf_t0__s07__iris_ur3_shelf_t0__s07__candidate: safe_arrival_candidate, validated=True, sim=5.56s, error=0.175465mm
+success_regression__regression__prior_holdout__iris_ur3_shelf_t0__s13__iris_ur3_shelf_t0__s13__candidate: safe_arrival_candidate, validated=True, sim=6.04s, error=0.176068mm
+success_regression__iris_4shelves_t2__s04__candidate: safe_arrival_candidate, validated=True, sim=38.82s, error=0.161568mm
+success_regression__iris_4shelves_t2__s08__candidate: safe_arrival_candidate, validated=True, sim=28.56s, error=0.225280mm
+success_regression__iris_4shelves_t2__s14__candidate: safe_arrival_candidate, validated=True, sim=30.56s, error=0.166684mm
+success_regression__iris_4shelves_t0__s14__candidate: safe_arrival_candidate, validated=True, sim=32.16s, error=0.392521mm
+success_regression__iris_ur3_shelf_t1__s04__candidate: safe_arrival_candidate, validated=True, sim=9.38s, error=0.403315mm
+success_regression__iris_ur3_shelf_t1__s08__candidate: safe_arrival_candidate, validated=True, sim=15.74s, error=0.727192mm
+success_regression__iris_ur3_shelf_t1__s14__candidate: safe_arrival_candidate, validated=True, sim=13.72s, error=0.632216mm
+success_regression__iris_bins_t2__s04__candidate: safe_arrival_candidate, validated=True, sim=7.32s, error=0.221614mm
+success_regression__iris_bins_t2__s08__candidate: safe_arrival_candidate, validated=True, sim=7.10s, error=0.203489mm
+success_regression__iris_bins_t2__s14__candidate: safe_arrival_candidate, validated=True, sim=7.36s, error=0.203031mm
+success_regression__cage_wide__s04__candidate: safe_arrival_candidate, validated=True, sim=7.64s, error=0.581739mm
+success_regression__cage_wide__s08__candidate: safe_arrival_candidate, validated=True, sim=7.28s, error=0.265619mm
+success_regression__cage_wide__s14__candidate: safe_arrival_candidate, validated=True, sim=7.18s, error=0.375367mm
+failure_snapshot__repair__iris_4shelves_t0__s02: motion_budget_exhausted, validated=False, sim=300.00s, error=215.170322mm
+failure_snapshot__repair__iris_4shelves_t0__s07: motion_budget_exhausted, validated=False, sim=300.00s, error=212.255073mm
+failure_snapshot__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=212.158109mm
+failure_snapshot__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=212.016711mm
+surface_snapshot__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=28.46s, error=0.158018mm
+surface_snapshot__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=28.68s, error=0.150920mm
+surface_snapshot__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=33.82s, error=0.130339mm
+surface_snapshot__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=25.02s, error=0.162977mm
+surface_failure_repeat_1__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=34.32s, error=0.515962mm
+surface_failure_repeat_1__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=67.04s, error=0.143095mm
+surface_failure_repeat_1__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=548.852293mm
+surface_failure_repeat_1__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=258.019793mm
+surface_failure_repeat_2__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=34.04s, error=0.501767mm
+surface_failure_repeat_2__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=97.68s, error=0.093712mm
+surface_failure_repeat_2__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=273.155993mm
+surface_failure_repeat_2__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=501.098472mm
+surface_failure_repeat_3__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=240.22s, error=0.140352mm
+surface_success_regression__repair__iris_4shelves_t2__s13: motion_budget_exhausted, validated=False, sim=300.00s, error=437.019144mm
+surface_success_regression__regression__prior_development__memory_aligned_final_cycle_1: qp_not_solved_at_rest, validated=False, sim=123.60s, error=738.557656mm
+surface_success_regression__regression__prior_development__memory_aligned_final_cycle_2: safe_arrival_candidate, validated=True, sim=32.94s, error=0.191602mm
+surface_success_regression__regression__prior_development__memory_aligned_final_cycle_3: safe_arrival_candidate, validated=True, sim=126.10s, error=0.124129mm
+surface_success_regression__regression__prior_development__memory_aligned_final_measured_1: safe_arrival_candidate, validated=True, sim=28.72s, error=0.183721mm
+surface_success_regression__regression__prior_development__memory_aligned_final_measured_2: motion_budget_exhausted, validated=False, sim=300.00s, error=621.702925mm
+surface_success_regression__regression__prior_development__memory_aligned_final_measured_3: safe_arrival_candidate, validated=True, sim=30.72s, error=0.187828mm
+surface_success_regression__regression__prior_development__memory_aligned_regression_end_1: safe_arrival_candidate, validated=True, sim=26.36s, error=0.250429mm
+surface_success_regression__regression__prior_development__memory_aligned_regression_end_2: motion_budget_exhausted, validated=False, sim=300.00s, error=657.229927mm
+surface_success_regression__regression__prior_development__memory_aligned_regression_failed_1: motion_budget_exhausted, validated=False, sim=300.00s, error=767.180641mm
+surface_success_regression__regression__prior_development__memory_aligned_regression_failed_2: motion_budget_exhausted, validated=False, sim=300.00s, error=748.059614mm
+guarded_start__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=34.02s, error=0.509601mm
+guarded_start__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=80.84s, error=0.140986mm
+guarded_start__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=97.16s, error=0.142185mm
+guarded_start__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=37.80s, error=0.393053mm
+guarded_snapshot__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=55.48s, error=0.140543mm
+guarded_snapshot__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=171.62s, error=0.114052mm
+guarded_snapshot__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=60.88s, error=0.119717mm
+guarded_snapshot__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=32.32s, error=0.120614mm
+guarded_regression_probe__repair__iris_4shelves_t2__s13: motion_budget_exhausted, validated=False, sim=300.00s, error=620.931110mm
+guarded_regression_probe__regression__prior_development__memory_aligned_final_cycle_1: safe_arrival_candidate, validated=True, sim=32.10s, error=0.180999mm
+handoff_regression_probe__repair__iris_4shelves_t2__s13: safe_arrival_candidate, validated=True, sim=64.16s, error=0.167593mm
+handoff_snapshot__repair__iris_4shelves_t0__s07: motion_budget_exhausted, validated=False, sim=300.00s, error=507.695605mm
+handoff_failure_repeat_1__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=90.60s, error=0.144382mm
+handoff_failure_repeat_1__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=76.94s, error=0.141160mm
+handoff_failure_repeat_1__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=395.174434mm
+handoff_failure_repeat_1__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=35.20s, error=0.389972mm
+handoff_failure_repeat_2__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=34.38s, error=0.513206mm
+handoff_failure_repeat_2__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=73.58s, error=0.142041mm
+handoff_failure_repeat_2__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=98.96s, error=0.142573mm
+handoff_failure_repeat_2__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=35.64s, error=0.341190mm
+handoff_failure_repeat_3__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=94.90s, error=0.144557mm
+handoff_failure_repeat_3__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=23.40s, error=0.506509mm
+handoff_failure_repeat_3__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=101.18s, error=0.140335mm
+handoff_failure_repeat_3__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=34.80s, error=0.384916mm
+handoff_snapshot_repeat_1__repair__iris_4shelves_t0__s02: safe_arrival_candidate, validated=True, sim=49.56s, error=0.152962mm
+handoff_snapshot_repeat_1__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=92.577016mm
+handoff_snapshot_repeat_1__iris_4shelves_t0__s08__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=1172.089106mm
+handoff_snapshot_repeat_2__repair__iris_4shelves_t0__s02: motion_budget_exhausted, validated=False, sim=300.00s, error=197.693115mm
+handoff_snapshot_repeat_2__repair__iris_4shelves_t0__s07: motion_budget_exhausted, validated=False, sim=300.00s, error=468.250493mm
+handoff_snapshot_repeat_2__iris_4shelves_t0__s04__candidate: safe_arrival_candidate, validated=True, sim=226.38s, error=0.968720mm
+handoff_snapshot_repeat_2__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=136.04s, error=0.082184mm
+handoff_snapshot_repeat_3__repair__iris_4shelves_t0__s02: qp_not_solved_at_rest, validated=False, sim=101.76s, error=268.264801mm
+handoff_snapshot_repeat_3__repair__iris_4shelves_t0__s07: safe_arrival_candidate, validated=True, sim=58.88s, error=0.123213mm
+handoff_snapshot_repeat_3__iris_4shelves_t0__s04__candidate: motion_budget_exhausted, validated=False, sim=300.00s, error=92.562064mm
+handoff_snapshot_repeat_3__iris_4shelves_t0__s08__candidate: safe_arrival_candidate, validated=True, sim=32.96s, error=0.132420mm
+handoff_regression__regression__prior_development__memory_aligned_final_cycle_1: safe_arrival_candidate, validated=True, sim=26.76s, error=0.186295mm
+handoff_regression__regression__prior_development__memory_aligned_final_cycle_2: safe_arrival_candidate, validated=True, sim=29.04s, error=0.180081mm
+handoff_regression__regression__prior_development__memory_aligned_final_cycle_3: safe_arrival_candidate, validated=True, sim=28.70s, error=0.185225mm
+handoff_regression__regression__prior_development__memory_aligned_final_measured_1: safe_arrival_candidate, validated=True, sim=28.32s, error=0.187438mm
+handoff_regression__regression__prior_development__memory_aligned_final_measured_2: safe_arrival_candidate, validated=True, sim=26.60s, error=0.183301mm
+handoff_regression__regression__prior_development__memory_aligned_final_measured_3: safe_arrival_candidate, validated=True, sim=26.84s, error=0.180129mm
+handoff_regression__regression__prior_development__memory_aligned_regression_end_1: safe_arrival_candidate, validated=True, sim=23.86s, error=0.267001mm
+handoff_regression__regression__prior_development__memory_aligned_regression_end_2: qp_not_solved_at_rest, validated=False, sim=208.80s, error=561.316697mm
+handoff_regression__regression__prior_development__memory_aligned_regression_failed_1: safe_arrival_candidate, validated=True, sim=40.58s, error=0.275261mm
+handoff_regression__regression__prior_development__memory_aligned_regression_failed_2: safe_arrival_candidate, validated=True, sim=39.76s, error=0.303284mm
+handoff_regression__regression__prior_development__memory_aligned_regression_stall_1: safe_arrival_candidate, validated=True, sim=67.52s, error=0.125585mm
+handoff_regression__regression__prior_development__memory_aligned_regression_stall_2: safe_arrival_candidate, validated=True, sim=262.72s, error=0.165500mm
+handoff_regression__regression__prior_holdout__iris_4shelves_t0__s13__iris_4shelves_t0__s13__candidate: safe_arrival_candidate, validated=True, sim=116.92s, error=0.129288mm
+handoff_regression__regression__prior_holdout__iris_4shelves_t2__s02__iris_4shelves_t2__s02__candidate: safe_arrival_candidate, validated=True, sim=38.94s, error=0.169340mm
+handoff_regression__regression__prior_holdout__iris_4shelves_t2__s07__iris_4shelves_t2__s07__candidate: safe_arrival_candidate, validated=True, sim=30.74s, error=0.178087mm
+handoff_regression__regression__prior_holdout__iris_bins_t1__s02__iris_bins_t1__s02__candidate: safe_arrival_candidate, validated=True, sim=70.30s, error=0.173996mm
+handoff_regression__regression__prior_holdout__iris_bins_t1__s07__iris_bins_t1__s07__candidate: safe_arrival_candidate, validated=True, sim=77.66s, error=0.116041mm
+handoff_regression__regression__prior_holdout__iris_bins_t1__s13__iris_bins_t1__s13__candidate: safe_arrival_candidate, validated=True, sim=63.50s, error=0.094284mm
+handoff_regression__regression__prior_holdout__iris_ur3_shelf_t0__s02__iris_ur3_shelf_t0__s02__candidate: safe_arrival_candidate, validated=True, sim=5.66s, error=0.178416mm
+handoff_regression__regression__prior_holdout__iris_ur3_shelf_t0__s07__iris_ur3_shelf_t0__s07__candidate: safe_arrival_candidate, validated=True, sim=5.56s, error=0.175465mm
+handoff_regression__regression__prior_holdout__iris_ur3_shelf_t0__s13__iris_ur3_shelf_t0__s13__candidate: safe_arrival_candidate, validated=True, sim=6.04s, error=0.176068mm
+handoff_regression__iris_4shelves_t2__s04__candidate: safe_arrival_candidate, validated=True, sim=34.82s, error=0.155160mm
+handoff_regression__iris_4shelves_t2__s08__candidate: safe_arrival_candidate, validated=True, sim=28.76s, error=0.235480mm
+handoff_regression__iris_4shelves_t2__s14__candidate: safe_arrival_candidate, validated=True, sim=35.62s, error=0.164893mm
+handoff_regression__iris_4shelves_t0__s14__candidate: safe_arrival_candidate, validated=True, sim=83.06s, error=0.141465mm
+handoff_regression__iris_ur3_shelf_t1__s04__candidate: safe_arrival_candidate, validated=True, sim=9.38s, error=0.403315mm
+handoff_regression__iris_ur3_shelf_t1__s08__candidate: safe_arrival_candidate, validated=True, sim=15.74s, error=0.727192mm
+handoff_regression__iris_ur3_shelf_t1__s14__candidate: safe_arrival_candidate, validated=True, sim=13.72s, error=0.632216mm
+handoff_regression__iris_bins_t2__s04__candidate: safe_arrival_candidate, validated=True, sim=7.32s, error=0.221614mm
+handoff_regression__iris_bins_t2__s08__candidate: safe_arrival_candidate, validated=True, sim=7.10s, error=0.203489mm
+handoff_regression__iris_bins_t2__s14__candidate: safe_arrival_candidate, validated=True, sim=7.36s, error=0.203031mm
+handoff_regression__cage_wide__s04__candidate: safe_arrival_candidate, validated=True, sim=7.64s, error=0.581739mm
+handoff_regression__cage_wide__s08__candidate: safe_arrival_candidate, validated=True, sim=7.28s, error=0.265619mm
+handoff_regression__cage_wide__s14__candidate: safe_arrival_candidate, validated=True, sim=7.18s, error=0.375367mm

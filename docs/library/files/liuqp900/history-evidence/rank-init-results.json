@@ -1,0 +1,4231 @@
+{
+  "completed_at": "2026-11-09T00:00:38.017922+08:00",
+  "counts": {
+    "repair_initialization_ready": 3,
+    "repair_arrivals": 1,
+    "regression_runs": 21,
+    "regression_arrivals": 21,
+    "regression_exact": 21,
+    "new_pairs": 15,
+    "new_initialization_ready": 15,
+    "baseline_arrivals": 9,
+    "candidate_arrivals": 13,
+    "all_runs": 54,
+    "audits_not_passed": []
+  },
+  "paired_outcomes": {
+    "both": 9,
+    "candidate_only": 4,
+    "baseline_only": 0,
+    "neither": 2
+  },
+  "by_task": {
+    "iris_4shelves_t2": {
+      "cases": 3,
+      "baseline_arrivals": 0,
+      "candidate_arrivals": 3,
+      "candidate_activated": 3
+    },
+    "iris_4shelves_t0": {
+      "cases": 3,
+      "baseline_arrivals": 0,
+      "candidate_arrivals": 1,
+      "candidate_activated": 3
+    },
+    "iris_ur3_shelf_t1": {
+      "cases": 3,
+      "baseline_arrivals": 3,
+      "candidate_arrivals": 3,
+      "candidate_activated": 0
+    },
+    "iris_bins_t2": {
+      "cases": 3,
+      "baseline_arrivals": 3,
+      "candidate_arrivals": 3,
+      "candidate_activated": 0
+    },
+    "cage_wide": {
+      "cases": 3,
+      "baseline_arrivals": 3,
+      "candidate_arrivals": 3,
+      "candidate_activated": 0
+    }
+  },
+  "records": [
+    {
+      "id": "repair__iris_4shelves_t2__s13",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/repair_runtime/iris_4shelves_t2__s13",
+      "group": "repair",
+      "method": "candidate",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 34.36,
+      "error_mm": 0.32840056681794944,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 25.079527420923114,
+      "escape_activated": true,
+      "controller_p99_ms": 61.23887619818561,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.8274356565717157,
+          0.11654713309959136,
+          2.2608618808654167e-09
+        ],
+        "rank_tolerance": 1e-08
+      }
+    },
+    {
+      "id": "repair__iris_4shelves_t0__s02",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/repair_runtime/iris_4shelves_t0__s02",
+      "group": "repair",
+      "method": "candidate",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 200.84424132236916,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 350.2255319280084,
+      "escape_activated": true,
+      "controller_p99_ms": 88.89021991053599,
+      "guard_modified": 498,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6771747624136791,
+          0.034379148902535565,
+          0.02733661044668932
+        ],
+        "rank_tolerance": 1e-08
+      }
+    },
+    {
+      "id": "repair__iris_4shelves_t0__s07",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/repair_runtime/iris_4shelves_t0__s07",
+      "group": "repair",
+      "method": "candidate",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 193.38930364949996,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 370.27882430900354,
+      "escape_activated": true,
+      "controller_p99_ms": 98.66118954261765,
+      "guard_modified": 377,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.6741119754052104,
+          0.037763005909018044,
+          2.8341405045840406e-09
+        ],
+        "rank_tolerance": 1e-08
+      }
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_cycle_1",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_cycle_1",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 23.22,
+      "error_mm": 0.2332974639034658,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 29.805427648010664,
+      "escape_activated": true,
+      "controller_p99_ms": 74.05493472120723,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_cycle_2",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_cycle_2",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 23.22,
+      "error_mm": 0.2332974639034658,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 29.802369337994605,
+      "escape_activated": true,
+      "controller_p99_ms": 74.43200845504174,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_cycle_3",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_cycle_3",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 23.22,
+      "error_mm": 0.2332974639034658,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 29.73039975797292,
+      "escape_activated": true,
+      "controller_p99_ms": 74.44101936998773,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_measured_1",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_measured_1",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 29.22,
+      "error_mm": 0.36018364895813404,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 25.69932350795716,
+      "escape_activated": true,
+      "controller_p99_ms": 69.73924624850042,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_measured_2",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_measured_2",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 26.900000000000002,
+      "error_mm": 0.35974903346009085,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 23.24394234805368,
+      "escape_activated": true,
+      "controller_p99_ms": 59.907157882116735,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_final_measured_3",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_final_measured_3",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 29.32,
+      "error_mm": 0.3573063887470282,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 25.752037667902187,
+      "escape_activated": true,
+      "controller_p99_ms": 60.31065637595021,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_end_1",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_end_1",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 13.44,
+      "error_mm": 0.47258221835253894,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 16.689315313939005,
+      "escape_activated": true,
+      "controller_p99_ms": 85.0756402767729,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 4,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_end_2",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_end_2",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 41.76,
+      "error_mm": 0.44187817873604635,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 54.93016098893713,
+      "escape_activated": true,
+      "controller_p99_ms": 120.39408344542608,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 3,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_failed_1",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_failed_1",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 14.32,
+      "error_mm": 0.45576364828781174,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 27.641143795917742,
+      "escape_activated": true,
+      "controller_p99_ms": 78.66621267748998,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_failed_2",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_failed_2",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 14.540000000000001,
+      "error_mm": 0.4589227335680634,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 24.716240484965965,
+      "escape_activated": true,
+      "controller_p99_ms": 90.16079432098195,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_stall_1",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_stall_1",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 18.94,
+      "error_mm": 0.46026500461033626,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 23.261369660962373,
+      "escape_activated": true,
+      "controller_p99_ms": 73.15747997025028,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_development__memory_aligned_regression_stall_2",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_development",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_progress_acceptance_20261107/trials/memory_aligned_regression_stall_2",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 18.98,
+      "error_mm": 0.45885125821389156,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 23.503428480005823,
+      "escape_activated": true,
+      "controller_p99_ms": 74.0385578351561,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_4shelves_t0__s13__iris_4shelves_t0__s13__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_4shelves_t0__s13",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_4shelves_t0__s13__candidate",
+      "task": "iris_4shelves_t0",
+      "status": "safe_arrival_candidate",
+      "sim_s": 35.78,
+      "error_mm": 0.17290978705286006,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 28.22253622196149,
+      "escape_activated": true,
+      "controller_p99_ms": 44.89837846485897,
+      "guard_modified": 8,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6736539388723694,
+          0.04544759558631593,
+          0.0021923317285554886
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_4shelves_t2__s02__iris_4shelves_t2__s02__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_4shelves_t2__s02",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_4shelves_t2__s02__candidate",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 29.3,
+      "error_mm": 0.2102589139871996,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 22.139445659006014,
+      "escape_activated": true,
+      "controller_p99_ms": 80.1971732825041,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_4shelves_t2__s07__iris_4shelves_t2__s07__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_4shelves_t2__s07",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_4shelves_t2__s07__candidate",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 27.78,
+      "error_mm": 0.3854662374884943,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 23.004965781932697,
+      "escape_activated": true,
+      "controller_p99_ms": 75.55931093753317,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.82959166103838,
+          0.11730259495306058,
+          0.029877284897713983
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_bins_t1__s02__iris_bins_t1__s02__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_bins_t1__s02",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_bins_t1__s02__candidate",
+      "task": "iris_bins_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 40.56,
+      "error_mm": 0.3567717559968492,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 29.40050065808464,
+      "escape_activated": true,
+      "controller_p99_ms": 37.64883168274537,
+      "guard_modified": 20,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.5786402595938518,
+          0.12099715469630702,
+          0.06304770838466466
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_bins_t1__s07__iris_bins_t1__s07__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_bins_t1__s07",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_bins_t1__s07__candidate",
+      "task": "iris_bins_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 36.300000000000004,
+      "error_mm": 0.17380838337221052,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 32.10570194607135,
+      "escape_activated": true,
+      "controller_p99_ms": 33.761483221314855,
+      "guard_modified": 80,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.5793143023789885,
+          0.11790797413351047,
+          0.06270983730545747
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_bins_t1__s13__iris_bins_t1__s13__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_bins_t1__s13",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_bins_t1__s13__candidate",
+      "task": "iris_bins_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 33.64,
+      "error_mm": 0.27024877971560685,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 35.05587140703574,
+      "escape_activated": true,
+      "controller_p99_ms": 44.36706638662142,
+      "guard_modified": 133,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.578066701141491,
+          0.11829268964611286,
+          0.06012859018538359
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_ur3_shelf_t0__s02__iris_ur3_shelf_t0__s02__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_ur3_shelf_t0__s02",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_ur3_shelf_t0__s02__candidate",
+      "task": "iris_ur3_shelf_t0",
+      "status": "safe_arrival_candidate",
+      "sim_s": 5.66,
+      "error_mm": 0.1784158578613367,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.631279338034801,
+      "escape_activated": false,
+      "controller_p99_ms": 3.60317427897826,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6903905839336505,
+          0.1216686265744703,
+          0.020366778666103546
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_ur3_shelf_t0__s07__iris_ur3_shelf_t0__s07__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_ur3_shelf_t0__s07",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_ur3_shelf_t0__s07__candidate",
+      "task": "iris_ur3_shelf_t0",
+      "status": "safe_arrival_candidate",
+      "sim_s": 5.5600000000000005,
+      "error_mm": 0.17546489251166272,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.685706264921464,
+      "escape_activated": false,
+      "controller_p99_ms": 2.822461650939659,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6920432612465705,
+          0.11198616181001565,
+          0.019810171030812628
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "regression__prior_holdout__iris_ur3_shelf_t0__s13__iris_ur3_shelf_t0__s13__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/regression_runtime/prior_holdout__iris_ur3_shelf_t0__s13",
+      "group": "regression",
+      "method": "candidate",
+      "reference": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_holdout_20261108/trials/iris_ur3_shelf_t0__s13__candidate",
+      "task": "iris_ur3_shelf_t0",
+      "status": "safe_arrival_candidate",
+      "sim_s": 6.04,
+      "error_mm": 0.1760679661186402,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.654854298918508,
+      "escape_activated": false,
+      "controller_p99_ms": 2.8980129107367256,
+      "guard_modified": 0,
+      "latency_model": "recorded_failed_schedule_diagnostic",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6903905839336505,
+          0.1216686265744703,
+          0.020366778666103546
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "same_trajectory_shape": true,
+      "maximum_q_difference": 0.0
+    },
+    {
+      "id": "iris_4shelves_t2__s04__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s04",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t2__s04",
+      "task": "iris_4shelves_t2",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 378.1532262756381,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 202.22335702890996,
+      "escape_activated": false,
+      "controller_p99_ms": 18.936214717105223,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8322221395176879,
+          0.11688709694081881,
+          0.045338935356473514
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_4shelves_t2__s04__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s04",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t2__s04",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 26.66,
+      "error_mm": 0.26915811856561567,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 22.759394371067174,
+      "escape_activated": true,
+      "controller_p99_ms": 71.04200845817104,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8322221395176879,
+          0.11688709694081881,
+          0.045338935356473514
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 21.390097765950486
+    },
+    {
+      "id": "iris_4shelves_t2__s08__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s08",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t2__s08",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 27.580000000000002,
+      "error_mm": 0.25993920836728585,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 33.513063601916656,
+      "escape_activated": true,
+      "controller_p99_ms": 63.72440094128251,
+      "guard_modified": 96,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8300771472002616,
+          0.09657383670625895,
+          0.005113719741927099
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 300.3869758719811
+    },
+    {
+      "id": "iris_4shelves_t2__s08__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s08",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t2__s08",
+      "task": "iris_4shelves_t2",
+      "status": "wall_budget_exhausted",
+      "sim_s": 253.34,
+      "error_mm": 529.6444623229904,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 1203.376786962035,
+      "escape_activated": false,
+      "controller_p99_ms": 8.241288694553077,
+      "guard_modified": 12206,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8300771472002616,
+          0.09657383670625895,
+          0.005113719741927099
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_4shelves_t2__s14__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s14",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t2__s14",
+      "task": "iris_4shelves_t2",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 378.22817751237557,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 234.5619687360013,
+      "escape_activated": false,
+      "controller_p99_ms": 36.76856520003639,
+      "guard_modified": 1,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_4shelves_t2__s14__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s14",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t2__s14",
+      "task": "iris_4shelves_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 27.7,
+      "error_mm": 0.2728729460620853,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 22.292112519964576,
+      "escape_activated": true,
+      "controller_p99_ms": 62.46026820736004,
+      "guard_modified": 1,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.828402439472556,
+          0.11792662557734405,
+          0.02085492761575935
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 83.23263796500396
+    },
+    {
+      "id": "iris_4shelves_t0__s04__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s04",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t0__s04",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 198.8140148942226,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 395.4176259669475,
+      "escape_activated": true,
+      "controller_p99_ms": 128.71968963649124,
+      "guard_modified": 392,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.6741119754052104,
+          0.037763005909018044,
+          2.8341405045840406e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 107.37568364408799
+    },
+    {
+      "id": "iris_4shelves_t0__s04__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s04",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t0__s04",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 327.38125031328696,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 190.56799711403437,
+      "escape_activated": false,
+      "controller_p99_ms": 37.702132809208706,
+      "guard_modified": 3,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.6741119754052104,
+          0.037763005909018044,
+          2.8341405045840406e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_4shelves_t0__s08__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s08",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t0__s08",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 318.17219052460433,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 239.17762293096166,
+      "escape_activated": false,
+      "controller_p99_ms": 38.352568224072456,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6724720397342788,
+          0.06076134076292684,
+          0.0033518931134415993
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_4shelves_t0__s08__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s08",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t0__s08",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 194.47526791341411,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 313.723947054008,
+      "escape_activated": true,
+      "controller_p99_ms": 72.31647816020995,
+      "guard_modified": 567,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6724720397342788,
+          0.06076134076292684,
+          0.0033518931134415993
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 247.47416883602273
+    },
+    {
+      "id": "iris_4shelves_t0__s14__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s14",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_4shelves_t0__s14",
+      "task": "iris_4shelves_t0",
+      "status": "safe_arrival_candidate",
+      "sim_s": 86.82000000000001,
+      "error_mm": 0.1473012775475682,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 84.97830529196654,
+      "escape_activated": true,
+      "controller_p99_ms": 50.847462960518854,
+      "guard_modified": 109,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6771747624136791,
+          0.03437914890253567,
+          0.02733661044668928
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 162.9757262399653
+    },
+    {
+      "id": "iris_4shelves_t0__s14__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s14",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_4shelves_t0__s14",
+      "task": "iris_4shelves_t0",
+      "status": "motion_budget_exhausted",
+      "sim_s": 300.0,
+      "error_mm": 318.10233610494157,
+      "goal_reached": false,
+      "validated_arrival": false,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 211.75138215301558,
+      "escape_activated": false,
+      "controller_p99_ms": 37.43279222398996,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.6771747624136791,
+          0.03437914890253567,
+          0.02733661044668928
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s04__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s04",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_ur3_shelf_t1__s04",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 9.38,
+      "error_mm": 0.40331505907315335,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 3.60674244700931,
+      "escape_activated": false,
+      "controller_p99_ms": 3.837698185816407,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.7809378252213064,
+          0.11972515666565728,
+          1.7090509641098088e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s04__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s04",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_ur3_shelf_t1__s04",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 9.38,
+      "error_mm": 0.40331505907315335,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 3.855048123979941,
+      "escape_activated": false,
+      "controller_p99_ms": 4.424583343788981,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.7809378252213064,
+          0.11972515666565728,
+          1.7090509641098088e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 66.0645442820387
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s08__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s08",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_ur3_shelf_t1__s08",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 15.74,
+      "error_mm": 0.7271858050051668,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 5.705641643027775,
+      "escape_activated": false,
+      "controller_p99_ms": 5.615917843533678,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.7806521164332524,
+          0.12157414654556785,
+          3.915927885524574e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 82.84928413794842
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s08__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s08",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_ur3_shelf_t1__s08",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 15.74,
+      "error_mm": 0.7272839549118361,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 5.437379844021052,
+      "escape_activated": false,
+      "controller_p99_ms": 5.442556883208453,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 2,
+        "combined_rank": 4,
+        "projected_singular_values": [
+          0.7806521164332524,
+          0.12157414654556785,
+          3.915927885524574e-09
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s14__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s14",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_ur3_shelf_t1__s14",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 13.72,
+      "error_mm": 0.6323791109149179,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 4.7036623790627345,
+      "escape_activated": false,
+      "controller_p99_ms": 5.121655017137526,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7821299225172089,
+          0.11999833797134793,
+          0.02074613065943462
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_ur3_shelf_t1__s14__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s14",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_ur3_shelf_t1__s14",
+      "task": "iris_ur3_shelf_t1",
+      "status": "safe_arrival_candidate",
+      "sim_s": 13.72,
+      "error_mm": 0.6322198602924277,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 5.044857967994176,
+      "escape_activated": false,
+      "controller_p99_ms": 5.229112436063581,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7821299225172089,
+          0.11999833797134793,
+          0.02074613065943462
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 91.13868960307445
+    },
+    {
+      "id": "iris_bins_t2__s04__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s04",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_bins_t2__s04",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.32,
+      "error_mm": 0.22161394777010526,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 3.057603591005318,
+      "escape_activated": false,
+      "controller_p99_ms": 3.783953905804083,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7818946589952819,
+          0.049419176652441096,
+          0.009972761084409169
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 137.26245541800745
+    },
+    {
+      "id": "iris_bins_t2__s04__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s04",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_bins_t2__s04",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.32,
+      "error_mm": 0.22161394777010526,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.8818821270251647,
+      "escape_activated": false,
+      "controller_p99_ms": 3.6280823231209074,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7818946589952819,
+          0.049419176652441096,
+          0.009972761084409169
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_bins_t2__s08__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s08",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_bins_t2__s08",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.1000000000000005,
+      "error_mm": 0.20348871062843213,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.7686814829939976,
+      "escape_activated": false,
+      "controller_p99_ms": 3.7398920441046344,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7818946589952819,
+          0.049419176652441096,
+          0.009972761084409169
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "iris_bins_t2__s08__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s08",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_bins_t2__s08",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.1000000000000005,
+      "error_mm": 0.20348871062843213,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 3.0367740280926228,
+      "escape_activated": false,
+      "controller_p99_ms": 3.7511114962399,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7818946589952819,
+          0.049419176652441096,
+          0.009972761084409169
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 141.91345200291835
+    },
+    {
+      "id": "iris_bins_t2__s14__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s14",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "iris_bins_t2__s14",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.36,
+      "error_mm": 0.20303118856707542,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 3.192186784930527,
+      "escape_activated": false,
+      "controller_p99_ms": 4.180464152013883,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7808894130891508,
+          0.042811973434990346,
+          0.008586876957440955
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 164.07173458498437
+    },
+    {
+      "id": "iris_bins_t2__s14__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s14",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "iris_bins_t2__s14",
+      "task": "iris_bins_t2",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.36,
+      "error_mm": 0.20303118856707542,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.9736001619603485,
+      "escape_activated": false,
+      "controller_p99_ms": 4.140502953669056,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.7808894130891508,
+          0.042811973434990346,
+          0.008586876957440955
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "cage_wide__s04__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s04",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "cage_wide__s04",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.640000000000001,
+      "error_mm": 0.5817391404369746,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.4640350599074736,
+      "escape_activated": false,
+      "controller_p99_ms": 4.298617043532431,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "cage_wide__s04__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s04",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "cage_wide__s04",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.640000000000001,
+      "error_mm": 0.5817391404369746,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.5304491089191288,
+      "escape_activated": false,
+      "controller_p99_ms": 4.240755719365552,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 57.64170939603355
+    },
+    {
+      "id": "cage_wide__s08__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s08",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "cage_wide__s08",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.28,
+      "error_mm": 0.26561893786343527,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.327765421010554,
+      "escape_activated": false,
+      "controller_p99_ms": 5.116555650020019,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 55.93289743200876
+    },
+    {
+      "id": "cage_wide__s08__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s08",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "cage_wide__s08",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.28,
+      "error_mm": 0.26561893786343527,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.2625717810587958,
+      "escape_activated": false,
+      "controller_p99_ms": 4.566682256991045,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "cage_wide__s14__baseline",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s14",
+      "group": "new_holdout",
+      "method": "baseline",
+      "case": "cage_wide__s14",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.18,
+      "error_mm": 0.3753672527738761,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.1244003060273826,
+      "escape_activated": false,
+      "controller_p99_ms": 4.305233210325241,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "not_needed",
+      "initialization_wall_s": 0
+    },
+    {
+      "id": "cage_wide__s14__candidate",
+      "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s14",
+      "group": "new_holdout",
+      "method": "candidate",
+      "case": "cage_wide__s14",
+      "task": "cage_wide",
+      "status": "safe_arrival_candidate",
+      "sim_s": 7.18,
+      "error_mm": 0.3753672527738761,
+      "goal_reached": true,
+      "validated_arrival": true,
+      "safety_passed": true,
+      "memory_passed": true,
+      "wall_s": 2.1734641219954938,
+      "escape_activated": false,
+      "controller_p99_ms": 4.776414853986354,
+      "guard_modified": 0,
+      "latency_model": "measured_control_compute",
+      "latency_tail_uses": 0,
+      "memory_count": 0,
+      "forbidden_calls": {},
+      "selected_source_rank": 0,
+      "entry_rank": {
+        "posture_rank": 2,
+        "reachable_translation_rank": 3,
+        "combined_rank": 5,
+        "projected_singular_values": [
+          0.8397648489669437,
+          0.0875917351195938,
+          0.025953061057700445
+        ],
+        "rank_tolerance": 1e-08
+      },
+      "initialization_status": "ready",
+      "initialization_wall_s": 45.65707836393267
+    }
+  ],
+  "pairs": [
+    {
+      "case": "iris_4shelves_t2__s04",
+      "task": "iris_4shelves_t2",
+      "seed": 4,
+      "baseline": {
+        "id": "iris_4shelves_t2__s04__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s04",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t2__s04",
+        "task": "iris_4shelves_t2",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 378.1532262756381,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 202.22335702890996,
+        "escape_activated": false,
+        "controller_p99_ms": 18.936214717105223,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8322221395176879,
+            0.11688709694081881,
+            0.045338935356473514
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t2__s04__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s04",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t2__s04",
+        "task": "iris_4shelves_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 26.66,
+        "error_mm": 0.26915811856561567,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 22.759394371067174,
+        "escape_activated": true,
+        "controller_p99_ms": 71.04200845817104,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8322221395176879,
+            0.11688709694081881,
+            0.045338935356473514
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 21.390097765950486
+      }
+    },
+    {
+      "case": "iris_4shelves_t2__s08",
+      "task": "iris_4shelves_t2",
+      "seed": 8,
+      "baseline": {
+        "id": "iris_4shelves_t2__s08__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s08",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t2__s08",
+        "task": "iris_4shelves_t2",
+        "status": "wall_budget_exhausted",
+        "sim_s": 253.34,
+        "error_mm": 529.6444623229904,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 1203.376786962035,
+        "escape_activated": false,
+        "controller_p99_ms": 8.241288694553077,
+        "guard_modified": 12206,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8300771472002616,
+            0.09657383670625895,
+            0.005113719741927099
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t2__s08__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s08",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t2__s08",
+        "task": "iris_4shelves_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 27.580000000000002,
+        "error_mm": 0.25993920836728585,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 33.513063601916656,
+        "escape_activated": true,
+        "controller_p99_ms": 63.72440094128251,
+        "guard_modified": 96,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8300771472002616,
+            0.09657383670625895,
+            0.005113719741927099
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 300.3869758719811
+      }
+    },
+    {
+      "case": "iris_4shelves_t2__s14",
+      "task": "iris_4shelves_t2",
+      "seed": 14,
+      "baseline": {
+        "id": "iris_4shelves_t2__s14__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s14",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t2__s14",
+        "task": "iris_4shelves_t2",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 378.22817751237557,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 234.5619687360013,
+        "escape_activated": false,
+        "controller_p99_ms": 36.76856520003639,
+        "guard_modified": 1,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.828402439472556,
+            0.11792662557734405,
+            0.02085492761575935
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t2__s14__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t2__s14",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t2__s14",
+        "task": "iris_4shelves_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 27.7,
+        "error_mm": 0.2728729460620853,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 22.292112519964576,
+        "escape_activated": true,
+        "controller_p99_ms": 62.46026820736004,
+        "guard_modified": 1,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.828402439472556,
+            0.11792662557734405,
+            0.02085492761575935
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 83.23263796500396
+      }
+    },
+    {
+      "case": "iris_4shelves_t0__s04",
+      "task": "iris_4shelves_t0",
+      "seed": 4,
+      "baseline": {
+        "id": "iris_4shelves_t0__s04__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s04",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t0__s04",
+        "task": "iris_4shelves_t0",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 327.38125031328696,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 190.56799711403437,
+        "escape_activated": false,
+        "controller_p99_ms": 37.702132809208706,
+        "guard_modified": 3,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.6741119754052104,
+            0.037763005909018044,
+            2.8341405045840406e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t0__s04__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s04",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t0__s04",
+        "task": "iris_4shelves_t0",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 198.8140148942226,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 395.4176259669475,
+        "escape_activated": true,
+        "controller_p99_ms": 128.71968963649124,
+        "guard_modified": 392,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.6741119754052104,
+            0.037763005909018044,
+            2.8341405045840406e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 107.37568364408799
+      }
+    },
+    {
+      "case": "iris_4shelves_t0__s08",
+      "task": "iris_4shelves_t0",
+      "seed": 8,
+      "baseline": {
+        "id": "iris_4shelves_t0__s08__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s08",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t0__s08",
+        "task": "iris_4shelves_t0",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 318.17219052460433,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 239.17762293096166,
+        "escape_activated": false,
+        "controller_p99_ms": 38.352568224072456,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6724720397342788,
+            0.06076134076292684,
+            0.0033518931134415993
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t0__s08__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s08",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t0__s08",
+        "task": "iris_4shelves_t0",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 194.47526791341411,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 313.723947054008,
+        "escape_activated": true,
+        "controller_p99_ms": 72.31647816020995,
+        "guard_modified": 567,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6724720397342788,
+            0.06076134076292684,
+            0.0033518931134415993
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 247.47416883602273
+      }
+    },
+    {
+      "case": "iris_4shelves_t0__s14",
+      "task": "iris_4shelves_t0",
+      "seed": 14,
+      "baseline": {
+        "id": "iris_4shelves_t0__s14__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s14",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_4shelves_t0__s14",
+        "task": "iris_4shelves_t0",
+        "status": "motion_budget_exhausted",
+        "sim_s": 300.0,
+        "error_mm": 318.10233610494157,
+        "goal_reached": false,
+        "validated_arrival": false,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 211.75138215301558,
+        "escape_activated": false,
+        "controller_p99_ms": 37.43279222398996,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6771747624136791,
+            0.03437914890253567,
+            0.02733661044668928
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_4shelves_t0__s14__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_4shelves_t0__s14",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_4shelves_t0__s14",
+        "task": "iris_4shelves_t0",
+        "status": "safe_arrival_candidate",
+        "sim_s": 86.82000000000001,
+        "error_mm": 0.1473012775475682,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 84.97830529196654,
+        "escape_activated": true,
+        "controller_p99_ms": 50.847462960518854,
+        "guard_modified": 109,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6771747624136791,
+            0.03437914890253567,
+            0.02733661044668928
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 162.9757262399653
+      }
+    },
+    {
+      "case": "iris_ur3_shelf_t1__s04",
+      "task": "iris_ur3_shelf_t1",
+      "seed": 4,
+      "baseline": {
+        "id": "iris_ur3_shelf_t1__s04__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s04",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_ur3_shelf_t1__s04",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 9.38,
+        "error_mm": 0.40331505907315335,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 3.60674244700931,
+        "escape_activated": false,
+        "controller_p99_ms": 3.837698185816407,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7809378252213064,
+            0.11972515666565728,
+            1.7090509641098088e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_ur3_shelf_t1__s04__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s04",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_ur3_shelf_t1__s04",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 9.38,
+        "error_mm": 0.40331505907315335,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 3.855048123979941,
+        "escape_activated": false,
+        "controller_p99_ms": 4.424583343788981,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7809378252213064,
+            0.11972515666565728,
+            1.7090509641098088e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 66.0645442820387
+      }
+    },
+    {
+      "case": "iris_ur3_shelf_t1__s08",
+      "task": "iris_ur3_shelf_t1",
+      "seed": 8,
+      "baseline": {
+        "id": "iris_ur3_shelf_t1__s08__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s08",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_ur3_shelf_t1__s08",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 15.74,
+        "error_mm": 0.7272839549118361,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 5.437379844021052,
+        "escape_activated": false,
+        "controller_p99_ms": 5.442556883208453,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7806521164332524,
+            0.12157414654556785,
+            3.915927885524574e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_ur3_shelf_t1__s08__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s08",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_ur3_shelf_t1__s08",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 15.74,
+        "error_mm": 0.7271858050051668,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 5.705641643027775,
+        "escape_activated": false,
+        "controller_p99_ms": 5.615917843533678,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7806521164332524,
+            0.12157414654556785,
+            3.915927885524574e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 82.84928413794842
+      }
+    },
+    {
+      "case": "iris_ur3_shelf_t1__s14",
+      "task": "iris_ur3_shelf_t1",
+      "seed": 14,
+      "baseline": {
+        "id": "iris_ur3_shelf_t1__s14__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s14",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_ur3_shelf_t1__s14",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 13.72,
+        "error_mm": 0.6323791109149179,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 4.7036623790627345,
+        "escape_activated": false,
+        "controller_p99_ms": 5.121655017137526,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7821299225172089,
+            0.11999833797134793,
+            0.02074613065943462
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_ur3_shelf_t1__s14__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_ur3_shelf_t1__s14",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_ur3_shelf_t1__s14",
+        "task": "iris_ur3_shelf_t1",
+        "status": "safe_arrival_candidate",
+        "sim_s": 13.72,
+        "error_mm": 0.6322198602924277,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 5.044857967994176,
+        "escape_activated": false,
+        "controller_p99_ms": 5.229112436063581,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7821299225172089,
+            0.11999833797134793,
+            0.02074613065943462
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 91.13868960307445
+      }
+    },
+    {
+      "case": "iris_bins_t2__s04",
+      "task": "iris_bins_t2",
+      "seed": 4,
+      "baseline": {
+        "id": "iris_bins_t2__s04__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s04",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_bins_t2__s04",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.32,
+        "error_mm": 0.22161394777010526,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.8818821270251647,
+        "escape_activated": false,
+        "controller_p99_ms": 3.6280823231209074,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_bins_t2__s04__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s04",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_bins_t2__s04",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.32,
+        "error_mm": 0.22161394777010526,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 3.057603591005318,
+        "escape_activated": false,
+        "controller_p99_ms": 3.783953905804083,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 137.26245541800745
+      }
+    },
+    {
+      "case": "iris_bins_t2__s08",
+      "task": "iris_bins_t2",
+      "seed": 8,
+      "baseline": {
+        "id": "iris_bins_t2__s08__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s08",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_bins_t2__s08",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.1000000000000005,
+        "error_mm": 0.20348871062843213,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.7686814829939976,
+        "escape_activated": false,
+        "controller_p99_ms": 3.7398920441046344,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_bins_t2__s08__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s08",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_bins_t2__s08",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.1000000000000005,
+        "error_mm": 0.20348871062843213,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 3.0367740280926228,
+        "escape_activated": false,
+        "controller_p99_ms": 3.7511114962399,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 141.91345200291835
+      }
+    },
+    {
+      "case": "iris_bins_t2__s14",
+      "task": "iris_bins_t2",
+      "seed": 14,
+      "baseline": {
+        "id": "iris_bins_t2__s14__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s14",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "iris_bins_t2__s14",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.36,
+        "error_mm": 0.20303118856707542,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.9736001619603485,
+        "escape_activated": false,
+        "controller_p99_ms": 4.140502953669056,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7808894130891508,
+            0.042811973434990346,
+            0.008586876957440955
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "iris_bins_t2__s14__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/iris_bins_t2__s14",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "iris_bins_t2__s14",
+        "task": "iris_bins_t2",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.36,
+        "error_mm": 0.20303118856707542,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 3.192186784930527,
+        "escape_activated": false,
+        "controller_p99_ms": 4.180464152013883,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7808894130891508,
+            0.042811973434990346,
+            0.008586876957440955
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 164.07173458498437
+      }
+    },
+    {
+      "case": "cage_wide__s04",
+      "task": "cage_wide",
+      "seed": 4,
+      "baseline": {
+        "id": "cage_wide__s04__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s04",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "cage_wide__s04",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.640000000000001,
+        "error_mm": 0.5817391404369746,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.4640350599074736,
+        "escape_activated": false,
+        "controller_p99_ms": 4.298617043532431,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "cage_wide__s04__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s04",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "cage_wide__s04",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.640000000000001,
+        "error_mm": 0.5817391404369746,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.5304491089191288,
+        "escape_activated": false,
+        "controller_p99_ms": 4.240755719365552,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 57.64170939603355
+      }
+    },
+    {
+      "case": "cage_wide__s08",
+      "task": "cage_wide",
+      "seed": 8,
+      "baseline": {
+        "id": "cage_wide__s08__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s08",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "cage_wide__s08",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.28,
+        "error_mm": 0.26561893786343527,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.2625717810587958,
+        "escape_activated": false,
+        "controller_p99_ms": 4.566682256991045,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "cage_wide__s08__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s08",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "cage_wide__s08",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.28,
+        "error_mm": 0.26561893786343527,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.327765421010554,
+        "escape_activated": false,
+        "controller_p99_ms": 5.116555650020019,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 55.93289743200876
+      }
+    },
+    {
+      "case": "cage_wide__s14",
+      "task": "cage_wide",
+      "seed": 14,
+      "baseline": {
+        "id": "cage_wide__s14__baseline",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s14",
+        "group": "new_holdout",
+        "method": "baseline",
+        "case": "cage_wide__s14",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.18,
+        "error_mm": 0.3753672527738761,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.1244003060273826,
+        "escape_activated": false,
+        "controller_p99_ms": 4.305233210325241,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "not_needed",
+        "initialization_wall_s": 0
+      },
+      "candidate": {
+        "id": "cage_wide__s14__candidate",
+        "runtime": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_rank_init_20261108/runtime_cases/cage_wide__s14",
+        "group": "new_holdout",
+        "method": "candidate",
+        "case": "cage_wide__s14",
+        "task": "cage_wide",
+        "status": "safe_arrival_candidate",
+        "sim_s": 7.18,
+        "error_mm": 0.3753672527738761,
+        "goal_reached": true,
+        "validated_arrival": true,
+        "safety_passed": true,
+        "memory_passed": true,
+        "wall_s": 2.1734641219954938,
+        "escape_activated": false,
+        "controller_p99_ms": 4.776414853986354,
+        "guard_modified": 0,
+        "latency_model": "measured_control_compute",
+        "latency_tail_uses": 0,
+        "memory_count": 0,
+        "forbidden_calls": {},
+        "selected_source_rank": 0,
+        "entry_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "initialization_status": "ready",
+        "initialization_wall_s": 45.65707836393267
+      }
+    }
+  ],
+  "initialization_analysis": {
+    "records": [
+      {
+        "case": "iris_4shelves_t2__s04",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": false,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0385684077900141,
+              0.9301960011471638,
+              0.3773307729682409,
+              0.11445536110327278,
+              0.03221425178224287
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8322221395176879,
+            0.11688709694081881,
+            0.045338935356473514
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_4shelves_t2__s08",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": false,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0436021474753985,
+              0.9484481906913713,
+              0.42672708694601874,
+              0.08978252643235371,
+              0.0036765113135111566
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8300771472002616,
+            0.09657383670625895,
+            0.005113719741927099
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_4shelves_t2__s14",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": false,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0398517116645156,
+              0.9224245156924459,
+              0.37375266105683036,
+              0.11511103181273236,
+              0.014890463387896421
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.828402439472556,
+            0.11792662557734405,
+            0.02085492761575935
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_4shelves_t0__s04",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9265718890977817,
+              0.8444529929991591,
+              0.4510048770403975,
+              0.031407999793949565,
+              2.054803441007214e-09
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 4,
+            "singular_values": [
+              0.926571889061159,
+              0.8444529930268031,
+              0.45100487694594327,
+              0.031408001487434334,
+              2.054803307574563e-09
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9330697230060342,
+              0.741694753503713,
+              0.365210762992367,
+              0.06523696351210777,
+              8.481310963321808e-07
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.6741119754052104,
+            0.037763005909018044,
+            2.8341405045840406e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_4shelves_t0__s08",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": false,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9265256665737811,
+              0.8501986761565217,
+              0.45303489452278833,
+              0.050228514859518666,
+              0.00244510612220094
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              0.932148574451354,
+              0.7369137400082748,
+              0.34700148080035703,
+              0.051132604442978555,
+              4.311176259289738e-07
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6724720397342788,
+            0.06076134076292684,
+            0.0033518931134415993
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_4shelves_t0__s14",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9269190089139662,
+              0.8484702558915105,
+              0.45344638085084854,
+              0.024528826128855537,
+              0.023092433399337472
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9265718890611587,
+              0.8444529930268028,
+              0.4510048769459432,
+              0.03140800148743433,
+              2.0548032969502113e-09
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9324069386522216,
+              0.7382636356243123,
+              0.35260237430094377,
+              0.0557430605962456,
+              2.054803369859115e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9322178723776893,
+              0.739263771583305,
+              0.35364926089917836,
+              0.06753714479431322,
+              0.012926119861853214
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.6771747624136791,
+            0.03437914890253567,
+            0.02733661044668928
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_ur3_shelf_t1__s04",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9427769661873112,
+              0.7792359768567619,
+              0.409922171810849,
+              0.10808543421360589,
+              1.248556952762601e-09
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9427769661309848,
+              0.7792359769058619,
+              0.40992217184194396,
+              0.10808543423299373,
+              1.2485569955427651e-09
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9211681337383965,
+              0.7621952967379679,
+              0.3339491288852396,
+              0.11721200191179917,
+              2.860803472609658e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9203399462612726,
+              0.759452720324236,
+              0.31942465346918314,
+              0.11958076559783763,
+              0.014592900755027042
+            ]
+          },
+          {
+            "source_rank": 4,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9520301222137615,
+              0.7660972254999335,
+              0.40358250919659666,
+              0.06453241433486281,
+              0.028041972392282236
+            ]
+          },
+          {
+            "source_rank": 5,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9230467184606321,
+              0.7626072023837568,
+              0.3297369826803753,
+              0.11961656555074596,
+              0.026098885062434643
+            ]
+          },
+          {
+            "source_rank": 6,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9238590144357937,
+              0.755927101416966,
+              0.3276903246642534,
+              0.1186776916004513,
+              1.2485569233341254e-09
+            ]
+          },
+          {
+            "source_rank": 7,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9376922580971687,
+              0.7571012824628377,
+              0.3729650722593933,
+              0.11233350070903345,
+              2.860803418507899e-09
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7809378252213064,
+            0.11972515666565728,
+            1.7090509641098088e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_ur3_shelf_t1__s08",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9211681337656126,
+              0.7621952966213205,
+              0.3339491289707751,
+              0.11721200221272268,
+              2.860803555438956e-09
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9211681337383965,
+              0.7621952967379679,
+              0.3339491288852396,
+              0.1172120019117992,
+              2.8608034726096587e-09
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9689205051703768,
+              0.7654133783941376,
+              0.43290754339839754,
+              0.036946708959249536,
+              0.011202553809632964
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9523089094851248,
+              0.7640133612400197,
+              0.40339848145034984,
+              0.06406106640280192,
+              0.02286461340022638
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 2,
+          "combined_rank": 4,
+          "projected_singular_values": [
+            0.7806521164332524,
+            0.12157414654556785,
+            3.915927885524574e-09
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_ur3_shelf_t1__s14",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              0.9211379612287497,
+              0.7643566342049412,
+              0.3353535889342893,
+              0.11691659972315308,
+              0.014975453550496289
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9211681337383965,
+              0.7621952967379679,
+              0.3339491288852396,
+              0.11721200191179917,
+              2.860803472609658e-09
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9699794853178351,
+              0.7627798676716928,
+              0.4324331503066497,
+              0.025586304620548138,
+              2.8608032550734148e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 4,
+            "singular_values": [
+              0.9699794856086873,
+              0.762779867466526,
+              0.4324331501761711,
+              0.025586301915965615,
+              2.860803622341898e-09
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7821299225172089,
+            0.11999833797134793,
+            0.02074613065943462
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_bins_t2__s04",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0773714850761447,
+              0.9287764869511456,
+              0.44214848422599595,
+              0.035835574209141054,
+              0.008772836858038374
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0811712057600642,
+              0.8865278118624292,
+              0.394443517761678,
+              0.07322026768408926,
+              0.022283831786230994
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0769267746997995,
+              0.9240852317697904,
+              0.439357064574813,
+              0.008173437059341643,
+              1.6282690681367103e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              1.076832086918051,
+              0.9222931145630422,
+              0.438259980593033,
+              0.09436875655041707,
+              0.015112535831972869
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_bins_t2__s08",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0773714850761447,
+              0.9287764869511456,
+              0.44214848422599595,
+              0.035835574209141054,
+              0.008772836858038374
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0811712057600644,
+              0.8865278118624293,
+              0.394443517761678,
+              0.07322026768408933,
+              0.022283831786230987
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0769267746997997,
+              0.9240852317697905,
+              0.4393570645748129,
+              0.008173437059341641,
+              1.6282690918067811e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              1.076832086918051,
+              0.9222931145630422,
+              0.438259980593033,
+              0.09436875655041707,
+              0.015112535831972869
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7818946589952819,
+            0.049419176652441096,
+            0.009972761084409169
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "iris_bins_t2__s14",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0773011154150038,
+              0.927079391318157,
+              0.44133083558465047,
+              0.031358278895869465,
+              0.00747872094696729
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0831486400680475,
+              0.9028424952817924,
+              0.4238031737242754,
+              0.037522030138892035,
+              0.01639115685175358
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0769267746997997,
+              0.9240852317697905,
+              0.4393570645748129,
+              0.008173437059341641,
+              1.6282690918067811e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0768320869180505,
+              0.9222931145630423,
+              0.43825998059303317,
+              0.09436875655041704,
+              0.015112535831973039
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.7808894130891508,
+            0.042811973434990346,
+            0.008586876957440955
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "cage_wide__s04",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0754788321648157,
+              0.9811438600317071,
+              0.4412602648231597,
+              0.07767391556535397,
+              0.019449482703949025
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0802059566746283,
+              0.9398502280475166,
+              0.38630503864793664,
+              0.08304423091248914,
+              0.015473212577692928
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0803283355669822,
+              0.9376603890326055,
+              0.3857131298826267,
+              0.08682611123188336,
+              2.303936092059329e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0763324228911701,
+              0.977425254795948,
+              0.4395203877395493,
+              0.06360235904870704,
+              2.303936093865728e-09
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "cage_wide__s08",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0754788321648157,
+              0.9811438600317071,
+              0.4412602648231597,
+              0.07767391556535397,
+              0.019449482703949025
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0802059566746283,
+              0.9398502280475166,
+              0.38630503864793664,
+              0.08304423091248914,
+              0.015473212577692928
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0803283355669822,
+              0.9376603890326055,
+              0.3857131298826267,
+              0.08682611123188336,
+              2.303936092059329e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0763324228911701,
+              0.977425254795948,
+              0.4395203877395493,
+              0.06360235904870704,
+              2.303936093865728e-09
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      },
+      {
+        "case": "cage_wide__s14",
+        "initialization_status": "ready",
+        "old_full_rank_condition_fails": true,
+        "old_port_ranks": [
+          {
+            "source_rank": 0,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0754788321648157,
+              0.9811438600317071,
+              0.4412602648231597,
+              0.07767391556535397,
+              0.019449482703949025
+            ]
+          },
+          {
+            "source_rank": 1,
+            "combined_rank": 5,
+            "singular_values": [
+              1.0802059566746283,
+              0.9398502280475166,
+              0.38630503864793664,
+              0.08304423091248914,
+              0.015473212577692928
+            ]
+          },
+          {
+            "source_rank": 2,
+            "combined_rank": 4,
+            "singular_values": [
+              1.0803283355669817,
+              0.9376603890326051,
+              0.3857131298826267,
+              0.08682611123188338,
+              2.303936092059327e-09
+            ]
+          },
+          {
+            "source_rank": 3,
+            "combined_rank": 4,
+            "singular_values": [
+              1.07633242289117,
+              0.9774252547959483,
+              0.4395203877395493,
+              0.06360235904870709,
+              2.3039360938657256e-09
+            ]
+          }
+        ],
+        "selected_source_rank": 0,
+        "new_rank": {
+          "posture_rank": 2,
+          "reachable_translation_rank": 3,
+          "combined_rank": 5,
+          "projected_singular_values": [
+            0.8397648489669437,
+            0.0875917351195938,
+            0.025953061057700445
+          ],
+          "rank_tolerance": 1e-08
+        },
+        "qg_values_unchanged": true
+      }
+    ],
+    "scope": "read-only diagnostics after frozen initialization; old rank condition is evaluated algebraically, not a rerun or pose substitution"
+  },
+  "integrity": {
+    "frozen_files": 1520,
+    "frozen_changes": [],
+    "old_files": 373,
+    "old_changes": [],
+    "runtime_checks": [
+      {
+        "runtime": "repair_runtime/iris_4shelves_t2__s13",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "repair_runtime/iris_4shelves_t0__s07",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "repair_runtime/iris_4shelves_t0__s02",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_ur3_shelf_t0__s07",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_4shelves_t0__s13",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_bins_t1__s07",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_4shelves_t2__s02",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_bins_t1__s13",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_4shelves_t2__s07",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_bins_t1__s02",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_development",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_ur3_shelf_t0__s13",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "regression_runtime/prior_holdout__iris_ur3_shelf_t0__s02",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_bins_t2__s04",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t0__s08",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/cage_wide__s08",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/cage_wide__s04",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t0__s14",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t2__s14",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_bins_t2__s14",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t2__s08",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t0__s04",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_bins_t2__s08",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_ur3_shelf_t1__s14",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_ur3_shelf_t1__s04",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_4shelves_t2__s04",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/iris_ur3_shelf_t1__s08",
+        "controller_unchanged": true
+      },
+      {
+        "runtime": "runtime_cases/cage_wide__s14",
+        "controller_unchanged": true
+      }
+    ],
+    "scope": "only initializer changed; original current-velocity controller, safety code, parameters and prior evidence unchanged"
+  },
+  "scope": "rank-aware static initialization repair only; unchanged no-path velocity controller and safety; historic frozen observed maps; not project-wide blind data or live unknown-environment sensing"
+}
