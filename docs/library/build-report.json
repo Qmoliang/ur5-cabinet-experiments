@@ -1,6 +1,38 @@
 {
   "documents": [
     {
+      "id": "liuqp900-paper",
+      "math": 26,
+      "diagrams": 0,
+      "headings": 24,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-ledger",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-explanation",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 1,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-tables",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
       "id": "liuqp900-methods",
       "math": 155,
       "diagrams": 0,
