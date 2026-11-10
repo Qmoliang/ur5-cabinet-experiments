@@ -1,0 +1,50 @@
+[
+  {
+    "id": "online__iris_bins_t0__s06__C",
+    "validation": {
+      "id": "online__iris_bins_t0__s06__C",
+      "arm": "C",
+      "status": "safe_arrival_candidate",
+      "physical": false,
+      "physical_exit": 0,
+      "feasibility": false,
+      "feasibility_exit": 0,
+      "posthoc_braking": true,
+      "memory": true,
+      "strict_memory": true,
+      "executed": true,
+      "goal_reached": true,
+      "budget_passed": true,
+      "physical_safe_arrival": false,
+      "strict_arrival": false,
+      "audit_wall_s": 52.25524534704164
+    },
+    "minimum_environment_mm": 5.9575195355976645,
+    "minimum_self_mm": 20.94488745742285,
+    "minimum_proxy_gap_mm": 6.49823857624834,
+    "maximum_original_row_violation": 8.817944014448441e-05,
+    "row_violating_cycles": [
+      900,
+      901,
+      1329,
+      1330,
+      2020,
+      2021
+    ],
+    "qp_infeasible_cycles": [],
+    "final_backup": {
+      "state_match": true,
+      "maximum_original_row_violation": 0.0,
+      "ends_at_rest": true,
+      "terminal_zero_witness": true,
+      "rest_zero_violation": 0.0,
+      "passed": true
+    },
+    "posthoc_tail": {
+      "created_after_execution": true,
+      "used_by_controller": false,
+      "physical_braking_passed": true,
+      "terminal_rest_reached": true
+    }
+  }
+]

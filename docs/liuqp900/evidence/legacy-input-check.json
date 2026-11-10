@@ -1,0 +1,7 @@
+{
+  "conditions": 300,
+  "passed": true,
+  "max_initial_q_difference": 0.0,
+  "max_target_difference": 0.0,
+  "protocols_still_different": true
+}

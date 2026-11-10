@@ -1,0 +1,101 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>旧RRT与新控制对照的差异 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">旧RRT系统与900次控制对照：版本差异与修正</a><a class="depth-2" href="#section-2">两种实验回答不同问题</a><a class="depth-2" href="#section-3">同任务和seed的描述性交叉表</a><a class="depth-2" href="#section-4">需要纠正的表述</a><a class="depth-2" href="#section-5">可下载与可播放范围</a><a class="depth-2" href="#section-6">历史内容如何保留</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">2026-11 冻结控制对照与方法 / MD</div><h1>旧RRT与新控制对照的差异</h1><p>2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。</p><div class="actions"><a class="primary" download href="../files/liuqp900/reconciliation.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/liuqp900/reconciliation.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。本库跨多个版本；指标须按各文档的队列与协议解释，不能混合统计。原文中的本机路径对应其原始实验目录。</div><div class="version-note">本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。</div></header><article id="content" class="prose"><h1 id="section-1">旧RRT系统与900次控制对照：版本差异与修正</h1>
+<p>旧结果继续保留；本页修正解释口径，不改写历史轨迹或判定。</p>
+<h2 id="section-2">两种实验回答不同问题</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>旧online final_r17 300例</th>
+<th>新C/A/B 900次</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统</td>
+<td>在线观测＋认证RRT路径＋LiuQP跟踪＋安全门</td>
+<td>冻结历史地图上的局部控制；控制阶段禁止RRT/全局路径搜索</td>
+</tr>
+<tr>
+<td>目标信息</td>
+<td>规划路径与航点引导</td>
+<td>C/A仅最终目标；B额外计算静态终态假设和固定终态线证书</td>
+</tr>
+<tr>
+<td>输入地图</td>
+<td>按原规则在线发布、更新</td>
+<td>从各旧案例首动前最后可用因果发布冻结；无运动案例使用最后可用的运动前发布</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>原300秒活动时域，感知/规划/等待遵循旧协议</td>
+<td>300秒物理仿真含控制等待；1200秒完整单次墙钟含B初始化</td>
+</tr>
+<tr>
+<td>验收</td>
+<td>原协议安全到达；旧字段strict_pass不可直接视为新严格指标</td>
+<td>物理安全到达与全程QP/备份/记忆严格成功分开</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>298/300（系统级成绩）</td>
+<td>C174/A186/B294物理安全到达；严格128/186/294</td>
+</tr>
+</tbody></table>
+<p>起点与目标已逐例对照旧公开回放，300组一致。但地图信息条件、规划参与、执行时序和部分验收性质不同，因此298→294不能直接解释为新控制退化4例。</p>
+<h2 id="section-3">同任务和seed的描述性交叉表</h2>
+<p>以下仅用于找到对应历史记录，不是同协议胜负或因果收益。</p>
+<table>
+<thead>
+<tr>
+<th>新组</th>
+<th align="right">两边通过</th>
+<th align="right">仅旧RRT通过</th>
+<th align="right">仅新组通过</th>
+<th align="right">两边未通过</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td align="right">173</td>
+<td align="right">125</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td>A</td>
+<td align="right">184</td>
+<td align="right">114</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>B</td>
+<td align="right">292</td>
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody></table>
+<p>旧RRT保留的失败为<code>cage seed 8</code>与<code>drawer seed 20</code>。B这两例通过；B另有6例未通过。网站提供逐例互链，原始记录分别保存在各自队列。</p>
+<h2 id="section-4">需要纠正的表述</h2>
+<ol>
+<li><strong>298/300不是纯LiuQP成功率。</strong> 它包含预先认证路径和跟踪。</li>
+<li><strong>新方法并非“完全没有轨迹计算”。</strong> 控制阶段不建RRT/搜索树，但会评估并认证当前构型到终态的固定收缩线，也使用完整终态关节方向。</li>
+<li><strong>KKT等价不是全局到达证明。</strong> 它只说明给定条件下同状态提案的有效QP等价；保持、制动和切换另有契约。</li>
+<li><strong>本轮没有验证新的在线感知或实机硬实时。</strong> 900条是15任务×20输入×3组，输入曾参与开发。</li>
+<li><strong>不同“严格”字段需按所在版本解释。</strong> 新严格结果包含每个实际速度的原QP行及末态备份检查；原始到达、安全到达与严格成功不能混用。</li>
+<li><strong>全墙钟必须包含终态初始化。</strong> 不能只报告B的运动阶段；共同成功与失败长尾应分别比较。</li>
+<li><strong>所有失败保留。</strong> 执行器退化、新控制退化、原QP不收敛、安全余量不足和预算停止均可查看。</li>
+</ol>
+<h2 id="section-5">可下载与可播放范围</h2>
+<ul>
+<li>900条保存q/末端状态全部可播放，无损float64载荷可验证。初始末端位置仅用原模型正运动学补齐，后续为原记录。</li>
+<li>每条运行可下载所属证据ZIP：原始trajectory.npz、result、审计、事件及日志按字节保存；B终态输入也保留。</li>
+<li>冻结源码有直接浏览链接和完整分包，提供SHA-256与原冻结清单。</li>
+<li>约8.86 GB完整输入地图仍在原实验归档；网站公开其哈希、来源选择与采样图，不声称完整地图已托管在Pages。</li>
+<li>地图采样最多2000个中心，仅为可视化辅助，不是完整安全几何。</li>
+<li>回放运行正运动学，不运行控制器、不调用mj_step，不是新的试验。</li>
+</ul>
+<h2 id="section-6">历史内容如何保留</h2>
+<p>旧600条已知/在线回放、球表示配对和19项早期网站继续存在，源数据没有覆盖。旧章节作为历史文档保留，最新方法以本次冻结代码对齐稿为准。没有把本地暂缓公开、尚待方法对齐的其他规划器研究顺带发布。</p>
+<p><a href="https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/" rel="noopener noreferrer">900次控制回放</a> · <a href="https://qmoliang.github.io/ur5-cabinet-experiments/closeout/" rel="noopener noreferrer">旧系统队列</a> · <a href="liuqp900-methods.html">更正后的方法</a></p>
+</article><p class="source-note">原始来源：<code>publication/liuqp900/reconciliation.md</code><br>SHA-256：<code>c131a69a05a3b2436d7eb9ec054a568832a01fdb5f9a483ef7b1c13b9b391041</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

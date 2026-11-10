@@ -1,0 +1,106 @@
+{
+  "base": "http://127.0.0.1:8767/",
+  "records": [
+    {
+      "id": "methods",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 14
+    },
+    {
+      "id": "proofs",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 11
+    },
+    {
+      "id": "status",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 4
+    },
+    {
+      "id": "code",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 29
+    },
+    {
+      "id": "notes",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 8
+    },
+    {
+      "id": "results",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 4
+    },
+    {
+      "id": "reconciliation",
+      "width": 1440,
+      "viewport": 1440,
+      "mathErrors": 0,
+      "headings": 5
+    },
+    {
+      "id": "methods",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 14
+    },
+    {
+      "id": "proofs",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 11
+    },
+    {
+      "id": "status",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 4
+    },
+    {
+      "id": "code",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 29
+    },
+    {
+      "id": "notes",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 8
+    },
+    {
+      "id": "results",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 4
+    },
+    {
+      "id": "reconciliation",
+      "width": 390,
+      "viewport": 390,
+      "mathErrors": 0,
+      "headings": 5
+    }
+  ],
+  "oldChineseDownloadStatus": 200,
+  "errors": [],
+  "bad": []
+}

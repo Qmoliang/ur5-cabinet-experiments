@@ -1,0 +1,338 @@
+{
+  "__init__": {
+    "module": "configuration_recurrence_policy",
+    "name": "__init__",
+    "line": 6,
+    "end": 8
+  },
+  "start_surface": {
+    "module": "configuration_recurrence_policy",
+    "name": "start_surface",
+    "line": 9,
+    "end": 12
+  },
+  "filter_viability": {
+    "module": "configuration_recurrence_policy",
+    "name": "filter_viability",
+    "line": 13,
+    "end": 16
+  },
+  "surface_call": {
+    "module": "configuration_recurrence_policy",
+    "name": "surface_call",
+    "line": 17,
+    "end": 38
+  },
+  "summary": {
+    "module": "configuration_recurrence_policy",
+    "name": "summary",
+    "line": 39,
+    "end": 40
+  },
+  "_terms": {
+    "module": "compatibility_clipped_policy",
+    "name": "_terms",
+    "line": 9,
+    "end": 11
+  },
+  "__call__": {
+    "module": "compatibility_clipped_policy",
+    "name": "__call__",
+    "line": 12,
+    "end": 28
+  },
+  "_register": {
+    "module": "goal_fiber_policy",
+    "name": "_register",
+    "line": 18,
+    "end": 22
+  },
+  "_try_rejoin": {
+    "module": "goal_fiber_policy",
+    "name": "_try_rejoin",
+    "line": 23,
+    "end": 40
+  },
+  "_begin_frame": {
+    "module": "executed_frame_policy",
+    "name": "_begin_frame",
+    "line": 8,
+    "end": 9
+  },
+  "emit": {
+    "module": "executed_frame_policy",
+    "name": "emit",
+    "line": 10,
+    "end": 12
+  },
+  "_current_binding_rows": {
+    "module": "executed_frame_policy",
+    "name": "_current_binding_rows",
+    "line": 17,
+    "end": 25
+  },
+  "_publish": {
+    "module": "executed_frame_policy",
+    "name": "_publish",
+    "line": 30,
+    "end": 33
+  },
+  "_try_direction": {
+    "module": "task_cone_policy",
+    "name": "_try_direction",
+    "line": 28,
+    "end": 35
+  },
+  "_extend_published": {
+    "module": "latency_backup_policy",
+    "name": "_extend_published",
+    "line": 21,
+    "end": 33
+  },
+  "_geometry": {
+    "module": "binding_backup_policy",
+    "name": "_geometry",
+    "line": 9,
+    "end": 11
+  },
+  "_frame": {
+    "module": "binding_backup_policy",
+    "name": "_frame",
+    "line": 12,
+    "end": 14
+  },
+  "_certify": {
+    "module": "selected_backup_policy",
+    "name": "_certify",
+    "line": 8,
+    "end": 10
+  },
+  "_memory_stamp": {
+    "module": "feasible_backup_policy",
+    "name": "_memory_stamp",
+    "line": 19,
+    "end": 19
+  },
+  "memory_safe": {
+    "module": "feasible_backup_policy",
+    "name": "memory_safe",
+    "line": 20,
+    "end": 24
+  },
+  "_key": {
+    "module": "feasible_backup_policy",
+    "name": "_key",
+    "line": 25,
+    "end": 25
+  },
+  "_extra_violation": {
+    "module": "feasible_backup_policy",
+    "name": "_extra_violation",
+    "line": 26,
+    "end": 34
+  },
+  "_admit": {
+    "module": "feasible_backup_policy",
+    "name": "_admit",
+    "line": 61,
+    "end": 70
+  },
+  "update_surface_feature_progress": {
+    "module": "surface_handoff_policy",
+    "name": "update_surface_feature_progress",
+    "line": 6,
+    "end": 11
+  },
+  "observe": {
+    "module": "surface_stall_policy",
+    "name": "observe",
+    "line": 13,
+    "end": 14
+  },
+  "feature": {
+    "module": "terminal_consistent_policy",
+    "name": "feature",
+    "line": 11,
+    "end": 13
+  },
+  "physical_merit": {
+    "module": "terminal_consistent_policy",
+    "name": "physical_merit",
+    "line": 14,
+    "end": 17
+  },
+  "select_terminal": {
+    "module": "terminal_consistent_policy",
+    "name": "select_terminal",
+    "line": 18,
+    "end": 36
+  },
+  "_memory_segment": {
+    "module": "legacy_goal_plane_memory_policy",
+    "name": "_memory_segment",
+    "line": 7,
+    "end": 23
+  },
+  "continuation_witnesses": {
+    "module": "goal_plane_acceptance_policy",
+    "name": "continuation_witnesses",
+    "line": 7,
+    "end": 17
+  },
+  "plane": {
+    "module": "goal_side_plane_policy",
+    "name": "plane",
+    "line": 9,
+    "end": 15
+  },
+  "_bounded_geometry": {
+    "module": "diagnostic_exact_pruned_policy",
+    "name": "_bounded_geometry",
+    "line": 13,
+    "end": 23
+  },
+  "continuation_certificate": {
+    "module": "continuation_certified_policy",
+    "name": "continuation_certificate",
+    "line": 14,
+    "end": 35
+  },
+  "_extras": {
+    "module": "continuation_maximin_policy",
+    "name": "_extras",
+    "line": 9,
+    "end": 12
+  },
+  "_solve": {
+    "module": "continuation_maximin_policy",
+    "name": "_solve",
+    "line": 13,
+    "end": 39
+  },
+  "_jac": {
+    "module": "continuation_policy",
+    "name": "_jac",
+    "line": 21,
+    "end": 25
+  },
+  "_goal_normal": {
+    "module": "goal_entry_policy_v5",
+    "name": "_goal_normal",
+    "line": 28,
+    "end": 34
+  },
+  "_tangent": {
+    "module": "goal_entry_policy_v5",
+    "name": "_tangent",
+    "line": 35,
+    "end": 45
+  },
+  "_entry_velocity": {
+    "module": "goal_entry_policy_v5",
+    "name": "_entry_velocity",
+    "line": 46,
+    "end": 53
+  },
+  "_tracking_solution": {
+    "module": "goal_entry_policy_v5",
+    "name": "_tracking_solution",
+    "line": 81,
+    "end": 84
+  },
+  "_surface_action": {
+    "module": "goal_entry_policy_v5",
+    "name": "_surface_action",
+    "line": 85,
+    "end": 93
+  },
+  "_use_tangent": {
+    "module": "goal_entry_policy_v5",
+    "name": "_use_tangent",
+    "line": 94,
+    "end": 99
+  },
+  "_goal_gap": {
+    "module": "goal_entry_policy_v3",
+    "name": "_goal_gap",
+    "line": 10,
+    "end": 17
+  },
+  "_select_blocker": {
+    "module": "goal_entry_policy_v2",
+    "name": "_select_blocker",
+    "line": 16,
+    "end": 32
+  },
+  "_goal_point_for_blocker": {
+    "module": "goal_entry_policy_v2",
+    "name": "_goal_point_for_blocker",
+    "line": 45,
+    "end": 47
+  },
+  "_value": {
+    "module": "goal_entry_policy",
+    "name": "_value",
+    "line": 47,
+    "end": 47
+  },
+  "_gradient": {
+    "module": "goal_entry_policy",
+    "name": "_gradient",
+    "line": 48,
+    "end": 49
+  },
+  "filter_memory": {
+    "module": "goal_entry_policy",
+    "name": "filter_memory",
+    "line": 126,
+    "end": 133
+  },
+  "_preview": {
+    "module": "goal_entry_policy",
+    "name": "_preview",
+    "line": 147,
+    "end": 150
+  },
+  "_support": {
+    "module": "goal_entry_policy",
+    "name": "_support",
+    "line": 151,
+    "end": 154
+  },
+  "_retained_geometry": {
+    "module": "retained_blocker_policy",
+    "name": "_retained_geometry",
+    "line": 15,
+    "end": 33
+  },
+  "_spatial": {
+    "module": "viability_policy",
+    "name": "_spatial",
+    "line": 27,
+    "end": 39
+  },
+  "_repair_cut": {
+    "module": "viability_policy",
+    "name": "_repair_cut",
+    "line": 40,
+    "end": 62
+  },
+  "_select_release": {
+    "module": "release_policy_v2",
+    "name": "_select_release",
+    "line": 7,
+    "end": 16
+  },
+  "switch": {
+    "module": "release_policy",
+    "name": "switch",
+    "line": 37,
+    "end": 41
+  },
+  "feedback": {
+    "module": "release_policy",
+    "name": "feedback",
+    "line": 56,
+    "end": 57
+  }
+}

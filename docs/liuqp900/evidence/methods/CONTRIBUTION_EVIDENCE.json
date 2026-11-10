@@ -1,0 +1,401 @@
+{
+  "source": "D:\\robot\\liuqp_pure300_20261110\\delivery\\COMPARISON_RESULTS.json",
+  "source_sha256": "e9adc42c5997cd84effc78dfc1a9a9a750d2112258e61b82ac22503e3a039fc6",
+  "rows": 900,
+  "conditions": 300,
+  "arms": {
+    "C": {
+      "recorded": 300,
+      "audited": 300,
+      "raw_goal_arrivals": 175,
+      "physical_safe_arrivals": 174,
+      "strict_successes": 128
+    },
+    "A": {
+      "recorded": 300,
+      "audited": 300,
+      "raw_goal_arrivals": 186,
+      "physical_safe_arrivals": 186,
+      "strict_successes": 186
+    },
+    "B": {
+      "recorded": 300,
+      "audited": 300,
+      "raw_goal_arrivals": 294,
+      "physical_safe_arrivals": 294,
+      "strict_successes": 294
+    }
+  },
+  "comparisons": {
+    "executor": {
+      "strict_arrival": {
+        "both_success": 127,
+        "gain": 59,
+        "both_failed": 113,
+        "regression": 1
+      },
+      "physical_safe_arrival": {
+        "both_success": 171,
+        "both_failed": 111,
+        "gain": 15,
+        "regression": 3
+      }
+    },
+    "new_control": {
+      "strict_arrival": {
+        "both_success": 185,
+        "gain": 109,
+        "both_failed": 5,
+        "regression": 1
+      },
+      "physical_safe_arrival": {
+        "both_success": 185,
+        "gain": 109,
+        "both_failed": 5,
+        "regression": 1
+      }
+    },
+    "combined": {
+      "strict_arrival": {
+        "both_success": 128,
+        "gain": 166,
+        "both_failed": 6
+      },
+      "physical_safe_arrival": {
+        "both_success": 173,
+        "gain": 121,
+        "both_failed": 5,
+        "regression": 1
+      }
+    }
+  },
+  "gain_activation": {
+    "new_control_strict_gains": 109,
+    "continuation_active": 109,
+    "surface_escape_active": 20,
+    "configuration_recurrence_used": 1
+  },
+  "new_robot_trials_in_this_task": 0,
+  "scope": "Empirical evidence on reused historical development inputs, not a proof of general convergence. New algebra checks are not robot trials.",
+  "original_QP_audit": {
+    "C": {
+      "audits": 300,
+      "actual_row_violation_runs": 161,
+      "LP_infeasible_state_runs": 7,
+      "final_QP_braking_failures": 68
+    },
+    "A": {
+      "audits": 300,
+      "actual_row_violation_runs": 0,
+      "LP_infeasible_state_runs": 0,
+      "final_QP_braking_failures": 1
+    },
+    "B": {
+      "audits": 300,
+      "actual_row_violation_runs": 0,
+      "LP_infeasible_state_runs": 0,
+      "final_QP_braking_failures": 0
+    }
+  },
+  "timing_all_attempts": {
+    "C": {
+      "goal_initialization_s": {
+        "n": 300,
+        "median": 0.0,
+        "p90": 0.0,
+        "maximum": 0.0,
+        "sum": 0.0
+      },
+      "runtime_setup_s": {
+        "n": 300,
+        "median": 1.4575071454746649,
+        "p90": 2.7671748696826404,
+        "maximum": 4.443036098964512,
+        "sum": 449.2697126053972
+      },
+      "worker_wall_s": {
+        "n": 300,
+        "median": 15.191624626982957,
+        "p90": 1057.5079578632956,
+        "maximum": 1200.303883128916,
+        "sum": 72204.77287844289
+      },
+      "arm_total_wall_s": {
+        "n": 300,
+        "median": 15.192050045006908,
+        "p90": 1057.5086008168525,
+        "maximum": 1200.305314971949,
+        "sum": 72204.92983271705
+      },
+      "shared_input_preparation_s": {
+        "n": 300,
+        "median": 2.2187161224428564,
+        "p90": 5.347010062483605,
+        "maximum": 8.137083859997801,
+        "sum": 708.2351140523097
+      },
+      "total_with_shared_input_charge_s": {
+        "n": 300,
+        "median": 17.753440623055212,
+        "p90": 1058.0014195485624,
+        "maximum": 1207.8254016229184,
+        "sum": 72927.90328798746
+      },
+      "simulation_s": {
+        "n": 300,
+        "median": 18.630000000000003,
+        "p90": 300.0,
+        "maximum": 300.0,
+        "sum": 31423.88
+      },
+      "audit_wall_s": {
+        "n": 300,
+        "median": 25.678891591960564,
+        "p90": 122.86368966090963,
+        "maximum": 379.07183572195936,
+        "sum": 14284.968315164093
+      }
+    },
+    "A": {
+      "goal_initialization_s": {
+        "n": 300,
+        "median": 0.0,
+        "p90": 0.0,
+        "maximum": 0.0,
+        "sum": 0.0
+      },
+      "runtime_setup_s": {
+        "n": 300,
+        "median": 3.163574125035666,
+        "p90": 5.949589092051611,
+        "maximum": 9.586810212931596,
+        "sum": 958.7001650987659
+      },
+      "worker_wall_s": {
+        "n": 300,
+        "median": 41.132653419452254,
+        "p90": 184.45429582523647,
+        "maximum": 272.42807914793957,
+        "sum": 22633.65827946749
+      },
+      "arm_total_wall_s": {
+        "n": 300,
+        "median": 41.133718310971744,
+        "p90": 184.45538317083847,
+        "maximum": 272.4293004500214,
+        "sum": 22634.043380601448
+      },
+      "shared_input_preparation_s": {
+        "n": 300,
+        "median": 2.2187161224428564,
+        "p90": 5.347010062483605,
+        "maximum": 8.137083859997801,
+        "sum": 708.2351140523097
+      },
+      "total_with_shared_input_charge_s": {
+        "n": 300,
+        "median": 43.94431168946903,
+        "p90": 186.1938018186018,
+        "maximum": 275.46218459995,
+        "sum": 23359.877901504748
+      },
+      "simulation_s": {
+        "n": 300,
+        "median": 61.39,
+        "p90": 300.0,
+        "maximum": 300.0,
+        "sum": 40084.740000000005
+      },
+      "audit_wall_s": {
+        "n": 300,
+        "median": 26.394151644024532,
+        "p90": 129.24163449343766,
+        "maximum": 493.953776411945,
+        "sum": 17107.061742112157
+      }
+    },
+    "B": {
+      "goal_initialization_s": {
+        "n": 300,
+        "median": 79.49045927549014,
+        "p90": 300.2306976282155,
+        "maximum": 595.5345025330316,
+        "sum": 40317.12159626139
+      },
+      "runtime_setup_s": {
+        "n": 300,
+        "median": 3.340168833557982,
+        "p90": 6.333608387131244,
+        "maximum": 9.711074008024298,
+        "sum": 1009.2655776741449
+      },
+      "worker_wall_s": {
+        "n": 300,
+        "median": 17.06567910348531,
+        "p90": 84.79713504281827,
+        "maximum": 377.1406899410067,
+        "sum": 12003.115945495781
+      },
+      "arm_total_wall_s": {
+        "n": 300,
+        "median": 144.66051318554673,
+        "p90": 352.44680244751515,
+        "maximum": 602.9145068640355,
+        "sum": 52321.41130629135
+      },
+      "shared_input_preparation_s": {
+        "n": 300,
+        "median": 2.2187161224428564,
+        "p90": 5.347010062483605,
+        "maximum": 8.137083859997801,
+        "sum": 708.2351140523097
+      },
+      "total_with_shared_input_charge_s": {
+        "n": 300,
+        "median": 146.20218783797463,
+        "p90": 358.5611449552351,
+        "maximum": 605.421769003151,
+        "sum": 53047.24582719465
+      },
+      "simulation_s": {
+        "n": 300,
+        "median": 32.010000000000005,
+        "p90": 105.05000000000001,
+        "maximum": 300.0,
+        "sum": 16379.140000000001
+      },
+      "audit_wall_s": {
+        "n": 300,
+        "median": 12.138795022037812,
+        "p90": 120.74000468692977,
+        "maximum": 259.3083644750295,
+        "sum": 11574.253023814643
+      }
+    }
+  },
+  "common_success_timing": {
+    "executor": {
+      "source_total_wall_s": {
+        "n": 127,
+        "median": 3.7756330670090392,
+        "p90": 5.696574542997405,
+        "maximum": 29.263076049974188,
+        "sum": 665.8280428934377
+      },
+      "target_total_wall_s": {
+        "n": 127,
+        "median": 7.831833819975145,
+        "p90": 10.956754813017325,
+        "maximum": 85.57793154090177,
+        "sum": 1572.2356864076573
+      },
+      "delta_wall_s": {
+        "n": 127,
+        "median": 4.259105155011639,
+        "p90": 6.2724328415701205,
+        "maximum": 65.1677303040633,
+        "sum": 906.4076435142197
+      },
+      "source_sim_s": {
+        "n": 127,
+        "median": 7.44,
+        "p90": 11.028,
+        "maximum": 30.0,
+        "sum": 1146.6599999999999
+      },
+      "target_sim_s": {
+        "n": 127,
+        "median": 14.08,
+        "p90": 18.764000000000003,
+        "maximum": 100.26,
+        "sum": 2340.5199999999995
+      }
+    },
+    "new_control": {
+      "source_total_wall_s": {
+        "n": 185,
+        "median": 9.131397470948286,
+        "p90": 65.04668722557834,
+        "maximum": 85.57793154090177,
+        "sum": 3982.9733189386316
+      },
+      "target_total_wall_s": {
+        "n": 185,
+        "median": 185.05304145102855,
+        "p90": 339.5544310412369,
+        "maximum": 602.9145068640355,
+        "sum": 34287.02739204862
+      },
+      "delta_wall_s": {
+        "n": 185,
+        "median": 170.62304245401174,
+        "p90": 312.9466111124027,
+        "maximum": 596.2349677360617,
+        "sum": 30304.05407310999
+      },
+      "source_sim_s": {
+        "n": 185,
+        "median": 15.88,
+        "p90": 95.05599999999998,
+        "maximum": 128.68,
+        "sum": 6283.74
+      },
+      "target_sim_s": {
+        "n": 185,
+        "median": 16.02,
+        "p90": 71.676,
+        "maximum": 105.14,
+        "sum": 5571.9800000000005
+      }
+    },
+    "combined": {
+      "source_total_wall_s": {
+        "n": 128,
+        "median": 3.7983754684682935,
+        "p90": 5.691105118498672,
+        "maximum": 29.263076049974188,
+        "sum": 670.7513489244739
+      },
+      "target_total_wall_s": {
+        "n": 128,
+        "median": 220.4123082489823,
+        "p90": 329.35102731247895,
+        "maximum": 602.9145068640355,
+        "sum": 25760.194649668527
+      },
+      "delta_wall_s": {
+        "n": 128,
+        "median": 217.01781008497346,
+        "p90": 325.8448157034698,
+        "maximum": 599.9417957309633,
+        "sum": 25089.443300744053
+      },
+      "source_sim_s": {
+        "n": 128,
+        "median": 7.45,
+        "p90": 11.026,
+        "maximum": 30.0,
+        "sum": 1154.82
+      },
+      "target_sim_s": {
+        "n": 128,
+        "median": 14.120000000000001,
+        "p90": 19.583999999999996,
+        "maximum": 145.08,
+        "sum": 2500.5800000000004
+      }
+    }
+  },
+  "logged_nominal_parameters": {
+    "records": 300,
+    "task_weights": [
+      90.0
+    ],
+    "velocity_regularization": [
+      1.0
+    ],
+    "controller_margin": [
+      0.0065
+    ]
+  }
+}

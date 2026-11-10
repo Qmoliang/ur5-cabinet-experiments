@@ -1,5 +1,27 @@
 # UR5 Cabinet Experiments
 
+## 900次冻结控制对照与方法稿 — 2026-11-10
+
+**[交互结果与全部900条回放](https://qmoliang.github.io/ur5-cabinet-experiments/liuqp900/)** · **[方法Markdown](docs/library/files/liuqp900/methods.md)** · [证明与边界](docs/library/files/liuqp900/proofs.md) · [源码映射](docs/library/files/liuqp900/code-alignment.md)
+
+15类任务×20个固定输入×3组。C为原LiuQP目标＋原执行方式与安全门，A为原目标＋共同认证执行器，B为终态初始化与新控制＋同一执行器。三组保持相同数值求解配置、输入与原安全标准；每次300秒仿真和1200秒完整墙钟预算。所有失败保留，原实验结果未改写。
+
+| 组 | 物理安全到达 | 完整严格成功 | 完整墙钟中位数 / P90 |
+| --- | ---: | ---: | ---: |
+| C 原执行方式 | 174/300 | 128/300 | 15.19 / 1057.51 s |
+| A 共同执行器 | 186/300 | 186/300 | 41.13 / 184.46 s |
+| B 新控制方案 | 294/300 | 294/300 | 144.66 / 352.45 s |
+
+严格成功额外要求全程原QP行、最终制动/静止及适用的记忆审计。C→A严格新增59/退化1，物理安全新增15/退化3；A→B新增109/退化1；C→B严格新增166/退化0，但物理安全仍有1个退化。B不是零代价或无退化方案。
+
+全部900条保存状态可在浏览器播放、逐帧定位，并显示三组同一仿真时刻的误差。回放只计算正运动学，不运行控制器或mj_step。900份轨迹NPZ、审计、事件与失败日志按原字节分包下载；初始化成本、代码冻结哈希、输入来源及逐例源码链接均保留。完整约8.86 GB地图仍在原实验归档，公开哈希与采样可视化；网站不声称包含所有原始地图或已验证干净机器一键重跑。
+
+**与旧RRT队列分开解释：** 原online final_r17的298/300是感知＋RRT规划＋跟踪＋安全门的系统结果。新实验使用其历史观测快照，不是重做同一在线系统。起点/目标可逐例关联，信息、时序及严格验收不同；不能把298→294写成公平回归下降4例。[完整差异说明](docs/library/files/liuqp900/reconciliation.md)
+
+方法稿按最终冻结代码重写，数学证明、条件性执行契约、经验效果及未证明主张分列。已知执行器一致性缺口和有效速度保守性未被隐藏。LaTeX与原始方法资料也可下载，未声称全局收敛、完备逃逸或实机硬实时。[三组贡献与失败](docs/library/files/liuqp900/results.md)
+
+
+
 ## Paired online and frozen-snapshot study — 2026-11-04
 
 **[Open the updated paired results and performance study](https://qmoliang.github.io/ur5-cabinet-experiments/closeout/study/)**

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "runs": 900,
+  "conditions": 300,
+  "all_replay_payloads_verified": true,
+  "total_saved_states": 4395288,
+  "raw_evidence_members_verified": 24902,
+  "source_members_verified": 1541,
+  "historical_numeric_evidence_unchanged": true,
+  "no_files_deleted": true,
+  "checked_html_links": 731,
+  "broken_links": [],
+  "markdown_math_preserved": true,
+  "no_controller_or_physics_rerun": true,
+  "export_validation": {
+    "passed": true,
+    "runs": 900,
+    "conditions": 300,
+    "source_files_crosschecked": 4500,
+    "frame_records": 4395288,
+    "frames_roundtrip_exact": true,
+    "source_initial_q_exact": true,
+    "targets_match_historical_case": true,
+    "native_fk_checks": 2700,
+    "max_native_fk_error_m": 0.0,
+    "no_experiments_rerun": true,
+    "mj_step_called": false,
+    "full_input_maps_uploaded": false,
+    "input_total_bytes": 8862462226,
+    "raw_evidence_bundles": 187,
+    "runs_with_trajectory": 900
+  },
+  "browser_validation": {
+    "runs": 900,
+    "failures": [],
+    "samples": 2700,
+    "maxFkErrorM": 5.551115123125783e-16,
+    "totalSavedStates": 4395288,
+    "site": "http://127.0.0.1:8767/liuqp900/",
+    "play": {
+      "frame": 19,
+      "playing": false
+    },
+    "sync": {
+      "frame": 300,
+      "case": "online__iris_bins_t3__s08__B"
+    },
+    "filter": "109/300 条件 · 每条含3组",
+    "mobile": {
+      "width": 390,
+      "viewport": 390
+    },
+    "errors": [],
+    "bad": [],
+    "noControllerOrPhysicsRerun": true,
+    "checkedAt": "2026-11-10T09:30:26.597Z",
+    "testedDataBlob": "7eb87446eb7a07cacb8cc93f7bf67d3689048f85"
+  }
+}

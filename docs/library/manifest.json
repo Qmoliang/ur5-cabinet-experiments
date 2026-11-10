@@ -1,6 +1,10 @@
 {
   "groups": [
     {
+      "id": "liuqp900",
+      "title": "2026-11 冻结控制对照与方法"
+    },
+    {
       "id": "chapters",
       "title": "数学与代码阅读"
     },
@@ -18,10 +22,94 @@
     },
     {
       "id": "current",
-      "title": "当前落地柜子实验"
+      "title": "2026-09 历史19项实验"
     }
   ],
   "documents": [
+    {
+      "id": "liuqp900-methods",
+      "title": "方法初稿：认证执行与终态引导持续绕行",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/methods.md",
+      "filename": "methods.md",
+      "source": "publication/liuqp900/methods.md",
+      "sha256": "b8a2d4c5a5aeb4d4a91b0bc8d98857f4f4e67419fa725e25fc781e13b7757b5a",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-proofs",
+      "title": "九项数学性质与条件证明",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/proofs.md",
+      "filename": "proofs.md",
+      "source": "publication/liuqp900/proofs.md",
+      "sha256": "e48344f063b56c4a5d8243ba916008f02712bac0725a7526bff9c1ce4b71496d",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-status",
+      "title": "证明与实验支持速查",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/property-status.md",
+      "filename": "property-status.md",
+      "source": "publication/liuqp900/property-status.md",
+      "sha256": "22b51ef1fbd786fe980b9566844424b59d639934fff2e866b9c86f1eecb43e6e",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-code",
+      "title": "29项主张与冻结源码映射",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/code-alignment.md",
+      "filename": "code-alignment.md",
+      "source": "publication/liuqp900/code-alignment.md",
+      "sha256": "83b5b270be9c11adc4eebff480aa32bb0450ffaa977de3525cc9699b1268268f",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-notes",
+      "title": "历史表述更正与实现缺口",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/author-notes.md",
+      "filename": "author-notes.md",
+      "source": "publication/liuqp900/author-notes.md",
+      "sha256": "b5611eb5ce68bd4f0b6c291f3524990e7a7f8e15b5b7189b56378a987004dd37",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-results",
+      "title": "900次结果与贡献分离",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/results.md",
+      "filename": "results.md",
+      "source": "publication/liuqp900/results.md",
+      "sha256": "89d57c1e1891ecc43bc933d39c0730e254878fb035a791b9da39fe174b021fc6",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
+    {
+      "id": "liuqp900-reconciliation",
+      "title": "旧RRT与新控制对照的差异",
+      "group": "liuqp900",
+      "format": "md",
+      "file": "files/liuqp900/reconciliation.md",
+      "filename": "reconciliation.md",
+      "source": "publication/liuqp900/reconciliation.md",
+      "sha256": "c131a69a05a3b2436d7eb9ec054a568832a01fdb5f9a483ef7b1c13b9b391041",
+      "note": "2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。",
+      "scope_note": "本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。"
+    },
     {
       "id": "chapter1-word",
       "group": "chapters",

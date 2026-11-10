@@ -1,0 +1,2018 @@
+[
+  {
+    "module": "configuration_recurrence_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "start_surface",
+        "line": 9,
+        "end": 12
+      },
+      {
+        "name": "filter_viability",
+        "line": 13,
+        "end": 16
+      },
+      {
+        "name": "surface_call",
+        "line": 17,
+        "end": 38
+      },
+      {
+        "name": "summary",
+        "line": 39,
+        "end": 40
+      }
+    ],
+    "imports": {
+      "cKDTree": [
+        "scipy.spatial",
+        "cKDTree"
+      ],
+      "Previous": [
+        "compatibility_clipped_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "compatibility_clipped_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "_terms",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "__call__",
+        "line": 12,
+        "end": 28
+      },
+      {
+        "name": "summary",
+        "line": 29,
+        "end": 30
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_fiber_policy",
+        "LowDimPolicy"
+      ],
+      "Legacy": [
+        "legacy_goal_plane_memory_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_fiber_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "_terms",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "start_surface",
+        "line": 12,
+        "end": 17
+      },
+      {
+        "name": "_register",
+        "line": 18,
+        "end": 22
+      },
+      {
+        "name": "_try_rejoin",
+        "line": 23,
+        "end": 40
+      },
+      {
+        "name": "__call__",
+        "line": 41,
+        "end": 61
+      },
+      {
+        "name": "filter_viability",
+        "line": 62,
+        "end": 66
+      },
+      {
+        "name": "summary",
+        "line": 67,
+        "end": 68
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "executed_frame_policy",
+        "LowDimPolicy"
+      ],
+      "GoalSolver": [
+        "goal_entry_policy_v6",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "executed_frame_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 7
+      },
+      {
+        "name": "_begin_frame",
+        "line": 8,
+        "end": 9
+      },
+      {
+        "name": "emit",
+        "line": 10,
+        "end": 12
+      },
+      {
+        "name": "start_surface",
+        "line": 13,
+        "end": 16
+      },
+      {
+        "name": "_current_binding_rows",
+        "line": 17,
+        "end": 25
+      },
+      {
+        "name": "surface_call",
+        "line": 26,
+        "end": 29
+      },
+      {
+        "name": "_publish",
+        "line": 30,
+        "end": 33
+      },
+      {
+        "name": "filter_viability",
+        "line": 34,
+        "end": 38
+      },
+      {
+        "name": "summary",
+        "line": 39,
+        "end": 40
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "task_cone_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "task_cone_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 8,
+        "end": 9
+      },
+      {
+        "name": "_terms",
+        "line": 10,
+        "end": 21
+      },
+      {
+        "name": "_current_binding_rows",
+        "line": 22,
+        "end": 27
+      },
+      {
+        "name": "_try_direction",
+        "line": 28,
+        "end": 35
+      },
+      {
+        "name": "summary",
+        "line": 36,
+        "end": 37
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "latency_backup_policy",
+        "LowDimPolicy"
+      ],
+      "CurrentSolver": [
+        "goal_entry_policy_v6",
+        "LowDimPolicy"
+      ],
+      "FrameSelection": [
+        "frame_transfer_policy",
+        "LowDimPolicy"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ]
+    }
+  },
+  {
+    "module": "latency_backup_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 16
+      },
+      {
+        "name": "_register",
+        "line": 17,
+        "end": 20
+      },
+      {
+        "name": "_extend_published",
+        "line": 21,
+        "end": 33
+      },
+      {
+        "name": "_publish",
+        "line": 34,
+        "end": 39
+      },
+      {
+        "name": "__call__",
+        "line": 40,
+        "end": 45
+      },
+      {
+        "name": "filter_viability",
+        "line": 46,
+        "end": 53
+      },
+      {
+        "name": "summary",
+        "line": 54,
+        "end": 55
+      }
+    ],
+    "imports": {
+      "OrderedDict": [
+        "collections",
+        "OrderedDict"
+      ],
+      "Previous": [
+        "binding_backup_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "binding_backup_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "_geometry",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "_frame",
+        "line": 12,
+        "end": 14
+      },
+      {
+        "name": "surface_call",
+        "line": 15,
+        "end": 42
+      },
+      {
+        "name": "summary",
+        "line": 43,
+        "end": 44
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "selected_backup_policy",
+        "LowDimPolicy"
+      ],
+      "ExactGeometry": [
+        "goal_entry_policy_v2",
+        "LowDimPolicy"
+      ],
+      "Surface": [
+        "surface_escape_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "selected_backup_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 7
+      },
+      {
+        "name": "_certify",
+        "line": 8,
+        "end": 10
+      },
+      {
+        "name": "_publish",
+        "line": 11,
+        "end": 16
+      },
+      {
+        "name": "__call__",
+        "line": 17,
+        "end": 23
+      },
+      {
+        "name": "filter_viability",
+        "line": 24,
+        "end": 31
+      },
+      {
+        "name": "summary",
+        "line": 32,
+        "end": 33
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "feasible_backup_policy",
+        "LowDimPolicy"
+      ],
+      "Frame": [
+        "frame_transfer_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "feasible_backup_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 11,
+        "end": 18
+      },
+      {
+        "name": "_memory_stamp",
+        "line": 19,
+        "end": 19
+      },
+      {
+        "name": "memory_safe",
+        "line": 20,
+        "end": 24
+      },
+      {
+        "name": "_key",
+        "line": 25,
+        "end": 25
+      },
+      {
+        "name": "_extra_violation",
+        "line": 26,
+        "end": 34
+      },
+      {
+        "name": "_certify",
+        "line": 35,
+        "end": 60
+      },
+      {
+        "name": "_admit",
+        "line": 61,
+        "end": 70
+      },
+      {
+        "name": "_publish",
+        "line": 71,
+        "end": 81
+      },
+      {
+        "name": "__call__",
+        "line": 82,
+        "end": 85
+      },
+      {
+        "name": "filter_viability",
+        "line": 86,
+        "end": 107
+      },
+      {
+        "name": "summary",
+        "line": 108,
+        "end": 111
+      }
+    ],
+    "imports": {
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "Previous": [
+        "frame_transfer_policy",
+        "LowDimPolicy"
+      ],
+      "build_assembler": [
+        "original_row_certificate",
+        "build_assembler"
+      ],
+      "check_rows": [
+        "original_row_certificate",
+        "check_rows"
+      ],
+      "solve_verified": [
+        "verified_qp",
+        "solve_verified"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ],
+      "SELF_CERTIFICATE_ROUNDOFF_M": [
+        "goal_entry_policy_v4",
+        "SELF_CERTIFICATE_ROUNDOFF_M"
+      ],
+      "ROW_ACCEPTANCE_TOLERANCE": [
+        "goal_entry_policy_v4",
+        "ROW_ACCEPTANCE_TOLERANCE"
+      ]
+    }
+  },
+  {
+    "module": "frame_transfer_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "_current_binding_rows",
+        "line": 7,
+        "end": 17
+      },
+      {
+        "name": "surface_call",
+        "line": 18,
+        "end": 32
+      },
+      {
+        "name": "summary",
+        "line": 33,
+        "end": 34
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "surface_handoff_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "surface_handoff_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 4,
+        "end": 5
+      },
+      {
+        "name": "update_surface_feature_progress",
+        "line": 6,
+        "end": 11
+      },
+      {
+        "name": "summary",
+        "line": 12,
+        "end": 13
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "surface_stall_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "surface_stall_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "update_surface_feature_progress",
+        "line": 7,
+        "end": 12
+      },
+      {
+        "name": "observe",
+        "line": 13,
+        "end": 14
+      },
+      {
+        "name": "start_surface",
+        "line": 15,
+        "end": 20
+      },
+      {
+        "name": "summary",
+        "line": 21,
+        "end": 22
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "surface_escape_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "surface_escape_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "_terms",
+        "line": 9,
+        "end": 15
+      },
+      {
+        "name": "start_surface",
+        "line": 16,
+        "end": 29
+      },
+      {
+        "name": "surface_call",
+        "line": 30,
+        "end": 64
+      },
+      {
+        "name": "__call__",
+        "line": 65,
+        "end": 71
+      },
+      {
+        "name": "summary",
+        "line": 72,
+        "end": 73
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "terminal_consistent_policy",
+        "LowDimPolicy"
+      ],
+      "Geometry": [
+        "diagnostic_exact_pruned_policy",
+        "LowDimPolicy"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ]
+    }
+  },
+  {
+    "module": "terminal_consistent_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 8,
+        "end": 10
+      },
+      {
+        "name": "feature",
+        "line": 11,
+        "end": 13
+      },
+      {
+        "name": "physical_merit",
+        "line": 14,
+        "end": 17
+      },
+      {
+        "name": "select_terminal",
+        "line": 18,
+        "end": 36
+      },
+      {
+        "name": "__call__",
+        "line": 37,
+        "end": 47
+      },
+      {
+        "name": "summary",
+        "line": 48,
+        "end": 49
+      }
+    ],
+    "imports": {
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "Previous": [
+        "posture_policy",
+        "LowDimPolicy"
+      ],
+      "Geometry": [
+        "diagnostic_exact_pruned_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "posture_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "_terms",
+        "line": 6,
+        "end": 10
+      },
+      {
+        "name": "summary",
+        "line": 11,
+        "end": 12
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "legacy_goal_plane_memory_policy",
+        "LowDimPolicy"
+      ],
+      "Entry": [
+        "goal_entry_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "legacy_goal_plane_memory_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "_memory_segment",
+        "line": 7,
+        "end": 23
+      },
+      {
+        "name": "summary",
+        "line": 24,
+        "end": 26
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_plane_acceptance_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_plane_acceptance_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "continuation_witnesses",
+        "line": 7,
+        "end": 17
+      },
+      {
+        "name": "__call__",
+        "line": 18,
+        "end": 21
+      },
+      {
+        "name": "summary",
+        "line": 22,
+        "end": 24
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_side_plane_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_side_plane_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "plane",
+        "line": 9,
+        "end": 15
+      },
+      {
+        "name": "continuation_witnesses",
+        "line": 16,
+        "end": 22
+      },
+      {
+        "name": "summary",
+        "line": 23,
+        "end": 25
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "diagnostic_exact_pruned_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "diagnostic_exact_pruned_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 8,
+        "end": 12
+      },
+      {
+        "name": "_bounded_geometry",
+        "line": 13,
+        "end": 23
+      },
+      {
+        "name": "continuation_witnesses",
+        "line": 24,
+        "end": 50
+      },
+      {
+        "name": "summary",
+        "line": 51,
+        "end": 53
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "diagnostic_uncached_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "diagnostic_uncached_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "continuation_witnesses",
+        "line": 4,
+        "end": 6
+      },
+      {
+        "name": "summary",
+        "line": 7,
+        "end": 8
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "continuation_certified_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "continuation_certified_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 7
+      },
+      {
+        "name": "_terms",
+        "line": 8,
+        "end": 13
+      },
+      {
+        "name": "continuation_certificate",
+        "line": 14,
+        "end": 35
+      },
+      {
+        "name": "summary",
+        "line": 36,
+        "end": 38
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "continuation_maximin_policy",
+        "LowDimPolicy"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ]
+    }
+  },
+  {
+    "module": "continuation_maximin_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "_extras",
+        "line": 9,
+        "end": 12
+      },
+      {
+        "name": "_solve",
+        "line": 13,
+        "end": 39
+      },
+      {
+        "name": "summary",
+        "line": 40,
+        "end": 42
+      }
+    ],
+    "imports": {
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "Previous": [
+        "continuation_cached_policy",
+        "LowDimPolicy"
+      ],
+      "OriginalSolver": [
+        "goal_entry_policy_activated",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "continuation_cached_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "continuation_witnesses",
+        "line": 7,
+        "end": 34
+      },
+      {
+        "name": "_admit",
+        "line": 35,
+        "end": 47
+      },
+      {
+        "name": "_solve",
+        "line": 48,
+        "end": 59
+      },
+      {
+        "name": "summary",
+        "line": 60,
+        "end": 62
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "continuation_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "continuation_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 13,
+        "end": 20
+      },
+      {
+        "name": "_jac",
+        "line": 21,
+        "end": 25
+      },
+      {
+        "name": "continuation_witnesses",
+        "line": 26,
+        "end": 52
+      },
+      {
+        "name": "continuation_certificate",
+        "line": 53,
+        "end": 60
+      },
+      {
+        "name": "_terms",
+        "line": 61,
+        "end": 71
+      },
+      {
+        "name": "_extras",
+        "line": 72,
+        "end": 79
+      },
+      {
+        "name": "__call__",
+        "line": 80,
+        "end": 107
+      },
+      {
+        "name": "summary",
+        "line": 108,
+        "end": 110
+      }
+    ],
+    "imports": {
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "Previous": [
+        "goal_entry_policy_activated",
+        "LowDimPolicy"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ],
+      "ExecutionGuard": [
+        "static_safety",
+        "ExecutionGuard"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_activated",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 7
+      },
+      {
+        "name": "__call__",
+        "line": 8,
+        "end": 19
+      },
+      {
+        "name": "summary",
+        "line": 20,
+        "end": 22
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_final",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_final",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__call__",
+        "line": 6,
+        "end": 12
+      },
+      {
+        "name": "summary",
+        "line": 13,
+        "end": 15
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_v7",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v7",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "__call__",
+        "line": 9,
+        "end": 91
+      },
+      {
+        "name": "summary",
+        "line": 92,
+        "end": 94
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_v6",
+        "LowDimPolicy"
+      ],
+      "JointControl": [
+        "goal_entry_policy",
+        "JointControl"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v6",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "observe",
+        "line": 12,
+        "end": 19
+      },
+      {
+        "name": "_terms",
+        "line": 20,
+        "end": 38
+      },
+      {
+        "name": "_solve",
+        "line": 39,
+        "end": 58
+      },
+      {
+        "name": "summary",
+        "line": 59,
+        "end": 61
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_v5",
+        "LowDimPolicy"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ],
+      "solve_verified": [
+        "verified_qp",
+        "solve_verified"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v5",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 12
+      },
+      {
+        "name": "observe",
+        "line": 13,
+        "end": 15
+      },
+      {
+        "name": "_geometry",
+        "line": 16,
+        "end": 27
+      },
+      {
+        "name": "_goal_normal",
+        "line": 28,
+        "end": 34
+      },
+      {
+        "name": "_tangent",
+        "line": 35,
+        "end": 45
+      },
+      {
+        "name": "_entry_velocity",
+        "line": 46,
+        "end": 53
+      },
+      {
+        "name": "_terms",
+        "line": 54,
+        "end": 73
+      },
+      {
+        "name": "_extras",
+        "line": 74,
+        "end": 80
+      },
+      {
+        "name": "_tracking_solution",
+        "line": 81,
+        "end": 84
+      },
+      {
+        "name": "_surface_action",
+        "line": 85,
+        "end": 93
+      },
+      {
+        "name": "_use_tangent",
+        "line": 94,
+        "end": 99
+      },
+      {
+        "name": "__call__",
+        "line": 100,
+        "end": 174
+      },
+      {
+        "name": "summary",
+        "line": 175,
+        "end": 177
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_v4",
+        "LowDimPolicy"
+      ],
+      "JointControl": [
+        "goal_entry_policy",
+        "JointControl"
+      ],
+      "clipped": [
+        "goal_entry_policy",
+        "clipped"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v4",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 13,
+        "end": 14
+      },
+      {
+        "name": "_extras",
+        "line": 15,
+        "end": 21
+      },
+      {
+        "name": "_solve",
+        "line": 22,
+        "end": 37
+      },
+      {
+        "name": "summary",
+        "line": 38,
+        "end": 40
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy_v3",
+        "LowDimPolicy"
+      ],
+      "solve_reserve": [
+        "piecewise_reserve",
+        "solve_reserve"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v3",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 9
+      },
+      {
+        "name": "_goal_gap",
+        "line": 10,
+        "end": 17
+      },
+      {
+        "name": "_extras",
+        "line": 18,
+        "end": 24
+      },
+      {
+        "name": "summary",
+        "line": 25,
+        "end": 27
+      }
+    ],
+    "imports": {
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "Previous": [
+        "goal_entry_policy_v2",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy_v2",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 8,
+        "end": 9
+      },
+      {
+        "name": "observe",
+        "line": 10,
+        "end": 15
+      },
+      {
+        "name": "_select_blocker",
+        "line": 16,
+        "end": 32
+      },
+      {
+        "name": "_geometry",
+        "line": 33,
+        "end": 44
+      },
+      {
+        "name": "_goal_point_for_blocker",
+        "line": 45,
+        "end": 47
+      },
+      {
+        "name": "_solve",
+        "line": 48,
+        "end": 71
+      },
+      {
+        "name": "__call__",
+        "line": 72,
+        "end": 132
+      },
+      {
+        "name": "summary",
+        "line": 133,
+        "end": 135
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "goal_entry_policy",
+        "LowDimPolicy"
+      ],
+      "JointControl": [
+        "goal_entry_policy",
+        "JointControl"
+      ],
+      "solve_reserve": [
+        "piecewise_reserve",
+        "solve_reserve"
+      ],
+      "solve_verified": [
+        "verified_qp",
+        "solve_verified"
+      ],
+      "_solve_slsqp": [
+        "verified_qp",
+        "_solve_slsqp"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ]
+    }
+  },
+  {
+    "module": "goal_entry_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 22,
+        "end": 37
+      },
+      {
+        "name": "feature",
+        "line": 38,
+        "end": 40
+      },
+      {
+        "name": "observe",
+        "line": 41,
+        "end": 46
+      },
+      {
+        "name": "_value",
+        "line": 47,
+        "end": 47
+      },
+      {
+        "name": "_gradient",
+        "line": 48,
+        "end": 49
+      },
+      {
+        "name": "_terms",
+        "line": 50,
+        "end": 63
+      },
+      {
+        "name": "_geometry",
+        "line": 64,
+        "end": 72
+      },
+      {
+        "name": "_extras",
+        "line": 73,
+        "end": 81
+      },
+      {
+        "name": "_solve",
+        "line": 82,
+        "end": 105
+      },
+      {
+        "name": "_memory_segment",
+        "line": 106,
+        "end": 115
+      },
+      {
+        "name": "memory_safe",
+        "line": 116,
+        "end": 125
+      },
+      {
+        "name": "filter_memory",
+        "line": 126,
+        "end": 133
+      },
+      {
+        "name": "_admit",
+        "line": 134,
+        "end": 142
+      },
+      {
+        "name": "_publish",
+        "line": 143,
+        "end": 146
+      },
+      {
+        "name": "_preview",
+        "line": 147,
+        "end": 150
+      },
+      {
+        "name": "_support",
+        "line": 151,
+        "end": 154
+      },
+      {
+        "name": "_try_direction",
+        "line": 155,
+        "end": 166
+      },
+      {
+        "name": "__call__",
+        "line": 167,
+        "end": 227
+      },
+      {
+        "name": "summary",
+        "line": 228,
+        "end": 231
+      }
+    ],
+    "imports": {
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "Previous": [
+        "retained_blocker_policy",
+        "LowDimPolicy"
+      ],
+      "JointControl": [
+        "polished_policy",
+        "LowDimPolicy"
+      ],
+      "solve_reserve": [
+        "reserve_objective_contract",
+        "solve_reserve"
+      ],
+      "solve_verified": [
+        "verified_qp",
+        "solve_verified"
+      ],
+      "_solve_slsqp": [
+        "verified_qp",
+        "_solve_slsqp"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ]
+    }
+  },
+  {
+    "module": "retained_blocker_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 9,
+        "end": 14
+      },
+      {
+        "name": "_retained_geometry",
+        "line": 15,
+        "end": 33
+      },
+      {
+        "name": "__call__",
+        "line": 34,
+        "end": 78
+      },
+      {
+        "name": "summary",
+        "line": 79,
+        "end": 81
+      }
+    ],
+    "imports": {
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "Previous": [
+        "blocker_policy_v5",
+        "LowDimPolicy"
+      ],
+      "OriginalControl": [
+        "polished_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "blocker_policy_v5",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 6,
+        "end": 7
+      },
+      {
+        "name": "observe",
+        "line": 8,
+        "end": 13
+      },
+      {
+        "name": "_select_blocker",
+        "line": 14,
+        "end": 24
+      },
+      {
+        "name": "summary",
+        "line": 25,
+        "end": 27
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "blocker_policy_v4",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "blocker_policy_v4",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 8,
+        "end": 9
+      },
+      {
+        "name": "_select_blocker",
+        "line": 10,
+        "end": 24
+      },
+      {
+        "name": "__call__",
+        "line": 25,
+        "end": 66
+      },
+      {
+        "name": "summary",
+        "line": 67,
+        "end": 69
+      }
+    ],
+    "imports": {
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "Previous": [
+        "blocker_policy_v3",
+        "LowDimPolicy"
+      ],
+      "OriginalControl": [
+        "polished_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "blocker_policy_v3",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "_solve",
+        "line": 9,
+        "end": 21
+      },
+      {
+        "name": "summary",
+        "line": 22,
+        "end": 24
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "blocker_policy_v2",
+        "LowDimPolicy"
+      ],
+      "verify_solution": [
+        "certified_auxiliary",
+        "verify_solution"
+      ],
+      "_solve_slsqp": [
+        "verified_qp",
+        "_solve_slsqp"
+      ]
+    }
+  },
+  {
+    "module": "blocker_policy_v2",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__call__",
+        "line": 6,
+        "end": 10
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "blocker_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "blocker_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 7,
+        "end": 8
+      },
+      {
+        "name": "_select_blocker",
+        "line": 9,
+        "end": 24
+      },
+      {
+        "name": "__call__",
+        "line": 25,
+        "end": 63
+      },
+      {
+        "name": "summary",
+        "line": 64,
+        "end": 66
+      }
+    ],
+    "imports": {
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "Previous": [
+        "polished_policy",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "polished_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 11,
+        "end": 12
+      },
+      {
+        "name": "_solve",
+        "line": 13,
+        "end": 22
+      },
+      {
+        "name": "summary",
+        "line": 23,
+        "end": 25
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "viability_policy",
+        "LowDimPolicy"
+      ],
+      "solve_verified": [
+        "verified_qp",
+        "solve_verified"
+      ]
+    }
+  },
+  {
+    "module": "viability_policy",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 12,
+        "end": 17
+      },
+      {
+        "name": "observe",
+        "line": 18,
+        "end": 26
+      },
+      {
+        "name": "_spatial",
+        "line": 27,
+        "end": 39
+      },
+      {
+        "name": "_repair_cut",
+        "line": 40,
+        "end": 62
+      },
+      {
+        "name": "_solve",
+        "line": 63,
+        "end": 78
+      },
+      {
+        "name": "summary",
+        "line": 79,
+        "end": 81
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "release_policy_v3",
+        "LowDimPolicy"
+      ],
+      "solve_reserve": [
+        "reserve_objective_contract",
+        "solve_reserve"
+      ]
+    }
+  },
+  {
+    "module": "release_policy_v3",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "_solve",
+        "line": 4,
+        "end": 12
+      },
+      {
+        "name": "_preview",
+        "line": 14,
+        "end": 18
+      },
+      {
+        "name": "summary",
+        "line": 20,
+        "end": 22
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "release_policy_v2",
+        "LowDimPolicy"
+      ]
+    }
+  },
+  {
+    "module": "release_policy_v2",
+    "bases": [
+      "Previous"
+    ],
+    "methods": [
+      {
+        "name": "_select_release",
+        "line": 7,
+        "end": 16
+      },
+      {
+        "name": "emit",
+        "line": 18,
+        "end": 20
+      },
+      {
+        "name": "summary",
+        "line": 22,
+        "end": 24
+      }
+    ],
+    "imports": {
+      "Previous": [
+        "release_policy",
+        "LowDimPolicy"
+      ],
+      "stopping_distance": [
+        "unified_joint_braking",
+        "stopping_distance"
+      ]
+    }
+  },
+  {
+    "module": "release_policy",
+    "bases": [],
+    "methods": [
+      {
+        "name": "__init__",
+        "line": 21,
+        "end": 31
+      },
+      {
+        "name": "emit",
+        "line": 33,
+        "end": 35
+      },
+      {
+        "name": "switch",
+        "line": 37,
+        "end": 41
+      },
+      {
+        "name": "observe",
+        "line": 43,
+        "end": 54
+      },
+      {
+        "name": "feedback",
+        "line": 56,
+        "end": 57
+      },
+      {
+        "name": "_solve",
+        "line": 59,
+        "end": 70
+      },
+      {
+        "name": "_preview",
+        "line": 72,
+        "end": 86
+      },
+      {
+        "name": "_select_release",
+        "line": 88,
+        "end": 106
+      },
+      {
+        "name": "__call__",
+        "line": 108,
+        "end": 151
+      },
+      {
+        "name": "summary",
+        "line": 153,
+        "end": 156
+      }
+    ],
+    "imports": {
+      "Counter": [
+        "collections",
+        "Counter"
+      ],
+      "Path": [
+        "pathlib",
+        "Path"
+      ],
+      "linprog": [
+        "scipy.optimize",
+        "linprog"
+      ],
+      "solve_reserve": [
+        "reserve_objective",
+        "solve_reserve"
+      ],
+      "reserves": [
+        "reserve_objective",
+        "reserves"
+      ]
+    }
+  }
+]

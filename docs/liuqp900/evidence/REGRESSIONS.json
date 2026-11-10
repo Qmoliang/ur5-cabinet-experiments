@@ -1,0 +1,37 @@
+{
+  "executor": [
+    {
+      "case": "online__iris_bins_t3__s08",
+      "task": "iris_bins_t3",
+      "seed": 8,
+      "source_id": "online__iris_bins_t3__s08__C",
+      "target_id": "online__iris_bins_t3__s08__A",
+      "source_status": "safe_arrival_candidate",
+      "target_status": "motion_budget_exhausted",
+      "source_failure_stage": null,
+      "target_failure_stage": "control_nonarrival_or_error",
+      "source_total_wall_s": 4.923306031036191,
+      "target_total_wall_s": 136.2468846810516,
+      "strict_arrival": "regression",
+      "physical_safe_arrival": "regression"
+    }
+  ],
+  "new_control": [
+    {
+      "case": "online__iris_bins_t0__s17",
+      "task": "iris_bins_t0",
+      "seed": 17,
+      "source_id": "online__iris_bins_t0__s17__A",
+      "target_id": "online__iris_bins_t0__s17__B",
+      "source_status": "safe_arrival_candidate",
+      "target_status": "motion_budget_exhausted",
+      "source_failure_stage": null,
+      "target_failure_stage": "control_nonarrival_or_error",
+      "source_total_wall_s": 31.28201564901974,
+      "target_total_wall_s": 160.88227500207722,
+      "strict_arrival": "regression",
+      "physical_safe_arrival": "regression"
+    }
+  ],
+  "combined": []
+}

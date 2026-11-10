@@ -1,0 +1,188 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>方法初稿：认证执行与终态引导持续绕行 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script><script src="../vendor/mathjax-3.2.2.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">可行性保持执行与终态引导持续绕行：方法初稿</a><a class="depth-2" href="#section-2">问题定义与分层结构</a><a class="depth-2" href="#section-3">静态终态与局部进入证据</a><a class="depth-2" href="#section-4">分阶段的当前速度控制</a><a class="depth-3" href="#section-5">状态与触发</a><a class="depth-3" href="#section-6">固定终态线与准备任务</a><a class="depth-3" href="#section-7">连续认证后的终态进入</a><a class="depth-3" href="#section-8">受阻部位任务与切向传递</a><a class="depth-3" href="#section-9">构型重复检测与原任务恢复</a><a class="depth-2" href="#section-10">通过原 QP 接口实现新提案</a><a class="depth-2" href="#section-11">可行性保持的执行与延迟调度</a><a class="depth-3" href="#section-12">证书与备份</a><a class="depth-3" href="#section-13">恒速段与计算时钟</a><a class="depth-3" href="#section-14">冻结入口的执行顺序</a><a class="depth-2" href="#section-15">性质边界与贡献分离</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">2026-11 冻结控制对照与方法 / MD</div><h1>方法初稿：认证执行与终态引导持续绕行</h1><p>2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。</p><div class="actions"><a class="primary" download href="../files/liuqp900/methods.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/liuqp900/methods.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。本库跨多个版本；指标须按各文档的队列与协议解释，不能混合统计。原文中的本机路径对应其原始实验目录。</div><div class="version-note">本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。</div></header><article id="content" class="prose"><h1 id="section-1">可行性保持执行与终态引导持续绕行：方法初稿</h1>
+<blockquote>
+<p>版本：2026-11-10，依据最终冻结代码整理。数学命题的假设和实现缺口均保留；这不是全局收敛或硬实时保证。原始实验没有改写。</p>
+</blockquote>
+<p><a href="liuqp900-methods.html">方法正文</a> · <a href="liuqp900-proofs.html">性质与证明</a> · <a href="liuqp900-code.html">代码映射</a> · <a href="liuqp900-results.html">实验结果</a></p>
+<h2 id="section-2">问题定义与分层结构</h2>
+<p>考虑六自由度机械臂的运动学反馈模型。令 <span class="math-inline">\(q\in\mathbb R^6\)</span> 为不作任意 <span class="math-inline">\(2\pi\)</span> 合并的关节构型，<span class="math-inline">\(w\)</span> 为上一实际执行速度，<span class="math-inline">\(p(q)\in\mathbb R^3\)</span> 为末端位置，目标为 <span class="math-inline">\(p_g\)</span>。离散周期为 <span class="math-inline">\(\Delta t=0.02\,\mathrm{s}\)</span>，实际状态按</p>
+<div class="math-block">\[
+x_k=(q_k,w_k),\qquad q_{k+1}=q_k+\Delta t\,v_k^{\mathrm{exec}},\qquad w_{k+1}=v_k^{\mathrm{exec}}.\tag{M1}
+\]</div>
+<p>名义 LiuQP 在当前状态和冻结观测模型 <span class="math-inline">\(\mathcal O\)</span> 下定义为</p>
+<div class="math-block">\[
+\min_{v\in\mathcal C(x_k;\mathcal O)} f_0(v)
+ =\tfrac12v^T H_0v+g_0^Tv,\qquad
+ \mathcal C=\{v:l\le Av\le u\}.\tag{M2}
+\]</div>
+<p><span class="math-inline">\(H_0,g_0,A,l,u\)</span> 均随当前状态正常重建；本文所称保留原约束，是不删除或放宽同一状态下的原约束行。原集合包含观测障碍、未知前沿、自碰撞、工作空间、关节位置、速度、加速度与关节制动边界。<span class="math-inline">\(\mathcal C\)</span> 可能为空，改变目标函数不能使空集合变为非空。</p>
+<p>环境硬安全余量为 <span class="math-inline">\(6\,\mathrm{mm}\)</span>，名义工作余量为 <span class="math-inline">\(6.5\,\mathrm{mm}\)</span>，自碰撞余量为 <span class="math-inline">\(5\,\mathrm{mm}\)</span>。到达要求末端误差严格小于 <span class="math-inline">\(1\,\mathrm{mm}\)</span>，并保持连续 <span class="math-inline">\(50\)</span> 个物理积分周期。计算等待计入物理周期与仿真预算。每次正式运行上限为 <span class="math-inline">\(300\,\mathrm{s}\)</span> 仿真时间和 <span class="math-inline">\(1200\,\mathrm{s}\)</span> 完整墙钟时间，后者包括终态初始化、模型加载、求解、执行和记录；独立事后审计单列。</p>
+<p>控制架构分为两个可单独评价的部分。<strong>执行层</strong>接收当前速度提案，只执行与当前实际状态、记忆版本及发布版本一致的认证命令，或消费已有制动备份。<strong>控制层</strong>生成终态引导的准备动作、固定终态收缩提案、受阻部位绕行动作和恢复原任务的提案。执行层不负责保证目标到达；控制层也不能越过执行层授权一个不满足原约束的动作。</p>
+<p>认证首先针对冻结代理模型及机器人证书模型。若要把模型内安全推到真实场景安全，还需要代理外包、机器人覆盖、运动学和执行误差界有效。该覆盖前提不能由一个有限轨迹集的成功自动推出。实验另以场景几何独立审计实际轨迹。</p>
+<h2 id="section-3">静态终态与局部进入证据</h2>
+<p>在运动开始前，由当前观测模型和公开目标求解有限静态终态候选 <span class="math-inline">\(q_g\)</span>，接受条件包括 <span class="math-inline">\(\|p(q_g)-p_g\|&lt;0.7\,\mathrm{mm}\)</span>、关节界、自碰撞、工作空间及观测模型净空。冻结实现固定末关节为公开初态值，按底座角和肩部角生成解析位置 IK 候选，按构型分支交错检查最多 <span class="math-inline">\(384\)</span> 个候选，必要时使用最多 <span class="math-inline">\(12\)</span> 个初值进行有界静态精化。初始候选筛选采用原 <span class="math-inline">\(6.6\,\mathrm{mm}\)</span> 环境终态余量，秩感知进入复核使用 <span class="math-inline">\(6.5\,\mathrm{mm}\)</span> 工作余量。所得候选集不是全体可行终态的穷举；外部成功判据仍只要求末端位置保持，不要求完整关节构型等于 <span class="math-inline">\(q_g\)</span>。</p>
+<p>初始有效姿态特征矩阵使用底座和肘部的两个带长度尺度的关节坐标：</p>
+<div class="math-block">\[
+\begin{aligned}
+ P&amp;=\begin{bmatrix}\|J_g(:,1)\|e_1^T\\\|J_g(:,3)\|e_3^T\end{bmatrix},\qquad z(q)=P(q-q_g),\\
+ \ell&amp;=\tfrac12\sum_{i=1}^{2}\|P_{i,:}\|.
+\end{aligned}\tag{M3}
+\]</div>
+<p>式中 <span class="math-inline">\(J_g=J(q_g)\)</span>，采用数学的一基索引，对应代码零基关节 <span class="math-inline">\(0,2\)</span>。令 <span class="math-inline">\(Z\)</span> 为 <span class="math-inline">\(\ker P\)</span> 的正交基，<span class="math-inline">\(J_gZ=U\Sigma V^T\)</span>。对保留奇异值对应的秩 <span class="math-inline">\(r\)</span>，定义</p>
+<div class="math-block">\[
+L=ZV_r\Sigma_r^{-1}U_r^T,\qquad \Pi=U_rU_r^T.\tag{M4}
+\]</div>
+<p>所请求方向先投影到 <span class="math-inline">\(\operatorname{range}(J_gZ)\)</span>；其投影非零且归一化为 <span class="math-inline">\(d\)</span> 后，以 <span class="math-inline">\(q_b=q_g+\rho Ld\)</span> 产生局部回退候选。线性残差要求不超过 <span class="math-inline">\(10^{-7}\)</span>，秩阈值为 <span class="math-inline">\(10^{-8}\)</span>。<span class="math-inline">\(\rho\)</span> 从原近障尺度 <span class="math-inline">\(0.04\,\mathrm m\)</span> 起，在七次尝试内逐次减半，并认证整条局部线段。这里只能证明局部线性可达方向及该具体线段的模型内安全，不能据此证明初态与终态连通。</p>
+<p>初始化按预定顺序选择首个通过上述检查的终态；初始进入轴和半径从认证线段得到。后续控制可以在原静态候选池中重选终态。冻结实现重选时保持 <span class="math-inline">\(P\)</span> 和记忆特征原点固定，更新 <span class="math-inline">\(q_g\)</span>、对应机器人点、进入轴、半径及几何缓存；它不会对每个重选终态重新执行式（M4）的初始秩感知过程。因此，秩感知局部进入性质只归于实际通过该过程的初始选择，不扩写为所有后续选择的共同保证。</p>
+<h2 id="section-4">分阶段的当前速度控制</h2>
+<h3 id="section-5">状态与触发</h3>
+<p>令 <span class="math-inline">\(e=\|p(q)-p_g\|\)</span>。反馈计数器 <span class="math-inline">\(k_f\)</span> 在每个非计算等待的实际积分步递增，包含制动和零速度反馈步；仅计算等待步不递增。物理计数器 <span class="math-inline">\(k\)</span> 在所有实际积分步递增。两个计数器均不等同于非零位移累计量。</p>
+<p>初始阶段采用原目标。最近 <span class="math-inline">\(100\)</span> 个反馈观测中，首个误差与窗口最小误差之差小于 <span class="math-inline">\(0.2\,\mathrm{mm}\)</span>，且当前 <span class="math-inline">\(e&gt;2\,\mathrm{mm}\)</span> 时，启用终态准备。这个条件保留了 <span class="math-inline">\(1\,\mathrm{mm}\le e\le2\,\mathrm{mm}\)</span> 的未到达区间，不能声称所有未到达停滞都会激活扩展。</p>
+<p>控制首先保留原有终态准备机制。只有终态线见证亏量及实际位置加姿态特征的记录进展均停滞至少 <span class="math-inline">\(100\)</span> 个反馈周期，并且 <span class="math-inline">\(e&gt;1\,\mathrm{mm}\)</span>，才永久启用后续扩展。扩展启用后，按以下优先级工作：已有原任务恢复状态优先；正在绕行时先尝试任务恢复，再进行绕行；否则进行终态准备或已认证终态进入。终态候选用尽且实际特征停滞时才尝试开始绕行。</p>
+<p>所有模式切换均可能使命令版本失效并要求制动。未通过认证的候选、空方向族、数值失败和预算耗尽都是明确失败或等待情形，不等同于证明目标不可达。</p>
+<h3 id="section-6">固定终态线与准备任务</h3>
+<p>对当前固定终态考察</p>
+<div class="math-block">\[
+\gamma_q(s)=(1-s)q+s q_g,\quad 0\le s\le1.\tag{M5}
+\]</div>
+<p>这些构型是解析线上的评估点，不是优化决策变量。初始化使用七个内部比例点 <span class="math-inline">\(s=1/8,\ldots,7/8\)</span>；失败的连续认证可增加该同一条线上的检查比例。若环境见证在虚拟构型上违反净空，使用面向终态机器人点的固定支持平面；<span class="math-inline">\(b_i\)</span> 表示行梯度</p>
+<div class="math-block">\[
+h_i(q)=n_{g,i}^T r_i(\gamma_q(s_i))-d_{g,i},\qquad
+ b_i=\nabla_q h_i=(1-s_i)n_{g,i}^T J_i(\gamma_q(s_i)).\tag{M6}
+\]</div>
+<p>自碰撞与工作空间见证采用相应的距离或边界梯度。环境支持平面的符号和偏置来自同一冻结代理的支持函数；它是准备目标的一部分，不替代原硬安全行。有限见证未发现违反不等于整段已安全。</p>
+<p>准备时，先求解以最弱线性预测余量为目标的辅助 LP：</p>
+<div class="math-block">\[
+\begin{aligned}
+ \max_{v,\eta}\quad&amp;\eta\\
+ \mathrm{s.t.}\quad&amp;v\in\mathcal C\cap\mathcal E,\\
+ &amp;h_i+\Delta t\,b_i v\ge\eta\quad(\forall i),\qquad \eta\le2\times10^{-4}\,\mathrm m.
+\end{aligned}\tag{M7}
+\]</div>
+<p><span class="math-inline">\(\mathcal E\)</span> 表示当前附加约束。若最优预测增益大于 <span class="math-inline">\(2\times10^{-9}\,\mathrm m\)</span>，依次尝试其 <span class="math-inline">\(1/2,1/4,1/8,1/16\)</span>，作为当前速度 QP 的准备约束。经裁剪和认证后的速度还必须具有超过 <span class="math-inline">\(2\times10^{-10}\,\mathrm m\)</span> 的最弱预测增益；否则退回原有准备求解。这里的第七个 LP 变量 <span class="math-inline">\(\eta\)</span> 是标量余量，不是未来构型。</p>
+<p>实际准备目标依阶段不同。记 <span class="math-inline">\(H_r=H_0-\omega J^TJ\)</span>、<span class="math-inline">\(g_r=g_0+\omega J^Tu_0\)</span>，其中 <span class="math-inline">\(\omega\)</span> 和 <span class="math-inline">\(u_0\)</span> 来自名义任务。扩展启用前，令 <span class="math-inline">\(W\)</span> 的行是 <span class="math-inline">\(b_i/\sqrt m\)</span>，<span class="math-inline">\(d_i=\min(-k_p h_i,v_{\max})/\sqrt m\)</span>，采用</p>
+<div class="math-block">\[
+\begin{aligned}
+ F_{\mathrm{pre}}(v)={}&amp;\tfrac12v^TH_rv+g_r^Tv+\tfrac\omega2\|Wv-d\|^2\\
+ &amp;+\tfrac\omega2\|\ell N_Wv-\operatorname{clip}(-k_p\ell N_W(q-q_g),v_{\max})\|^2,\\
+ N_W={}&amp;I-W^\dagger W.
+\end{aligned}\tag{M8}
+\]</div>
+<p>无见证时使用 <span class="math-inline">\(W=J,d=u_0\)</span>。扩展启用后的准备阶段使用原末端进入混合场与两维姿态项，而不把姿态项投影到所有见证行的零空间：</p>
+<div class="math-block">\[
+\begin{aligned}
+ F_{\mathrm{prep}}(v)={}&amp;\tfrac12v^TH_rv+g_r^Tv+\tfrac\omega2\|Jv-u_{\mathrm{blend}}\|^2\\
+ &amp;+\tfrac\omega2\|Pv-\operatorname{clip}(-k_pP(q-q_g),v_{\max})\|^2.
+\end{aligned}\tag{M9}
+\]</div>
+<p>其中令 <span class="math-inline">\(a\)</span> 为进入轴，<span class="math-inline">\(x=p-p_g\)</span>，<span class="math-inline">\(s_a=a^Tx\)</span>，<span class="math-inline">\(x_\perp=x-s_a a\)</span>，<span class="math-inline">\(\chi=\exp[-(e/(2\rho))^2]\)</span>，<span class="math-inline">\(\zeta=(1+\|z\|^2/\rho^2+\|x_\perp\|^2/\rho^2)^{-1}\)</span>。进入场为 <span class="math-inline">\(\operatorname{clip}(-k_p x_\perp+\nu_a a,v_{\max})\)</span>，当 <span class="math-inline">\(s_a\ge0\)</span> 时 <span class="math-inline">\(\nu_a=-k_p\zeta s_a\)</span>，否则 <span class="math-inline">\(\nu_a=k_p\min(\rho,\max(-s_a,0.001))\)</span>；<span class="math-inline">\(u_{\mathrm{blend}}=(1-\chi)u_0+\chi u_{\mathrm{entry}}\)</span>。冻结值 <span class="math-inline">\(k_p=2\)</span>、<span class="math-inline">\(v_{\max}=0.18\,\mathrm{m/s}\)</span>；<span class="math-inline">\(\operatorname{clip}\)</span> 表示范数截断。式（M8）的逐行上限与范数截断不同。</p>
+<p>每隔 <span class="math-inline">\(100\)</span> 个反馈周期，以重建后的真实构型见证检查前一阶段的预测是否实现。实际余量回退超过 <span class="math-inline">\(0.2\,\mathrm{mm}\)</span>，或预测增益超过该值而实际不足其四分之一时，旧命令失效并制动。该机制是执行后的接受规则，不是全局下降定理。</p>
+<p>终态选择使用各比例点最严重物理亏量的均方根，并只在准备停滞后评估未尝试候选。已提交记忆不删除。原任务恢复再次停滞时会重新开启候选尝试轮次，因此不宣称每个终态在整个任务中最多尝试一次。</p>
+<h3 id="section-7">连续认证后的终态进入</h3>
+<p>只有式（M5）整段通过模型几何及记忆连续认证，才进入终态收缩模式。线段按最大关节跨度 <span class="math-inline">\(0.04\,\mathrm{rad}\)</span> 分区，仍使用曲率余量认证；单次认证预算为 <span class="math-inline">\(14\,\mathrm s\)</span>，超时不记为通过。该检查不独自证明沿线存在满足加速度及全部原 QP 行的时间参数化。</p>
+<p>令 <span class="math-inline">\(d_q=q_g-q\)</span>、<span class="math-inline">\(e_q=d_q/\|d_q\|\)</span>，进入提案增加</p>
+<div class="math-block">\[
+(I-e_qe_q^T)v=0,\qquad
+ 0\le e_q^Tv\le\min(0.5,\|d_q\|/\Delta t).\tag{M10}
+\]</div>
+<p>并以 <span class="math-inline">\(\omega\ell^2\|v-\operatorname{clip}(k_p d_q,0.5)\|^2/2\)</span> 替换原末端任务项，保留 <span class="math-inline">\(H_r,g_r\)</span>。其中 <span class="math-inline">\(0.5\,\mathrm{rad/s}\)</span> 是该阶段的六维速度范数上限。这确实使用完整终态关节方向，不能表述成从不使用完整姿态参考。优化仍只含当前速度，不含未来构型序列。</p>
+<p>对满足式（M10）且未被改变的一步实际速度，终态关节距离非增。实际实现还包含恒速保持、逐关节制动和模式切换，执行认证只要求原行、记忆及制动安全，并未逐前缀重新强制式（M10）。因此，该一步性质不扩写为所有实际进入模式轨迹单调收缩或预算内必达。</p>
+<h3 id="section-8">受阻部位任务与切向传递</h3>
+<p>扩展阶段的受阻对象可以是环境代理、未知前沿、机器人自碰相对向量或工作空间边界。初次选取可使用准备任务的影子对偶，或在没有适用物理行时使用终态线环境反例的机器人部位。持续绕行时，对当前有效绕行任务及其适用附加行求影子 QP，以 <span class="math-inline">\(\max(0,y_i)\|A_i\|\)</span> 排序近活动物理行；不将关节限位行当成需贴着绕行的表面。实际筛选还要求有限上界、<span class="math-inline">\(\Delta t\,u_i\le0.5\,\mathrm{mm}\)</span> 及原冻结数值门限。</p>
+<p>设受控点或相对向量为 <span class="math-inline">\(r\)</span>，雅可比为 <span class="math-inline">\(J_r\)</span>，间隙为 <span class="math-inline">\(d_r\)</span>，单位法向为 <span class="math-inline">\(n\)</span>。近表面时，</p>
+<div class="math-block">\[
+\begin{aligned}
+ K&amp;=\begin{bmatrix}n^TJ_r\\\tau^TJ_r\end{bmatrix},\\
+ u_K&amp;=\operatorname{clip}\!\left(\begin{bmatrix}\max(0,k_p(m_r-d_r))\\v_{\max}\end{bmatrix},v_{\max}\right),\\
+ R&amp;=P(I-K^\dagger K),\\
+ u_R&amp;=\operatorname{clip}(-k_pP(q-q_g)-PK^\dagger u_K,v_{\max}).
+\end{aligned}\tag{M11}
+\]</div>
+<p>目标为残余原代价加 <span class="math-inline">\(\omega(\|Kv-u_K\|^2+\|Rv-u_R\|^2)/2\)</span>。环境/前沿的 <span class="math-inline">\(m_r=6.5\,\mathrm{mm}\)</span>，自碰撞使用原 <span class="math-inline">\(5\,\mathrm{mm}\)</span> 加既定数值保留量，工作空间采用原零边界。原 <span class="math-inline">\(40\,\mathrm{mm}\)</span> 只是近区切换尺度，最终版本不把它作为必须始终保持的额外净空。当前受控部位离开 <span class="math-inline">\(40\,\mathrm{mm}\)</span> 近区后，取 <span class="math-inline">\(K=J_r\)</span>、<span class="math-inline">\(u_K=\operatorname{clip}(k_p(r_g-r),v_{\max})\)</span>、<span class="math-inline">\(N=I-K^\dagger K\)</span>，并在残余原代价上使用</p>
+<div class="math-block">\[
+\begin{aligned}
+ \Phi_{\mathrm{clear}}(v)&amp;=\tfrac\omega2\left(\|Kv-u_K\|^2+\|PNv-u_P\|^2+\|JNv-u_J\|^2\right),\\
+ u_P&amp;=\operatorname{clip}(-k_pP(q-q_g)-PK^\dagger u_K,v_{\max}),\\
+ u_J&amp;=\operatorname{clip}(u_0-JK^\dagger u_K,v_{\max}).
+\end{aligned}\tag{M11b}
+\]</div>
+<p>切向从原方向在新表面切平面的投影得到；无有效原方向时依次用终态部位方向、进入轴和确定性坐标轴的投影。非退化传递为</p>
+<div class="math-block">\[
+\tau_{+}=\frac{(I-n_+n_+^T)\tau_-}{\|(I-n_+n_+^T)\tau_-\|}.\tag{M12}
+\]</div>
+<p>同一刚体上的代理行更新保留该任务。跨刚体或自碰相对任务切换时，保留可用的世界坐标切向投影，重置新任务的反向尝试标记，失效旧队列并按需制动。只有新任务的非零提案实际执行后，才解除其执行等待标记并重新建立进展参考。</p>
+<p>若 <span class="math-inline">\(\operatorname{rank}K=r\)</span>，理想 Moore--Penrose 投影的零空间维数为 <span class="math-inline">\(6-r\)</span>；仅在正常满秩条件下，末端三维任务对应三维零空间、近表面两维任务对应四维零空间。不能把这写成秩退化情况下也始终成立的维数上界。</p>
+<p>方向支持 LP 给出可用标量速度后，以其一半起逐次减半尝试当前速度约束。接受提案还需通过执行认证。法向修正与姿态准备是无可用切向动作时的补充候选，不构成总能找到脱困方向的保证。</p>
+<h3 id="section-9">构型重复检测与原任务恢复</h3>
+<p>绕行期间，在 <span class="math-inline">\(\ell q\)</span> 度量下查找距离不超过 <span class="math-inline">\(1\,\mathrm{mm}\)</span> 的历史构型；只有相隔至少 <span class="math-inline">\(100\)</span> 个反馈周期、累计构型行程至少 <span class="math-inline">\(2d_{\mathrm{near}}=0.08\,\mathrm m\)</span>、受控任务身份相同、已执行方向内积为正且当前任务尚未反向时，才将其作为重复证据并反转切向。历史点不作航点或参考轨迹。该尺度是固定长度加权的关节距离，不是真实末端或全机器人距离。</p>
+<p>开始一次绕行时记录 <span class="math-inline">\(p_h\)</span>，令 <span class="math-inline">\(r_h=\|p_g-p_h\|\)</span>，定义</p>
+<div class="math-block">\[
+\begin{aligned}
+ n_h&amp;=\frac{p_g-p_h}{r_h},\qquad \delta_h=\min(\rho/2,r_h/4),\\
+ \psi_h(q)&amp;=n_h^T[p(q)-p_h]-\delta_h.
+\end{aligned}\tag{M13}
+\]</div>
+<p>最终新提交的记忆只使用 Cartesian 位置；兼容的五维特征容器中，姿态对应的法向分量为零。当前原任务恢复门要求 <span class="math-inline">\(e\le r_h-\delta_h\)</span> 且 <span class="math-inline">\(\psi_h\ge\delta_h\)</span>。在停稳后，临时加入新记忆，认证零速度备份，并认证原任务目标下的提案；该提案的瞬时目标下降率还须超过 <span class="math-inline">\(10^{-4}\,\mathrm{m/s}\)</span>，才提交记忆并进入原任务恢复模式。</p>
+<p>已提交记忆加入当前速度行</p>
+<div class="math-block">\[
+-\nabla\psi_h(q)^Tv\le k_p\psi_h(q),\tag{M14}
+\]</div>
+<p>并继续接受真实构型曲线和制动尾的连续检查。恢复的是原任务目标，已提交记忆及执行认证仍保留。该恢复阶段停滞至少 <span class="math-inline">\(100\)</span> 个反馈周期且 <span class="math-inline">\(e&gt;2\,\mathrm{mm}\)</span> 时返回准备。另一条离开绕行的路径是式（M5）的整段证书通过，此时直接进入终态收缩，不保证每次离开绕行都提交记忆。新提交的 Cartesian 门替代了旧五维特征距离和目标侧法向的提交门；旧门虽然仍在父类文件中，但该分支执行时其待提交对象被临时置空。</p>
+<p>式（M13）排除已记录位置附近的一部分区域，并保留精确目标位置的全部构型纤维。但记忆集合可能不连通，也可能排除一条必要绕行路线；不返回一个旧区域不等于不会在其他区域停滞。对整个 <span class="math-inline">\(1\,\mathrm{mm}\)</span> 目标容差球的保留还需 <span class="math-inline">\(r_h-\delta_h\ge1\,\mathrm{mm}\)</span>，冻结的平面记忆审计并未把该球条件作为独立通用定理验证。</p>
+<h2 id="section-10">通过原 QP 接口实现新提案</h2>
+<p>各阶段提案可统一为</p>
+<div class="math-block">\[
+\min_v\ \tfrac12v^T(H_0+\Delta H_\sigma)v+(g_0+\Delta g_\sigma)^Tv,
+ \quad l\le Av\le u,\quad D_\sigma v\le d_\sigma.\tag{M15}
+\]</div>
+<p><span class="math-inline">\(D_\sigma\)</span> 包括当前适用的记忆、自碰数值保留、最弱余量准备、射线或方向约束。冻结运行不使用早期额外单侧关节余量惩罚，原硬关节制动约束仍保留。</p>
+<p>给定提案最优解 <span class="math-inline">\(v^*\)</span> 与附加行乘子 <span class="math-inline">\(\lambda^*\)</span>，定义</p>
+<div class="math-block">\[
+\Delta g=\Delta H_\sigma v^*+\Delta g_\sigma+D_\sigma^T\lambda^*.\tag{M16}
+\]</div>
+<p>在精确 KKT 条件及 <span class="math-inline">\(H_0\succ0\)</span> 下，原 <span class="math-inline">\(H_0,A,l,u\)</span> 配合梯度 <span class="math-inline">\(g_0+\Delta g\)</span>，以同一 <span class="math-inline">\(v^*\)</span> 为唯一最优解。这是求解后依赖 <span class="math-inline">\(v^*\)</span> 的等价实现，不是保持原目标函数不变，也不由此证明脱困或降低求解复杂度。</p>
+<p>冻结配置允许在独立核验原有效 QP 的 KKT 残差后直接复用辅助解，不保证每次都另做一次独立优化重解。原始行残差容差为 <span class="math-inline">\(10^{-7}\)</span>；还检查有限值、乘子符号、驻点、互补、对偶间隙及 Hessian 正定性。若裁剪或认证缩放改变提案，实际已认证速度 <span class="math-inline">\(v_a\)</span> 可用 <span class="math-inline">\(\Delta g=-H_0v_a-g_0\)</span>、原行乘子为零重新编码，并再次核验。未经认证的辅助解没有执行权限。式（M16）只针对求解时的状态；保持、制动和等待步不因此成为后续各状态的原目标最优解。</p>
+<h2 id="section-11">可行性保持的执行与延迟调度</h2>
+<h3 id="section-12">证书与备份</h3>
+<p>为明确数值语义，记</p>
+<div class="math-block">\[
+\mathcal C_\epsilon(x)=\{v:l-\epsilon\mathbf1\le Av\le u+\epsilon\mathbf1\},\qquad \epsilon=10^{-7},\tag{M17}
+\]</div>
+<p>其中无限界仍忽略。优化问题仍使用原 <span class="math-inline">\(l,u\)</span>；式（M17）仅描述冻结数值验收，不是重新放宽优化约束。</p>
+<p>从当前实际状态及候选速度出发，构造确定性制动续轨迹</p>
+<div class="math-block">\[
+\begin{aligned}
+ q_{j+1}&amp;=q_j+\Delta t\,v_j,\qquad w_{j+1}=v_j,\\
+ v_{j+1}&amp;=v_j-\operatorname{clip}_{[-a_{\max}\Delta t,a_{\max}\Delta t]}(v_j).
+\end{aligned}\tag{M18}
+\]</div>
+<p>其中 <span class="math-inline">\(a_{\max}=10\,\mathrm{rad/s^2}\)</span>，截断按分量进行。逐步重建原行，并检查适用的记忆速度行；同时以原几何和曲率余量检查运动段及制动尾。最多检查 <span class="math-inline">\(11\)</span> 个记录步，末端必须具有速度与上一速度均精确为零的可重复静止见证。初始化无法建立备份时报告失败，不把零速度预设为总是可行。</p>
+<p>每份证书绑定 <span class="math-inline">\((q,w)\)</span> 的精确状态、记忆签名和命令版本。只有已选中并发布的当前版本候选可以成为提案；未发布的反事实可行速度不获得执行权限。实际原安全门输出若没有匹配的可用证书，执行器消费已有认证备份。新增记忆或模式改变后，旧队列失效，等待所需的静止证书必须在同一记忆集合下重建。</p>
+<p>这一机制的递归可接受性需要证书状态与实际状态一致、证书消费与状态推进保持原子一致、模型不变及认证界有效。冻结实现存在一条已记录的 A 组异常：等待命令的备份状态先被推进，随后因非精确零速度而在运动前拒绝该步。故条件性归纳证明不能写成该浮点程序在所有运行中都无条件满足契约。原异常保留在实验分母中。</p>
+<h3 id="section-13">恒速段与计算时钟</h3>
+<p>在已认证的精确静止状态求新提案。对同一常速度依次认证最多 <span class="math-inline">\(10\)</span> 个执行前缀，每个前缀均有独立的原行可接受制动尾；零命令只形成一个前缀。缓存只在实际状态、记忆签名和命令版本一致时复用。</p>
+<p>令本次求解及动作段认证的测得耗时为 <span class="math-inline">\(t_c\)</span>。仿真使用</p>
+<div class="math-block">\[
+n_c=\max\!\left(1,\left\lceil t_c/\Delta t-10^{-9}\right\rceil\right),\tag{M19}
+\]</div>
+<p>先执行 <span class="math-inline">\(n_c-1\)</span> 个认证零速度等待步，再执行队列中的动作前缀；队列结束后消费制动尾至可重复静止。所有实际步均计入物理仿真时间，只有计算等待不推进反馈停滞时钟。由每次从精确静止求解、原加速度边界以及恒速保持，可得到本批零初速度条件下的理想有效速度界</p>
+<div class="math-block">\[
+|v_i^{\mathrm{exec}}|\le\min(v_{i,\max},a_{\max}\Delta t)=0.2\,\mathrm{rad/s}.\tag{M20}
+\]</div>
+<p>数值实施需计入原行验收容差。名义速度参数仍为 <span class="math-inline">\([1,1,1,1.4,1.4,1.4]\,\mathrm{rad/s}\)</span>，但此调度本身产生停走与低速保守性；当前实验不能将该效应与备份认证的效果进一步分离。该描述是冻结仿真的延迟模型，不是实机异步调度或严格 <span class="math-inline">\(50\,\mathrm{Hz}\)</span> 的证明。</p>
+<h3 id="section-14">冻结入口的执行顺序</h3>
+<p>下面的调度顺序对应实际入口，不是对已知缺陷作了修补的另一个版本。</p>
+<ol>
+<li>B先完成静态终态初始化；A不执行该初始化。建立与实际初态一致的制动备份，失败则记录并中止。</li>
+<li>检查原预算及目标保持条件，丢弃版本过期的动作队列。</li>
+<li>若计算等待计数非零，申请零速度等待步；若有动作队列，则核对队首证书状态并申请该动作。</li>
+<li>若队列为空且尚未达到精确静止，则消费已有备份；只有达到可重复静止才进行新求解。</li>
+<li>求解名义QP，B按控制状态生成并核验修正提案；A保持零新增任务梯度。数值失败记录为失败，不自动放宽原行。</li>
+<li>认证至多十个恒速前缀及其备份；没有可用提案时尝试认证零命令。重建当前记忆集合下的静止等待证书。</li>
+<li>按式（M19）设置等待和动作队列，回到第2步。</li>
+</ol>
+<p>每个申请动作依次经过原安全门和证书选择。冻结的证书选择函数会先推进内部备份指针；随后入口检查计算等待必须为精确零，再进行实际积分和计数。这一顺序保留了正文披露的一致性缺口，不能在伪代码中被悄然替换成已实现的原子事务。</p>
+<h2 id="section-15">性质边界与贡献分离</h2>
+<p>式（M4）的线性可达性、式（M16）的 KKT 等价性、式（M12）的非反向投影及式（M13）的目标纤维保留，均可在明确假设下给出代数证明。证书续接的递归可接受性是依赖认证与执行契约的条件性结论。目标准备、部位切换、重复检测和退出门的有限预算成功效果由实验评价；本文不把它们组合成未被证明的全局 Lyapunov 下降、完备逃逸或任意可达任务必达定理。附录给出各命题及其不覆盖的实现情形。</p>
+<p>实验设计采用三组相同输入：C 为原目标、原单步延迟执行与原安全门；A 为原目标加本文认证执行层；B 为新控制层加相同认证执行层。三组保持共同数值求解配置。因此 C 到 A 度量执行层整体增量，A 到 B 度量终态初始化与控制层整体增量；此顺序设计不独立识别所有子模块及其交互。</p>
+<p>物理安全到达与完整严格成功分别报告。前者要求目标保持、原物理安全与预算；后者还要求全程实际原 QP 行、最终制动/静止及适用的记忆审计通过。C 的制动尾仅在运行后重建，不曾反馈给控制器。所有失败、初始化成本、收尾成本和审计耗时保留。固定历史地图上的有限样本结果不扩写为未见环境、在线感知或硬件保证。</p>
+</article><p class="source-note">原始来源：<code>publication/liuqp900/methods.md</code><br>SHA-256：<code>b8a2d4c5a5aeb4d4a91b0bc8d98857f4f4e67419fa725e25fc781e13b7757b5a</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>

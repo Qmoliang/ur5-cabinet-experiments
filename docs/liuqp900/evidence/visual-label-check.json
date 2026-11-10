@@ -1,0 +1,13 @@
+{
+  "corrected_labels": [
+    "models/exit-a4a8ebe37c40.json",
+    "models/iris_4shelves_t2-17d0dd90feae.json",
+    "models/iris_bins_t1-1d1810b8aacb.json",
+    "models/iris_bins_t2-1d1810b8aacb.json",
+    "models/iris_bins_t3-1d1810b8aacb.json",
+    "models/iris_ur3_shelf_t1-be9e1facc631.json",
+    "models/iris_ur3_shelf_t2-be9e1facc631.json",
+    "models/wall2_topm15-3dd93205bdbd.json"
+  ],
+  "box_geometry_unchanged": true
+}

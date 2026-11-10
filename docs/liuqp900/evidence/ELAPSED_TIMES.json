@@ -1,0 +1,37 @@
+{
+  "formal_start_utc": "2026-11-10T01:49:52.090383+00:00",
+  "formal_end_utc": "2026-11-10T03:41:57.305071+00:00",
+  "audit_end_utc": "2026-11-10T03:42:57.772411+00:00",
+  "formal_batch_wall_s": 6725.214688539505,
+  "through_all_audits_wall_s": 6785.682028532028,
+  "preflight_wall_s": 64.72728633880615,
+  "preflight_launch_through_audits_wall_s": 6952.344290494919,
+  "arm_summed_wall_s": {
+    "C": 72204.92983271705,
+    "A": 22634.043380601448,
+    "B": 52321.41130629135
+  },
+  "reference_AB_elapsed": {
+    "formal_start_utc": "2026-11-09T12:11:20.104562+00:00",
+    "formal_end_utc": "2026-11-09T13:58:07.757619+00:00",
+    "audit_complete_utc": "2026-11-09T14:17:42.152163+00:00",
+    "formal_batch_elapsed_s": 6407.6530566215515,
+    "through_audit_elapsed_s": 7582.047600507736,
+    "formal_workers": 12,
+    "audit_workers": 4,
+    "arm_total_wall_sum_s": {
+      "A": 22634.043380601448,
+      "B": 52321.41130629135
+    },
+    "audit_wall_sum_s": {
+      "A": 17107.061742112157,
+      "B": 11574.253023814643
+    },
+    "preparation_event_times_from_filesystem": {
+      "input_extraction_elapsed_s": 91.40517520904541,
+      "interface_preflight_elapsed_s": 796.6822245121002,
+      "input_extraction_launch_to_all_audits_s": 9050.04146194458,
+      "method": "Differences between launch/completion marker file modification times; approximate event elapsed times, not per-controller budget costs. The overall interval includes intervening preparation and gaps."
+    }
+  }
+}

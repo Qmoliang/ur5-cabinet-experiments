@@ -1,0 +1,38 @@
+{
+  "basic": {
+    "cases": 900,
+    "conditions": 300,
+    "case": "online__iris_4shelves_t0__s01__A",
+    "robotMeshes": 22,
+    "frame": 500,
+    "actualFrame": 500,
+    "glLost": false
+  },
+  "preserved": 500,
+  "safetyRows": 1,
+  "safety": {
+    "id": "online__iris_bins_t0__s06__C",
+    "frame": 242,
+    "physical": false
+  },
+  "mobile": {
+    "width": 390,
+    "viewport": 390
+  },
+  "docs": [
+    {
+      "math": 155,
+      "errors": 0,
+      "width": 390,
+      "viewport": 390
+    },
+    {
+      "math": 77,
+      "errors": 0,
+      "width": 390,
+      "viewport": 390
+    }
+  ],
+  "errors": [],
+  "bad": []
+}

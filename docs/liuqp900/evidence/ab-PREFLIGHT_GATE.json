@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "tasks": 15,
+  "failed": [],
+  "scope": "input/schema/math/recording/safety-prefix interface check; no arrival-rate screening"
+}

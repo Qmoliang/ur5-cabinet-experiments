@@ -1,0 +1,1 @@
+{"boxes":[{"name":"high_wall","center":[0.256,0.406,0.225],"half_size":[0.006,0.5,0.225],"quaternion_xyzw":[0.0,0.0,0.0,1.0],"material":"shelf"}],"label":"墙体上方目标-10mm","source_scene_sha256":"3dd93205bdbd719c4b710b25d324f55b2f02c639e9d2eafddb7ae2eec9d75bec"}

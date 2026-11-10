@@ -1,0 +1,71 @@
+{
+  "rows": 15,
+  "case": "在线 / 窄笼架 / seed 8 / final_r17",
+  "robotMeshes": 22,
+  "fk": {
+    "count": 1800,
+    "maxErrorM": 5.551115123125783e-16
+  },
+  "views": [
+    {
+      "view": 1,
+      "robot": true,
+      "certificate": false,
+      "environment": true,
+      "cloud": false
+    },
+    {
+      "view": 2,
+      "robot": false,
+      "certificate": true,
+      "environment": true,
+      "cloud": false
+    },
+    {
+      "view": 3,
+      "robot": true,
+      "certificate": false,
+      "environment": true,
+      "cloud": false
+    },
+    {
+      "view": 4,
+      "robot": true,
+      "certificate": false,
+      "environment": false,
+      "cloud": true
+    }
+  ],
+  "play": {
+    "frame": 213,
+    "playing": true
+  },
+  "seek": 1000,
+  "rotation": {
+    "before": [
+      -1.2000000000000033,
+      -1.4999999999999865,
+      1.249999999999992
+    ],
+    "after": [
+      -1.3334266433672313,
+      0.7090535590454694,
+      2.1731391241839666
+    ]
+  },
+  "known": {
+    "id": "known__cage__s08",
+    "frames": 6001
+  },
+  "drawer": {
+    "id": "online__drawer__s20",
+    "frames": 15000
+  },
+  "noVideo": true,
+  "mobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "errors": [],
+  "badRequests": []
+}

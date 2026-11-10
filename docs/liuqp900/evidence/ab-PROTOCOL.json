@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-11-09T19:42:17.109929+08:00",
+  "conditions": 300,
+  "arms": 600,
+  "arm_A": "Original LiuQP objective with zero added task gradient; no terminal IK/posture/escape memory; common verified numerical profile and certified block executor",
+  "arm_B": "Previously accepted configuration-recurrence and winding method with identical certified block executor",
+  "representation": "ellipsoid, shared identical frozen historical pre-motion snapshot per pair",
+  "input_rule": "last causal publication before the first changed robot history state; if no robot movement, last causal publication in the original run; no path or success outcome used for selection",
+  "per_arm_simulation_cap_s": 300,
+  "per_arm_total_computation_cap_s": 1200,
+  "compute_budget_includes": "candidate static endpoint initialization, runtime import/setup, solve, execution and record finalization; input-dataset preparation and independent audits separately reported",
+  "initialization": "same 384 candidate static search and up to 12 fixed refinements, then accepted rank-aware port initializer; no outcome-dependent retries",
+  "goal": "error strictly below 1mm for 50 physical cycles",
+  "environment_hard_m": 0.006,
+  "environment_working_m": 0.0065,
+  "self_m": 0.005,
+  "dt_s": 0.02,
+  "pair_order": "alternate A-first/B-first by original matrix index; same four CPU cores for both arms; fresh process per run",
+  "preflight": "seed1 of each of 15 tasks; input/model/recording and short-prefix interface checks, not a success-rate screening gate",
+  "ordinary_failure": "keep all initialization/no-arrival/timeout results; baseline runs even if candidate init fails; no parameter changes or replacement results after freeze",
+  "scope": "historical development regression, not unseen-world or new online-sensing validation",
+  "status": "frozen_before_formal_execution",
+  "frozen_at": "2026-11-09T20:11:19.259977+08:00",
+  "pair_workers": 12,
+  "cpu_cores_per_pair": 4,
+  "control_cpu_range": [
+    0,
+    47
+  ],
+  "audit_cpu_range": [
+    48,
+    63
+  ],
+  "notes": "Ordinary initialization, no-arrival, solver, safety, and budget failures remain in the 300-pair denominator. No tuning or replacement formal runs."
+}

@@ -1,0 +1,46 @@
+{
+  "executor": {
+    "gains": {
+      "already_physically_safe_arrival_but_strict_audit_failed": 44,
+      "new_physical_safe_arrival": 15
+    },
+    "regressions": {
+      "lost_physical_safe_arrival": 1
+    },
+    "detailed_gain_source_failures": {
+      "physically_safe_arrival_but_original_QP_or_braking_failed": 44,
+      "did_not_reach_goal": 14,
+      "arrived_but_physical_safety_failed": 1
+    },
+    "detailed_regression_target_failures": {
+      "did_not_reach_goal": 1
+    }
+  },
+  "new_control": {
+    "gains": {
+      "new_physical_safe_arrival": 109
+    },
+    "regressions": {
+      "lost_physical_safe_arrival": 1
+    },
+    "detailed_gain_source_failures": {
+      "did_not_reach_goal": 109
+    },
+    "detailed_regression_target_failures": {
+      "did_not_reach_goal": 1
+    }
+  },
+  "combined": {
+    "gains": {
+      "already_physically_safe_arrival_but_strict_audit_failed": 45,
+      "new_physical_safe_arrival": 121
+    },
+    "regressions": {},
+    "detailed_gain_source_failures": {
+      "physically_safe_arrival_but_original_QP_or_braking_failed": 45,
+      "did_not_reach_goal": 120,
+      "arrived_but_physical_safety_failed": 1
+    },
+    "detailed_regression_target_failures": {}
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "file": "methods.md",
+    "source": "methods_body.tex",
+    "source_sha256": "d50c5666a4b804c8e0cf28b4e6a744b6ae45d281e0460e35372d22fe8e879c8f",
+    "derived_markdown_sha256": "b8a2d4c5a5aeb4d4a91b0bc8d98857f4f4e67419fa725e25fc781e13b7757b5a",
+    "transformation": "Headings, emphasis, display-math delimiters and lists converted; mathematical expressions preserved. Public navigation links added."
+  },
+  {
+    "file": "proofs.md",
+    "source": "proofs.tex",
+    "source_sha256": "3ff48831868dae03a772981019c67ef1282bcb0c0c27bd8a119e68f276e05581",
+    "derived_markdown_sha256": "e48344f063b56c4a5d8243ba916008f02712bac0725a7526bff9c1ce4b71496d",
+    "transformation": "Headings, emphasis, display-math delimiters and lists converted; mathematical expressions preserved. Public navigation links added."
+  },
+  {
+    "file": "property-status.md",
+    "source": "PROPERTY_STATUS.txt",
+    "source_sha256": "94a48a3e6592d9525b42e08e7cacf270dc2c8b6b4f7422b8b5156d11623ef1a7",
+    "derived_markdown_sha256": "22b51ef1fbd786fe980b9566844424b59d639934fff2e866b9c86f1eecb43e6e",
+    "transformation": "Headings, emphasis, display-math delimiters and lists converted; mathematical expressions preserved. Public navigation links added."
+  },
+  {
+    "file": "author-notes.md",
+    "source": "AUTHOR_NOTES.txt",
+    "source_sha256": "619574d74570f5738f2c40e3b09c4300038a5b3f430b53426b26ef739477cdd3",
+    "derived_markdown_sha256": "b5611eb5ce68bd4f0b6c291f3524990e7a7f8e15b5b7189b56378a987004dd37",
+    "transformation": "Headings, emphasis, display-math delimiters and lists converted; mathematical expressions preserved. Public navigation links added."
+  }
+]

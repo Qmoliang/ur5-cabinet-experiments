@@ -1,6 +1,62 @@
 {
   "documents": [
     {
+      "id": "liuqp900-methods",
+      "math": 155,
+      "diagrams": 0,
+      "headings": 15,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-proofs",
+      "math": 77,
+      "diagrams": 0,
+      "headings": 12,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-status",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 5,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-code",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 30,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-notes",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 9,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-results",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 5,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
+      "id": "liuqp900-reconciliation",
+      "math": 0,
+      "diagrams": 0,
+      "headings": 6,
+      "unresolved": 0,
+      "displayFixes": 0
+    },
+    {
       "id": "chapter1-word",
       "math": 0,
       "diagrams": 0,

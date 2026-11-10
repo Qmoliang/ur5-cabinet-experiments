@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-11-10T09:45:36.210136+08:00",
+  "arm": "C",
+  "conditions": 300,
+  "reference_study": "/mnt/ssd2/hsjed/ur5_cabinet/v6runs/unified_static_20261102/analysis/liuqp_paired300_20261109",
+  "reference_arms": "A original LiuQP objective + certified executor; B new control scheme + same executor",
+  "definition": "Original final-goal LiuQP without any added objective hook, terminal IK, posture, escape or memory policy; original pilot_worker baseline single-step execution, measured solve delay and original ExecutionGuard. Numerical solver profile deliberately identical to A/B.",
+  "numerical_profile": {
+    "name": "verified_common",
+    "osqp_abs": 1e-07,
+    "osqp_rel": 1e-07,
+    "max_iterations": 3000,
+    "verified_fallback": "same verified_qp_recovery as A/B",
+    "certified_auxiliary": true,
+    "auxiliary_solution_supplied": false
+  },
+  "not_claimed": "Unmodified historical default OSQP settings; solver numerics are controlled to isolate execution layer.",
+  "input_rule": "Exact same 300 inputs and models by SHA-256, in original seed-major matrix order",
+  "safety": {
+    "environment_hard_m": 0.006,
+    "environment_working_m": 0.0065,
+    "self_m": 0.005,
+    "dt_s": 0.02,
+    "goal_tolerance_m": 0.001,
+    "goal_hold_cycles": 50
+  },
+  "budgets": {
+    "max_cycles": 15000,
+    "simulation_s": 300,
+    "total_arm_wall_s": 1200,
+    "includes": "imports, model setup, solve, execution, logging and finalization",
+    "audit_separate": true
+  },
+  "execution_delay": "Original worker maps measured solve time only to command delay and retains prior command; original physical/braking ExecutionGuard stays unchanged. Guard cost remains included in full wall time. A executor additionally charges block certification to simulation waits; this scheduling difference is part of the execution-layer contrast.",
+  "preflight": "15 seed1 tasks: original QP matrices and initial velocity equivalence; identical original/adapted single-step trajectory under predeclared fixed delay sequence. Interface gate does not require successful arrival or discard ordinary failures.",
+  "audit": "Same physical auditor, actual executed original QP row check and final feasible braking/rest property. C has no runtime backup certificate: deterministic original braking tail reconstructed and audited after execution only; never used by controller. Memory checks not exercised, no memory invented.",
+  "statistics": "300 C attempts all retained; report C->A executor gains/regressions, A->B control gains/regressions, C->B combined; raw arrival, physical-safe arrival and full strict arrival separately.",
+  "timing_scope": "Same host, 12 workers x 4 cores and 4 audit workers x 4 cores. C is a later batch; measured-delay/load effects prevent claiming perfectly simultaneous causal timing control. Full costs and common-success paired differences reported.",
+  "no_tuning": true,
+  "no_replacements": true,
+  "status": "frozen_before_300_formal_runs",
+  "frozen_at": "2026-11-10T09:49:21.669165+08:00",
+  "workers": 12,
+  "audit_workers": 4,
+  "cores_per_worker": 4
+}

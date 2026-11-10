@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "recorded_frames_changed": false,
+  "new_parts": [
+    {
+      "file": "packs/A__iris_4shelves_t2__s01-s10.bin.gz",
+      "bytes": 3283944
+    },
+    {
+      "file": "packs/A__iris_4shelves_t2__s11-s20.bin.gz",
+      "bytes": 3239648
+    },
+    {
+      "file": "packs/C__drawer__s01-s10.bin.gz",
+      "bytes": 4096283
+    },
+    {
+      "file": "packs/C__drawer__s11-s20.bin.gz",
+      "bytes": 2414761
+    },
+    {
+      "file": "packs/C__iris_4shelves_t0__s01-s10.bin.gz",
+      "bytes": 5625120
+    },
+    {
+      "file": "packs/C__iris_4shelves_t0__s11-s20.bin.gz",
+      "bytes": 3965189
+    },
+    {
+      "file": "packs/C__iris_4shelves_t2__s01-s10.bin.gz",
+      "bytes": 6168619
+    },
+    {
+      "file": "packs/C__iris_4shelves_t2__s11-s15.bin.gz",
+      "bytes": 3729211
+    },
+    {
+      "file": "packs/C__iris_4shelves_t2__s16-s20.bin.gz",
+      "bytes": 3195075
+    }
+  ]
+}

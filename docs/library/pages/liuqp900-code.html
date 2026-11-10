@@ -1,0 +1,412 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ee"><title>29项主张与冻结源码映射 · UR5 文档库</title><link rel="stylesheet" href="../library.css"><script src="../reader.js" defer></script></head><body><a class="skip" href="#content">跳转到正文</a><header class="library-nav"><a class="brand" href="../../index.html">↗ CABINET <span>/ RESEARCH LIBRARY</span></a><nav><a href="../index.html">文档目录</a><a href="../../index.html#experiment">实验回放</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments">GitHub ↗</a></nav></header><main class="reading"><aside class="toc"><a class="back-link" href="../index.html">← 全部文档</a><details open><summary>本页目录</summary><div><a class="depth-1" href="#section-1">主张与冻结代码映射</a><a class="depth-2" href="#section-2">M1_M2</a><a class="depth-2" href="#section-3">M3_M4_P2</a><a class="depth-2" href="#section-4">INIT</a><a class="depth-2" href="#section-5">ACTIVATION</a><a class="depth-2" href="#section-6">M5_M6</a><a class="depth-2" href="#section-7">M7_P8</a><a class="depth-2" href="#section-8">M8</a><a class="depth-2" href="#section-9">M9</a><a class="depth-2" href="#section-10">M10_P7</a><a class="depth-2" href="#section-11">M11</a><a class="depth-2" href="#section-12">M11b</a><a class="depth-2" href="#section-13">BINDING</a><a class="depth-2" href="#section-14">M12_P6</a><a class="depth-2" href="#section-15">RECURRENCE</a><a class="depth-2" href="#section-16">M13_M14_P4</a><a class="depth-2" href="#section-17">REJOIN</a><a class="depth-2" href="#section-18">M15_M16_P1</a><a class="depth-2" href="#section-19">NUMERICAL</a><a class="depth-2" href="#section-20">M17_M18_P3</a><a class="depth-2" href="#section-21">M19</a><a class="depth-2" href="#section-22">P5</a><a class="depth-2" href="#section-23">A_BOUNDARY</a><a class="depth-2" href="#section-24">GLOBAL</a><a class="depth-2" href="#section-25">E_REACH</a><a class="depth-2" href="#section-26">E_COMPONENTS</a><a class="depth-2" href="#section-27">E_MECHANISMS</a><a class="depth-2" href="#section-28">E_QP</a><a class="depth-2" href="#section-29">E_COST</a><a class="depth-2" href="#section-30">M20_P9</a></div></details></aside><div class="document"><header class="document-header"><div class="eyebrow">2026-11 冻结控制对照与方法 / MD</div><h1>29项主张与冻结源码映射</h1><p>2026-11-10冻结源码对齐稿；原实验不改写；条件性证明与经验结论分列。</p><div class="actions"><a class="primary" download href="../files/liuqp900/code-alignment.md">下载原文件 ↓</a><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/docs/library/files/liuqp900/code-alignment.md">在 GitHub 查看 ↗</a></div><div class="version-note">阅读说明：正文按原文件保留。本库跨多个版本；指标须按各文档的队列与协议解释，不能混合统计。原文中的本机路径对应其原始实验目录。</div><div class="version-note">本页对应2026-11的C/A/B控制对照，使用历史冻结地图。旧RRT系统298/300属于另一协议；不主张全局收敛或实机硬实时。</div></header><article id="content" class="prose"><h1 id="section-1">主张与冻结代码映射</h1>
+<p>证明状态和限制与方法初稿一致。源码按原字节公开，哈希可核验。</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>主张</th>
+<th>类型</th>
+<th>边界</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>M1_M2</td>
+<td>实际状态、原行重建与相同状态下的名义速度QP</td>
+<td><code>implementation</code></td>
+<td>矩阵随当前状态改变；原行数值可接受不等于零容差实数可行。</td>
+</tr>
+<tr>
+<td>M3_M4_P2</td>
+<td>初始秩感知进入方向及两关节特征</td>
+<td><code>algebraic_conditional</code></td>
+<td>只对实际执行秩感知选择的初始端口；后续终态重选保留P而不重做该过程。</td>
+</tr>
+<tr>
+<td>INIT</td>
+<td>有限静态终态采样与局部回退认证</td>
+<td><code>implementation</code></td>
+<td>不是IK穷举或初态到终态连通保证；初始化全成本纳入预算。</td>
+</tr>
+<tr>
+<td>ACTIVATION</td>
+<td>原目标停滞触发和扩展激活</td>
+<td><code>implementation</code></td>
+<td>初始激活e&gt;2mm，扩展激活e&gt;1mm；反馈钟包括零动作/制动，仅排除compute_wait。</td>
+</tr>
+<tr>
+<td>M5_M6</td>
+<td>固定终态线、几何见证和目标侧支持平面</td>
+<td><code>implementation</code></td>
+<td>实际检查当前q到qg整段；不是只检查终态邻域，也不是优化未来构型。</td>
+</tr>
+<tr>
+<td>M7_P8</td>
+<td>最弱预测余量LP与后验进展检查</td>
+<td><code>prediction_only</code></td>
+<td>预测改善不保证实际非线性余量单调；回退分支不提供同一改善保证。</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>扩展前保留旧见证任务及全关节零空间准备</td>
+<td><code>implementation</code></td>
+<td>显式Legacy调用绕过上层posture_policy覆盖；不能仅看最高层__call__概括。</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>扩展后CERT_PREP改为原进入混合场加两维姿态项</td>
+<td><code>implementation</code></td>
+<td>不是对所有见证行做姿态零空间投影；maximin行仍可添加。</td>
+</tr>
+<tr>
+<td>M10_P7</td>
+<td>CERT_ENTER使用完整关节终态收缩提案</td>
+<td><code>proposal_level_conditional</code></td>
+<td>射线单步性质不覆盖恒速多前缀或按分量制动；没有正速度下界或预算内到达证明。</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>近表面双分量任务与PN姿态准备</td>
+<td><code>implementation</code></td>
+<td>零空间维数为6-rank(K)，秩退化时不是固定最多四维。</td>
+</tr>
+<tr>
+<td>M11b</td>
+<td>离开近区后部位位置任务及PN、JN辅助任务</td>
+<td><code>implementation</code></td>
+<td>不把已离开近区的部位继续当作恒速切向任务。</td>
+</tr>
+<tr>
+<td>BINDING</td>
+<td>当前有效任务的对偶行选择与执行后的任务交接</td>
+<td><code>implementation</code></td>
+<td>不使用无效求解对偶；首次选择的影子分支与持续阶段影子QP路径略有不同。</td>
+</tr>
+<tr>
+<td>M12_P6</td>
+<td>切向投影非反向性质</td>
+<td><code>algebraic_conditional</code></td>
+<td>投影非退化且未主动反向时成立；不等于拓扑绕数保持。</td>
+</tr>
+<tr>
+<td>RECURRENCE</td>
+<td>构型重复证据触发方向重选</td>
+<td><code>heuristic_empirical</code></td>
+<td>历史点不是航点；每个任务重置反向额度，不能推出全局有限切换。</td>
+</tr>
+<tr>
+<td>M13_M14_P4</td>
+<td>新Cartesian记忆及原任务恢复门</td>
+<td><code>algebraic_conditional</code></td>
+<td>新提交门替代旧surface_pending提交门；精确目标纤维保留不自动覆盖1mm容差球。</td>
+</tr>
+<tr>
+<td>REJOIN</td>
+<td>原任务恢复不等于恢复无记忆A组</td>
+<td><code>implementation</code></td>
+<td>附加记忆仍存在；worker直接install绕过_register，不能借其端点下降筛选宣称所有实际步距离下降。</td>
+</tr>
+<tr>
+<td>M15_M16_P1</td>
+<td>KKT梯度重写及认证缩放后的重新编码</td>
+<td><code>algebraic_conditional</code></td>
+<td>依赖可行KKT元组与H0正定；是事后重写，不证明目标推进或新颖性。</td>
+</tr>
+<tr>
+<td>NUMERICAL</td>
+<td>辅助解经KKT核验后复用</td>
+<td><code>implementation</code></td>
+<td>pilot_use_certified_auxiliary=True；不是每次独立优化重解。</td>
+</tr>
+<tr>
+<td>M17_M18_P3</td>
+<td>原行可接受的确定性制动续轨迹</td>
+<td><code>contract_conditional</code></td>
+<td>依赖模型/认证有效、状态一致和原子提交；已知A异常禁止无条件实现保证。</td>
+</tr>
+<tr>
+<td>M19</td>
+<td>恒速前缀、精确静止等待与反馈钟</td>
+<td><code>implementation</code></td>
+<td>最终worker将last_delay_ticks固定1且显式认证最多10前缀；不能照搬父类“上次延迟决定全部保持长度”说明。</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>端点一致的记忆曲线下界</td>
+<td><code>algebraic_conditional</code></td>
+<td>曲率和算术误差保守性为前提；nextafter不是整体IEEE算术形式化证明。</td>
+</tr>
+<tr>
+<td>A_BOUNDARY</td>
+<td>A组没有终态初始化、目标修正或逃逸记忆</td>
+<td><code>implementation</code></td>
+<td>A仍使用新增执行器；不能作为原执行方式的纯组。</td>
+</tr>
+<tr>
+<td>GLOBAL</td>
+<td>一般完备性、全局收敛、未见环境和硬实时</td>
+<td><code>unsupported</code></td>
+<td>未给出证明，历史冻结模型和有限预算实验也不足以支持。</td>
+</tr>
+<tr>
+<td>E_REACH</td>
+<td>本批C/A/B安全到达174/186/294，严格128/186/294，各分母300。</td>
+<td><code>empirical</code></td>
+<td>历史开发矩阵，不是未见场景或900个独立场景；不构成一般到达证明。</td>
+</tr>
+<tr>
+<td>E_COMPONENTS</td>
+<td>C→A严格增59退1，A→B增109退1；各自的安全到达与严格验收分开。</td>
+<td><code>empirical</code></td>
+<td>顺序增量设计，未识别全部交互；同终态信息下的子模块消融仍需另做。</td>
+</tr>
+<tr>
+<td>E_MECHANISMS</td>
+<td>新增109例均激活continuation，20例绕行，1例构型重复重选。</td>
+<td><code>empirical</code></td>
+<td>不能把全部109例归功于绕行或重复检测；触发次数不是机制必要性的证明。</td>
+</tr>
+<tr>
+<td>E_QP</td>
+<td>C有161条运行出现实际原行违规、7条出现LP确认不可行状态；A/B实际原行违规均0，A末态备份失败1。</td>
+<td><code>empirical</code></td>
+<td>行违规、可行域为空和数值求解失败是不同概念；只对已记录运行成立。</td>
+</tr>
+<tr>
+<td>E_COST</td>
+<td>完整墙钟中位数C15.192s、A41.134s、B144.661s；B初始化完整计入。</td>
+<td><code>empirical</code></td>
+<td>失败长尾及共同成功子集分别比较；不能宣称各案例都加速或硬实时。</td>
+</tr>
+<tr>
+<td>M20_P9</td>
+<td>零初速度、静止求解、恒速保持与分量制动下的理想0.2rad/s有效速度界</td>
+<td><code>algebraic_conditional</code></td>
+<td>需要当前调度及有效加速度边界；浮点容差另计，非零初速快照不直接适用；不证明认证与低速各自的独立收益。</td>
+</tr>
+</tbody></table>
+<h2 id="section-2">M1_M2</h2>
+<p>实际状态、原行重建与相同状态下的名义速度QP</p>
+<p><strong>边界：</strong> 矩阵随当前状态改变；原行数值可接受不等于零容差实数可行。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/pilot_worker_goal_plane_memory.py#L32" rel="noopener noreferrer">frozen/pilot_worker_goal_plane_memory.py:32</a> · <code>d53efb57df5702566e722347a4e75477b51bee5c66f65f4e9d62644940a27662</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/original_row_certificate.py#L8" rel="noopener noreferrer">frozen/original_row_certificate.py:8</a> · <code>728252c454db725503494edb2e5d95702525ecbe885c9dfe5667c8cd4bbee21b</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/original_row_certificate.py#L28" rel="noopener noreferrer">frozen/original_row_certificate.py:28</a> · <code>728252c454db725503494edb2e5d95702525ecbe885c9dfe5667c8cd4bbee21b</code></li>
+</ul>
+<h2 id="section-3">M3_M4_P2</h2>
+<p>初始秩感知进入方向及两关节特征</p>
+<p><strong>边界：</strong> 只对实际执行秩感知选择的初始端口；后续终态重选保留P而不重做该过程。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/rank_aware_ports.py#L9" rel="noopener noreferrer">frozen/rank_aware_ports.py:9</a> · <code>b7006e49f9caee88709663073daf095b22709c0463efeb816f9469697c7a2a07</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/rank_aware_ports.py#L15" rel="noopener noreferrer">frozen/rank_aware_ports.py:15</a> · <code>b7006e49f9caee88709663073daf095b22709c0463efeb816f9469697c7a2a07</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/rank_aware_ports.py#L51" rel="noopener noreferrer">frozen/rank_aware_ports.py:51</a> · <code>b7006e49f9caee88709663073daf095b22709c0463efeb816f9469697c7a2a07</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy_v3.py#L6" rel="noopener noreferrer">frozen/goal_entry_policy_v3.py:6</a> · <code>b5efb2ab586ed9d6e694104b271c19589022a6a052e2e991df3a3ef43db29773</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy_v6.py#L9" rel="noopener noreferrer">frozen/goal_entry_policy_v6.py:9</a> · <code>df51db8bbd72b7a93d8df9812294060cdb98b5f3a5247ce75d8351fb97229c9b</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P2</li>
+</ul>
+<h2 id="section-4">INIT</h2>
+<p>有限静态终态采样与局部回退认证</p>
+<p><strong>边界：</strong> 不是IK穷举或初态到终态连通保证；初始化全成本纳入预算。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/build_goal_ports.py#L1" rel="noopener noreferrer">frozen/build_goal_ports.py:1</a> · <code>e9748f6be7ee32c1f2c99d22cfe58864142f85b032e0e7faf5eb41653d08987c</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/build_rank_aware_ports.py#L1" rel="noopener noreferrer">frozen/build_rank_aware_ports.py:1</a> · <code>d0f132aa0954560040b0965ec8e6d05d02a71eab078eeccd5368a8b7a84694fa</code></li>
+</ul>
+<h2 id="section-5">ACTIVATION</h2>
+<p>原目标停滞触发和扩展激活</p>
+<p><strong>边界：</strong> 初始激活e&gt;2mm，扩展激活e&gt;1mm；反馈钟包括零动作/制动，仅排除compute_wait。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_policy.py#L80" rel="noopener noreferrer">frozen/continuation_policy.py:80</a> · <code>78aa3b7dd5f91e5eca0db84c14d2cdfa62cb65d61f6a84db235d983de58e0420</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/compatibility_clipped_policy.py#L12" rel="noopener noreferrer">frozen/compatibility_clipped_policy.py:12</a> · <code>c0325055cf8613c65caf27e717c7f5b2f69e36b2098b7e63c91769d1e37406a3</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/surface_stall_policy.py#L7" rel="noopener noreferrer">frozen/surface_stall_policy.py:7</a> · <code>5dd5b209a692dbdeaa331e4b0e21580ad7eba2df2098cbcde69f74c9c7c9a518</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/surface_handoff_policy.py#L6" rel="noopener noreferrer">frozen/surface_handoff_policy.py:6</a> · <code>586cfb32b33f66793f128c4e95c7e017e8b8b29737398304c52c724cc97067ac</code></li>
+</ul>
+<h2 id="section-6">M5_M6</h2>
+<p>固定终态线、几何见证和目标侧支持平面</p>
+<p><strong>边界：</strong> 实际检查当前q到qg整段；不是只检查终态邻域，也不是优化未来构型。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/diagnostic_exact_pruned_policy.py#L24" rel="noopener noreferrer">frozen/diagnostic_exact_pruned_policy.py:24</a> · <code>afb21da6c0044ab7d19900280cfef68282acf83f650024f4e9f71376659b52f0</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_side_plane_policy.py#L9" rel="noopener noreferrer">frozen/goal_side_plane_policy.py:9</a> · <code>d14fa1d912182a6ca0968fa94514488c7ab16125c699f1d648dd1175590a41cb</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_side_plane_policy.py#L16" rel="noopener noreferrer">frozen/goal_side_plane_policy.py:16</a> · <code>d14fa1d912182a6ca0968fa94514488c7ab16125c699f1d648dd1175590a41cb</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_certified_policy.py#L14" rel="noopener noreferrer">frozen/continuation_certified_policy.py:14</a> · <code>6508341f197ec56fceaf2b16ec7f5e4d89af170b7dd7ac9b163206e6dcc648e1</code></li>
+</ul>
+<h2 id="section-7">M7_P8</h2>
+<p>最弱预测余量LP与后验进展检查</p>
+<p><strong>边界：</strong> 预测改善不保证实际非线性余量单调；回退分支不提供同一改善保证。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_maximin_policy.py#L13" rel="noopener noreferrer">frozen/continuation_maximin_policy.py:13</a> · <code>b03b05e998b6e5cf02dd6b839b61c8dd6c42f41f319af710ff12d44357f5ba56</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_maximin_policy.py#L9" rel="noopener noreferrer">frozen/continuation_maximin_policy.py:9</a> · <code>b03b05e998b6e5cf02dd6b839b61c8dd6c42f41f319af710ff12d44357f5ba56</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_plane_acceptance_policy.py#L7" rel="noopener noreferrer">frozen/goal_plane_acceptance_policy.py:7</a> · <code>0d916d6c1a10ed6ef1ae626907e46afb6857596a9e449ca7a9313f82c21aa2a6</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P8</li>
+</ul>
+<h2 id="section-8">M8</h2>
+<p>扩展前保留旧见证任务及全关节零空间准备</p>
+<p><strong>边界：</strong> 显式Legacy调用绕过上层posture_policy覆盖；不能仅看最高层__call__概括。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/compatibility_clipped_policy.py#L9" rel="noopener noreferrer">frozen/compatibility_clipped_policy.py:9</a> · <code>c0325055cf8613c65caf27e717c7f5b2f69e36b2098b7e63c91769d1e37406a3</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_policy.py#L61" rel="noopener noreferrer">frozen/continuation_policy.py:61</a> · <code>78aa3b7dd5f91e5eca0db84c14d2cdfa62cb65d61f6a84db235d983de58e0420</code></li>
+</ul>
+<h2 id="section-9">M9</h2>
+<p>扩展后CERT_PREP改为原进入混合场加两维姿态项</p>
+<p><strong>边界：</strong> 不是对所有见证行做姿态零空间投影；maximin行仍可添加。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/posture_policy.py#L6" rel="noopener noreferrer">frozen/posture_policy.py:6</a> · <code>11aaae9ba61f023d654919b8361b694822a4d6d1859762e0322f3c5e88948ab5</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy.py#L50" rel="noopener noreferrer">frozen/goal_entry_policy.py:50</a> · <code>fd6c8038ab1e214fbd2b04b3169572966f914cdc08f6972bd983afdd6c49e401</code></li>
+</ul>
+<h2 id="section-10">M10_P7</h2>
+<p>CERT_ENTER使用完整关节终态收缩提案</p>
+<p><strong>边界：</strong> 射线单步性质不覆盖恒速多前缀或按分量制动；没有正速度下界或预算内到达证明。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_certified_policy.py#L8" rel="noopener noreferrer">frozen/continuation_certified_policy.py:8</a> · <code>6508341f197ec56fceaf2b16ec7f5e4d89af170b7dd7ac9b163206e6dcc648e1</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/continuation_policy.py#L72" rel="noopener noreferrer">frozen/continuation_policy.py:72</a> · <code>78aa3b7dd5f91e5eca0db84c14d2cdfa62cb65d61f6a84db235d983de58e0420</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P7</li>
+</ul>
+<h2 id="section-11">M11</h2>
+<p>近表面双分量任务与PN姿态准备</p>
+<p><strong>边界：</strong> 零空间维数为6-rank(K)，秩退化时不是固定最多四维。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/surface_escape_policy.py#L9" rel="noopener noreferrer">frozen/surface_escape_policy.py:9</a> · <code>274d204ba08cf4d454ef4965186326cfb101ca3152c4ee9d18e4565229a6e6ed</code></li>
+</ul>
+<h2 id="section-12">M11b</h2>
+<p>离开近区后部位位置任务及PN、JN辅助任务</p>
+<p><strong>边界：</strong> 不把已离开近区的部位继续当作恒速切向任务。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/task_cone_policy.py#L10" rel="noopener noreferrer">frozen/task_cone_policy.py:10</a> · <code>1d5add827886aa4035d89d4bdff13a839ec83ff8df1b9633ed5b1ebbfaeba6b8</code></li>
+</ul>
+<h2 id="section-13">BINDING</h2>
+<p>当前有效任务的对偶行选择与执行后的任务交接</p>
+<p><strong>边界：</strong> 不使用无效求解对偶；首次选择的影子分支与持续阶段影子QP路径略有不同。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/task_cone_policy.py#L22" rel="noopener noreferrer">frozen/task_cone_policy.py:22</a> · <code>1d5add827886aa4035d89d4bdff13a839ec83ff8df1b9633ed5b1ebbfaeba6b8</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/frame_transfer_policy.py#L7" rel="noopener noreferrer">frozen/frame_transfer_policy.py:7</a> · <code>73f13736697cbab52067b386b5f9307d7bae7ff1fb53822c57cacd200ab8a257</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/binding_backup_policy.py#L15" rel="noopener noreferrer">frozen/binding_backup_policy.py:15</a> · <code>1b2e2752129bd492388f341af23fc0dc35b31a9f8628eec897f7d160d5fb3f5b</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/executed_frame_policy.py#L17" rel="noopener noreferrer">frozen/executed_frame_policy.py:17</a> · <code>9576893513596678e92d59020384b8b623c7eb1d5075fc268e77b8cb389d794a</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/executed_frame_policy.py#L34" rel="noopener noreferrer">frozen/executed_frame_policy.py:34</a> · <code>9576893513596678e92d59020384b8b623c7eb1d5075fc268e77b8cb389d794a</code></li>
+</ul>
+<h2 id="section-14">M12_P6</h2>
+<p>切向投影非反向性质</p>
+<p><strong>边界：</strong> 投影非退化且未主动反向时成立；不等于拓扑绕数保持。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy_v5.py#L35" rel="noopener noreferrer">frozen/goal_entry_policy_v5.py:35</a> · <code>3e46eb6f270adb5c5b507372db16262ba01b866acef19a93f77fe003ed0d8f08</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/binding_backup_policy.py#L15" rel="noopener noreferrer">frozen/binding_backup_policy.py:15</a> · <code>1b2e2752129bd492388f341af23fc0dc35b31a9f8628eec897f7d160d5fb3f5b</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P6</li>
+</ul>
+<h2 id="section-15">RECURRENCE</h2>
+<p>构型重复证据触发方向重选</p>
+<p><strong>边界：</strong> 历史点不是航点；每个任务重置反向额度，不能推出全局有限切换。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/configuration_recurrence_policy.py#L17" rel="noopener noreferrer">frozen/configuration_recurrence_policy.py:17</a> · <code>e98278d5aabd1e850b05127b0c1e5e75b83206d9695b8bee36a0b7830cf2d943</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/configuration_recurrence_policy.py#L13" rel="noopener noreferrer">frozen/configuration_recurrence_policy.py:13</a> · <code>e98278d5aabd1e850b05127b0c1e5e75b83206d9695b8bee36a0b7830cf2d943</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/configuration_recurrence_policy.py#L9" rel="noopener noreferrer">frozen/configuration_recurrence_policy.py:9</a> · <code>e98278d5aabd1e850b05127b0c1e5e75b83206d9695b8bee36a0b7830cf2d943</code></li>
+</ul>
+<h2 id="section-16">M13_M14_P4</h2>
+<p>新Cartesian记忆及原任务恢复门</p>
+<p><strong>边界：</strong> 新提交门替代旧surface_pending提交门；精确目标纤维保留不自动覆盖1mm容差球。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L12" rel="noopener noreferrer">frozen/goal_fiber_policy.py:12</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L23" rel="noopener noreferrer">frozen/goal_fiber_policy.py:23</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L41" rel="noopener noreferrer">frozen/goal_fiber_policy.py:41</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L9" rel="noopener noreferrer">frozen/goal_fiber_policy.py:9</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy_v5.py#L74" rel="noopener noreferrer">frozen/goal_entry_policy_v5.py:74</a> · <code>3e46eb6f270adb5c5b507372db16262ba01b866acef19a93f77fe003ed0d8f08</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P4</li>
+</ul>
+<h2 id="section-17">REJOIN</h2>
+<p>原任务恢复不等于恢复无记忆A组</p>
+<p><strong>边界：</strong> 附加记忆仍存在；worker直接install绕过_register，不能借其端点下降筛选宣称所有实际步距离下降。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L9" rel="noopener noreferrer">frozen/goal_fiber_policy.py:9</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_fiber_policy.py#L18" rel="noopener noreferrer">frozen/goal_fiber_policy.py:18</a> · <code>4eb2a4b7914812027fa8d103e5d9eb2b3459381a41d4566d0ce9fb95184dec57</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/pilot_worker_goal_plane_memory.py#L29" rel="noopener noreferrer">frozen/pilot_worker_goal_plane_memory.py:29</a> · <code>d53efb57df5702566e722347a4e75477b51bee5c66f65f4e9d62644940a27662</code></li>
+</ul>
+<h2 id="section-18">M15_M16_P1</h2>
+<p>KKT梯度重写及认证缩放后的重新编码</p>
+<p><strong>边界：</strong> 依赖可行KKT元组与H0正定；是事后重写，不证明目标推进或新颖性。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy_v6.py#L39" rel="noopener noreferrer">frozen/goal_entry_policy_v6.py:39</a> · <code>df51db8bbd72b7a93d8df9812294060cdb98b5f3a5247ce75d8351fb97229c9b</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/feasible_backup_policy.py#L71" rel="noopener noreferrer">frozen/feasible_backup_policy.py:71</a> · <code>a92b4117e56696aeea3841b68298aba99da8cbe6e5317c6151eafb5867f5fb66</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy.py#L143" rel="noopener noreferrer">frozen/goal_entry_policy.py:143</a> · <code>fd6c8038ab1e214fbd2b04b3169572966f914cdc08f6972bd983afdd6c49e401</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/certified_auxiliary.py#L5" rel="noopener noreferrer">frozen/certified_auxiliary.py:5</a> · <code>c4ad16cc4220efd775cf5760e3d436a431e4f28032c5e93f644bf7f8292445b0</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P1</li>
+</ul>
+<h2 id="section-19">NUMERICAL</h2>
+<p>辅助解经KKT核验后复用</p>
+<p><strong>边界：</strong> pilot_use_certified_auxiliary=True；不是每次独立优化重解。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/dependencies/code/online/protocol_liuqp_controller.py#L2278" rel="noopener noreferrer">dependencies/code/online/protocol_liuqp_controller.py:2278</a> · <code>b7b14b0fa3ef38852d0509390fb1c1442e39d3a95fe43112acb2705e8c77fbac</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/certified_auxiliary.py#L5" rel="noopener noreferrer">frozen/certified_auxiliary.py:5</a> · <code>c4ad16cc4220efd775cf5760e3d436a431e4f28032c5e93f644bf7f8292445b0</code></li>
+</ul>
+<h2 id="section-20">M17_M18_P3</h2>
+<p>原行可接受的确定性制动续轨迹</p>
+<p><strong>边界：</strong> 依赖模型/认证有效、状态一致和原子提交；已知A异常禁止无条件实现保证。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/feasible_backup_policy.py#L35" rel="noopener noreferrer">frozen/feasible_backup_policy.py:35</a> · <code>a92b4117e56696aeea3841b68298aba99da8cbe6e5317c6151eafb5867f5fb66</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/feasible_backup_policy.py#L86" rel="noopener noreferrer">frozen/feasible_backup_policy.py:86</a> · <code>a92b4117e56696aeea3841b68298aba99da8cbe6e5317c6151eafb5867f5fb66</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/selected_backup_policy.py#L24" rel="noopener noreferrer">frozen/selected_backup_policy.py:24</a> · <code>15bcc90ac0f6d5c0b2d5cd4fcc467312bfe6666cdb99380bfccb160601485fb5</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/latency_backup_policy.py#L46" rel="noopener noreferrer">frozen/latency_backup_policy.py:46</a> · <code>2d42737569ade7f3ca2ad9e7e58b60acb5a7ed87615c4aee2645e69a2a1f9e51</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P3</li>
+</ul>
+<h2 id="section-21">M19</h2>
+<p>恒速前缀、精确静止等待与反馈钟</p>
+<p><strong>边界：</strong> 最终worker将last_delay_ticks固定1且显式认证最多10前缀；不能照搬父类“上次延迟决定全部保持长度”说明。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/pilot_worker_goal_plane_memory.py#L1" rel="noopener noreferrer">frozen/pilot_worker_goal_plane_memory.py:1</a> · <code>d53efb57df5702566e722347a4e75477b51bee5c66f65f4e9d62644940a27662</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/latency_backup_policy.py#L21" rel="noopener noreferrer">frozen/latency_backup_policy.py:21</a> · <code>2d42737569ade7f3ca2ad9e7e58b60acb5a7ed87615c4aee2645e69a2a1f9e51</code></li>
+</ul>
+<h2 id="section-22">P5</h2>
+<p>端点一致的记忆曲线下界</p>
+<p><strong>边界：</strong> 曲率和算术误差保守性为前提；nextafter不是整体IEEE算术形式化证明。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/legacy_goal_plane_memory_policy.py#L7" rel="noopener noreferrer">frozen/legacy_goal_plane_memory_policy.py:7</a> · <code>153c8a245a9cfa11a1404ea43c6ecbcef189af9d1f2ae6a933d63357a5bbd689</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/goal_entry_policy.py#L116" rel="noopener noreferrer">frozen/goal_entry_policy.py:116</a> · <code>fd6c8038ab1e214fbd2b04b3169572966f914cdc08f6972bd983afdd6c49e401</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/study/audit_strict_memory.py#L1" rel="noopener noreferrer">study/audit_strict_memory.py:1</a> · <code>4f63819de12ae5259acd38a9e76ed1ba292b8541e538390921eeceb18e72b338</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P5</li>
+</ul>
+<h2 id="section-23">A_BOUNDARY</h2>
+<p>A组没有终态初始化、目标修正或逃逸记忆</p>
+<p><strong>边界：</strong> A仍使用新增执行器；不能作为原执行方式的纯组。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/baseline_policy.py#L12" rel="noopener noreferrer">frozen/baseline_policy.py:12</a> · <code>7e1b6996a05badf91948cea2c40982b535ed29912ebf6a9cc84a8cdd20c00fa9</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/baseline_policy.py#L31" rel="noopener noreferrer">frozen/baseline_policy.py:31</a> · <code>7e1b6996a05badf91948cea2c40982b535ed29912ebf6a9cc84a8cdd20c00fa9</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/baseline_policy.py#L37" rel="noopener noreferrer">frozen/baseline_policy.py:37</a> · <code>7e1b6996a05badf91948cea2c40982b535ed29912ebf6a9cc84a8cdd20c00fa9</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/dispatch_policy.py#L1" rel="noopener noreferrer">frozen/dispatch_policy.py:1</a> · <code>9fd0487d63f2e80c63dc1daecfc7be1637adc47152e9b25df47cd97dd9820eff</code></li>
+</ul>
+<h2 id="section-24">GLOBAL</h2>
+<p>一般完备性、全局收敛、未见环境和硬实时</p>
+<p><strong>边界：</strong> 未给出证明，历史冻结模型和有限预算实验也不足以支持。</p>
+<h2 id="section-25">E_REACH</h2>
+<p>本批C/A/B安全到达174/186/294，严格128/186/294，各分母300。</p>
+<p><strong>边界：</strong> 历史开发矩阵，不是未见场景或900个独立场景；不构成一般到达证明。</p>
+<ul>
+<li>实验证据：<a href="liuqp900-results.html">三组对照</a></li>
+</ul>
+<h2 id="section-26">E_COMPONENTS</h2>
+<p>C→A严格增59退1，A→B增109退1；各自的安全到达与严格验收分开。</p>
+<p><strong>边界：</strong> 顺序增量设计，未识别全部交互；同终态信息下的子模块消融仍需另做。</p>
+<ul>
+<li>实验证据：<a href="liuqp900-results.html">三组对照</a></li>
+</ul>
+<h2 id="section-27">E_MECHANISMS</h2>
+<p>新增109例均激活continuation，20例绕行，1例构型重复重选。</p>
+<p><strong>边界：</strong> 不能把全部109例归功于绕行或重复检测；触发次数不是机制必要性的证明。</p>
+<ul>
+<li>实验证据：<a href="liuqp900-results.html">三组对照</a></li>
+</ul>
+<h2 id="section-28">E_QP</h2>
+<p>C有161条运行出现实际原行违规、7条出现LP确认不可行状态；A/B实际原行违规均0，A末态备份失败1。</p>
+<p><strong>边界：</strong> 行违规、可行域为空和数值求解失败是不同概念；只对已记录运行成立。</p>
+<ul>
+<li>实验证据：<a href="liuqp900-results.html">三组对照</a></li>
+</ul>
+<h2 id="section-29">E_COST</h2>
+<p>完整墙钟中位数C15.192s、A41.134s、B144.661s；B初始化完整计入。</p>
+<p><strong>边界：</strong> 失败长尾及共同成功子集分别比较；不能宣称各案例都加速或硬实时。</p>
+<ul>
+<li>实验证据：<a href="liuqp900-results.html">三组对照</a></li>
+</ul>
+<h2 id="section-30">M20_P9</h2>
+<p>零初速度、静止求解、恒速保持与分量制动下的理想0.2rad/s有效速度界</p>
+<p><strong>边界：</strong> 需要当前调度及有效加速度边界；浮点容差另计，非零初速快照不直接适用；不证明认证与低速各自的独立收益。</p>
+<ul>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/dependencies/code/online/joint_braking.py#L26" rel="noopener noreferrer">dependencies/code/online/joint_braking.py:26</a> · <code>d00888bc6505f54c49e254114d842d0395f8209861173aaff4d4f0be11c7ba0b</code></li>
+<li><a href="https://github.com/Qmoliang/ur5-cabinet-experiments/blob/main/experiment/liuqp900/frozen/pilot_worker_goal_plane_memory.py#L49" rel="noopener noreferrer">frozen/pilot_worker_goal_plane_memory.py:49</a> · <code>d53efb57df5702566e722347a4e75477b51bee5c66f65f4e9d62644940a27662</code></li>
+<li>证明：<a href="liuqp900-proofs.html">条件与推导</a>，P9</li>
+</ul>
+</article><p class="source-note">原始来源：<code>publication/liuqp900/code-alignment.md</code><br>SHA-256：<code>83b5b270be9c11adc4eebff480aa32bb0450ffaa977de3525cc9699b1268268f</code></p></div></main><footer><a href="../index.html">返回文档目录</a><span>保留原文 · 数学与实验记录 · UR5 Cabinet Experiments</span><a href="../licenses.html">渲染组件许可</a></footer></body></html>
