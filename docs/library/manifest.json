@@ -34,7 +34,7 @@
       "file": "files/liuqp900/paper-draft.md",
       "filename": "paper-draft.md",
       "source": "publication/liuqp900/paper-draft.md",
-      "sha256": "ff14e34b4404aa68432c3401ca22525d23df1e3e87e64867bd0c4de161d38742",
+      "sha256": "400fe7a96387e20738ff9c2d7b91a15be76da6845103a062132638d781971f55",
       "note": "基于0f40201冻结代码和900次对照补写；包含全部失败、历史否定结果与证据边界，原结果不改写。",
       "scope_note": "1200指新900次控制对照加旧在线RRT300条参照，不是同协议四臂或独立场景数。证明、契约和实验支持分别陈述。",
       "assets": {

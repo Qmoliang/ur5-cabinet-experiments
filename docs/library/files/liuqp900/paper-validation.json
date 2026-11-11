@@ -32,8 +32,11 @@
         "name": "paper",
         "width": 1440,
         "viewport": 1440,
-        "math": 26,
+        "math": 28,
         "mathErrors": 0,
+        "mathWrappers": 28,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [
           {
             "loaded": true,
@@ -52,6 +55,9 @@
         "viewport": 1440,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       },
@@ -61,6 +67,9 @@
         "viewport": 1440,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       },
@@ -70,6 +79,9 @@
         "viewport": 1440,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       },
@@ -77,8 +89,11 @@
         "name": "paper",
         "width": 390,
         "viewport": 390,
-        "math": 26,
+        "math": 28,
         "mathErrors": 0,
+        "mathWrappers": 28,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [
           {
             "loaded": true,
@@ -97,6 +112,9 @@
         "viewport": 390,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       },
@@ -106,6 +124,9 @@
         "viewport": 390,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       },
@@ -115,6 +136,9 @@
         "viewport": 390,
         "math": 0,
         "mathErrors": 0,
+        "mathWrappers": 0,
+        "unrenderedMath": 0,
+        "rawLatex": [],
         "images": [],
         "leakedMarkers": false
       }
@@ -123,5 +147,14 @@
     "bad": []
   },
   "original_history_sources_unchanged": 29,
-  "original_frozen_record_sha256": "ac94bab1a55c65a2da1d0157426d868a57790e83c094350116dbb984a492bdef"
+  "original_frozen_record_sha256": "ac94bab1a55c65a2da1d0157426d868a57790e83c094350116dbb984a492bdef",
+  "math_rendering_fix": {
+    "date": "2026-11-11",
+    "corrupted_unit_expressions_fixed": 3,
+    "previous_rendered_math": 26,
+    "rendered_math": 28,
+    "visible_raw_latex_after_fix": 0,
+    "regression_check_detected_old_page": true,
+    "scope": "Presentation only; scientific parameters and original experiment results unchanged."
+  }
 }

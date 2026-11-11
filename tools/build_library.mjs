@@ -47,6 +47,7 @@ fs.mkdirSync(path.join(LIB,'pages'),{recursive:true});
 for(const d of manifest.documents){
  current=d;headings=[];mathCount=0;diagramCount=0;unresolved=[];displayFixes=0;
  const file='../'+url(d.file);
+ if(d.format==='md'&&/\r(?!\n)/.test(fs.readFileSync(path.join(LIB,d.file),'utf8')))throw new Error('Unexpected bare carriage return in '+d.file+'; check LaTeX commands before publishing.');
  const body=d.format==='md'?marked.parse(fs.readFileSync(path.join(LIB,d.file),'utf8')):'<section class="word-panel"><span class="format-icon">W</span><h2>英文扩展版 Word 原件</h2><p>下载后用 Word 打开，可查看原始排版、目录和可编辑公式。文件按原始字节保留，第一章 Markdown 是独立文档。</p><a class="primary" download href="'+file+'">下载 Word 原件 ↓</a><p class="file-name">'+esc(d.filename)+'</p></section>';
  const toc=headings.filter(h=>h.depth<=3).map(h=>'<a class="depth-'+h.depth+'" href="#'+h.id+'">'+esc(h.text.replaceAll(String.fromCharCode(96),''))+'</a>').join('');
  const group=manifest.groups.find(g=>g.id===d.group).title;
